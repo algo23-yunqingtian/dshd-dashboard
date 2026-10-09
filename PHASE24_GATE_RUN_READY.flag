@@ -132,3 +132,14 @@ V87_03_MONITOR_SERVICE_PY=LOCKED
 V87_03_MD5=e2f0d4cc
 VIS_ALERT_EXPORT_API_PY=LOCKED
 VIS_ALERT_MD5=474ff0ae
+
+# === GitHub Pages Deployment ===
+PAGES_REPO=algo23-yunqingtian/dshd-dashboard
+PAGES_URL=https://github.com/algo23-yunqingtian/dshd-dashboard
+PAGES_CI_VALIDATE=PASS
+PAGES_CI_DEPLOY=BLOCKED
+PAGES_ERROR=Resource not accessible by integration (GITHUB_TOKEN lacks Pages write scope for new repo)
+PAGES_ACTIONS=github-pages environment needs to be configured in repo Settings > Pages
+PAGES_MANUAL_STEPS=1. Go to repo Settings > Pages > Build and deployment > Source: GitHub Actions
+2. Ensure workflow permissions include pages: write
+3. Re-run the workflow
