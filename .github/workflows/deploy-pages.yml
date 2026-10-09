@@ -487,6 +487,8 @@ jobs:
       # 2.2 设置 Pages 环境
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       # 2.3 上传站点产物
       - name: Upload site artifact
