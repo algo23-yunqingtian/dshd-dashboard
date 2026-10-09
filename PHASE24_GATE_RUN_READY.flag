@@ -138,8 +138,12 @@ PAGES_REPO=algo23-yunqingtian/dshd-dashboard
 PAGES_URL=https://github.com/algo23-yunqingtian/dshd-dashboard
 PAGES_CI_VALIDATE=PASS
 PAGES_CI_DEPLOY=BLOCKED
-PAGES_ERROR=Resource not accessible by integration (GITHUB_TOKEN lacks Pages write scope for new repo)
-PAGES_ACTIONS=github-pages environment needs to be configured in repo Settings > Pages
+PAGES_ERROR=Resource not accessible by integration (GITHUB_TOKEN lacks Pages write scope for new repo; configure-pages action cannot enable Pages for new repos via API)
+PAGES_ACTIONS_REQUIRED=1. Go to https://github.com/algo23-yunqingtian/dshd-dashboard/settings/pages
+2. Select Source: GitHub Actions
+3. Ensure workflow permissions include pages: write
+4. Re-run the workflow: Actions > Deploy DSHD-P24 to GitHub Pages > Run workflow
+5. Or push any change to web_site/ to trigger auto-deploy
 PAGES_MANUAL_STEPS=1. Go to repo Settings > Pages > Build and deployment > Source: GitHub Actions
 2. Ensure workflow permissions include pages: write
 3. Re-run the workflow
