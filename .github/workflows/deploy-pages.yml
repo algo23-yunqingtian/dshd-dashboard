@@ -394,22 +394,22 @@ jobs:
       # 1.21 P23: Portfolio risk contribution JSON Euler check
       - name: 'P23: portfolio_risk_contribution.json has Euler'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json')); assert d.get('version_tag')=='P23'; assert 'euler_time_series' in str(d.get('variety_contributions',{})); print('✓ Euler time series in risk contribution')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json')); assert d.get('version_tag')=='P24'; assert 'euler_time_series' in str(d.get('variety_contributions',{})); print('✓ Euler time series in risk contribution')"
 
       # 1.22 P23: pc003_unlock_assessment.json M7 COMPLETED
       - name: 'P23: pc003_unlock_assessment.json has M7 COMPLETED'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert d.get('version_tag')=='P23'; m7=d.get('milestones',{}).get('M7',{}); assert m7.get('status')=='COMPLETED'; print('✓ M7 COMPLETED verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert d.get('version_tag')=='P24'; m7=d.get('milestones',{}).get('M7',{}); assert m7.get('status')=='COMPLETED'; print('✓ M7 COMPLETED verified')"
 
       # 1.23 P23: fr_risk_alerts.json P23 alerts
       - name: 'P23: fr_risk_alerts.json has P23 alerts'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/fr_risk_alerts.json')); alerts=d.get('alerts',[]); p23=[a for a in alerts if a.get('phase')=='P23']; assert len(p23)>=2; print(f'✓ {len(p23)} P23 alerts verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/fr_risk_alerts.json')); alerts=d.get('alerts',[]); p24=[a for a in alerts if a.get('phase')=='P24']; assert len(p24)>=2; print(f'✓ {len(p24)} P24 alerts verified')"
 
       # 1.24 P23: portfolio_backtest.json rolling correlation
       - name: 'P23: portfolio_backtest.json has rolling correlation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_backtest.json')); assert d.get('version_tag')=='P23'; assert 'rolling_correlation' in str(d); print('✓ Rolling correlation verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_backtest.json')); assert d.get('version_tag')=='P24'; assert 'rolling_correlation' in str(d); print('✓ Rolling correlation verified')"
 
       # 1.25 P23: pc003_unlock_assessment.json production_risk_rating
       - name: 'P23: pc003_unlock_assessment.json has production_risk_rating'
