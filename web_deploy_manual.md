@@ -759,3 +759,91 @@ python gate_prep_lab/p20_t5_archive.py
 - 总计: 5.06MB / 800MB (0.63%)
 - 余量: 794.9MB
 - 状态: PASS
+
+---
+
+## 23. DSHD-P24 GitHub Pages 生产部署验证 (2026-10-09)
+
+### 23.1 部署结果
+
+| 项目 | 值 |
+|---|---|
+| 仓库 | `algo23-yunqingtian/dshd-dashboard` (public) |
+| 站点 URL | https://algo23-yunqingtian.github.io/dshd-dashboard/ |
+| 部署模式 | GitHub Actions (`build_type: workflow`) |
+| Source | branch `main` / path `/` (site 内容由 artifact 上传) |
+| CI Validate | PASS |
+| CI Deploy | PASS |
+| CI Notify | PASS |
+| Workflow Run | 37914285846 (conclusion: success) |
+| HTTP 状态 | 200 OK (index.html 173,428 bytes) |
+| 部署时间 | 2026-10-09 17:55 (Asia/Shanghai) |
+
+### 23.2 Pages 启用方式 (关键踩坑记录)
+
+**问题**: `actions/configure-pages@v5` 在新仓库上返回 `Resource not accessible by integration`，无法创建 Pages 站点。`GITHUB_TOKEN` 即使声明 `pages: write` 也无法为新仓库创建 Pages。
+
+**根因定位** (对照实验):
+| 测试 | 结果 |
+|---|---|
+| `GET /pages` on zinc-dashboard (已有Pages) | 200 OK ✓ |
+| `GET /pages` on macro-dashboard (无Pages) | 404 |
+| `PUT /pages` on dshd-dashboard (无Pages) | **404** |
+| `PUT /pages` on zinc-dashboard (已有Pages) | 422 (端点响应) |
+| `PUT /pages` on macro-dashboard (无Pages) | 404 |
+| `POST /pages` on dshd-dashboard | **201 Created** ✓ |
+
+**结论**: 当前 GitHub API 中 `PUT /repos/{owner}/{repo}/pages` 仅能**更新已存在**的 Pages 站点（对新仓库返回 404）；**创建**必须用 `POST`。同时 source.path 仅接受 `/` 或 `/docs`（不接受 `/web_site`，site 内容须由 `actions/upload-pages-artifact` 上传 artifact）。
+
+**正确的启用命令** (使用带 `repo` scope 的 PAT):
+```bash
+curl -X POST \
+  -H "Authorization: token <PAT_WITH_REPO_SCOPE>" \
+  -H "Accept: application/vnd.github+json" \
+  -H "Content-Type: application/json" \
+  -d '{"source":{"branch":"main","path":"/"},"build_type":"workflow"}' \
+  https://api.github.com/repos/algo23-yunqingtian/dshd-dashboard/pages
+# → 201 Created
+```
+
+### 23.3 线上内容验证 (12/12 PASS)
+
+对 https://algo23-yunqingtian.github.io/dshd-dashboard/ 抓取 index.html 后校验标记:
+
+| 标记 | 结果 |
+|---|---|
+| `DSHD-P24` 标题 | PASS |
+| `phase4-panel` | PASS |
+| `renderPhase4Panel` | PASS |
+| `pb-cu-panel` | PASS |
+| `renderPBCUGrayPanel` | PASS |
+| `risk-ts-chart` | PASS |
+| `FR-RISK-PG24-PB-013` | PASS |
+| `FR-RISK-PG24-PHASE4-014` | PASS |
+| `portfolio_risk_contribution_timeseries` | PASS |
+| `pb_cu_gray_admission_status` | PASS |
+| `phase4_precheck.json` | PASS |
+| `P18/P19/P20/P21/P22/P23/P24` (7版本切换) | PASS |
+
+### 23.4 数据文件在线可访问性
+
+| 文件 | HTTP | version_tag |
+|---|---|---|
+| /data/phase4_precheck.json | 200 | P24 |
+| /data/pb_cu_gray_admission_status.json | 200 | P24 |
+| /data/portfolio_risk_contribution_timeseries.json | 200 | P24 |
+
+### 23.5 后续部署流程
+
+1. 修改 `web_site/` 内任何文件后 push 到 `main`，workflow 自动触发 (paths: `web_site/**`, `.github/workflows/deploy-pages.yml`, `data/**`, `archive/**`)
+2. 校验 (validate) → 部署 (deploy) → 通知 (notify) 三 job 顺序执行
+3. 紧急部署: Actions → "Deploy DSHD-P24 to GitHub Pages" → Run workflow (支持 `skip_validate` 输入)
+4. `configure-pages` 保留 `enablement: true`，Pages 已启用后幂等无害
+
+### 23.6 部署安全清单
+
+- [x] PAT token 已在部署完成后从 git remote URL 中清除 (改为 https 无凭据形式，凭据仅存于 GitHub 凭据管理器)
+- [x] `GH_TOKEN` 不在 workflow 明文出现，走 `GITHUB_TOKEN` (权限最小化: `contents: read`, `pages: write`, `id-token: write`)
+- [x] 仓库容量 5.06MB / 800MB (0.63%)，远低于限制
+- [x] 版本锁定文件 (`v87_03_monitor_service.py` md5=e2f0d4cc, `vis_alert_export_api.py` md5=474ff0ae) 内容未被修改
+- [x] `.gitignore` 已排除内部脚本/缓存/历史 phase 文件，仓库只含发布产物
