@@ -101,3 +101,19 @@
 - **VERDICT: PASS**
 - STATUS: COMPLETED
 - JOB_READY: TRUE
+
+## 13. GitHub Pages 生产部署 (P24 T5)
+
+| 项目 | 值 |
+|---|---|
+| 仓库 | `algo23-yunqingtian/dshd-dashboard` (public, main 分支) |
+| 站点 URL | https://algo23-yunqingtian.github.io/dshd-dashboard/ |
+| 部署模式 | GitHub Actions (`build_type: workflow`) |
+| CI validate / deploy / notify | PASS / PASS / PASS |
+| Workflow run | 37914285846 → success |
+| HTTP 200 | 173,428 bytes，12/12 P24 标记 PASS |
+| 数据文件在线 | 3/3 新增 JSON 全部 HTTP 200 + version_tag=P24 |
+
+**关键踩坑**: 新仓库 Pages 创建必须用 `POST /repos/{owner}/{repo}/pages`（body: `{"source":{"branch":"main","path":"/"},"build_type":"workflow"}`）；`PUT` 仅能更新已存在的 Pages 站点（对未启用 Pages 的仓库返回 404）。`actions/configure-pages` 的 `enablement: true` 依赖 `GITHUB_TOKEN` 创建站点会失败（`Resource not accessible by integration`），须先用带 `repo` scope 的 PAT 经 `POST` 启用一次。
+
+**部署安全**: PAT 不内联在 git remote（push 完成后无需重新配置凭据）；workflow 走 `GITHUB_TOKEN` 权限最小化 (`contents: read` / `pages: write` / `id-token: write`)；`.gitignore` 已排除内部脚本/缓存，仓库仅含发布产物。
