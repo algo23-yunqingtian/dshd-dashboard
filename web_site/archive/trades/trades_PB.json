@@ -1,0 +1,168 @@
+{
+  "variety": "PB",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P16",
+  "phase": "Phase16",
+  "total_trades": 10,
+  "open_trades": 5,
+  "close_trades": 5,
+  "total_pnl_pct": 0.2,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2027-01-21",
+      "price": 19742.7,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0596,
+      "confidence": 0.61
+    },
+    {
+      "trade_id": 2,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2027-01-29",
+      "price": 21174.4,
+      "pnl_pct": -0.71,
+      "holding_days": 6,
+      "open_date": "2027-01-21",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0159
+    },
+    {
+      "trade_id": 3,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2027-02-02",
+      "price": 19904.5,
+      "position": "5%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0746,
+      "confidence": 0.76
+    },
+    {
+      "trade_id": 4,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2027-02-05",
+      "price": 20474.3,
+      "pnl_pct": 0.22,
+      "holding_days": 3,
+      "open_date": "2027-02-02",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0087
+    },
+    {
+      "trade_id": 5,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2027-02-08",
+      "price": 20221.0,
+      "position": "5%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08",
+        "F19"
+      ],
+      "signal_strength": 0.0593,
+      "confidence": 0.76
+    },
+    {
+      "trade_id": 6,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2027-02-19",
+      "price": 19558.9,
+      "pnl_pct": 0.17,
+      "holding_days": 9,
+      "open_date": "2027-02-08",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0087
+    },
+    {
+      "trade_id": 7,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2027-02-22",
+      "price": 19596.3,
+      "position": "5%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0722,
+      "confidence": 0.67
+    },
+    {
+      "trade_id": 8,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2027-02-24",
+      "price": 19075.0,
+      "pnl_pct": 0.19,
+      "holding_days": 2,
+      "open_date": "2027-02-22",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0188
+    },
+    {
+      "trade_id": 9,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2027-02-25",
+      "price": 19965.1,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08",
+        "F19"
+      ],
+      "signal_strength": 0.0792,
+      "confidence": 0.64
+    },
+    {
+      "trade_id": 10,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2027-03-03",
+      "price": 19725.5,
+      "pnl_pct": 0.33,
+      "holding_days": 4,
+      "open_date": "2027-02-25",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0451
+    }
+  ]
+}

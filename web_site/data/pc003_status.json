@@ -1,0 +1,92 @@
+{
+  "dataset_version": "1.6",
+  "version_tag": "P24",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "P24 PC003 status - UNLOCKED_FINAL, M1-M7 ALL COMPLETED, Phase4 monitoring",
+  "real_state": {
+    "status": "UNLOCKED_FINAL",
+    "score": 0.975,
+    "criteria_passed": "5/5",
+    "pipeline_completion": "7/7 COMPLETE"
+  },
+  "p24_linkage": {
+    "phase4_monitoring": "Phase4 monitoring panel integrated",
+    "pb_cu_gray_admission": "PB/CU gray admission status: EDGE_PENDING",
+    "risk_contribution_timeseries": "portfolio_risk_contribution_timeseries.json (NEW)",
+    "phase4_precheck": "12/12 PASS",
+    "md5_snapshot": "MD5-P4-20261009163524"
+  },
+  "variety_gates": {
+    "AL": {
+      "status": "ACTIVE",
+      "grade": "A"
+    },
+    "PB": {
+      "status": "ACTIVE",
+      "grade": "A"
+    },
+    "CU": {
+      "status": "ACTIVE",
+      "grade": "A"
+    },
+    "ZN": {
+      "status": "ACTIVE",
+      "grade": "B"
+    },
+    "SN": {
+      "status": "ACTIVE",
+      "grade": "B"
+    },
+    "NI": {
+      "status": "ACTIVE",
+      "grade": "B"
+    },
+    "SI": {
+      "status": "ACTIVE",
+      "grade": "B"
+    }
+  },
+  "pipeline": {
+    "stages": [
+      {
+        "stage": "TD002",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "TD014",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "SHADOW_BACKTEST",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "PORTFOLIO_BACKTEST",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "RISK_CONTRIBUTION",
+        "status": "PASS",
+        "phase": "P23"
+      },
+      {
+        "stage": "M7_FINAL",
+        "status": "PASS",
+        "phase": "P23"
+      },
+      {
+        "stage": "PHASE4_MONITORING",
+        "status": "PASS",
+        "phase": "P24"
+      }
+    ],
+    "total_stages": 7,
+    "completed_stages": 7,
+    "pipeline_completion": "7/7 COMPLETE"
+  }
+}

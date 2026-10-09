@@ -1,0 +1,247 @@
+{
+  "audit_id": "PC-003-LISTEN-20261116T153-20261116-001",
+  "pipeline": "PC-003",
+  "listener": "V87-03 Daemon pc003 mode",
+  "fixed_slot": "2026-11-16T15:30:00+08:00",
+  "seed": 42,
+  "dshc_event": {
+    "path": "gate_prep_lab\\pc003_dshc_event_p12.json",
+    "md5": "6518a84aa77de60bf9fc3eb6c60d8d64",
+    "event_id": "PC-003-DSHC-20261116-001",
+    "request": "UNLOCK",
+    "ts": "2026-11-16T15:30:00+08:00",
+    "upstream_ref": "DSHA:PHASE12_FACTOR_APPROVE(1f1fae65);DSHA:PHASE11_DONE(c7229070);DSHD:PHASE9_GATE_RUN_READY"
+  },
+  "unlock_gates": {
+    "TD002": {
+      "expected_condition": "TD002_PENALTY_CALC_RULES_VERIFIED",
+      "status": "BLOCKED",
+      "verified": false,
+      "source": "DSHC"
+    },
+    "TD014": {
+      "expected_condition": "TD014_DQ_RULES_VERIFIED",
+      "status": "BLOCKED",
+      "verified": false,
+      "source": "DSHC"
+    }
+  },
+  "all_gates_verified": false,
+  "variant_locks": {
+    "ZN": {
+      "locked": true,
+      "exists": true,
+      "md5": "c5da7491df840cbf72d642c600753651",
+      "md5file": "SNAPSHOT_VERSION.lock"
+    },
+    "NI": {
+      "locked": true,
+      "exists": true,
+      "md5": "d214d54f4d6f0a6cdbeb3eb1cff880e4",
+      "md5file": "SNAPSHOT_VERSION.lock"
+    },
+    "SN": {
+      "locked": true,
+      "exists": true,
+      "md5": "3086e1972c30f59a5fa72d949fb11665",
+      "md5file": "SNAPSHOT_VERSION.lock"
+    },
+    "SI": {
+      "locked": true,
+      "exists": true,
+      "md5": "fa9da924e09b9a556381f60dea690c99",
+      "md5file": "SNAPSHOT_VERSION.lock"
+    }
+  },
+  "locks_ok": true,
+  "variants": [
+    {
+      "symbol": "ZN",
+      "current_status": "RESERVED",
+      "contract_ref": {
+        "mult": 25,
+        "size": 25
+      },
+      "check_template": {
+        "REAL_TREE": "v869_d_zn_snapshot 真实树就位",
+        "WHITELIST": "TD002 白名单切换 (影子->真实)",
+        "PATROL_3D": "全量巡检连续 3 日 PASS (含 ZN 品种行)",
+        "FR_RISK_7D": "FR-RISK-5xx 真实转发 7 日 0 丢失",
+        "CONTRACT_RECHECK": "K11/K12 ZN 25t×25 规格复核 (SEALED 化)",
+        "REAL_REPLAY": "position_verify zn real 模式回放",
+        "FROZEN_RECHECK": "解除冻结前 LOCK 释放复核",
+        "PERF": "单轮巡检 <60s"
+      },
+      "template_items": 8,
+      "frozen_state": "LOCKED=TRUE / NO_OVERWRITE / 投产触发器禁用",
+      "prerequisites": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION"
+      ],
+      "prereq_met": {
+        "TD002": false,
+        "TD014": false,
+        "REAL_DATA_INGESTION": false,
+        "CONDITIONAL_APPROVAL": false
+      },
+      "missing_prereq": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION"
+      ],
+      "variant_lock": {
+        "locked": true,
+        "exists": true,
+        "md5": "c5da7491df840cbf72d642c600753651",
+        "md5file": "SNAPSHOT_VERSION.lock"
+      },
+      "eligible": false,
+      "target_status": "RESERVED"
+    },
+    {
+      "symbol": "NI",
+      "current_status": "RESERVED",
+      "contract_ref": {
+        "mult": 1,
+        "size": 1
+      },
+      "check_template": {
+        "REAL_TREE": "v869_d_ni_snapshot 真实树就位",
+        "WHITELIST": "TD002 白名单切换 (影子->真实)",
+        "PATROL_3D": "全量巡检连续 3 日 PASS (含 NI 品种行)",
+        "FR_RISK_7D": "FR-RISK-5xx 真实转发 7 日 0 丢失",
+        "CONTRACT_RECHECK": "K11/K12 NI 1t×1 规格复核 (SEALED 化)",
+        "REAL_REPLAY": "position_verify ni real 模式回放",
+        "FROZEN_RECHECK": "解除冻结前 LOCK 释放复核",
+        "PERF": "单轮巡检 <60s"
+      },
+      "template_items": 8,
+      "frozen_state": "LOCKED=TRUE / NO_OVERWRITE / 投产触发器禁用",
+      "prerequisites": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION"
+      ],
+      "prereq_met": {
+        "TD002": false,
+        "TD014": false,
+        "REAL_DATA_INGESTION": false,
+        "CONDITIONAL_APPROVAL": false
+      },
+      "missing_prereq": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION"
+      ],
+      "variant_lock": {
+        "locked": true,
+        "exists": true,
+        "md5": "d214d54f4d6f0a6cdbeb3eb1cff880e4",
+        "md5file": "SNAPSHOT_VERSION.lock"
+      },
+      "eligible": false,
+      "target_status": "RESERVED"
+    },
+    {
+      "symbol": "SN",
+      "current_status": "RESERVED",
+      "contract_ref": {
+        "mult": 1,
+        "size": 1
+      },
+      "check_template": {
+        "REAL_TREE": "v869_d_sn_snapshot 真实树就位",
+        "WHITELIST": "TD002 白名单切换 (影子->真实)",
+        "PATROL_3D": "全量巡检连续 3 日 PASS (含 SN 品种行)",
+        "FR_RISK_7D": "FR-RISK-5xx 真实转发 7 日 0 丢失",
+        "CONTRACT_RECHECK": "K11/K12 SN 1t×1 规格复核 (SEALED 化)",
+        "REAL_REPLAY": "position_verify sn real 模式回放",
+        "FROZEN_RECHECK": "解除冻结前 LOCK 释放复核",
+        "PERF": "单轮巡检 <60s"
+      },
+      "template_items": 8,
+      "frozen_state": "LOCKED=TRUE / NO_OVERWRITE / 投产触发器禁用",
+      "prerequisites": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION"
+      ],
+      "prereq_met": {
+        "TD002": false,
+        "TD014": false,
+        "REAL_DATA_INGESTION": false,
+        "CONDITIONAL_APPROVAL": false
+      },
+      "missing_prereq": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION"
+      ],
+      "variant_lock": {
+        "locked": true,
+        "exists": true,
+        "md5": "3086e1972c30f59a5fa72d949fb11665",
+        "md5file": "SNAPSHOT_VERSION.lock"
+      },
+      "eligible": false,
+      "target_status": "RESERVED"
+    },
+    {
+      "symbol": "SI",
+      "current_status": "RESERVED",
+      "contract_ref": {
+        "mult": 5,
+        "size": 5
+      },
+      "check_template": {
+        "REAL_TREE": "v869_d_si_snapshot 真实树就位",
+        "WHITELIST": "TD002 白名单切换 (影子->真实)",
+        "PATROL_3D": "全量巡检连续 3 日 PASS (含 SI 品种行)",
+        "FR_RISK_7D": "FR-RISK-5xx 真实转发 7 日 0 丢失",
+        "CONTRACT_RECHECK": "K11/K12 SI 5t×5 规格复核 (SEALED 化)",
+        "REAL_REPLAY": "position_verify si real 模式回放",
+        "FROZEN_RECHECK": "TD014 数据达标硬卡 (FR-RISK-302 窗) + LOCK 释放复核",
+        "PERF": "单轮巡检 <60s"
+      },
+      "template_items": 8,
+      "frozen_state": "LOCKED=TRUE / NO_OVERWRITE / 投产触发器禁用 (依 TD014 单独解除)",
+      "prerequisites": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION",
+        "CONDITIONAL_APPROVAL"
+      ],
+      "prereq_met": {
+        "TD002": false,
+        "TD014": false,
+        "REAL_DATA_INGESTION": false,
+        "CONDITIONAL_APPROVAL": false
+      },
+      "missing_prereq": [
+        "TD002",
+        "TD014",
+        "REAL_DATA_INGESTION",
+        "CONDITIONAL_APPROVAL"
+      ],
+      "variant_lock": {
+        "locked": true,
+        "exists": true,
+        "md5": "fa9da924e09b9a556381f60dea690c99",
+        "md5file": "SNAPSHOT_VERSION.lock"
+      },
+      "eligible": false,
+      "target_status": "RESERVED"
+    }
+  ],
+  "activated": [],
+  "activated_count": 0,
+  "verdict": "BLOCKED",
+  "blocked_reason": "TD002+TD014 双门禁未全达标 (TD002,TD014) / LOCK 4/4 / 无可激活品种",
+  "reserved_config": {
+    "path": "phase4_reserved_slots_config.json",
+    "md5": "acb5c9fb80ce513dc45916e3c3b21742",
+    "config_id": "V86.9-ZNNISNSI-RESERVED-SLOTS-1"
+  },
+  "audit": "gate_prep_lab\\pc003_activation_manifest_p12.json"
+}

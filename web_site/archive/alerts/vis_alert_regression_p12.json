@@ -1,0 +1,78 @@
+{
+  "regression": {
+    "regression_id": "V87-VIS-REGRESS-20261116T163000",
+    "fixed_slot": "2026-11-16T16:30:00+08:00",
+    "seed": 42,
+    "cases_total": 3,
+    "cases_pass": 3,
+    "cases_fail": 0,
+    "cases": [
+      {
+        "case_id": "R1-CRLF",
+        "history": "Windows 文本模式写出触发 CRLF 翻译, 打印 md5 与落盘 md5 不一致",
+        "checks": {
+          "cr_byte_absent": true,
+          "crlf_absent": true,
+          "lf_count_match": true,
+          "size_match": true,
+          "md5_match": true
+        },
+        "verdict": "PASS",
+        "evidence": {
+          "path": "gate_prep_lab\\_regress_crlf_probe.json",
+          "md5": "fb25ae6480356dc18dd4da521c9d1127",
+          "bytes": 88
+        }
+      },
+      {
+        "case_id": "R2-RISKFAMILY",
+        "history": "risk_family 曾用 code.split('-')[1] 切片, FR-RISK-501 -> 'RISK' 而非 'FR-RISK'",
+        "checks": {
+          "fr_risk_family_all_FR_RISK": true,
+          "no_RISK_slicing": true,
+          "no_empty_family": true,
+          "fr_risk_count": 27,
+          "family_dist": {
+            "FR-RISK": 27
+          }
+        },
+        "verdict": "PASS",
+        "evidence": {
+          "path": "fr_risk_receive_log.csv",
+          "md5": "fe1e3c51959cac4d95c6f5e7aa518d23"
+        }
+      },
+      {
+        "case_id": "R3-SLA_ACTION",
+        "history": "SLA_ACTION 死代码分支曾用 sla_h 覆盖颜色语义; DEFECT-P9-001 曾用原始 action 覆盖 RED/CRITICAL 语义 (FR-RISK-508 被写为 RECORD). 现颜色语义为一等依据.",
+        "checks": {
+          "RED->STOP_LINE": true,
+          "ORANGE->NOTIFY_1H": true,
+          "YELLOW->RECORD_4H": true,
+          "sla_h_never_overrides_RED": true,
+          "sla_h_never_overrides_YELLOW": true,
+          "color_overrides_conflicting_raw_RED": true,
+          "color_overrides_conflicting_raw_YELLOW": true,
+          "color_overrides_conflicting_raw_ORANGE": true,
+          "fr_risk_508_RED_sla2": true,
+          "raw_STOP_LINE_prefix_on_GRAY": true,
+          "raw_ESCALATE_prefix_on_GRAY": true,
+          "raw_unknown_on_GRAY->RECORD": true,
+          "empty_raw_GRAY->RECORD": true,
+          "red_fr_alerts_all_STOP_LINE": true,
+          "red_fr_alert_count": 14,
+          "daemon_RED_branch_present": true
+        },
+        "verdict": "PASS",
+        "evidence": {
+          "path": "fr_risk_501_508_mapping.json",
+          "md5": "41efa5a041de70446a0732665a4d42f6"
+        }
+      }
+    ],
+    "verdict": "PASS"
+  },
+  "fixed_slot": "2026-11-16T16:30:00+08:00",
+  "seed": 42,
+  "api_version": "V87-VIS-EXPORT-1"
+}

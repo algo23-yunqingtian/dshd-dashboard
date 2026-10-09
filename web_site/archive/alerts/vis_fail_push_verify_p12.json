@@ -1,0 +1,82 @@
+{
+  "check_id": "P12-VIS-FAIL-PUSH-DRILL-1",
+  "seed": 42,
+  "fixed_slot": "2026-11-16T14:30:00+08:00",
+  "scope": "FAIL 门禁 -> 告警推送链可达性 (lab 合成 fixture, 真实台账零改写)",
+  "api_version": "",
+  "inputs": {
+    "real_gate_log": {
+      "path": "gate_periodic_check_log.csv",
+      "md5": "30be8d668cff765ce0731cb8ec493f96",
+      "rows": 161
+    },
+    "fixture": {
+      "path": "_tmp_fail_fixture.csv",
+      "rows": 3,
+      "status_mix": "1 FAIL + 1 PASS + 1 PENDING",
+      "deleted_after_use": true
+    },
+    "api_module": {
+      "path": "vis_alert_export_api.py",
+      "md5": "474ff0aea6692d5e912553aa03e736d4"
+    }
+  },
+  "fail_push_targets": [
+    "DSHA:VIS-001",
+    "DSHC:DUTY",
+    "GATE-P2-BLOCKED"
+  ],
+  "alert_action_semantics": {
+    "FAIL": "BLOCK (进入 P0 推送链)",
+    "PENDING": "HOLD (已知数据依赖, 不进入推送链)",
+    "PASS": "PASS (静默)"
+  },
+  "pushed": [
+    {
+      "push_id": "PUSH-FAIL-VIS-GATE-2026111614-GATE-P2-05",
+      "alert_id": "VIS-GATE-2026111614-GATE-P2-05",
+      "risk_id": "GATE-P2-05",
+      "round_no": "PG12-DRILL",
+      "status_change": "DEGRADED",
+      "severity": "CRITICAL",
+      "color": "RED",
+      "action": "BLOCK",
+      "priority": "P0",
+      "pushed_to": [
+        "DSHA:VIS-001",
+        "DSHC:DUTY",
+        "GATE-P2-BLOCKED"
+      ],
+      "evidence": {
+        "path": "gate_prep_lab\\_tmp_fail_fixture.csv",
+        "record_md5": "df9766e555d00986c5c13c874d9ffdba"
+      }
+    }
+  ],
+  "checks": {
+    "fixture_rows_expected": true,
+    "fixture_not_written_to_real_log": true,
+    "push_targets_match": true,
+    "fail_alert_count_is_1": true,
+    "pending_alert_count_is_1": true,
+    "pushed_count_is_1": true,
+    "fail_pushed_exactly_once": true,
+    "pending_not_pushed": true,
+    "pass_not_pushed": true,
+    "push_id_prefix": true,
+    "push_risk_id_is_FAIL_gate": true,
+    "push_round_no_is_drill": true,
+    "push_status_change_DEGRADED": true,
+    "push_severity_CRITICAL": true,
+    "push_color_RED": true,
+    "push_action_BLOCK": true,
+    "push_priority_P0": true,
+    "push_targets_all": true,
+    "push_evidence_md5_32hex": true,
+    "push_evidence_is_fixture": true,
+    "real_gate_log_md5_unchanged": true
+  },
+  "checks_pass": 21,
+  "checks_total": 21,
+  "verdict": "PASS"
+}

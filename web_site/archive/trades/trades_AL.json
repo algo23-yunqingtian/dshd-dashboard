@@ -1,0 +1,42 @@
+{
+  "variety": "AL",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P16",
+  "phase": "Phase16",
+  "total_trades": 2,
+  "open_trades": 1,
+  "close_trades": 1,
+  "total_pnl_pct": 0.69,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-01-19",
+      "price": 19887.1,
+      "position": "5%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0539,
+      "confidence": 0.8
+    },
+    {
+      "trade_id": 2,
+      "variety": "AL",
+      "type": "CLOSE",
+      "date": "2027-03-03",
+      "price": 20191.9,
+      "pnl_pct": 0.69,
+      "holding_days": 31,
+      "open_date": "2027-01-19",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0438
+    }
+  ]
+}

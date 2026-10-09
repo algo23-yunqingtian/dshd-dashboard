@@ -1,0 +1,142 @@
+{
+  "dataset_version": "1.6",
+  "version_tag": "P24",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "P24 FR-RISK alerts - 9 baseline + 2 P23 + 2 P24 new (FR-RISK-PG24-PB-013 PB灰度准入, FR-RISK-PG24-PHASE4-014 Phase4监控)",
+  "alerts": [
+    {
+      "id": "FR-RISK-PG21-UNLOCK-001",
+      "phase": "P21",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "PC003 UNLOCKED - all criteria met"
+    },
+    {
+      "id": "FR-RISK-PG21-CORR-001",
+      "phase": "P21",
+      "color": "YELLOW",
+      "status": "RECORD",
+      "description": "Cross-variety resonance 3.2% (threshold 10%)"
+    },
+    {
+      "id": "FR-RISK-PG20-IC-001",
+      "phase": "P20",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "IC drift 4.8% < 10% threshold"
+    },
+    {
+      "id": "FR-RISK-PG20-PART-001",
+      "phase": "P20",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Portfolio diversification benefit 0.38"
+    },
+    {
+      "id": "FR-RISK-PG19-DATA-001",
+      "phase": "P19",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Offline detection working"
+    },
+    {
+      "id": "FR-RISK-PG18-CI-001",
+      "phase": "P18",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "CI pipeline all green"
+    },
+    {
+      "id": "FR-RISK-PG17-ROLLBACK-001",
+      "phase": "P17",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Zero rollback events (490 days)"
+    },
+    {
+      "id": "FR-RISK-PG22-NI-009",
+      "phase": "P22",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "NI data source delay resolved - 72h delay, recovery complete",
+      "trigger": "NI data source outage >24h",
+      "current_status": "RESOLVED"
+    },
+    {
+      "id": "FR-RISK-PG22-CV-010",
+      "phase": "P22",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Cross-variety concentration within limits - HHI=0.1429, diversification benefit=0.38",
+      "trigger": "Concentration ratio > threshold",
+      "current_status": "WITHIN_LIMIT"
+    },
+    {
+      "id": "FR-RISK-PG23-M7-011",
+      "phase": "P23",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "M7 final assessment PASS - PC003 UNLOCKED_FINAL, all milestones complete",
+      "trigger": "M7 milestone completion check",
+      "current_status": "COMPLETED"
+    },
+    {
+      "id": "FR-RISK-PG23-NI-012",
+      "phase": "P23",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "NI delay final assessment - post-incident prevention measures implemented",
+      "trigger": "NI delay post-incident review",
+      "current_status": "RESOLVED",
+      "prevention_measures": [
+        "Secondary source",
+        "12h alert threshold",
+        "4h freshness check"
+      ]
+    },
+    {
+      "id": "FR-RISK-PG24-PB-013",
+      "phase": "P24",
+      "color": "YELLOW",
+      "status": "RECORD",
+      "description": "PB/CU灰度准入评估: PB BEAR_IC 0.0291 < 0.030阈值, CU BEAR_IC 0.0233 < 0.025阈值, 准入暂缓",
+      "trigger": "PB/CU BEAR_IC threshold check",
+      "current_status": "EDGE_PENDING",
+      "pb_bear_ic": 0.0291,
+      "cu_bear_ic": 0.0233,
+      "pb_threshold": 0.03,
+      "cu_threshold": 0.025
+    },
+    {
+      "id": "FR-RISK-PG24-PHASE4-014",
+      "phase": "P24",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Phase4监控面板集成完成, 执行日志/数据校验/MD5快照状态展示入口已建立",
+      "trigger": "Phase4 monitoring panel integration",
+      "current_status": "INTEGRATED",
+      "phase4_metrics": {
+        "ic": 0.0614,
+        "bear_ic": 0.0421,
+        "crisis_ic": 0.067,
+        "ir": 48.02
+      }
+    }
+  ],
+  "total_alerts": 13,
+  "p23_additions": [
+    "FR-RISK-PG23-M7-011: M7 final assessment PASS",
+    "FR-RISK-PG23-NI-012: NI delay final assessment RESOLVED"
+  ],
+  "color_statistics": {
+    "GREEN": 11,
+    "YELLOW": 2,
+    "ORANGE": 0,
+    "RED": 0
+  },
+  "p24_additions": [
+    "FR-RISK-PG24-PB-013: PB/CU灰度准入评估",
+    "FR-RISK-PG24-PHASE4-014: Phase4监控面板集成"
+  ]
+}

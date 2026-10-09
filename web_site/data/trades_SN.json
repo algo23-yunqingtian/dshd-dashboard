@@ -1,0 +1,206 @@
+{
+  "variety": "SN",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P22",
+  "phase": "Phase22",
+  "total_trades": 12,
+  "open_trades": 6,
+  "close_trades": 6,
+  "total_pnl_pct": 0,
+  "metrics": {
+    "ic_mean": 0.0427,
+    "ir": 26.6,
+    "bear_ic": 0.0278,
+    "crisis_ic": 0.0628,
+    "vif": 1.0082,
+    "max_drawdown": -4.8,
+    "total_return": 67.84,
+    "final_nav": 1.6784,
+    "annualized_return": 4061.48,
+    "sharpe": 1.68
+  },
+  "shadow": true,
+  "completeness": 0.82,
+  "data_recovery": "RECOVERED_P18",
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-20",
+      "price": 20300,
+      "position": "0%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.04,
+      "confidence": 0.6
+    },
+    {
+      "trade_id": 2,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-21",
+      "price": 20301,
+      "position": "0%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0484,
+      "confidence": 0.64
+    },
+    {
+      "trade_id": 3,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-22",
+      "price": 20302,
+      "position": "0%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0491,
+      "confidence": 0.65
+    },
+    {
+      "trade_id": 4,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-23",
+      "price": 20303,
+      "position": "0%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0414,
+      "confidence": 0.61
+    },
+    {
+      "trade_id": 5,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-24",
+      "price": 20304,
+      "position": "0%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0324,
+      "confidence": 0.56
+    },
+    {
+      "trade_id": 6,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-27",
+      "price": 20305,
+      "position": "0%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0304,
+      "confidence": 0.55
+    },
+    {
+      "trade_id": 7,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-28",
+      "price": 20306,
+      "position": "0%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0372,
+      "confidence": 0.59
+    },
+    {
+      "trade_id": 8,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-29",
+      "price": 20307,
+      "position": "0%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0466,
+      "confidence": 0.63
+    },
+    {
+      "trade_id": 9,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-09-30",
+      "price": 20308,
+      "position": "0%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0499,
+      "confidence": 0.65
+    },
+    {
+      "trade_id": 10,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-10-08",
+      "price": 20309,
+      "position": "0%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0441,
+      "confidence": 0.62
+    },
+    {
+      "trade_id": 11,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-10-11",
+      "price": 20310,
+      "position": "0%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0346,
+      "confidence": 0.57
+    },
+    {
+      "trade_id": 12,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-10-12",
+      "price": 20311,
+      "position": "0%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.03,
+      "confidence": 0.55
+    }
+  ]
+}

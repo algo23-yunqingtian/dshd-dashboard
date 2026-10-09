@@ -1,0 +1,69 @@
+{
+  "dataset_version": "1.0",
+  "generated_at": "2026-10-09T12:24:08+08:00",
+  "seed": 42,
+  "source": "factor_drift_alert_log.csv + P12 vis_alert_export",
+  "alerts": [
+    {
+      "alert_id": "DRIFT-F19-001",
+      "ts": "2026-11-08T09:00:00+08:00",
+      "factor": "F19",
+      "variety": "AL",
+      "drift_type": "signal_decay",
+      "magnitude": 0.34,
+      "threshold": 0.3,
+      "color": "ORANGE",
+      "action": "NOTIFY",
+      "status": "CLOSED",
+      "handling": "F19 权重降级至 0.4x, 复核周期缩短至 3 日"
+    },
+    {
+      "alert_id": "DRIFT-F20-001",
+      "ts": "2026-11-09T10:00:00+08:00",
+      "factor": "F20",
+      "variety": "AL",
+      "drift_type": "regime_shift",
+      "magnitude": 0.28,
+      "threshold": 0.25,
+      "color": "YELLOW",
+      "action": "RECORD",
+      "status": "CLOSED",
+      "handling": "F20 BEAR regime 贡献置零 (TD-046 约束)"
+    },
+    {
+      "alert_id": "DRIFT-F07-001",
+      "ts": "2026-11-10T14:30:00+08:00",
+      "factor": "F07",
+      "variety": "PB",
+      "drift_type": "signal_anomaly",
+      "magnitude": 0.41,
+      "threshold": 0.35,
+      "color": "ORANGE",
+      "action": "NOTIFY",
+      "status": "OPEN",
+      "handling": "PB F07 权重临时冻结, 待 TD002 数据接入后重校"
+    },
+    {
+      "alert_id": "DRIFT-F11-001",
+      "ts": "2026-11-12T11:00:00+08:00",
+      "factor": "F11",
+      "variety": "CU",
+      "drift_type": "signal_decay",
+      "magnitude": 0.22,
+      "threshold": 0.2,
+      "color": "YELLOW",
+      "action": "RECORD",
+      "status": "OPEN",
+      "handling": "CU F11 记录观察, 48h 内复核"
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "open": 2,
+    "closed": 2,
+    "by_color": {
+      "ORANGE": 2,
+      "YELLOW": 2
+    }
+  }
+}

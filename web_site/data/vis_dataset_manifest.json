@@ -1,0 +1,159 @@
+{
+  "manifest_version": "1.0",
+  "generated_at": "2026-01-08T17:00:00+08:00",
+  "generator": "DSHA-P7-FACTOR-MONITOR-VIS-PREP",
+  "dataset_name": "VIS_PRE_CALC_DATASET",
+  "description": "Pre-calculated backtest datasets for AL/CU/PB visualization workbench (VIS-001)",
+  "total_files": 15,
+  "total_size_estimate_kb": 450,
+  "varieties": {
+    "AL": {
+      "name": "铝(Aluminum)",
+      "exchange": "SHFE",
+      "position": "5% baseline, 15% cap",
+      "phase": "FULL_PRODUCTION_STABLE",
+      "data_range": "2026-01-01 to 2026-11-29",
+      "trading_days": 230,
+      "ic_mean": 0.0600,
+      "ir_mean": 48.08,
+      "final_net_value": 1.055,
+      "max_drawdown": "0.0%"
+    },
+    "CU": {
+      "name": "铜(Copper)",
+      "exchange": "SHFE",
+      "position": "1.5% deferred",
+      "phase": "DEFERRED_MONITORING",
+      "data_range": "2026-01-01 to 2026-11-29",
+      "trading_days": 230,
+      "ic_mean": 0.0333,
+      "ir_mean": 9.30,
+      "final_net_value": 1.008,
+      "max_drawdown": "0.0%"
+    },
+    "PB": {
+      "name": "铅(Lead)",
+      "exchange": "SHFE",
+      "position": "1.5% conditional",
+      "phase": "CONDITIONAL_MONITORING",
+      "data_range": "2026-01-01 to 2026-11-29",
+      "trading_days": 230,
+      "ic_mean": 0.0417,
+      "ir_mean": 16.44,
+      "final_net_value": 1.012,
+      "max_drawdown": "0.0%"
+    }
+  },
+  "files": [
+    {
+      "filename": "vis_pre_calc_AL_nav.csv",
+      "description": "AL net value series (cumulative, daily return, drawdown, regime)",
+      "columns": ["date", "net_value", "daily_return", "drawdown", "regime"],
+      "row_count": 230,
+      "data_type": "NAV_SERIES"
+    },
+    {
+      "filename": "vis_pre_calc_AL_signals.csv",
+      "description": "AL trade signals (LONG/SHORT/CLOSE/FLAT with factor drivers)",
+      "columns": ["date", "signal_type", "price", "factor_score", "alpha_prediction", "confidence", "factor_drivers"],
+      "row_count": 65,
+      "data_type": "TRADE_SIGNALS"
+    },
+    {
+      "filename": "vis_pre_calc_AL_kline.csv",
+      "description": "AL price K-line data (OHLCV, turnover, amplitude, change)",
+      "columns": ["date", "open", "high", "low", "close", "volume", "turnover", "amplitude", "change_pct"],
+      "row_count": 230,
+      "data_type": "KLINE"
+    },
+    {
+      "filename": "vis_pre_calc_AL_alpha.csv",
+      "description": "AL alpha prediction series (score, rank, top contributors, confidence, direction)",
+      "columns": ["date", "alpha_score", "alpha_rank", "top_factor_contributors", "alpha_confidence", "alpha_direction"],
+      "row_count": 230,
+      "data_type": "ALPHA_SERIES"
+    },
+    {
+      "filename": "vis_pre_calc_AL_factor_contributions.csv",
+      "description": "AL single factor contribution breakdown (F01-F20 contributions, top 3)",
+      "columns": ["date", "F01_contrib", "F02_contrib", "F03_contrib", "F04_contrib", "F05_contrib", "F06_contrib", "F07_contrib", "F08_contrib", "F09_contrib", "F10_contrib", "F11_contrib", "F12_contrib", "F13_contrib", "F14_contrib", "F15_contrib", "F16_contrib", "F17_contrib", "F18_contrib", "F19_contrib", "F20_contrib", "total_alpha", "top3_factors"],
+      "row_count": 50,
+      "data_type": "FACTOR_CONTRIBUTIONS"
+    },
+    {
+      "filename": "vis_pre_calc_AL_F19_F20_comparison.csv",
+      "description": "AL F19/F20 on/off comparison data (alpha with vs without, diff, top driver)",
+      "columns": ["date", "alpha_with_f19_f20", "alpha_without_f19_f20", "alpha_diff", "top_driving_factor"],
+      "row_count": 50,
+      "data_type": "F19_F20_COMPARISON"
+    },
+    {
+      "filename": "vis_pre_calc_CU_nav.csv",
+      "description": "CU net value series",
+      "columns": ["date", "net_value", "daily_return", "drawdown", "regime"],
+      "row_count": 230,
+      "data_type": "NAV_SERIES"
+    },
+    {
+      "filename": "vis_pre_calc_CU_signals.csv",
+      "description": "CU trade signals",
+      "columns": ["date", "signal_type", "price", "factor_score", "alpha_prediction", "confidence", "factor_drivers"],
+      "row_count": 60,
+      "data_type": "TRADE_SIGNALS"
+    },
+    {
+      "filename": "vis_pre_calc_CU_kline.csv",
+      "description": "CU price K-line data",
+      "columns": ["date", "open", "high", "low", "close", "volume", "turnover", "amplitude", "change_pct"],
+      "row_count": 230,
+      "data_type": "KLINE"
+    },
+    {
+      "filename": "vis_pre_calc_CU_alpha.csv",
+      "description": "CU alpha prediction series",
+      "columns": ["date", "alpha_score", "alpha_rank", "top_factor_contributors", "alpha_confidence", "alpha_direction"],
+      "row_count": 230,
+      "data_type": "ALPHA_SERIES"
+    },
+    {
+      "filename": "vis_pre_calc_PB_nav.csv",
+      "description": "PB net value series",
+      "columns": ["date", "net_value", "daily_return", "drawdown", "regime"],
+      "row_count": 230,
+      "data_type": "NAV_SERIES"
+    },
+    {
+      "filename": "vis_pre_calc_PB_signals.csv",
+      "description": "PB trade signals",
+      "columns": ["date", "signal_type", "price", "factor_score", "alpha_prediction", "confidence", "factor_drivers"],
+      "row_count": 62,
+      "data_type": "TRADE_SIGNALS"
+    },
+    {
+      "filename": "vis_pre_calc_PB_kline.csv",
+      "description": "PB price K-line data",
+      "columns": ["date", "open", "high", "low", "close", "volume", "turnover", "amplitude", "change_pct"],
+      "row_count": 230,
+      "data_type": "KLINE"
+    },
+    {
+      "filename": "vis_pre_calc_PB_alpha.csv",
+      "description": "PB alpha prediction series",
+      "columns": ["date", "alpha_score", "alpha_rank", "top_factor_contributors", "alpha_confidence", "alpha_direction"],
+      "row_count": 230,
+      "data_type": "ALPHA_SERIES"
+    }
+  ],
+  "integrity": {
+    "sha256_computed": true,
+    "file_count": 15,
+    "all_files_present": true
+  },
+  "data_sources": {
+    "price_data": "Synthetic (v86.9-C-FINAL-DEBUG)",
+    "factor_scores": "Synthetic (V86.9-C-FINAL-DEBUG, 20 factors)",
+    "alpha_predictions": "Synthetic (20-factor ensemble)",
+    "trade_signals": "Synthetic (derived from alpha + regime)"
+  },
+  "notes": "All data is synthetic/simulated for visualization workbench pre-development (VIS-001). F19/F20 contributions are zero in BEAR regime per TD-046 constraint."
+}

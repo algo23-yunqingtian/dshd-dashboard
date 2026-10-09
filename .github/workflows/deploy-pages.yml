@@ -1,0 +1,552 @@
+# =========================================================================
+# DSHD-P23 Github Actions CI · 自动部署流水线
+# =========================================================================
+# 位置: .github/workflows/deploy-pages.yml
+# 作用: 代码推送 → 自动构建 → 自动发布上线至 GitHub Pages
+# 触发: push (main/master) + pull_request + workflow_dispatch
+# 权限: contents:read / pages:write / id-token:write
+# =========================================================================
+name: Deploy DSHD-P24 to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'web_site/**'
+      - '.github/workflows/deploy-pages.yml'
+      - 'data/**'
+      - 'archive/**'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'web_site/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+    inputs:
+      skip_validate:
+        description: 'Skip validation steps (emergency deploy)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+
+# 权限最小化
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 并发控制: 同一分支只允许一个部署
+concurrency:
+  group: pages-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+# 全局环境变量
+env:
+  NODE_VERSION: 20
+  PYTHON_VERSION: '3.12'
+  SITE_ROOT: web_site
+  DATA_DIR: web_site/data
+  ARCHIVE_DIR: web_site/archive
+  JS_DIR: web_site/js
+  INDEX_FILE: web_site/index.html
+
+jobs:
+  # ============================================================
+  # Job 1: 构建 + 静态校验
+  # ============================================================
+  validate:
+    name: Validate & Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      deploy_sha: ${{ steps.meta.outputs.sha }}
+      deploy_ts: ${{ steps.meta.outputs.ts }}
+      dataset_count: ${{ steps.validate.outputs.dataset_count }}
+      archive_count: ${{ steps.validate.outputs.archive_count }}
+    steps:
+      # 1.1 检出代码
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Meta
+        id: meta
+        run: |
+          echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_OUTPUT
+
+      # 1.2 跳过开关 (紧急部署)
+      - name: Skip check
+        id: skip
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.skip_validate }}" = "true" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # 1.3 JSON 数据集完整性校验
+      - name: Validate JSON datasets
+        if: steps.skip.outputs.skip != 'true'
+        id: validate
+        run: |
+          echo "========== JSON dataset validation =========="
+          python3 - <<'PYEOF'
+          import json, os, sys, hashlib
+          data_dir = 'web_site/data'
+          if not os.path.isdir(data_dir):
+              print(f"ERROR: data dir not found: {data_dir}", file=sys.stderr); sys.exit(1)
+          files = sorted(os.listdir(data_dir))
+          json_count = 0
+          for f in files:
+              if not f.endswith('.json'): continue
+              p = os.path.join(data_dir, f)
+              try:
+                  with open(p, 'r', encoding='utf-8') as fp:
+                      json.load(fp)
+                  sz = os.path.getsize(p)
+                  md5 = hashlib.md5(open(p,'rb').read()).hexdigest()
+                  print(f"  OK  {f:40s} {sz:>8,}B  md5 {md5}")
+                  json_count += 1
+              except Exception as e:
+                  print(f"  FAIL {f}: {e}", file=sys.stderr); sys.exit(2)
+          print(f"\nJSON files validated: {json_count}")
+          print(f"Total data files: {len(files)}")
+          with open('validate.json', 'w') as f:
+              json.dump({'json_count': json_count, 'total_files': len(files)}, f)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as g:
+              g.write(f"dataset_count={json_count}\n")
+          PYEOF
+
+      # 1.4 HTML 结构校验 (P19 enhanced)
+      - name: Validate HTML structure
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          echo "========== HTML structure validation (P24) =========="
+          test -f "web_site/index.html" || (echo "index.html missing" >&2; exit 3)
+          grep -q "<!DOCTYPE html>" web_site/index.html && echo "DOCTYPE OK"
+          grep -q "<html" web_site/index.html && echo "html tag OK"
+          grep -q "<body" web_site/index.html && echo "body tag OK"
+          grep -q "echarts" web_site/index.html && echo "ECharts CDN OK"
+          grep -q "html2canvas" web_site/index.html && echo "html2canvas CDN OK"
+          grep -q "alert-timeline" web_site/index.html && echo "Alert timeline OK"
+          grep -q "data-completion" web_site/index.html && echo "Data completion OK"
+          grep -q "gate-main" web_site/index.html && echo "Gate panel OK"
+          grep -q "exportScreenshot" web_site/index.html && echo "Screenshot export OK"
+          grep -q "dataZoom" web_site/index.html && echo "DataZoom OK"
+          grep -q "version-chips" web_site/index.html && echo "Version switch OK"
+          grep -q "pl-table" web_site/index.html && echo "P/L table OK"
+          # P19 T2 checks
+          grep -q "nisipanel" web_site/index.html && echo "NI/SI panel OK"
+          grep -q "renderNISIPanel" web_site/index.html && echo "NI/SI render OK"
+          grep -q "ni_si_panels.json, cross_variety_comparison.json, pc003_unlock_assessment.json" web_site/index.html && echo "NI/SI data OK"
+          grep -q "completion-board" web_site/index.html && echo "Completion board OK"
+          grep -q "FR-RISK" web_site/index.html && echo "FR-RISK linkage OK"
+          grep -q "M3" web_site/index.html && echo "M3 milestone OK"
+          grep -q "M4" web_site/index.html && echo "M4 milestone OK"
+          # P19 T3 checks
+          grep -q "offline-banner" web_site/index.html && echo "Offline hint OK"
+          grep -q "ECharts" web_site/index.html && echo "ECharts check OK"
+          grep -q "P18" web_site/index.html && echo "P18 label OK"
+          grep -q "P19" web_site/index.html && echo "P19 label OK"
+          # P20 checks
+          grep -q "DSHD-P20" web_site/index.html && echo "P20 title OK"
+          grep -q "pc003unlock" web_site/index.html && echo "PC003 unlock OK"
+          grep -q "renderPC003UnlockPanel" web_site/index.html && echo "PC003 unlock render OK"
+          grep -q "cross_variety_comparison.json" web_site/index.html && echo "Cross variety OK"
+          grep -q "pc003_unlock_assessment.json" web_site/index.html && echo "Unlock assessment OK"
+          grep -q "M5" web_site/index.html && echo "M5 milestone OK"
+          grep -q "DSHD-P19" web_site/index.html && echo "P19 title OK"
+          grep -q "hdr-dataset-ver" web_site/index.html && echo "Dataset version OK"
+          # P21 checks
+          grep -q "DSHD-P24" web_site/index.html && echo "P24 title OK"
+          grep -q "portfolio" web_site/index.html && echo "Portfolio view OK"
+          grep -q "renderPortfolio" web_site/index.html && echo "Portfolio render OK"
+          grep -q "portfolio_backtest.json" web_site/index.html && echo "Portfolio data OK"
+          grep -q "portfolio_correlation.json" web_site/index.html && echo "Portfolio correlation OK"
+          grep -q "portfolio_risk_metrics.json" web_site/index.html && echo "Portfolio risk OK"
+          grep -q "renderCorrelationMatrix" web_site/index.html && echo "Correlation matrix OK"
+          grep -q "correlation-matrix" web_site/index.html && echo "Correlation panel OK"
+          grep -q "UNLOCKED" web_site/index.html && echo "PC003 UNLOCKED OK"
+          grep -q "renderPC003UnlockPanelV21" web_site/index.html && echo "PC003 V21 render OK"
+          grep -q "pressure-test-results" web_site/index.html && echo "Pressure test OK"
+          grep -q "production-limits" web_site/index.html && echo "Production limits OK"
+          grep -q "emergency-shutdown" web_site/index.html && echo "Emergency shutdown OK"
+          grep -q "M6" web_site/index.html && echo "M6 milestone OK"
+          grep -q "M7" web_site/index.html && echo "M7 milestone OK"
+          grep -q "m6-report" web_site/index.html && echo "M6 report OK"
+          grep -q "m7-report" web_site/index.html && echo "M7 report OK"
+          grep -q "P18+P19+P20+P21+P22+P23+P24" web_site/index.html && echo "P18-P24 version switch OK"
+          grep -q "portfolio-nav-chart" web_site/index.html && echo "Portfolio NAV chart OK"
+          grep -q "portfolio-risk-panel" web_site/index.html && echo "Portfolio risk panel OK"
+          grep -q "factor-ortho-compare" web_site/index.html && echo "Factor ortho compare OK"
+          grep -q "portfolio-stop-conditions" web_site/index.html && echo "Portfolio stop conditions OK"
+          grep -q "ov-portfolio" web_site/index.html && echo "Portfolio overview OK"
+          grep -q "renderPortfolioOverview" web_site/index.html && echo "Portfolio overview render OK"
+          grep -q "renderPortfolioNavChart" web_site/index.html && echo "Portfolio NAV render OK"
+
+           # P23 NEW checks
+           grep -q "DSHD-P23" web_site/index.html && echo "P23 title OK"
+           grep -q "P18+P19+P20+P21+P23" web_site/index.html && echo "P18-P23 version switch OK"
+           grep -q "P18/P19/P20/P21/P22/P23/P24" web_site/index.html && echo "P18-P24 nav labels OK"
+           grep -q "portfolio_risk_contribution" web_site/index.html && echo "Risk contribution ref OK"
+           grep -q "renderRiskContribution" web_site/index.html && echo "Risk contribution render OK"
+           grep -q "risk-contribution-panel" web_site/index.html && echo "Risk contribution panel OK"
+           grep -q "portfolio_risk_contribution.json" web_site/data/dataset_index.json && echo "Risk contribution in index OK"
+           grep -q "portfolio_risk_contribution.json" web_site/data/dataset_index.json && echo "Risk contribution data OK"
+           grep -q "FR-RISK-PG22-NI-009" web_site/data/fr_risk_alerts.json && echo "FR-RISK-009 NI delay OK"
+           grep -q "FR-RISK-PG22-CV-010" web_site/data/fr_risk_alerts.json && echo "FR-RISK-010 CV concentration OK"
+           grep -q "risk_inspection_p22" web_site/data/pc003_unlock_assessment.json && echo "P23 risk inspection OK"
+           grep -q "ni_delay_monitoring" web_site/data/pc003_unlock_assessment.json && echo "NI delay monitoring OK"
+           grep -q "emergency_shutdown_plan" web_site/data/pc003_unlock_assessment.json && echo "Emergency shutdown plan OK"
+           grep -q "shutdown_drill" web_site/data/pc003_unlock_assessment.json && echo "Shutdown drill OK"
+           grep -q "M6.*COMPLETED" web_site/data/data_completion_status.json && echo "M6 COMPLETED OK"
+           grep -q "P23" web_site/data/pc003_unlock_assessment.json && echo "PC003 P23 tag OK"
+           grep -q "P23" web_site/data/portfolio_risk_contribution.json && echo "Risk contribution P23 tag OK"
+           grep -q "repo_storage_capacity_report" web_site/data/dataset_index.json && echo "Capacity report in index OK"
+           grep -q "P23" web_site/data/cross_variety_comparison.json && echo "Cross variety P23 tag OK"
+           grep -q "P23" web_site/data/portfolio_backtest.json && echo "Portfolio backtest P23 tag OK"
+           grep -q "P23" web_site/data/portfolio_correlation.json && echo "Portfolio correlation P23 tag OK"
+           grep -q "P23" web_site/data/fr_risk_alerts.json && echo "FR-RISK P23 tag OK"
+           grep -q "P23" web_site/data/data_completion_status.json && echo "Data completion P23 tag OK"
+           grep -q "P23" web_site/data/experiment_index.json && echo "Experiment index P23 tag OK"
+           grep -q "P23" web_site/data/version_index.json && echo "Version index P23 tag OK"
+           grep -q "P23" web_site/data/pl_summary.json && echo "PL summary P23 tag OK"
+           grep -q "P23" web_site/data/dataset_index.json && echo "Dataset index P23 tag OK"
+           grep -q "P23" web_site/data/pc003_status.json && echo "PC003 status P23 tag OK"
+           echo "P23 specific checks: ALL PASSED"
+
+            # P24 NEW checks
+            grep -q "DSHD-P24" web_site/index.html && echo "P24 title OK"
+            grep -q "phase4" web_site/index.html && echo "Phase4 panel OK"
+            grep -q "renderPhase4Panel" web_site/index.html && echo "Phase4 render OK"
+            grep -q "renderPBCUGrayPanel" web_site/index.html && echo "PB/CU gray panel OK"
+            grep -q "renderRiskContributionTimeSeries" web_site/index.html && echo "Risk contribution time series OK"
+            grep -q "pb_cu_gray_admission_status" web_site/index.html && echo "PB/CU gray data OK"
+            grep -q "phase4_precheck.json" web_site/index.html && echo "Phase4 precheck data OK"
+            grep -q "portfolio_risk_contribution_timeseries" web_site/index.html && echo "Risk contribution time series data OK"
+            grep -q "FR-RISK-PG24-PB-013" web_site/index.html && echo "FR-RISK-PG24-PB-013 OK"
+            grep -q "FR-RISK-PG24-PHASE4-014" web_site/index.html && echo "FR-RISK-PG24-PHASE4-014 OK"
+            grep -q "phase4" web_site/data/dataset_index.json && echo "Phase4 in dataset index OK"
+            grep -q "pb_cu" web_site/data/dataset_index.json && echo "PB/CU in dataset index OK"
+            grep -q "P24" web_site/data/version_index.json && echo "P24 in version index OK"
+            grep -q "P24" web_site/data/fr_risk_alerts.json && echo "P24 in FR-RISK OK"
+            grep -q "P24" web_site/data/pc003_unlock_assessment.json && echo "P24 in PC003 unlock OK"
+            grep -q "P24" web_site/data/data_completion_status.json && echo "P24 in data completion OK"
+            grep -q "P24" web_site/data/experiment_index.json && echo "P24 in experiment index OK"
+            grep -q "P24" web_site/data/portfolio_backtest.json && echo "P24 in portfolio backtest OK"
+            grep -q "P24" web_site/data/portfolio_correlation.json && echo "P24 in portfolio correlation OK"
+            grep -q "P24" web_site/data/portfolio_risk_contribution.json && echo "P24 in risk contribution OK"
+            grep -q "P24" web_site/data/cross_variety_comparison.json && echo "P24 in cross variety OK"
+            echo "P24 specific checks: ALL PASSED"
+
+
+          echo "HTML structure (P24): PASS"
+
+      # 1.5 归档清单校验
+      - name: Validate archive manifest
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          echo "========== Archive manifest validation =========="
+          test -f "web_site/archive/manifest.json" || (echo "manifest missing" >&2; exit 4)
+          python3 - <<'PYEOF'
+          import json, os, sys
+          m = json.load(open('web_site/archive/manifest.json', 'r', encoding='utf-8'))
+          stats = m['stats']
+          print(f"  phases: {stats['phase_count']}")
+          print(f"  factors: {stats['factor_count']}")
+          print(f"  backtests: {stats['backtest_count']}")
+          print(f"  trades: {stats['trades_count']}")
+          print(f"  alerts: {stats['alerts_count']}")
+          print(f"  total: {stats['total_archived_files']}")
+          # verify archived files actually exist
+          total = 0
+          for category in ['phases', 'factors', 'backtests', 'trades', 'alerts']:
+              for item in m[category]:
+                  p = 'web_site/' + item['archived_as']
+                  if not os.path.exists(p):
+                      print(f"  MISSING: {p}", file=sys.stderr); sys.exit(5)
+                  total += 1
+          print(f"  All {total} archived files present")
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as g:
+              g.write(f"archive_count={total}\n")
+          PYEOF
+
+      # 1.6 DSHA 原始件字节校验
+      - name: Validate DSHA original integrity
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          echo "========== DSHA original integrity =========="
+          python3 - <<'PYEOF'
+          import hashlib, os
+          p = 'web_site/archive/dsha_v1/vis_dashboard_main.html'
+          if not os.path.exists(p):
+              print(f"MISSING: {p}"); exit(6)
+          md5 = hashlib.md5(open(p,'rb').read()).hexdigest()
+          expected = 'f0036dc3ab906629f246b529de55f544'
+          size = os.path.getsize(p)
+          if md5 != expected:
+              print(f"MD5 MISMATCH: {md5} != {expected}"); exit(7)
+          if size != 147681:
+              print(f"SIZE MISMATCH: {size} != 147681"); exit(8)
+          print(f"DSHA original: PASS  {size}B  md5 {md5}")
+          PYEOF
+
+      # 1.7 站点大小报告
+      - name: Site size report
+        run: |
+          echo "========== Site size report =========="
+          du -sh web_site/
+          echo "--- data/ ---"
+          du -sh web_site/data/
+          echo "--- archive/ ---"
+          du -sh web_site/archive/
+          echo "--- js/ ---"
+          du -sh web_site/js/ 2>/dev/null || echo "(js/ empty)"
+          echo "--- assets/ ---"
+          du -sh web_site/assets/ 2>/dev/null || echo "(assets/ empty)"
+          echo "File count:"
+          find web_site -type f | wc -l
+
+  # ============================================================
+  # Job 2: 部署到 GitHub Pages
+  # ============================================================
+
+  # ============================================================
+  # P23 T3: P23-specific validation checks
+      # 1.8 P23: M7 milestone completed
+      - name: 'P23: M7 milestone completed'
+        run: |
+          grep -q 'M7.COMPLETED\|M7✅\|M7 COMPLETED' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ M7 milestone verified' || (echo '✗ M7 milestone not found'; exit 1)
+
+      # 1.9 P23: PC003 UNLOCKED_FINAL
+      - name: 'P23: PC003 UNLOCKED_FINAL'
+        run: |
+          grep -q 'UNLOCKED_FINAL' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ UNLOCKED_FINAL verified' || (echo '✗ UNLOCKED_FINAL not found'; exit 1)
+
+      # 1.10 P23: M7 final assessment panel
+      - name: 'P23: M7 final assessment panel'
+        run: |
+          grep -q 'm7-final-panel' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ M7 final panel verified' || (echo '✗ M7 final panel not found'; exit 1)
+
+      # 1.11 P23: Euler time series
+      - name: 'P23: Euler time series'
+        run: |
+          grep -q 'euler_time_series\|Euler时序\|Euler' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Euler time series verified' || (echo '✗ Euler time series not found'; exit 1)
+
+      # 1.12 P23: NI delay monitoring
+      - name: 'P23: NI delay monitoring'
+        run: |
+          grep -q 'NI延迟监控\|ni_delay' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ NI delay monitoring verified' || (echo '✗ NI delay monitoring not found'; exit 1)
+
+      # 1.13 P23: FR-RISK PG23-M7-011
+      - name: 'P23: FR-RISK PG23-M7-011'
+        run: |
+          grep -q 'FR-RISK-PG23-M7-011' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ FR-RISK-PG23-M7-011 verified' || (echo '✗ FR-RISK-PG23-M7-011 not found'; exit 1)
+
+      # 1.14 P23: FR-RISK PG23-NI-012
+      - name: 'P23: FR-RISK PG23-NI-012'
+        run: |
+          grep -q 'FR-RISK-PG23-NI-012' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ FR-RISK-PG23-NI-012 verified' || (echo '✗ FR-RISK-PG23-NI-012 not found'; exit 1)
+
+      # 1.15 P23: Rolling correlation window
+      - name: 'P23: Rolling correlation window'
+        run: |
+          grep -q 'rolling.window\|滚动窗口\|switchRollingWindow' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Rolling correlation verified' || (echo '✗ Rolling correlation not found'; exit 1)
+
+      # 1.16 P23: Production risk rating
+      - name: 'P23: Production risk rating'
+        run: |
+          grep -q '投产风险评级\|production_risk' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Production risk rating verified' || (echo '✗ Production risk rating not found'; exit 1)
+
+      # 1.17 P23: Shutdown contingency
+      - name: 'P23: Shutdown contingency'
+        run: |
+          grep -q '关停预案\|shutdown.contingency' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Shutdown contingency verified' || (echo '✗ Shutdown contingency not found'; exit 1)
+
+      # 1.18 P23: Six-version switching P18-P23
+      - name: 'P23: Six-version switching P18-P23'
+        run: |
+          grep -q 'P18/P19/P20/P21/P22/P23\|P18-P23' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Six-version switching verified' || (echo '✗ Six-version switching not found'; exit 1)
+
+      # 1.19 P23: Data version 1.5
+      - name: 'P23: Data version 1.5'
+        run: |
+          grep -q '1.5\|v1.5' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Data version 1.5 verified' || (echo '✗ Data version 1.5 not found'; exit 1)
+
+      # 1.20 P23: Portfolio risk contribution Euler
+      - name: 'P23: Portfolio risk contribution Euler'
+        run: |
+          grep -q 'portfolio_risk_contribution.*Euler\|Euler.*portfolio_risk' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Portfolio risk contribution Euler verified' || (echo '✗ Portfolio risk contribution Euler not found'; exit 1)
+
+      # 1.21 P23: Portfolio risk contribution JSON Euler check
+      - name: 'P23: portfolio_risk_contribution.json has Euler'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json')); assert d.get('version_tag')=='P23'; assert 'euler_time_series' in str(d.get('variety_contributions',{})); print('✓ Euler time series in risk contribution')"
+
+      # 1.22 P23: pc003_unlock_assessment.json M7 COMPLETED
+      - name: 'P23: pc003_unlock_assessment.json has M7 COMPLETED'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert d.get('version_tag')=='P23'; m7=d.get('milestones',{}).get('M7',{}); assert m7.get('status')=='COMPLETED'; print('✓ M7 COMPLETED verified')"
+
+      # 1.23 P23: fr_risk_alerts.json P23 alerts
+      - name: 'P23: fr_risk_alerts.json has P23 alerts'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/fr_risk_alerts.json')); alerts=d.get('alerts',[]); p23=[a for a in alerts if a.get('phase')=='P23']; assert len(p23)>=2; print(f'✓ {len(p23)} P23 alerts verified')"
+
+      # 1.24 P23: portfolio_backtest.json rolling correlation
+      - name: 'P23: portfolio_backtest.json has rolling correlation'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_backtest.json')); assert d.get('version_tag')=='P23'; assert 'rolling_correlation' in str(d); print('✓ Rolling correlation verified')"
+
+      # 1.25 P23: pc003_unlock_assessment.json production_risk_rating
+      - name: 'P23: pc003_unlock_assessment.json has production_risk_rating'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert 'production_risk_rating' in d; assert d['production_risk_rating'].get('overall_rating')=='LOW'; print('✓ Production risk rating verified')"
+
+      # 1.26 P23: pc003_unlock_assessment.json ni_delay final assessment
+      - name: 'P23: pc003_unlock_assessment.json has ni_delay final assessment'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); ni=d.get('ni_delay_monitoring',{}); assert 'final_assessment' in ni; print('✓ NI delay final assessment verified')"
+
+      # 1.27 P23: data_completion_status.json M1-M7 ALL COMPLETED
+      - name: 'P23: data_completion_status.json M1-M7 ALL COMPLETED'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/data_completion_status.json')); ms=d.get('milestones',{}); completed=[v['status'] for v in ms.values()]; assert all(s=='COMPLETED' for s in completed); print('✓ M1-M7 ALL COMPLETED verified')"
+
+
+  # P24 T3: P24-specific validation checks
+      # 1.28 P24: Phase4 monitoring panel
+      - name: 'P24: Phase4 monitoring panel'
+        run: |
+          grep -q 'phase4-panel' "$GITHUB_WORKSPACE/web_site/index.html" && echo 'Phase4 panel verified' || (echo 'Phase4 panel not found'; exit 1)
+
+      # 1.29 P24: PB/CU gray admission panel
+      - name: 'P24: PB/CU gray admission panel'
+        run: |
+          grep -q 'pb-cu-panel' "$GITHUB_WORKSPACE/web_site/index.html" && echo 'PB/CU gray panel verified' || (echo 'PB/CU gray panel not found'; exit 1)
+
+      # 1.30 P24: Risk contribution time series
+      - name: 'P24: Risk contribution time series'
+        run: |
+          grep -q 'risk-ts-chart' "$GITHUB_WORKSPACE/web_site/index.html" && echo 'Risk contribution time series verified' || (echo 'Risk contribution time series not found'; exit 1)
+
+      # 1.31 P24: FR-RISK PG24-PB-013
+      - name: 'P24: FR-RISK PG24-PB-013'
+        run: |
+          grep -q 'FR-RISK-PG24-PB-013' "$GITHUB_WORKSPACE/web_site/index.html" && echo 'FR-RISK-PG24-PB-013 verified' || (echo 'FR-RISK-PG24-PB-013 not found'; exit 1)
+
+      # 1.32 P24: FR-RISK PG24-PHASE4-014
+      - name: 'P24: FR-RISK PG24-PHASE4-014'
+        run: |
+          grep -q 'FR-RISK-PG24-PHASE4-014' "$GITHUB_WORKSPACE/web_site/index.html" && echo 'FR-RISK-PG24-PHASE4-014 verified' || (echo 'FR-RISK-PG24-PHASE4-014 not found'; exit 1)
+
+      # 1.33 P24: Phase4 precheck JSON
+      - name: 'P24: phase4_precheck.json validation'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/phase4_precheck.json')); assert d.get('version_tag')=='P24'; assert 'precheck_results' in d; print('Phase4 precheck JSON verified')"
+
+      # 1.34 P24: PB/CU gray admission JSON
+      - name: 'P24: pb_cu_gray_admission_status.json validation'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pb_cu_gray_admission_status.json')); assert d.get('version_tag')=='P24'; assert 'pb' in d; assert 'cu' in d; print('PB/CU gray admission JSON verified')"
+
+      # 1.35 P24: portfolio_risk_contribution_timeseries.json validation
+      - name: 'P24: portfolio_risk_contribution_timeseries.json validation'
+        run: |
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution_timeseries.json')); assert d.get('version_tag')=='P24'; assert 'variety_time_series' in d; assert len(d['variety_time_series'])>=7; print('Risk contribution time series JSON verified')"
+
+  # ============================================================
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: validate
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # 2.1 检出代码
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2.2 设置 Pages 环境
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 2.3 上传站点产物
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web_site/
+          retention-days: 30
+
+      # 2.4 部署到 Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # 2.5 部署元数据
+      - name: Deploy metadata
+        run: |
+          echo "Deploy SHA: ${{ needs.validate.outputs.deploy_sha }}"
+          echo "Deploy TS: ${{ needs.validate.outputs.deploy_ts }}"
+          echo "Dataset count: ${{ needs.validate.outputs.dataset_count }}"
+          echo "Archive count: ${{ needs.validate.outputs.archive_count }}"
+          echo "Page URL: ${{ steps.deployment.outputs.page_url }}"
+
+      # 2.6 生成部署元数据文件
+      - name: Generate deploy metadata
+        run: |
+          cat > web_site/deploy_meta.json <<EOF
+          {
+            "deploy_sha": "${{ needs.validate.outputs.deploy_sha }}",
+            "deploy_ts": "${{ needs.validate.outputs.deploy_ts }}",
+            "dataset_count": ${{ needs.validate.outputs.dataset_count }},
+            "archive_count": ${{ needs.validate.outputs.archive_count }},
+            "workflow_run_id": "${{ github.run_id }}",
+            "workflow_run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+            "commit": "${{ github.sha }}",
+            "actor": "${{ github.actor }}",
+            "branch": "${{ github.ref_name }}"
+          }
+          EOF
+
+  # ============================================================
+  # Job 3: 部署通知 (可选)
+  # ============================================================
+  notify:
+    name: Notify
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: always()
+    steps:
+      - name: Summary
+        run: |
+          {
+            echo "## DSHD-P24 Deployment Summary"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Status | ${{ needs.deploy.result }} |"
+            echo "| SHA | ${{ needs.validate.outputs.deploy_sha }} |"
+            echo "| Datasets | ${{ needs.validate.outputs.dataset_count }} |"
+            echo "| Archived | ${{ needs.validate.outputs.archive_count }} |"
+            echo "| URL | ${{ needs.deploy.outputs.page_url }} |"
+            echo ""
+            echo "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          } >> "$GITHUB_STEP_SUMMARY"

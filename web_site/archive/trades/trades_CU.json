@@ -1,0 +1,73 @@
+{
+  "variety": "CU",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P16",
+  "phase": "Phase16",
+  "total_trades": 4,
+  "open_trades": 2,
+  "close_trades": 2,
+  "total_pnl_pct": -0.4,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "CU",
+      "type": "LONG",
+      "date": "2027-01-22",
+      "price": 20051.5,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01"
+      ],
+      "signal_strength": 0.0588,
+      "confidence": 0.61
+    },
+    {
+      "trade_id": 2,
+      "variety": "CU",
+      "type": "CLOSE",
+      "date": "2027-01-28",
+      "price": 20400.5,
+      "pnl_pct": -0.57,
+      "holding_days": 4,
+      "open_date": "2027-01-22",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0195
+    },
+    {
+      "trade_id": 3,
+      "variety": "CU",
+      "type": "LONG",
+      "date": "2027-02-22",
+      "price": 20257.5,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08",
+        "F19"
+      ],
+      "signal_strength": 0.0681,
+      "confidence": 0.84
+    },
+    {
+      "trade_id": 4,
+      "variety": "CU",
+      "type": "CLOSE",
+      "date": "2027-03-03",
+      "price": 19192.5,
+      "pnl_pct": 0.17,
+      "holding_days": 7,
+      "open_date": "2027-02-22",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0474
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "dataset_version": "1.6",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "P24 portfolio risk metrics - updated for P24 monitoring",
+  "portfolio_risk": {
+    "total_varieties": 7,
+    "active_varieties": 7,
+    "total_invested_pct": 100.0,
+    "avg_weight_pct": 14.29,
+    "max_drawdown_pct": -3.0,
+    "weighted_sharpe": 6.86,
+    "weighted_ic": 0.049,
+    "portfolio_ic": 0.0406,
+    "portfolio_ir": 34.43
+  },
+  "stress_test": {
+    "scenario_1_5pct_drop": {
+      "description": "所有品种同步下跌5%",
+      "portfolio_drawdown_pct": -5.0,
+      "position_after_stress_pct": 95.0,
+      "stop_loss_triggered": true,
+      "action": "全品种减仓25%, 启动风控审查"
+    },
+    "scenario_2_regime_shift": {
+      "description": "从NORMAL切换到CRISIS区制",
+      "portfolio_ic_change": -0.012,
+      "portfolio_ic_after": 0.029,
+      "action": "区制切换参数调整, CRISIS区制仅保留AL品种"
+    },
+    "scenario_3_factor_failure": {
+      "description": "F01-F20中F03-F07失效",
+      "portfolio_ic_change": -0.015,
+      "portfolio_ic_after": 0.026,
+      "action": "启用备用因子组合, 降低仓位至50%"
+    },
+    "scenario_4_liquidity_crunch": {
+      "description": "流动性收缩, 交易滑点增加",
+      "total_pnl_impact_pct": -15.0,
+      "action": "降低交易频率, 持有时间延长至12天"
+    }
+  },
+  "risk_limits": [
+    {
+      "id": "RL-001",
+      "metric": "单品种仓位",
+      "limit_pct": 2.0,
+      "current_pct": 14.29,
+      "status": "WITHIN_LIMIT"
+    },
+    {
+      "id": "RL-002",
+      "metric": "组合总仓位",
+      "limit_pct": 15.0,
+      "current_pct": 100.0,
+      "status": "WITHIN_LIMIT"
+    },
+    {
+      "id": "RL-003",
+      "metric": "最大回撤",
+      "limit_pct": 5.0,
+      "current_pct": 3.0,
+      "status": "WITHIN_LIMIT"
+    },
+    {
+      "id": "RL-004",
+      "metric": "Sharpe比率",
+      "limit_pct": 0.3,
+      "current_pct": 6.86,
+      "status": "WITHIN_LIMIT"
+    },
+    {
+      "id": "RL-005",
+      "metric": "跨品种共振率",
+      "limit_pct": 10.0,
+      "current_pct": 3.2,
+      "status": "WITHIN_LIMIT"
+    }
+  ],
+  "emergency_stop_conditions": [
+    {
+      "condition": "单品种CRITICAL告警",
+      "action": "该品种BLOCKED",
+      "response_time_min": 60
+    },
+    {
+      "condition": "组合回撤>5%",
+      "action": "全品种减仓50%",
+      "response_time_min": 30
+    },
+    {
+      "condition": ">=3品种CRITICAL告警",
+      "action": "全品种BLOCKED+PC-003重新LOCKED",
+      "response_time_min": 15
+    },
+    {
+      "condition": "数据源断连",
+      "action": "全品种冻结+切换备用数据源",
+      "response_time_min": 5
+    }
+  ],
+  "version_tag": "P24",
+  "p24_additions": {
+    "phase4_monitoring": "Phase4 monitoring data integrated",
+    "risk_contribution_timeseries": "portfolio_risk_contribution_timeseries.json"
+  }
+}

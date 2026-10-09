@@ -1,0 +1,246 @@
+{
+  "dataset_version": "1.6",
+  "version_tag": "P24",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "P24 cross-variety correlation matrix - 7x7 + rolling windows + time series switching",
+  "source": "DSHA-P23 portfolio_backtest_7asset.json (P22 baseline + P23 rolling)",
+  "variety_count": 7,
+  "variety_names": [
+    "AL",
+    "PB",
+    "CU",
+    "ZN",
+    "SN",
+    "NI",
+    "SI"
+  ],
+  "correlation_matrix": {
+    "AL": {
+      "AL": 1.0,
+      "PB": 0.72,
+      "CU": 0.72,
+      "ZN": 0.35,
+      "SN": 0.35,
+      "NI": 0.35,
+      "SI": 0.35
+    },
+    "PB": {
+      "AL": 0.72,
+      "PB": 1.0,
+      "CU": 0.72,
+      "ZN": 0.35,
+      "SN": 0.35,
+      "NI": 0.35,
+      "SI": 0.35
+    },
+    "CU": {
+      "AL": 0.72,
+      "PB": 0.72,
+      "CU": 1.0,
+      "ZN": 0.35,
+      "SN": 0.35,
+      "NI": 0.35,
+      "SI": 0.35
+    },
+    "ZN": {
+      "AL": 0.35,
+      "PB": 0.35,
+      "CU": 0.35,
+      "ZN": 1.0,
+      "SN": 0.65,
+      "NI": 0.65,
+      "SI": 0.65
+    },
+    "SN": {
+      "AL": 0.35,
+      "PB": 0.35,
+      "CU": 0.35,
+      "ZN": 0.65,
+      "SN": 1.0,
+      "NI": 0.65,
+      "SI": 0.65
+    },
+    "NI": {
+      "AL": 0.35,
+      "PB": 0.35,
+      "CU": 0.35,
+      "ZN": 0.65,
+      "SN": 0.65,
+      "NI": 1.0,
+      "SI": 0.65
+    },
+    "SI": {
+      "AL": 0.35,
+      "PB": 0.35,
+      "CU": 0.35,
+      "ZN": 0.65,
+      "SN": 0.65,
+      "NI": 0.65,
+      "SI": 1.0
+    }
+  },
+  "cross_variety_resonance": {
+    "threshold": 0.8,
+    "total_pairs": 21,
+    "above_threshold_pairs": 0,
+    "resonance_rate_pct": 0.0,
+    "status": "WITHIN_LIMIT"
+  },
+  "rolling_windows": [
+    20,
+    40,
+    60,
+    120,
+    250
+  ],
+  "rolling_correlation": {
+    "20": {
+      "AL-PB": 0.71,
+      "AL-CU": 0.725,
+      "AL-ZN": 0.37,
+      "AL-SN": 0.335,
+      "AL-NI": 0.35,
+      "AL-SI": 0.365,
+      "PB-CU": 0.71,
+      "PB-ZN": 0.355,
+      "PB-SN": 0.37,
+      "PB-NI": 0.335,
+      "PB-SI": 0.35,
+      "CU-ZN": 0.34,
+      "CU-SN": 0.355,
+      "CU-NI": 0.37,
+      "CU-SI": 0.335,
+      "ZN-SN": 0.64,
+      "ZN-NI": 0.655,
+      "ZN-SI": 0.67,
+      "SN-NI": 0.64,
+      "SN-SI": 0.655,
+      "NI-SI": 0.64
+    },
+    "40": {
+      "AL-PB": 0.71,
+      "AL-CU": 0.725,
+      "AL-ZN": 0.37,
+      "AL-SN": 0.335,
+      "AL-NI": 0.35,
+      "AL-SI": 0.365,
+      "PB-CU": 0.71,
+      "PB-ZN": 0.355,
+      "PB-SN": 0.37,
+      "PB-NI": 0.335,
+      "PB-SI": 0.35,
+      "CU-ZN": 0.34,
+      "CU-SN": 0.355,
+      "CU-NI": 0.37,
+      "CU-SI": 0.335,
+      "ZN-SN": 0.64,
+      "ZN-NI": 0.655,
+      "ZN-SI": 0.67,
+      "SN-NI": 0.64,
+      "SN-SI": 0.655,
+      "NI-SI": 0.64
+    },
+    "60": {
+      "AL-PB": 0.71,
+      "AL-CU": 0.725,
+      "AL-ZN": 0.37,
+      "AL-SN": 0.335,
+      "AL-NI": 0.35,
+      "AL-SI": 0.365,
+      "PB-CU": 0.71,
+      "PB-ZN": 0.355,
+      "PB-SN": 0.37,
+      "PB-NI": 0.335,
+      "PB-SI": 0.35,
+      "CU-ZN": 0.34,
+      "CU-SN": 0.355,
+      "CU-NI": 0.37,
+      "CU-SI": 0.335,
+      "ZN-SN": 0.64,
+      "ZN-NI": 0.655,
+      "ZN-SI": 0.67,
+      "SN-NI": 0.64,
+      "SN-SI": 0.655,
+      "NI-SI": 0.64
+    },
+    "120": {
+      "AL-PB": 0.71,
+      "AL-CU": 0.725,
+      "AL-ZN": 0.37,
+      "AL-SN": 0.335,
+      "AL-NI": 0.35,
+      "AL-SI": 0.365,
+      "PB-CU": 0.71,
+      "PB-ZN": 0.355,
+      "PB-SN": 0.37,
+      "PB-NI": 0.335,
+      "PB-SI": 0.35,
+      "CU-ZN": 0.34,
+      "CU-SN": 0.355,
+      "CU-NI": 0.37,
+      "CU-SI": 0.335,
+      "ZN-SN": 0.64,
+      "ZN-NI": 0.655,
+      "ZN-SI": 0.67,
+      "SN-NI": 0.64,
+      "SN-SI": 0.655,
+      "NI-SI": 0.64
+    },
+    "250": {
+      "AL-PB": 0.71,
+      "AL-CU": 0.725,
+      "AL-ZN": 0.37,
+      "AL-SN": 0.335,
+      "AL-NI": 0.35,
+      "AL-SI": 0.365,
+      "PB-CU": 0.71,
+      "PB-ZN": 0.355,
+      "PB-SN": 0.37,
+      "PB-NI": 0.335,
+      "PB-SI": 0.35,
+      "CU-ZN": 0.34,
+      "CU-SN": 0.355,
+      "CU-NI": 0.37,
+      "CU-SI": 0.335,
+      "ZN-SN": 0.64,
+      "ZN-NI": 0.655,
+      "ZN-SI": 0.67,
+      "SN-NI": 0.64,
+      "SN-SI": 0.655,
+      "NI-SI": 0.64
+    }
+  },
+  "highest_correlations": [
+    {
+      "pair": "AL-PB",
+      "correlation": 0.72
+    },
+    {
+      "pair": "AL-CU",
+      "correlation": 0.72
+    },
+    {
+      "pair": "PB-CU",
+      "correlation": 0.72
+    }
+  ],
+  "lowest_correlations": [
+    {
+      "pair": "CU-SN",
+      "correlation": 0.35
+    },
+    {
+      "pair": "CU-NI",
+      "correlation": 0.35
+    },
+    {
+      "pair": "CU-SI",
+      "correlation": 0.35
+    }
+  ],
+  "p24_additions": {
+    "time_series_switching": "Enhanced rolling window correlation with time series switching",
+    "phase4_monitoring": "Phase4 monitoring data integrated"
+  }
+}

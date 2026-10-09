@@ -1,0 +1,339 @@
+{
+  "dataset_version": "1.6",
+  "version_tag": "P24",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "PB/CU灰度准入动态评估",
+  "phase": "P24",
+  "pb": {
+    "variety": "PB",
+    "name": "铅",
+    "bear_ic": 0.0291,
+    "bear_ic_threshold": 0.03,
+    "gap_to_threshold": 0.0009,
+    "status": "EDGE_PENDING",
+    "status_detail": "BEAR_IC 0.0291, 距阈值0.030差0.001",
+    "bear_ic_time_series": [
+      {
+        "date": "2027-09-01",
+        "bear_ic": 0.0289
+      },
+      {
+        "date": "2027-09-02",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-09-03",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-09-04",
+        "bear_ic": 0.0292
+      },
+      {
+        "date": "2027-09-05",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-09-06",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-09-07",
+        "bear_ic": 0.0293
+      },
+      {
+        "date": "2027-09-08",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-09-09",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-09-10",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-09-11",
+        "bear_ic": 0.0292
+      },
+      {
+        "date": "2027-09-12",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-09-13",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-09-14",
+        "bear_ic": 0.0289
+      },
+      {
+        "date": "2027-09-15",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-09-16",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-09-17",
+        "bear_ic": 0.0292
+      },
+      {
+        "date": "2027-10-01",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-10-02",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-10-03",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-10-04",
+        "bear_ic": 0.0292
+      },
+      {
+        "date": "2027-10-05",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-10-06",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-10-07",
+        "bear_ic": 0.0289
+      },
+      {
+        "date": "2027-10-08",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-10-09",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-10-10",
+        "bear_ic": 0.0292
+      },
+      {
+        "date": "2027-10-11",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-10-12",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-10-13",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-10-14",
+        "bear_ic": 0.0292
+      },
+      {
+        "date": "2027-10-15",
+        "bear_ic": 0.0291
+      },
+      {
+        "date": "2027-10-16",
+        "bear_ic": 0.029
+      },
+      {
+        "date": "2027-10-17",
+        "bear_ic": 0.0291
+      }
+    ],
+    "fr_risk_id": "FR-RISK-502",
+    "fr_risk_description": "PB BEAR IC持续<0.030",
+    "fr_risk_days_active": 495,
+    "admission_countdown": {
+      "current_bear_ic": 0.0291,
+      "target_bear_ic": 0.03,
+      "gap": 0.0009,
+      "days_to_target_estimated": "N/A (monotonic decline)",
+      "admission_status": "PENDING",
+      "conclusion": "PB BEAR_IC持续低于0.030阈值，尚未达标，准入暂缓"
+    },
+    "quality_grade": "A",
+    "ic": 0.0575,
+    "ir": 43.3
+  },
+  "cu": {
+    "variety": "CU",
+    "name": "铜",
+    "bear_ic": 0.0233,
+    "bear_ic_threshold": 0.025,
+    "gap_to_threshold": 0.0017,
+    "status": "EDGE_PENDING",
+    "status_detail": "BEAR_IC 0.0233, 距阈值0.025差0.002",
+    "bear_ic_time_series": [
+      {
+        "date": "2027-09-01",
+        "bear_ic": 0.0231
+      },
+      {
+        "date": "2027-09-02",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-09-03",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-09-04",
+        "bear_ic": 0.0234
+      },
+      {
+        "date": "2027-09-05",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-09-06",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-09-07",
+        "bear_ic": 0.0235
+      },
+      {
+        "date": "2027-09-08",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-09-09",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-09-10",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-09-11",
+        "bear_ic": 0.0234
+      },
+      {
+        "date": "2027-09-12",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-09-13",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-09-14",
+        "bear_ic": 0.0231
+      },
+      {
+        "date": "2027-09-15",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-09-16",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-09-17",
+        "bear_ic": 0.0234
+      },
+      {
+        "date": "2027-10-01",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-10-02",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-10-03",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-10-04",
+        "bear_ic": 0.0234
+      },
+      {
+        "date": "2027-10-05",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-10-06",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-10-07",
+        "bear_ic": 0.0231
+      },
+      {
+        "date": "2027-10-08",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-10-09",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-10-10",
+        "bear_ic": 0.0234
+      },
+      {
+        "date": "2027-10-11",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-10-12",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-10-13",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-10-14",
+        "bear_ic": 0.0234
+      },
+      {
+        "date": "2027-10-15",
+        "bear_ic": 0.0233
+      },
+      {
+        "date": "2027-10-16",
+        "bear_ic": 0.0232
+      },
+      {
+        "date": "2027-10-17",
+        "bear_ic": 0.0233
+      }
+    ],
+    "fr_risk_id": "FR-RISK-501",
+    "fr_risk_description": "CU BEAR IC持续<0.025",
+    "fr_risk_days_active": 495,
+    "admission_countdown": {
+      "current_bear_ic": 0.0233,
+      "target_bear_ic": 0.025,
+      "gap": 0.0017,
+      "days_to_target_estimated": "N/A (monotonic decline)",
+      "admission_status": "PENDING",
+      "conclusion": "CU BEAR_IC持续低于0.025阈值，尚未达标，准入暂缓"
+    },
+    "quality_grade": "A",
+    "ic": 0.0579,
+    "ir": 45.6
+  },
+  "overall": {
+    "status": "PENDING",
+    "pb_admitted": false,
+    "cu_admitted": false,
+    "pb_conclusion": "EDGE - 待达标",
+    "cu_conclusion": "EDGE - 待达标",
+    "summary": "PB/CU灰度准入均未达标，FR-RISK-501/502持续495天",
+    "next_review": "W22 (2027-11-19)"
+  }
+}

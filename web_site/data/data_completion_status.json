@@ -1,0 +1,97 @@
+{
+  "dataset_version": "1.6",
+  "version_tag": "P24",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "P24 data completion status - M1-M7 ALL COMPLETED, Phase4 monitoring, PB/CU gray admission",
+  "milestones": {
+    "M1": {
+      "status": "COMPLETED",
+      "phase": "P21"
+    },
+    "M2": {
+      "status": "COMPLETED",
+      "phase": "P21"
+    },
+    "M3": {
+      "status": "COMPLETED",
+      "phase": "P21"
+    },
+    "M4": {
+      "status": "COMPLETED",
+      "phase": "P21"
+    },
+    "M5": {
+      "status": "COMPLETED",
+      "phase": "P21"
+    },
+    "M6": {
+      "status": "COMPLETED",
+      "phase": "P22"
+    },
+    "M7": {
+      "status": "COMPLETED",
+      "phase": "P23"
+    }
+  },
+  "pc003_status": "UNLOCKED_FINAL",
+  "pc003_weighted_score": 0.975,
+  "variety_status": {
+    "AL": {
+      "backtest": "COMPLETE",
+      "trades": "COMPLETE",
+      "data_source": "full_data",
+      "status": "ENABLED"
+    },
+    "PB": {
+      "backtest": "COMPLETE",
+      "trades": "COMPLETE",
+      "data_source": "full_data",
+      "status": "ENABLED"
+    },
+    "CU": {
+      "backtest": "COMPLETE",
+      "trades": "COMPLETE",
+      "data_source": "full_data",
+      "status": "ENABLED"
+    },
+    "ZN": {
+      "backtest": "COMPLETE",
+      "trades": "COMPLETE",
+      "data_source": "shadow_data",
+      "status": "ENABLED"
+    },
+    "SN": {
+      "backtest": "COMPLETE",
+      "trades": "COMPLETE",
+      "data_source": "shadow_data",
+      "status": "ENABLED"
+    },
+    "NI": {
+      "backtest": "COMPLETE",
+      "trades": "COMPLETE",
+      "data_source": "shadow_data",
+      "status": "ENABLED"
+    },
+    "SI": {
+      "backtest": "COMPLETE",
+      "trades": "COMPLETE",
+      "data_source": "shadow_data",
+      "status": "ENABLED"
+    }
+  },
+  "total_varieties": 7,
+  "active_varieties": 7,
+  "blocked_varieties": 0,
+  "shadow_variety": 4,
+  "full_data_varieties": 3,
+  "data_coverage_pct": 100.0,
+  "data_quality_grade": "A+",
+  "p24_updates": {
+    "phase4_monitoring": "INTEGRATED",
+    "pb_cu_gray_admission": "PENDING",
+    "risk_contribution_timeseries": "NEW",
+    "phase4_precheck": "PASS",
+    "md5_snapshot": "PASS"
+  }
+}

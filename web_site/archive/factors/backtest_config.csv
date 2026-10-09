@@ -1,0 +1,99 @@
+category,param_name,param_value,param_type,description
+# ========================================
+# 基础配置
+# ========================================
+config,initial_capital,10000000,float,初始资金(元)
+config,symbols,"CU,AL,ZN,PB,NI,SN,RB,I,BU,FU",list,回测品种列表
+config,sectors,有色^CU|AL|ZN|PB|NI|SN^黑色^RB|I^能化^BU|FU,string,板块-品种映射(板块^品种|品种^板块^...)
+config,data_limit,500,int,每品种最大K线数(API上限500)
+config,scoring_mode,equal_weight,string,打分模式(equal_weight或ic_weighted)
+config,select_top_n,2,int,每板块选取品种数
+config,rebalance_days,1,int,调仓间隔(交易日)
+config,hold_max_days,10,int,最大持仓天数(0=不限制)
+config,enable_short,False,bool,是否允许做空
+config,commission_rate,0.0002,float,手续费率(双边万分之几)
+config,slippage_ticks,2,int,滑点(最小变动价位倍数)
+config,margin_rate,0.10,float,保证金率
+config,risk_free_rate,0.03,float,无风险利率(年化)
+config,risk_per_trade,0.02,float,单笔风险占总资金比例
+config,position_size_method,vol_target,string,仓位计算方法(vol_target或fixed)
+config,vol_target,0.15,float,目标年化波动率
+# ========================================
+# 风控参数
+# ========================================
+risk,sector_position_cap,0.40,float,单板块总仓位上限
+risk,symbol_position_cap,0.15,float,单品种仓位上限
+risk,global_leverage_cap,3.0,float,全局总杠杆上限
+risk,stop_loss_pct,0.05,float,单品种回撤止损比例
+risk,stop_loss_trailing,0.08,float,移动止损比例(0=不使用)
+risk,stop_loss_atr_mult,2.0,float,ATR止损倍数
+risk,ban_degraded_data,True,bool,禁止在数据缺失标的开仓
+risk,ban_roll_window,True,bool,禁止换月窗口期开仓
+risk,roll_oi_spike_pct,0.30,float,换月检测:OI跳变阈值
+risk,roll_volume_surge_std,2.0,float,换月检测:成交量放大标准差倍数
+risk,roll_window_days,3,int,换月窗口期天数
+risk,min_volume_threshold,100000,float,最低成交量阈值(流动性过滤)
+# ========================================
+# 因子参数
+# ========================================
+factor,oi_expand_window,5,int,持仓量扩张窗口
+factor,volume_ma_short,5,int,短周期均量窗口
+factor,volume_ma_long,20,int,长周期均量窗口
+factor,amplitude_window,20,int,振幅归一化窗口
+factor,settle_spread_window,5,int,结算偏离窗口
+factor,obv_window,5,int,OBV斜率窗口
+factor,price_position_window,20,int,价格位置窗口
+factor,return_momentum_window,5,int,动量窗口
+factor,oi_concentration_window,20,int,持仓集中度窗口
+factor,vol_oi_window,5,int,量仓背离窗口
+# ========================================
+# 因子权重(等权模式)
+# ========================================
+weight,oi_expand_5d,1.0,float,持仓量扩张因子权重
+weight,volume_ratio_5_20,1.0,float,量比因子权重
+weight,amplitude_ratio,1.0,float,振幅因子权重
+weight,settle_spread,1.0,float,结算偏离因子权重
+weight,obv_slope_5d,1.0,float,OBV斜率因子权重
+weight,price_position_20d,0.5,float,价格位置因子权重(辅助)
+weight,return_momentum_5d,0.5,float,动量因子权重(辅助)
+weight,oi_price_momentum,1.0,float,资金动量因子权重
+weight,vol_oi_divergence,0.5,float,量仓背离因子权重(辅助)
+weight,oi_concentration,0.5,float,持仓集中度因子权重(辅助)
+# ========================================
+# 基本面硬过滤参数
+# ========================================
+fundamental,fundamental_filter_enabled,True,bool,是否启用基本面硬过滤
+fundamental,fundamental_price_decline_pct,0.10,float,基本面严重恶化:价格跌幅阈值
+fundamental,fundamental_oi_shrink_pct,0.15,float,基本面严重恶化:持仓量萎缩阈值
+fundamental,fundamental_oi_shrink_window,20,int,持仓量萎缩观察窗口
+# ========================================
+# 时间切分参数
+# ========================================
+split,train_ratio,0.40,float,训练集占比
+split,validation_ratio,0.30,float,验证集占比
+split,remainder_is_oos,True,bool,剩余为样本外(0.30)
+# ========================================
+# 稳健性测试参数
+# ========================================
+robustness,rolling_window_days,120,int,滚动窗口天数(交易日)
+robustness,rolling_step_days,20,int,滚动步进天数
+robustness,quintile_num,5,int,分层检验分层数
+robustness,param_perturbation_pct,0.20,float,参数扰动幅度(±20%)
+robustness,num_permutations,200,int,置换检验次数
+robustness,perm_sharpe_threshold,0.5,float,置换检验Sharpe阈值
+robustness,sensitivity_factors,oi_expand_window,volume_ma_short,volume_ratio_5_20,float,敏感性测试因子窗口列表
+robustness,subsample_splits,3,int,子样本检验分段数
+# ========================================
+# 叙事因子配置 (DSH-C 接口)
+# ========================================
+narrative,narrative_heat_threshold,50,float,叙事热度共振阈值(0-100)
+narrative,narrative_bonus_scale,3.0,float,叙事加分缩放系数
+narrative,narrative_trend_boost,1.2,float,叙事上升趋势加成倍数
+# ========================================
+# F046因子配置 (DSH-D 实验池)
+# ========================================
+f046,f046_symbols,PB,list,F046启用品种列表(逗号分隔)
+f046,f046_lookback,5,int,F046回看窗口
+f046,f046_vol_shrink_pct,0.15,float,F046成交量萎缩阈值(15%)
+f046,f046_weight,1.0,float,F046因子权重
+# 注: F046组需降低min_volume_threshold至30000以允许PB参与(原100000会过滤PB)

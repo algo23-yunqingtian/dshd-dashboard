@@ -1,0 +1,58 @@
+{
+  "dataset_version": "1.0",
+  "generated_at": "2026-10-09T12:24:08+08:00",
+  "seed": 42,
+  "source": "DSHD DEFECT-P9-001/P9-002 回归 + 数据质量检查",
+  "alerts": [
+    {
+      "alert_id": "DEFECT-P9-001",
+      "ts": "2026-10-20T09:00:00+08:00",
+      "component": "v87_03_monitor_service.py",
+      "defect": "RED color 事件误映射为 RECORD action",
+      "severity": "CRITICAL",
+      "status": "FIXED",
+      "fix_version": "e2f0d4ccd65eea44f56578c33bec27fe (v87_03_monitor_service.py L141-146)",
+      "regression": "p12_defect_regression.py D1 9/9 PASS",
+      "regression_ts": "2026-11-16T15:00:00+08:00"
+    },
+    {
+      "alert_id": "DEFECT-P9-002",
+      "ts": "2026-10-21T10:30:00+08:00",
+      "component": "v87_03_monitor_service.py",
+      "defect": "PC-003 audit_id 冲突 (同槽位不同事件)",
+      "severity": "HIGH",
+      "status": "FIXED",
+      "fix_version": "e2f0d4ccd65eea44f56578c33bec27fe (L409-411)",
+      "regression": "p12_defect_regression.py D2 8/8 PASS",
+      "regression_ts": "2026-11-16T15:00:00+08:00"
+    },
+    {
+      "alert_id": "DATA-ZN-001",
+      "ts": "2026-11-05T12:00:00+08:00",
+      "component": "ZN snapshot",
+      "defect": "ZN 真实快照未接入, 影子回测数据仅用于归档展示",
+      "severity": "INFO",
+      "status": "PENDING_TD002",
+      "fix_version": null,
+      "regression": "zn_ni_sn_si_precheck_automation.py 107 项检查模块就绪",
+      "regression_ts": null
+    },
+    {
+      "alert_id": "DATA-CHANNEL-001",
+      "ts": "2026-11-16T14:30:00+08:00",
+      "component": "DSHC channel",
+      "defect": "DSHC 编排器风险事件通道 0 入站 (IDLE 4 轮)",
+      "severity": "CRITICAL",
+      "status": "OPEN",
+      "fix_version": null,
+      "regression": "P12 通道 probe 3/3 IDLE, CRITICAL/P0 自动升级 3 次",
+      "regression_ts": "2026-11-16T15:00:00+08:00"
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "fixed": 2,
+    "open": 2,
+    "pending": 1
+  }
+}

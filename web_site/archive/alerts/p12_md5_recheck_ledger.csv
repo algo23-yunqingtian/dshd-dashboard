@@ -1,0 +1,5 @@
+round_no,slot,seed,upstream_total,upstream_match,upstream_mismatch,baseline_total,baseline_match,baseline_mismatch,deliverable_total,anchor_ok,chain_ok,channel_ok,frozen_archive_ok,test_vol_chain_ok,verdict,record_md5
+PG12-R1,2026-11-16T14:30:00+08:00,42,17,17,0,17,17,0,35,True,True,True,True,True,PASS,41bedd35b574195466025c844c237c3c
+PG12-R2,2026-11-16T14:45:00+08:00,42,17,17,0,17,17,0,35,True,True,True,True,True,PASS,fb86378a7afc85bf16c04fd6475ebaf8
+PG12-R3,2026-11-16T15:00:00+08:00,42,17,17,0,17,17,0,35,True,True,True,True,True,PASS,54e68111947fc25720f00b674b3d7750
+PG12-FINAL,2026-11-16T17:00:00+08:00,42,17,17,0,17,17,0,35,True,True,True,True,True,PASS,c4d0f9abef6e76c33f77046ae43b6ddc

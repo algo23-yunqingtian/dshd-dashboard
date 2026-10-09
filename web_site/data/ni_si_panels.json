@@ -1,0 +1,62 @@
+{
+  "dataset_version": "1.1",
+  "generated_at": "2026-10-09T13:33:39+08:00",
+  "seed": 42,
+  "description": "NI/SI independent panel data for P19 T2 visualization upgrade",
+  "panels": {
+    "NI": {
+      "code": "NI",
+      "name": "镍",
+      "exchange": "SHFE",
+      "data_status": "BLOCKED_SHADOW",
+      "backtest": {
+        "engine_version": "V86.9-C-FINAL-DEBUG-P18",
+        "phase": "Phase18",
+        "trading_days": 65,
+        "final_nv": 1.022,
+        "max_dd": 1.2,
+        "ic_mean": 0.028,
+        "ir_mean": 7.5
+      },
+      "trades": {
+        "total_trades": 4,
+        "open_trades": 2,
+        "close_trades": 2,
+        "total_pnl_pct": -0.07,
+        "trade_detail": "LONG 2027-01-21 @20197.1 (BEAR/F01+F08+F19) -> CLOSE 2027-02-15; LONG 2027-02-22 -> OPEN"
+      },
+      "td002_progress": 0.62,
+      "td014_progress": 0.5,
+      "m3_status": "COMPLETED",
+      "m4_status": "PENDING",
+      "version_tag": "P19"
+    },
+    "SI": {
+      "code": "SI",
+      "name": "工业硅",
+      "exchange": "SHFE",
+      "data_status": "BLOCKED_SHADOW",
+      "backtest": {
+        "engine_version": "V86.9-C-FINAL-DEBUG-P18",
+        "phase": "Phase18",
+        "trading_days": 65,
+        "final_nv": 1.016,
+        "max_dd": 0.8,
+        "ic_mean": 0.022,
+        "ir_mean": 5.8
+      },
+      "trades": {
+        "total_trades": 8,
+        "open_trades": 4,
+        "close_trades": 4,
+        "total_pnl_pct": 1.45,
+        "trade_detail": "LONG 2027-01-19 @21309.2 (CRISIS/F01+F08+F19) -> CLOSE 2027-02-09; +3 pairs"
+      },
+      "td002_progress": 0.58,
+      "td014_progress": 0.45,
+      "m3_status": "COMPLETED",
+      "m4_status": "PENDING",
+      "version_tag": "P19"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "dataset_version": "1.6",
+  "version_tag": "P24",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "P24 experiment index - P2~P24 (19 experiments)",
+  "experiments": [
+    {
+      "phase": "P2",
+      "status": "ARCHIVED",
+      "phase_num": 2
+    },
+    {
+      "phase": "P3",
+      "status": "ARCHIVED",
+      "phase_num": 3
+    },
+    {
+      "phase": "P4",
+      "status": "ARCHIVED",
+      "phase_num": 4
+    },
+    {
+      "phase": "P5",
+      "status": "ARCHIVED",
+      "phase_num": 5
+    },
+    {
+      "phase": "P6",
+      "status": "ARCHIVED",
+      "phase_num": 6
+    },
+    {
+      "phase": "P7",
+      "status": "ARCHIVED",
+      "phase_num": 7
+    },
+    {
+      "phase": "P8",
+      "status": "ARCHIVED",
+      "phase_num": 8
+    },
+    {
+      "phase": "P9",
+      "status": "ARCHIVED",
+      "phase_num": 9
+    },
+    {
+      "phase": "P10",
+      "status": "ARCHIVED",
+      "phase_num": 10
+    },
+    {
+      "phase": "P11",
+      "status": "ARCHIVED",
+      "phase_num": 11
+    },
+    {
+      "phase": "P12",
+      "status": "ARCHIVED",
+      "phase_num": 12
+    },
+    {
+      "phase": "P13",
+      "status": "ARCHIVED",
+      "phase_num": 13
+    },
+    {
+      "phase": "P14",
+      "status": "ARCHIVED",
+      "phase_num": 14
+    },
+    {
+      "phase": "P15",
+      "status": "ARCHIVED",
+      "phase_num": 15
+    },
+    {
+      "phase": "P16",
+      "status": "ARCHIVED",
+      "phase_num": 16
+    },
+    {
+      "phase": "P17",
+      "status": "ARCHIVED",
+      "phase_num": 17
+    },
+    {
+      "phase": "P18",
+      "status": "ARCHIVED",
+      "phase_num": 18
+    },
+    {
+      "phase": "P19",
+      "status": "ARCHIVED",
+      "phase_num": 19
+    },
+    {
+      "phase": "P20",
+      "status": "ARCHIVED",
+      "phase_num": 20
+    },
+    {
+      "phase": "P21",
+      "status": "ARCHIVED",
+      "phase_num": 21
+    },
+    {
+      "phase": "P22",
+      "status": "ARCHIVED",
+      "phase_num": 22
+    },
+    {
+      "phase": "P23",
+      "status": "ARCHIVED",
+      "phase_num": 23
+    },
+    {
+      "phase": "P24",
+      "status": "CURRENT",
+      "phase_num": 24
+    }
+  ],
+  "total_experiments": 23,
+  "current": "P24",
+  "version_separation": "P18/P19/P20/P21/P22/P23/P24"
+}

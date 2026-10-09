@@ -1,0 +1,307 @@
+{
+  "bucket": "hour",
+  "markers": [
+    {
+      "bucket": "2026-10-10-11",
+      "ts": "2026-10-10T11:00:00+08:00",
+      "count": 30,
+      "count_by_color": {
+        "GRAY": 18,
+        "ORANGE": 12
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-10-12-14",
+      "ts": "2026-10-12T14:00:00+08:00",
+      "count": 32,
+      "count_by_color": {
+        "GRAY": 20,
+        "ORANGE": 12
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10",
+        "GATE-P2-11"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-10-23-14",
+      "ts": "2026-10-23T14:30:00+08:00",
+      "count": 22,
+      "count_by_color": {
+        "GRAY": 14,
+        "ORANGE": 8
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10",
+        "GATE-P2-11"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-10-23-15",
+      "ts": "2026-10-23T15:00:00+08:00",
+      "count": 11,
+      "count_by_color": {
+        "GRAY": 7,
+        "ORANGE": 4
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10",
+        "GATE-P2-11"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-10-25-14",
+      "ts": "2026-10-25T14:30:00+08:00",
+      "count": 22,
+      "count_by_color": {
+        "GRAY": 14,
+        "ORANGE": 8
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10",
+        "GATE-P2-11"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-10-25-15",
+      "ts": "2026-10-25T15:00:00+08:00",
+      "count": 11,
+      "count_by_color": {
+        "GRAY": 7,
+        "ORANGE": 4
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10",
+        "GATE-P2-11"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-11-16-14",
+      "ts": "2026-11-16T14:30:00+08:00",
+      "count": 22,
+      "count_by_color": {
+        "GRAY": 14,
+        "ORANGE": 8
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10",
+        "GATE-P2-11"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-11-16-15",
+      "ts": "2026-11-16T15:00:00+08:00",
+      "count": 11,
+      "count_by_color": {
+        "GRAY": 7,
+        "ORANGE": 4
+      },
+      "max_level": 2,
+      "risk_ids": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04",
+        "GATE-P2-05",
+        "GATE-P2-06",
+        "GATE-P2-07",
+        "GATE-P2-08",
+        "GATE-P2-09",
+        "GATE-P2-10",
+        "GATE-P2-11"
+      ],
+      "symbols": [
+        "SYSTEM"
+      ],
+      "escalated": 0,
+      "pending_gates": [
+        "GATE-P2-01",
+        "GATE-P2-02",
+        "GATE-P2-03",
+        "GATE-P2-04"
+      ],
+      "stop_line": 0
+    },
+    {
+      "bucket": "2026-11-16-16",
+      "ts": "2026-11-16T16:30:00+08:00",
+      "count": 32,
+      "count_by_color": {
+        "ORANGE": 13,
+        "RED": 14,
+        "YELLOW": 5
+      },
+      "max_level": 3,
+      "risk_ids": [
+        "FR-RISK-501",
+        "FR-RISK-502",
+        "FR-RISK-503",
+        "FR-RISK-504",
+        "FR-RISK-505",
+        "FR-RISK-506",
+        "FR-RISK-507",
+        "FR-RISK-508"
+      ],
+      "symbols": [
+        "AL",
+        "ALL",
+        "CU",
+        "PB",
+        "ZN"
+      ],
+      "escalated": 14,
+      "pending_gates": [],
+      "stop_line": 14
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "source": "DSH-C NLP模块 (模拟数据)",
+    "generation_date": "2026-09-26",
+    "description": "narrative_factors_daily — 每日叙事热度因子, 基于新闻情绪和频率计算",
+    "schema": {
+      "symbol": "品种代码",
+      "date": "日期",
+      "narrative_heat": "叙事热度 (0-100), 基于新闻数量+情绪正负",
+      "news_count": "当日相关新闻数",
+      "sentiment_score": "情绪得分 (-1到1), 正面到负面",
+      "sector_narrative": "板块叙事强度 (0-100)",
+      "narrative_trend": "叙事趋势 (上升/平稳/下降)"
+    },
+    "note": "模拟数据, 实际DSH-C产出替换此文件即可"
+  },
+  "data": []
+}

@@ -1,0 +1,41 @@
+{
+  "dataset_version": "1.0",
+  "generated_at": "2026-10-09T12:24:08+08:00",
+  "seed": 42,
+  "source": "DSHD 全阶段回滚事件记录",
+  "events": [
+    {
+      "event_id": "RB-AL-001",
+      "ts": "2026-10-15T10:00:00+08:00",
+      "variety": "AL",
+      "type": "factor_weight_rollback",
+      "reason": "F19 权重 1.0->0.4 (信噪衰减)",
+      "action": "AL F19 权重降级, 观察 7 日",
+      "status": "COMPLETED"
+    },
+    {
+      "event_id": "RB-PB-001",
+      "ts": "2026-11-02T14:30:00+08:00",
+      "variety": "PB",
+      "type": "factor_freeze",
+      "reason": "F07 权重异常 (drift 0.41)",
+      "action": "PB F07 权重临时冻结",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "event_id": "RB-DSHC-001",
+      "ts": "2026-11-16T14:30:00+08:00",
+      "variety": "ALL",
+      "type": "channel_freeze",
+      "reason": "DSHC 通道 IDLE 4 轮, 无新事件入站",
+      "action": "通道保持监听, 等待 DSHC 编排器数据接入",
+      "status": "OPEN"
+    }
+  ],
+  "stats": {
+    "total": 3,
+    "completed": 1,
+    "in_progress": 1,
+    "open": 1
+  }
+}

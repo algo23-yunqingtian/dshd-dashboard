@@ -1,0 +1,40 @@
+{
+  "event_id": "PC-003-DSHC-LABPOS-20261116-002",
+  "ts": "2026-11-16T15:30:00+08:00",
+  "source": "DSHC (LAB POSITIVE-PATH PROOF)",
+  "event_type": "PC-003_DUAL_GATE_POLL",
+  "pipeline": "PC-003",
+  "request": "UNLOCK",
+  "variants": ["ZN", "NI", "SN", "SI"],
+  "upstream_ref": "LAB:POSITIVE-PATH-PROOF (假设路径, 非真实推送)",
+  "phase": "PHASE12",
+  "note": "LAB POSITIVE-PATH PROOF ONLY - 双门禁全 VERIFIED 仅用于证明解锁链路可达性与 ACTIVATED 判定分支, 不代表 DSHC 真实推送. 真实解锁需 TD002+TD014 数据实际达标并由 DSHC 正式推送.",
+  "gates": {
+    "TD002": {
+      "status": "VERIFIED",
+      "condition": "TD002_PENALTY_CALC_RULES_VERIFIED",
+      "verified": true,
+      "source": "DSHC",
+      "detail": "LAB: 罚金计算规则已验证 (假设)"
+    },
+    "TD014": {
+      "status": "VERIFIED",
+      "condition": "TD014_DQ_RULES_VERIFIED",
+      "verified": true,
+      "source": "DSHC",
+      "detail": "LAB: 数据质量规则已达标 (假设)"
+    },
+    "REAL_DATA_INGESTION": {
+      "status": "VERIFIED",
+      "verified": true,
+      "source": "DSHC",
+      "detail": "LAB: 真实持仓数据已接入 (假设)"
+    },
+    "CONDITIONAL_APPROVAL": {
+      "status": "VERIFIED",
+      "verified": true,
+      "source": "DSHA",
+      "detail": "LAB: SI 附加条件审批已签发 (假设)"
+    }
+  }
+}

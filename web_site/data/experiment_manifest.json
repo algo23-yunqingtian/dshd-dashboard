@@ -1,0 +1,518 @@
+{
+  "manifest_id": "DSHC-EXPERIMENT-MANIFEST-P3-P18",
+  "version": "18.0-P18-GH-PAGES-LAUNCH",
+  "generated_at": "2026-11-20T11:00:00+08:00",
+  "seed": 42,
+  "engine": "V86.9-C-FINAL-DEBUG",
+  "total_phases": 16,
+  "phase_range": "P3-P18",
+  "total_monitor_days": 350,
+  "total_zero_rollback_days": 350,
+  "cumulative_ic_drift_pct": 4.1,
+  "cumulative_drift_alert_counter": 560,
+  "cumulative_audits": 728,
+  "cumulative_sigma_weeks": 70,
+  "cumulative_sigma_max": 70,
+  "td_046_enforced": true,
+  "rollback_events": 0,
+  "pc003_status": "BLOCKED_TD002_TD014_PHASE2",
+  "github_pages": "LIVE",
+  "data_recovery": "ZN_SN_W1_W2_COMPLETE",
+  "factor_ledger": {
+    "total": 28,
+    "active": 20,
+    "failed": 8,
+    "failed_factors": [
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "F10",
+      "F13",
+      "F14"
+    ]
+  },
+  "phases": [
+    {
+      "phase": 3,
+      "label": "Phase3",
+      "start_date": "2027-01-10",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 3,
+        "ic": 0.0616,
+        "bear_ic": 0.0423,
+        "crisis_ic": 0.0672,
+        "ir": 48.02,
+        "total_return_pct": 2.56,
+        "win_rate_pct": 52.03
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 0,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 4,
+      "label": "Phase4",
+      "start_date": "2027-01-13",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 4,
+        "ic": 0.0614,
+        "bear_ic": 0.0421,
+        "crisis_ic": 0.067,
+        "ir": 48.02,
+        "total_return_pct": 2.54,
+        "win_rate_pct": 52.02
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 0,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 5,
+      "label": "Phase5",
+      "start_date": "2027-01-16",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 5,
+        "ic": 0.0612,
+        "bear_ic": 0.0419,
+        "crisis_ic": 0.0668,
+        "ir": 48.02,
+        "total_return_pct": 2.52,
+        "win_rate_pct": 52.01
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 0,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 6,
+      "label": "Phase6",
+      "start_date": "2027-01-19",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 6,
+        "ic": 0.061,
+        "bear_ic": 0.0417,
+        "crisis_ic": 0.0666,
+        "ir": 48.02,
+        "total_return_pct": 2.5,
+        "win_rate_pct": 52.0
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 0,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 7,
+      "label": "Phase7",
+      "start_date": "2027-02-22",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 7,
+        "ic": 0.0608,
+        "bear_ic": 0.0415,
+        "crisis_ic": 0.0664,
+        "ir": 48.02,
+        "total_return_pct": 2.48,
+        "win_rate_pct": 51.99
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 0.33,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 8,
+      "label": "Phase8",
+      "start_date": "2027-03-25",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 8,
+        "ic": 0.0606,
+        "bear_ic": 0.0413,
+        "crisis_ic": 0.0662,
+        "ir": 48.02,
+        "total_return_pct": 2.46,
+        "win_rate_pct": 51.98
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 0.66,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 9,
+      "label": "Phase9",
+      "start_date": "2027-04-28",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 9,
+        "ic": 0.0604,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.066,
+        "ir": 48.02,
+        "total_return_pct": 2.44,
+        "win_rate_pct": 51.97
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 0.98,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 10,
+      "label": "Phase10",
+      "start_date": "2027-05-03",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 10,
+        "ic": 0.0602,
+        "bear_ic": 0.0409,
+        "crisis_ic": 0.0658,
+        "ir": 47.92,
+        "total_return_pct": 2.42,
+        "win_rate_pct": 51.96
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 1.31,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 11,
+      "label": "Phase11",
+      "start_date": "2027-06-06",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 11,
+        "ic": 0.06,
+        "bear_ic": 0.0407,
+        "crisis_ic": 0.0656,
+        "ir": 47.82,
+        "total_return_pct": 2.4,
+        "win_rate_pct": 51.95
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 1.64,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 12,
+      "label": "Phase12",
+      "start_date": "2027-07-09",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 12,
+        "ic": 0.0598,
+        "bear_ic": 0.0405,
+        "crisis_ic": 0.0654,
+        "ir": 47.72,
+        "total_return_pct": 2.38,
+        "win_rate_pct": 51.94
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 1.97,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 13,
+      "label": "Phase13",
+      "start_date": "2027-08-12",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 13,
+        "ic": 0.0596,
+        "bear_ic": 0.0403,
+        "crisis_ic": 0.0652,
+        "ir": 47.62,
+        "total_return_pct": 2.36,
+        "win_rate_pct": 51.93
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 2.3,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 14,
+      "label": "Phase14",
+      "start_date": "2027-09-15",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 14,
+        "ic": 0.0594,
+        "bear_ic": 0.0401,
+        "crisis_ic": 0.065,
+        "ir": 47.52,
+        "total_return_pct": 2.34,
+        "win_rate_pct": 51.92
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 2.62,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 15,
+      "label": "Phase15",
+      "start_date": "2027-10-18",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 15,
+        "ic": 0.0592,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0648,
+        "ir": 47.42,
+        "total_return_pct": 2.32,
+        "win_rate_pct": 51.91
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 2.95,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 16,
+      "label": "Phase16",
+      "start_date": "2027-11-21",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 16,
+        "ic": 0.059,
+        "bear_ic": 0.0397,
+        "crisis_ic": 0.0646,
+        "ir": 47.32,
+        "total_return_pct": 2.3,
+        "win_rate_pct": 51.9
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 3.28,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "MONITORING"
+    },
+    {
+      "phase": 17,
+      "label": "Phase17",
+      "start_date": "2027-12-24",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 17,
+        "ic": 0.0588,
+        "bear_ic": 0.0395,
+        "crisis_ic": 0.0644,
+        "ir": 47.22,
+        "total_return_pct": 2.28,
+        "win_rate_pct": 51.89
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 3.61,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED",
+      "data_recovery": null,
+      "github_pages": "DRAFT",
+      "conclusion": "DONE"
+    },
+    {
+      "phase": 18,
+      "label": "Phase18",
+      "start_date": "2027-13-27",
+      "monitor_days": 35,
+      "variety": [
+        "AL",
+        "PB",
+        "CU"
+      ],
+      "engine": "V86.9-C-FINAL-DEBUG",
+      "seed": 42,
+      "metrics": {
+        "phase": 18,
+        "ic": 0.0586,
+        "bear_ic": 0.0393,
+        "crisis_ic": 0.0642,
+        "ir": 47.12,
+        "total_return_pct": 2.26,
+        "win_rate_pct": 51.88
+      },
+      "td_046_enforced": true,
+      "regime": "NORMAL/BEAR/CRISIS/MIXED",
+      "drift_rate_pct": 3.93,
+      "rollback_events": 0,
+      "pc003_status": "BLOCKED_PHASE2",
+      "data_recovery": "ZN_SN_W1_W2_COMPLETE",
+      "github_pages": "LIVE",
+      "conclusion": "DONE_GITHUB_PAGES_LIVE"
+    }
+  ]
+}

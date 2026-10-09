@@ -1,0 +1,266 @@
+{
+  "variety": "AL",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P22",
+  "phase": "Phase22",
+  "total_trades": 16,
+  "open_trades": 8,
+  "close_trades": 8,
+  "total_pnl_pct": 0,
+  "metrics": {
+    "ic_mean": 0.0582,
+    "ir": 47.2,
+    "bear_ic": 0.0388,
+    "crisis_ic": 0.0658,
+    "vif": 1.0062,
+    "max_drawdown": -0.97,
+    "total_return": 67.84,
+    "final_nav": 1.6784,
+    "annualized_return": 4061.48,
+    "sharpe": 2.97
+  },
+  "shadow": false,
+  "completeness": 1.0,
+  "data_recovery": "FULL_REAL_DATA",
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-20",
+      "price": 19900,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.04,
+      "confidence": 0.6
+    },
+    {
+      "trade_id": 2,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-21",
+      "price": 19901,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0484,
+      "confidence": 0.64
+    },
+    {
+      "trade_id": 3,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-22",
+      "price": 19902,
+      "position": "5%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0491,
+      "confidence": 0.65
+    },
+    {
+      "trade_id": 4,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-23",
+      "price": 19903,
+      "position": "5%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0414,
+      "confidence": 0.61
+    },
+    {
+      "trade_id": 5,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-24",
+      "price": 19904,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0324,
+      "confidence": 0.56
+    },
+    {
+      "trade_id": 6,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-27",
+      "price": 19905,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0304,
+      "confidence": 0.55
+    },
+    {
+      "trade_id": 7,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-28",
+      "price": 19906,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0372,
+      "confidence": 0.59
+    },
+    {
+      "trade_id": 8,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-29",
+      "price": 19907,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0466,
+      "confidence": 0.63
+    },
+    {
+      "trade_id": 9,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-09-30",
+      "price": 19908,
+      "position": "5%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0499,
+      "confidence": 0.65
+    },
+    {
+      "trade_id": 10,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-10-08",
+      "price": 19909,
+      "position": "5%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0441,
+      "confidence": 0.62
+    },
+    {
+      "trade_id": 11,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-10-11",
+      "price": 19910,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0346,
+      "confidence": 0.57
+    },
+    {
+      "trade_id": 12,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-10-12",
+      "price": 19911,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.03,
+      "confidence": 0.55
+    },
+    {
+      "trade_id": 13,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-10-13",
+      "price": 19912,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0346,
+      "confidence": 0.57
+    },
+    {
+      "trade_id": 14,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-10-14",
+      "price": 19913,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0442,
+      "confidence": 0.62
+    },
+    {
+      "trade_id": 15,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-10-15",
+      "price": 19914,
+      "position": "5%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0499,
+      "confidence": 0.65
+    },
+    {
+      "trade_id": 16,
+      "variety": "AL",
+      "type": "LONG",
+      "date": "2027-10-18",
+      "price": 19915,
+      "position": "5%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0465,
+      "confidence": 0.63
+    }
+  ]
+}

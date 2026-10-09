@@ -1,0 +1,40 @@
+{
+  "dataset_version": "1.6",
+  "version_tag": "P24",
+  "generated_at": "2026-10-09T16:35:24+08:00",
+  "seed": 42,
+  "description": "P24 version index - P18/P19/P20/P21/P22/P23/P24 seven-version separation",
+  "current_version": "P24",
+  "versions": {
+    "P18": {
+      "status": "ARCHIVED",
+      "data_version": "1.0"
+    },
+    "P19": {
+      "status": "ARCHIVED",
+      "data_version": "1.1"
+    },
+    "P20": {
+      "status": "ARCHIVED",
+      "data_version": "1.2"
+    },
+    "P21": {
+      "status": "ARCHIVED",
+      "data_version": "1.3"
+    },
+    "P22": {
+      "status": "ARCHIVED",
+      "data_version": "1.4"
+    },
+    "P23": {
+      "status": "ARCHIVED",
+      "data_version": "1.5"
+    },
+    "P24": {
+      "status": "CURRENT",
+      "data_version": "1.6"
+    }
+  },
+  "p18_p19_p20_p21_p22_p23_p24_separation": true,
+  "total_data_version": "1.6"
+}

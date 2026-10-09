@@ -1,0 +1,161 @@
+{
+  "variety": "ZN",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P16",
+  "phase": "Phase16",
+  "total_trades": 10,
+  "open_trades": 5,
+  "close_trades": 5,
+  "total_pnl_pct": 1.49,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "ZN",
+      "type": "LONG",
+      "date": "2027-01-20",
+      "price": 20915.9,
+      "position": "5%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0512,
+      "confidence": 0.67
+    },
+    {
+      "trade_id": 2,
+      "variety": "ZN",
+      "type": "CLOSE",
+      "date": "2027-01-21",
+      "price": 19595.1,
+      "pnl_pct": 0.06,
+      "holding_days": 1,
+      "open_date": "2027-01-20",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0134
+    },
+    {
+      "trade_id": 3,
+      "variety": "ZN",
+      "type": "LONG",
+      "date": "2027-02-03",
+      "price": 19738.4,
+      "position": "5%",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F01"
+      ],
+      "signal_strength": 0.0545,
+      "confidence": 0.6
+    },
+    {
+      "trade_id": 4,
+      "variety": "ZN",
+      "type": "CLOSE",
+      "date": "2027-02-04",
+      "price": 19555.2,
+      "pnl_pct": 0.4,
+      "holding_days": 1,
+      "open_date": "2027-02-03",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F03"
+      ],
+      "signal_strength": 0.0102
+    },
+    {
+      "trade_id": 5,
+      "variety": "ZN",
+      "type": "LONG",
+      "date": "2027-02-05",
+      "price": 19810.5,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01"
+      ],
+      "signal_strength": 0.0526,
+      "confidence": 0.63
+    },
+    {
+      "trade_id": 6,
+      "variety": "ZN",
+      "type": "CLOSE",
+      "date": "2027-02-08",
+      "price": 19386.3,
+      "pnl_pct": 0.32,
+      "holding_days": 1,
+      "open_date": "2027-02-05",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F03"
+      ],
+      "signal_strength": 0.0189
+    },
+    {
+      "trade_id": 7,
+      "variety": "ZN",
+      "type": "LONG",
+      "date": "2027-02-10",
+      "price": 20103.6,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01"
+      ],
+      "signal_strength": 0.0508,
+      "confidence": 0.69
+    },
+    {
+      "trade_id": 8,
+      "variety": "ZN",
+      "type": "CLOSE",
+      "date": "2027-02-22",
+      "price": 20260.5,
+      "pnl_pct": 0.16,
+      "holding_days": 8,
+      "open_date": "2027-02-10",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F03"
+      ],
+      "signal_strength": 0.0125
+    },
+    {
+      "trade_id": 9,
+      "variety": "ZN",
+      "type": "LONG",
+      "date": "2027-02-26",
+      "price": 20084.9,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08",
+        "F19"
+      ],
+      "signal_strength": 0.0539,
+      "confidence": 0.78
+    },
+    {
+      "trade_id": 10,
+      "variety": "ZN",
+      "type": "CLOSE",
+      "date": "2027-03-03",
+      "price": 20232.4,
+      "pnl_pct": 0.55,
+      "holding_days": 3,
+      "open_date": "2027-02-26",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0455
+    }
+  ]
+}
