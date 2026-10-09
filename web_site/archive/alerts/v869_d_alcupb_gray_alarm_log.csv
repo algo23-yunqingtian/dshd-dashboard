@@ -1,0 +1,9 @@
+timestamp,alarm_id,severity,source,detail,patrol_no,escalation,record_md5
+2026-10-10T04:45:00+08:00,ALARM-R04-K11-CHECK-1-CONTRACT_SIZE,CRITICAL,j15_drill_exec.py,RED-1: AL F39/F40=3 deviates A-tier 5/5; STOP_LINE issued,J15-DRILL-P1,STOP_LINE,9ebbe6cfa14f922bfe48ad3180b47ccc
+2026-10-10T04:45:00+08:00,ALARM-POS-CHECK-3-POSITION_PATH,CRITICAL,j15_drill_exec.py,RED-2: CU pos_positive=0 (V87-04 hard gate); STOP_LINE issued,J15-DRILL-P1,STOP_LINE,a67e5965022374a95e1e5899b6ff80bc
+2026-10-10T04:45:00+08:00,ALARM-RO-PHASE1-DRILL,HIGH,j15_drill_exec.py,"ORANGE-1: lab RO file writable (attribute lost); notify owner, restore RO",J15-DRILL-P1,ORANGE,ff8237beb4e6a0cb95ecac8c998ae67c
+2026-10-10T04:45:00+08:00,ALARM-MISSING-PB-SNAPSHOT,HIGH,j15_drill_exec.py,ORANGE-2: pb_snapshot_20261010.csv absent in lab tree; recheck next patrol,J15-DRILL-P1,ORANGE,a93f330bb4bebc2e8fefa5aecb290da1
+2026-10-10T04:45:00+08:00,ALARM-LOG-VOLUME-ARCHIVE-FAIL,MEDIUM,j15_drill_exec.py,YELLOW-1: volume 0001 archive manifest generation failed (simulated),J15-DRILL-P1,YELLOW,06cfc55b4c3d4285c745b6ad0f0edba5
+2026-10-10T04:45:00+08:00,ALARM-CHAIN-P1-SIM,MEDIUM,j15_drill_exec.py,"YELLOW-2: delivery chain partial file missing (simulated, next patrol confirm)",J15-DRILL-P1,YELLOW,570c7236b18740783487dcf63df99398
+2026-10-10T04:45:00+08:00,ALARM-ESC-YELLOW-x3,HIGH,j15_drill_exec.py,ESCALATION: YELLOW-1/2 repeated 3rd patrol not cleared -> ORANGE (MEDIUM->HIGH),J15-DRILL-P1,ORANGE,4e8086bdbe130118f57e0fdc1553f0aa
+2026-10-10T04:45:00+08:00,ALARM-ESC-ORANGE-LEAK,CRITICAL,j15_drill_exec.py,ESCALATION: ORANGE (RO lost) + write-probe leak simultaneous -> RED (HIGH->CRITICAL); STOP_LINE,J15-DRILL-P1,RED-STOP_LINE,46f2f88c7cb0617b0627b00dc3f205a3

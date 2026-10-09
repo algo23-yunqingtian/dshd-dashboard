@@ -1,0 +1,13 @@
+run_id,sym,mode,check_id,rule,status,level,alarm_prefix,detail,fixed_slot,seed
+10550c7d39ad,ZN,real,CHECK-1-CONTRACT_SIZE,R04/K11,PASS,CRITICAL,ALARM-R04-K11-,ref=mult25 size25 sample=2 bad=0,2026-10-10T03:00:00+08:00,42
+10550c7d39ad,ZN,real,CHECK-2-LIMIT,R02/K12,PASS,CRITICAL,ALARM-R02-K12-,"A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=2 evt_bad=0 dual_track_ok=True",2026-10-10T03:00:00+08:00,42
+10550c7d39ad,ZN,real,CHECK-3-POSITION_PATH,L-05/V87-04,PASS,CRITICAL,ALARM-POS-,REAL: pos_positive=2 roll_error=0,2026-10-10T03:00:00+08:00,42
+fcd3bb5b5bf1,ZN,real,CHECK-1-CONTRACT_SIZE,R04/K11,FAIL,CRITICAL,ALARM-R04-K11-,ref=mult25 size25 sample=1 bad=1 mismatches=DIFF-00033:F39=5.0 F40=5.0,2026-10-10T03:00:00+08:00,42
+fcd3bb5b5bf1,ZN,real,CHECK-2-LIMIT,R02/K12,PASS,CRITICAL,ALARM-R02-K12-,"A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",2026-10-10T03:00:00+08:00,42
+fcd3bb5b5bf1,ZN,real,CHECK-3-POSITION_PATH,L-05/V87-04,PASS,CRITICAL,ALARM-POS-,REAL: pos_positive=2 roll_error=0,2026-10-10T03:00:00+08:00,42
+53b8d5a4a9a3,ZN,real,CHECK-1-CONTRACT_SIZE,R04/K11,PASS,CRITICAL,ALARM-R04-K11-,ref=mult25 size25 sample=2 bad=0,2026-10-10T03:00:00+08:00,42
+53b8d5a4a9a3,ZN,real,CHECK-2-LIMIT,R02/K12,PASS,CRITICAL,ALARM-R02-K12-,"A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=2 evt_bad=0 dual_track_ok=True",2026-10-10T03:00:00+08:00,42
+53b8d5a4a9a3,ZN,real,CHECK-3-POSITION_PATH,L-05/V87-04,FAIL,CRITICAL,ALARM-POS-,REAL: pos_positive=0 (L-05 投产硬门未过: 头寸>0 回放缺失); total=2 rejected=1 accepted=1 roll_error=0,2026-10-10T03:00:00+08:00,42
+e12c3ba28d8b,ZN,offline,CHECK-1-CONTRACT_SIZE,R04/K11,PASS,CRITICAL,ALARM-R04-K11-,ref=mult25 size25 sample=2 bad=0,2026-10-10T03:00:00+08:00,42
+e12c3ba28d8b,ZN,offline,CHECK-2-LIMIT,R02/K12,PASS,CRITICAL,ALARM-R02-K12-,"A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=2 evt_bad=0 dual_track_ok=True",2026-10-10T03:00:00+08:00,42
+e12c3ba28d8b,ZN,offline,CHECK-3-POSITION_PATH,L-05/V87-04,WARN,CRITICAL,ALARM-POS-,OFFLINE: accepted_ratio=0.50 pos_positive=0,2026-10-10T03:00:00+08:00,42

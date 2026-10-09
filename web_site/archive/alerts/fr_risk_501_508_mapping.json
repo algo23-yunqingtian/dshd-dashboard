@@ -1,0 +1,151 @@
+{
+  "config_id": "V86.9-ALCUPB-FRRISK-501-508-MAPPING-1",
+  "job_id": "DSHD-P0-AL-CU-PB-GRAY-PHASE1-LIVE-MONITOR",
+  "fixed_slot": "2026-10-10T06:15:00+08:00",
+  "seed": 42,
+  "source": "DSHC 转发灰度运行期风险告警族 (FR-RISK-5xx 新族; 工作区实证无既有占用, 全部为本工单新接入)",
+  "upstream_readonly": [
+    "PHASE1_MONITOR_DONE.flag (c425024fb0a90d6c88a992576f4a8207, READ-ONLY)",
+    "v869d_ad_acl_monitor_rule.md (FR-RISK-301~312 A 侧族, READ-ONLY)",
+    "v869d_final_debug_monitor_rule.md (R01~R08 冻结阈值, READ-ONLY)",
+    "v869d_final_debug_ledger.md (J21/J22 ARCHIVED 口径, READ-ONLY)",
+    "gray_patrol_alcupb_config.json (25668191a4dac7fd58cb81f5f35fe093, READ-ONLY)"
+  ],
+  "mandated": {
+    "note": "FR-RISK-501 颜色映射由本工单验收标准强制: ORANGE (HIGH / SLA 1h); 502~508 为设计扩展映射, 沿 R01~R08 冻结阈值与 J15 三色纪律推导, 主循环确认走新槽位",
+    "FR-RISK-501": "ORANGE"
+  },
+  "color_grade": {
+    "CRITICAL": "RED (停线)",
+    "HIGH": "ORANGE (1h)",
+    "MEDIUM": "YELLOW (4h)",
+    "LOW": "BLUE (记录)",
+    "INFO": "GRAY (日志)"
+  },
+  "mapping": [
+    {
+      "code": "FR-RISK-501",
+      "semantic": "CU BEAR 区持仓风险",
+      "symbol": "CU",
+      "zone": "BEAR",
+      "trigger": "real 模式净空占比>0.60 或空头集中异常; 头寸回放以 cu_bear_* 样本实证",
+      "d_severity": "HIGH",
+      "color": "ORANGE",
+      "sla_h": 1,
+      "escalation_rule": "同码连续 2 次 -> RED STOP_LINE",
+      "escalate_after": 2,
+      "escalate_to": "CRITICAL",
+      "family": "ALARM-POS-*",
+      "basis": "TICKET-MANDATED (工单验收: FR-RISK-501 -> ORANGE)"
+    },
+    {
+      "code": "FR-RISK-502",
+      "semantic": "AL/CU/PB 头寸>0 缺失 (real 硬门)",
+      "symbol": "AL,CU,PB",
+      "zone": "ALL",
+      "trigger": "real 模式 pos_positive=0 (V87-04 投产硬门)",
+      "d_severity": "CRITICAL",
+      "color": "RED",
+      "sla_h": 0,
+      "escalation_rule": "立即 STOP_LINE",
+      "escalate_after": null,
+      "escalate_to": null,
+      "family": "ALARM-POS-*",
+      "basis": "DESIGN-EXTENDED (position_verify_alcupb_module CHECK-3 real)"
+    },
+    {
+      "code": "FR-RISK-503",
+      "semantic": "K11 合约规模偏离",
+      "symbol": "AL,CU,PB",
+      "zone": "ALL",
+      "trigger": "F39/F40 vs SEALED (AL 5t x5 / CU 5t x5 / PB 5t x5), 0 误差",
+      "d_severity": "CRITICAL",
+      "color": "RED",
+      "sla_h": 0,
+      "escalation_rule": "立即 STOP_LINE",
+      "family": "ALARM-R04-K11-*",
+      "basis": "DESIGN-EXTENDED (R04 冻结 0 误差)"
+    },
+    {
+      "code": "FR-RISK-504",
+      "semantic": "K12 涨跌幅阈值偏离",
+      "symbol": "AL,CU,PB",
+      "zone": "ALL",
+      "trigger": "事件行 F42/F43 偏离 A 档; 巡检 LIMIT 阈值偏离 C 表 (A/C 双轨)",
+      "d_severity": "HIGH",
+      "color": "ORANGE",
+      "sla_h": 1,
+      "escalation_rule": "同码连续 2 次 -> RED",
+      "escalate_after": 2,
+      "escalate_to": "CRITICAL",
+      "family": "ALARM-R02-K12-*",
+      "basis": "DESIGN-EXTENDED (R02 冻结)"
+    },
+    {
+      "code": "FR-RISK-505",
+      "semantic": "跨端差异 (25/27 口径 / A-SYN 39 对齐)",
+      "symbol": "ALL",
+      "zone": "ALL",
+      "trigger": "C 实表行数 != 27 或 A-SYN != 39 或 25vs27 注记漂移",
+      "d_severity": "MEDIUM",
+      "color": "YELLOW",
+      "sla_h": 4,
+      "escalation_rule": "同码连续 3 次 -> ORANGE",
+      "escalate_after": 3,
+      "escalate_to": "HIGH",
+      "family": "ALARM-J22-RISK-*",
+      "basis": "DESIGN-EXTENDED (J22 双源对账)"
+    },
+    {
+      "code": "FR-RISK-506",
+      "semantic": "卷式轮转/归档失败",
+      "symbol": "ALL",
+      "zone": "ALL",
+      "trigger": "ME-04 活动卷 >=1000 条未切卷或旧卷未 RO 化",
+      "d_severity": "MEDIUM",
+      "color": "YELLOW",
+      "sla_h": 4,
+      "escalation_rule": "同码连续 3 次 -> ORANGE",
+      "escalate_after": 3,
+      "escalate_to": "HIGH",
+      "family": "ME-04",
+      "basis": "DESIGN-EXTENDED (卷式轮转规则)"
+    },
+    {
+      "code": "FR-RISK-507",
+      "semantic": "冻结品种只读完整性异常",
+      "symbol": "ZN,NI,SN,SI",
+      "zone": "ALL",
+      "trigger": "LOCK/RO/DIR/MISSING 异常 (保留全品种只读完整性族)",
+      "d_severity": "HIGH",
+      "color": "ORANGE",
+      "sla_h": 1,
+      "escalation_rule": "同码连续 2 次 -> RED",
+      "escalate_after": 2,
+      "escalate_to": "CRITICAL",
+      "family": "ALARM-LOCK-*/ALARM-RO-*/ALARM-DIR-*",
+      "basis": "DESIGN-EXTENDED (冻结品种仅只读完整性)"
+    },
+    {
+      "code": "FR-RISK-508",
+      "semantic": "审计链 CHAIN-001 部分缺失",
+      "symbol": "ALL",
+      "zone": "ALL",
+      "trigger": "CHAIN-001-REPAIRED-1 4/4 -> 3/4 (HIGH) / ->2/4 或 0/4 (CRITICAL)",
+      "d_severity": "CRITICAL",
+      "color": "RED",
+      "sla_h": 2,
+      "escalation_rule": "缺失+探针泄漏同发 -> CRITICAL (沿升级表)",
+      "escalate_after": null,
+      "escalate_to": null,
+      "family": "ALARM-CHAIN-001-*",
+      "basis": "DESIGN-EXTENDED (审计链维护纪律)"
+    }
+  ],
+  "retained_scope": "ZN/NI/SN/SI 仅保留只读完整性检查 (DIR/LOCK/MISSING/RO/WRITE/MANIFEST/CHAIN-001); 投产类触发器 (8 组) 保持禁用; FR-RISK-507 仅反映只读完整性, 不产生投产类告警",
+  "audit": {
+    "receive_log": "fr_risk_receive_log.csv (append-only, record_md5, R6)",
+    "archive": "fr_risk_alert_archive.md (取证归档, 本工单交付物 2)",
+    "escalation_note": "升级链沿用 v868_d_alarm_rule_config.md: MEDIUM->HIGH 连续 2 次; HIGH->CRITICAL 缺失+探针泄漏同发; 本族按 mapping 内 escalation_rule 执行"
+  }
+}

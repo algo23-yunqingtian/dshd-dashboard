@@ -1,0 +1,37 @@
+timestamp,event_type,run_id,alarm_id,severity,sym,source,detail,record_md5
+2026-10-10T04:00:00+08:00,PASS,c95bf8bdae4b,,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,02ebea1a36179d38e06846cdb16184b2
+2026-10-10T04:00:00+08:00,PASS,c95bf8bdae4b,,CRITICAL,AL,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",1d5db020e0edfd06bd27d3fac569160a
+2026-10-10T04:00:00+08:00,PASS,c95bf8bdae4b,,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,05bceb2e05eb166cc2fa9631af9cb329
+2026-10-10T04:00:00+08:00,PASS,5d9245d5a9ca,,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,c45858873b9df901aa31d2140a095794
+2026-10-10T04:00:00+08:00,PASS,5d9245d5a9ca,,CRITICAL,CU,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=6.0/9.0, C table=6.0/9.0 evt_sample=1 evt_bad=0 dual_track_ok=True",affbab139f202f4b62321374471599f8
+2026-10-10T04:00:00+08:00,PASS,5d9245d5a9ca,,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,68e3b5bbcc05f76756453734d85a6484
+2026-10-10T04:00:00+08:00,PASS,05dbd05b42f7,,CRITICAL,PB,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,862db72f98a387073234f985c513d34d
+2026-10-10T04:00:00+08:00,PASS,05dbd05b42f7,,CRITICAL,PB,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",bde02766177d5172e736a0f2e7b58c0c
+2026-10-10T04:00:00+08:00,PASS,05dbd05b42f7,,CRITICAL,PB,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,fa1afbde7832fcd1a56f1d5beb630bc7
+2026-10-10T04:00:00+08:00,ALARM,c95bf8bdae4b,ALARM-R04-K11-CHECK-1-CONTRACT_SIZE,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE FAIL ref=mult5 size5 sample=1 bad=1 mismatches=DIFF-004:F39=3.0 F40=3.0,f51e36336db97e473f959418284352d9
+2026-10-10T04:00:00+08:00,PASS,c95bf8bdae4b,,CRITICAL,AL,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",1d5db020e0edfd06bd27d3fac569160a
+2026-10-10T04:00:00+08:00,PASS,c95bf8bdae4b,,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,05bceb2e05eb166cc2fa9631af9cb329
+2026-10-10T04:00:00+08:00,PASS,5d9245d5a9ca,,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,c45858873b9df901aa31d2140a095794
+2026-10-10T04:00:00+08:00,PASS,5d9245d5a9ca,,CRITICAL,CU,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=6.0/9.0, C table=6.0/9.0 evt_sample=1 evt_bad=0 dual_track_ok=True",affbab139f202f4b62321374471599f8
+2026-10-10T04:00:00+08:00,ALARM,5d9245d5a9ca,ALARM-POS-CHECK-3-POSITION_PATH,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH FAIL REAL: pos_positive=0 (投产硬门未过); total=1 rejected=1 accepted=0 roll_error=0,87276f3b331b976aa44300fd70bbc2eb
+2026-10-10T04:00:00+08:00,PASS,8a53e7b35056,,CRITICAL,PB,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,862db72f98a387073234f985c513d34d
+2026-10-10T04:00:00+08:00,PASS,8a53e7b35056,,CRITICAL,PB,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",bde02766177d5172e736a0f2e7b58c0c
+2026-10-10T04:00:00+08:00,PENDING,8a53e7b35056,,INFO,PB,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PENDING_VALIDATION OFFLINE: 全 REJECT (RISK-01/02 已知; 灰度接入须 real 复验),a79fbcd90fafe6654dc44ed37f92355b
+2026-10-10T04:00:00+08:00,PASS,559e690b238a,,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,02ebea1a36179d38e06846cdb16184b2
+2026-10-10T04:00:00+08:00,PASS,559e690b238a,,CRITICAL,AL,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",1d5db020e0edfd06bd27d3fac569160a
+2026-10-10T04:00:00+08:00,PASS,559e690b238a,,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,05bceb2e05eb166cc2fa9631af9cb329
+2026-10-10T04:00:00+08:00,PASS,843d86f01e2a,,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,c45858873b9df901aa31d2140a095794
+2026-10-10T04:00:00+08:00,PASS,843d86f01e2a,,CRITICAL,CU,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=6.0/9.0, C table=6.0/9.0 evt_sample=1 evt_bad=0 dual_track_ok=True",affbab139f202f4b62321374471599f8
+2026-10-10T04:00:00+08:00,PASS,843d86f01e2a,,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,68e3b5bbcc05f76756453734d85a6484
+2026-10-10T04:00:00+08:00,PASS,85f92ec22afd,,CRITICAL,PB,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,862db72f98a387073234f985c513d34d
+2026-10-10T04:00:00+08:00,PASS,85f92ec22afd,,CRITICAL,PB,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",bde02766177d5172e736a0f2e7b58c0c
+2026-10-10T04:00:00+08:00,PASS,85f92ec22afd,,CRITICAL,PB,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,fa1afbde7832fcd1a56f1d5beb630bc7
+2026-10-10T04:00:00+08:00,ALARM,3dafbb564737,ALARM-R04-K11-CHECK-1-CONTRACT_SIZE,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE FAIL ref=mult5 size5 sample=1 bad=1 mismatches=G-101:F39=3.0 F40=3.0,f6cb53ddb5d05586a36c49d22e43601f
+2026-10-10T04:00:00+08:00,PASS,3dafbb564737,,CRITICAL,AL,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",1d5db020e0edfd06bd27d3fac569160a
+2026-10-10T04:00:00+08:00,PASS,3dafbb564737,,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,05bceb2e05eb166cc2fa9631af9cb329
+2026-10-10T04:00:00+08:00,ALARM,432004d044c3,ALARM-R04-K11-CHECK-1-CONTRACT_SIZE,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE FAIL ref=mult5 size5 sample=1 bad=1 mismatches=G-101:F39=3.0 F40=3.0,f6cb53ddb5d05586a36c49d22e43601f
+2026-10-10T04:00:00+08:00,PASS,432004d044c3,,CRITICAL,AL,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=5.0/8.0, C table=5.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",1d5db020e0edfd06bd27d3fac569160a
+2026-10-10T04:00:00+08:00,PASS,432004d044c3,,CRITICAL,AL,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH PASS REAL: pos_positive=1 roll_error=0,05bceb2e05eb166cc2fa9631af9cb329
+2026-10-10T04:00:00+08:00,PASS,50cb1ccd300a,,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-1-CONTRACT_SIZE PASS ref=mult5 size5 sample=1 bad=0,c45858873b9df901aa31d2140a095794
+2026-10-10T04:00:00+08:00,PASS,50cb1ccd300a,,CRITICAL,CU,position_verify_alcupb_module.py,"CHECK-2-LIMIT PASS A normal/ext=6.0/9.0, C table=6.0/9.0 evt_sample=1 evt_bad=0 dual_track_ok=True",affbab139f202f4b62321374471599f8
+2026-10-10T04:00:00+08:00,ALARM,50cb1ccd300a,ALARM-POS-CHECK-3-POSITION_PATH,CRITICAL,CU,position_verify_alcupb_module.py,CHECK-3-POSITION_PATH FAIL REAL: pos_positive=0 (投产硬门未过); total=2 rejected=2 accepted=0 roll_error=0,78e4dd5aa934cc371defb5c5a2458296
