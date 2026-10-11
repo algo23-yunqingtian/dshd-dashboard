@@ -1547,3 +1547,63 @@ DSHD-P18 (Github Pages 部署 | CI 自动化 | 告警可视化 | 门禁看板落
 - 新增 P24: 2 (FR-RISK-PG24-PB-013, FR-RISK-PG24-PHASE4-014)
 - 累计保留: P18~P24 全量
 - 状态: PASS (0 RED, 0 ORANGE)
+
+## 22. P25 风控告警归档 (2026-10-11T22:58:08+08:00)
+
+### 22.1 P25 新增告警
+
+| 告警 ID | 阶段 | 颜色 | 状态 | 说明 |
+|---------|------|------|------|------|
+| FR-RISK-PG25-ICDRIFT-015 | P25 | RED | BLOCK | IC漂移率 5.1% ≥ 5.0% 阈值, 增强漂移预警已激活, 准入阻断生效 (阻断已持续 2 阶段) |
+| FR-RISK-PG25-PBCU-016 | P25 | YELLOW | RECORD | PB/CU BEAR_IC 实时读数: PB 0.0289 < 0.03 阈值 (缺口 0.0011), CU 0.0231 < 0.025 阈值 (缺口 0.0019); 叠加 IC 漂移阻断, 准入持续暂缓 |
+
+### 22.2 颜色统计 (全量 15 条)
+
+| 颜色 | 数量 |
+|------|------|
+| GREEN | 11 |
+| YELLOW | 3 |
+| RED | 1 |
+
+### 22.3 P25 IC 漂移阻断状态
+
+| 字段 | 值 |
+|------|-----|
+| active | `True` |
+| drift_pct | `5.2` |
+| threshold_pct | `5.0` |
+| block_since | `Phase24` |
+| consecutive_phases | `2` |
+| fr_risk_id | `FR-RISK-PG25-ICDRIFT-015` |
+| block_action | `阻断准入流程: 禁止 PB/CU 灰度转正与新品种准入` |
+| recovery_condition | `连续2阶段漂移率<4.8%且IC≥0.0575` |
+| root_cause | `ISSUED_V1.0` |
+| fix_plan | `SCHEME_D_RECOMMENDED` |
+| admission_frozen | `True` |
+| new_factor_admission_frozen | `True` |
+
+### 22.4 PB/CU 实时读数
+
+| 字段 | 值 |
+|------|-----|
+| pb_bear_ic | `0.0288` |
+| cu_bear_ic | `0.023` |
+| pb_threshold | `0.03` |
+| cu_threshold | `0.025` |
+| pb_gap_to_threshold | `0.0012` |
+| cu_gap_to_threshold | `0.002` |
+| pb_bear_ic_14day_count | `14/14` |
+| pb_status | `EDGE_PENDING` |
+| cu_status | `EDGE_PENDING` |
+| admission_status | `BLOCKED_BY_IC_DRIFT` |
+| blocked_by | `FR-RISK-PG25-ICDRIFT-015` |
+| technical_bear_ic_met | `False` |
+| business_blocked | `True` |
+
+### 22.5 P25 风控总结
+
+- 累计监控 595 天, 零回滚 595 天, 漂移告警计数器 1015
+- FR-RISK 501 等级活跃 600 天
+- 准入状态: **阻断中** (PB/CU 灰度转正与新品种准入冻结), 已由 P24 延续至 P25, 持续 2 阶段
+- 告警推送链路: DSHA → fr_risk_alerts.json → 可视化 FR-RISK 面板 → GH Archive → 邮件/Slack webhook
+- 归档状态: append-only, 历史 §1~§21 字节未改动
