@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
-  "description": "P24 FR-RISK alerts - 9 baseline + 2 P23 + 2 P24 new (FR-RISK-PG24-PB-013 PB灰度准入, FR-RISK-PG24-PHASE4-014 Phase4监控)",
+  "description": "P25 FR-RISK alerts - P24 13 条基线 + P25 2 条新增 (FR-RISK-PG25-ICDRIFT-015 IC漂移阻断持续, FR-RISK-PG25-PBCU-016 PB/CU BEAR_IC 实时读数)",
   "alerts": [
     {
       "id": "FR-RISK-PG21-UNLOCK-001",
@@ -122,21 +122,101 @@
         "crisis_ic": 0.067,
         "ir": 48.02
       }
+    },
+    {
+      "id": "FR-RISK-PG25-ICDRIFT-015",
+      "phase": "P25",
+      "color": "RED",
+      "status": "BLOCK",
+      "description": "IC漂移率 5.1% ≥ 5.0% 阈值, 增强漂移预警已激活, 准入阻断生效 (阻断已持续 2 阶段)",
+      "trigger": "IC drift rate ≥ 5.0% (enhanced drift alert, threshold tightened from 10.0%)",
+      "current_status": "BLOCK_ACTIVE",
+      "ic_drift_pct": 5.1,
+      "threshold_pct": 5.0,
+      "legacy_threshold_pct": 10.0,
+      "first_over_threshold_phase": "Phase24",
+      "consecutive_over_threshold_phases": 2,
+      "over_threshold_phases": [
+        "Phase24",
+        "Phase25"
+      ],
+      "block_action": "阻断准入流程: 禁止 PB/CU 灰度转正与新品种准入",
+      "recovery_condition": "连续 2 阶段 IC 漂移 < 4.5%",
+      "fr_risk_days_active": 560,
+      "data_ref": "ic_drift_timeseries.json",
+      "triggered_at": "2026-10-09T19:31:50+08:00"
+    },
+    {
+      "id": "FR-RISK-PG25-PBCU-016",
+      "phase": "P25",
+      "color": "YELLOW",
+      "status": "RECORD",
+      "description": "PB/CU BEAR_IC 实时读数: PB 0.0289 < 0.03 阈值 (缺口 0.0011), CU 0.0231 < 0.025 阈值 (缺口 0.0019); 叠加 IC 漂移阻断, 准入持续暂缓",
+      "trigger": "PB/CU BEAR_IC threshold check + IC drift block overlay",
+      "current_status": "EDGE_PENDING_BLOCKED",
+      "pb_bear_ic": 0.0289,
+      "cu_bear_ic": 0.0231,
+      "pb_threshold": 0.03,
+      "cu_threshold": 0.025,
+      "pb_gap_to_threshold": 0.0011,
+      "cu_gap_to_threshold": 0.0019,
+      "pb_bear_ic_14day_count": "14/14",
+      "blocked_by": "FR-RISK-PG25-ICDRIFT-015",
+      "data_ref": "pb_cu_gray_admission_status.json",
+      "triggered_at": "2026-10-09T19:31:50+08:00"
     }
   ],
-  "total_alerts": 13,
+  "total_alerts": 15,
   "p23_additions": [
     "FR-RISK-PG23-M7-011: M7 final assessment PASS",
     "FR-RISK-PG23-NI-012: NI delay final assessment RESOLVED"
   ],
   "color_statistics": {
     "GREEN": 11,
-    "YELLOW": 2,
-    "ORANGE": 0,
-    "RED": 0
+    "YELLOW": 3,
+    "RED": 1
   },
   "p24_additions": [
     "FR-RISK-PG24-PB-013: PB/CU灰度准入评估",
     "FR-RISK-PG24-PHASE4-014: Phase4监控面板集成"
-  ]
+  ],
+  "phase": "P25",
+  "p25_additions": [
+    "FR-RISK-PG25-ICDRIFT-015: IC漂移5.2%阻断持续 + 根因报告V1.0 + 方案D推荐",
+    "FR-RISK-PG25-PBCU-016: PB/CU BEAR_IC实时读数 + 阻断叠加 (双重条件均不满足)"
+  ],
+  "fr_risk_days_active": 600,
+  "ic_drift_block": {
+    "active": true,
+    "drift_pct": 5.2,
+    "threshold_pct": 5.0,
+    "block_since": "Phase24",
+    "consecutive_phases": 2,
+    "fr_risk_id": "FR-RISK-PG25-ICDRIFT-015",
+    "block_action": "阻断准入流程: 禁止 PB/CU 灰度转正与新品种准入",
+    "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575",
+    "root_cause": "ISSUED_V1.0",
+    "fix_plan": "SCHEME_D_RECOMMENDED",
+    "admission_frozen": true,
+    "new_factor_admission_frozen": true
+  },
+  "pb_cu_live_readings": {
+    "pb_bear_ic": 0.0288,
+    "cu_bear_ic": 0.023,
+    "pb_threshold": 0.03,
+    "cu_threshold": 0.025,
+    "pb_gap_to_threshold": 0.0012,
+    "cu_gap_to_threshold": 0.002,
+    "pb_bear_ic_14day_count": "14/14",
+    "pb_status": "EDGE_PENDING",
+    "cu_status": "EDGE_PENDING",
+    "admission_status": "BLOCKED_BY_IC_DRIFT",
+    "blocked_by": "FR-RISK-PG25-ICDRIFT-015",
+    "technical_bear_ic_met": false,
+    "business_blocked": true
+  },
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "drift_alert_counter": 1015
 }
