@@ -718,7 +718,7 @@ jobs:
           test "$(ls web_site/data/*.json | wc -l)" -ge 42 && echo "  datasets OK"
       - name: 'P25: IC drift timeseries Phase6..Phase25'
         run: |
-          grep -q "Phase6" web_site/data/ic_drift_timeseries.json && grep -Eq '"Phase[0-9]+'" web_site/data/ic_drift_timeseries.json && echo "  ic_drift phase series OK"
+          grep -q "Phase6" web_site/data/ic_drift_timeseries.json && grep -Eq '"Phase[0-9]+"' web_site/data/ic_drift_timeseries.json && echo "  ic_drift phase series OK"
       - name: 'P25: drift root cause report (P0 / scheme D)'
         run: |
           grep -q "recommended_scheme" web_site/data/drift_root_cause.json && echo "  drift_root_cause OK"
