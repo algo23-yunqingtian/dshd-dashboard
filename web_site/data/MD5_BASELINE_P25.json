@@ -1,0 +1,579 @@
+{
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-11T22:58:08+08:00",
+  "seed": 42,
+  "engine": "V86.9-C-FINAL-DEBUG-P25",
+  "doc_id": "DSHD-P25-MD5-BASELINE",
+  "description": "P25 全部静态资源 MD5 基线 (可复算, 供 CI pre-flight 与后续阶段回归比对)",
+  "site_root": "web_site/",
+  "file_count": 140,
+  "total_bytes": 2346605,
+  "index_html": {
+    "size": 207450,
+    "md5": "dadc222b6bddab9aa84136de3083ed23",
+    "sha256": "302016394f377e5cbe920651f0d529ab5685148d4430431668cd481713cd9e20"
+  },
+  "files": {
+    "archive/alerts/defect_regression_p12.json": {
+      "size": 3519,
+      "md5": "cddc6afbc0d2ca3b0c61426e5e4ff174"
+    },
+    "archive/alerts/dshc_channel_disconnect_ledger_p12.csv": {
+      "size": 3432,
+      "md5": "97d7e1e3884599a494e719b87d7ce6c6"
+    },
+    "archive/alerts/fr_risk_501_20d_recalibration_spec.md": {
+      "size": 3098,
+      "md5": "b86993294859f3c6a6fa165d05e0946f"
+    },
+    "archive/alerts/fr_risk_501_508_mapping.json": {
+      "size": 5759,
+      "md5": "41efa5a041de70446a0732665a4d42f6"
+    },
+    "archive/alerts/fr_risk_501_recal_runbook.md": {
+      "size": 3795,
+      "md5": "fb3d81ae9938503b00df2b1ea80a3532"
+    },
+    "archive/alerts/fr_risk_501_threshold_calibration_report.md": {
+      "size": 5018,
+      "md5": "3b74c1cad5794cf3bae5aaebdbc56c74"
+    },
+    "archive/alerts/fr_risk_alert_archive.md": {
+      "size": 63156,
+      "md5": "0cbe7961db0821dd381ef00ae9dc72c7"
+    },
+    "archive/alerts/fr_risk_escalation_state.json": {
+      "size": 358,
+      "md5": "eb68984912ffb3d5d0ed726729062890"
+    },
+    "archive/alerts/fr_risk_receive_log.csv": {
+      "size": 8895,
+      "md5": "fe1e3c51959cac4d95c6f5e7aa518d23"
+    },
+    "archive/alerts/fr_risk_triggers_deploy.json": {
+      "size": 4161,
+      "md5": "8c43a48704d4097b5bd32799cf168a3e"
+    },
+    "archive/alerts/gate_periodic_check_log.csv": {
+      "size": 33586,
+      "md5": "30be8d668cff765ce0731cb8ec493f96"
+    },
+    "archive/alerts/j15_drill_report.md": {
+      "size": 4242,
+      "md5": "b4bc3331695cf64033b96f8da219f65b"
+    },
+    "archive/alerts/p12_md5_recheck_inventory.json": {
+      "size": 19564,
+      "md5": "ca891f718d38d1921e1b017948d7cea1"
+    },
+    "archive/alerts/p12_md5_recheck_ledger.csv": {
+      "size": 697,
+      "md5": "ec5c76c540ba8f8a5b7de2d64760b973"
+    },
+    "archive/alerts/pc003_activation_manifest_p12.json": {
+      "size": 7802,
+      "md5": "2715314cba4ed831d1e2ae2ac9bc37aa"
+    },
+    "archive/alerts/pc003_activation_manifest_p12_labpos.json": {
+      "size": 7396,
+      "md5": "d4219612445289cd69fd08ce008bc2a1"
+    },
+    "archive/alerts/pc003_dshc_event_p12.json": {
+      "size": 1509,
+      "md5": "6518a84aa77de60bf9fc3eb6c60d8d64"
+    },
+    "archive/alerts/pc003_dshc_event_unlocked_p12.json": {
+      "size": 1376,
+      "md5": "cf8dd1f6caf5f7ce3aa5c31b1a62fcaf"
+    },
+    "archive/alerts/pc003_post_unlock_selfcheck_p12.json": {
+      "size": 3222,
+      "md5": "dee99fef55bb51283b3a5c5f34cc0400"
+    },
+    "archive/alerts/phase1_live_monitor_log.csv": {
+      "size": 16620,
+      "md5": "addb564b39c0df3621e14c04c5d2f8f0"
+    },
+    "archive/alerts/phase1_monitor_summary.md": {
+      "size": 7801,
+      "md5": "fef3f91a23cfab342742a47a684e4182"
+    },
+    "archive/alerts/position_verify_audit_log.csv": {
+      "size": 2672,
+      "md5": "20ba29e466a3048e07197860a845888a"
+    },
+    "archive/alerts/position_verify_audit_log_alcupb.csv": {
+      "size": 7606,
+      "md5": "ec9bab744864c77d2f20ca332ebb2e78"
+    },
+    "archive/alerts/position_verify_result.csv": {
+      "size": 2101,
+      "md5": "0bd71a7e8c28142de62db9e9cc1a3261"
+    },
+    "archive/alerts/position_verify_result_alcupb.csv": {
+      "size": 5968,
+      "md5": "179ce42a928abfa69befec861894febd"
+    },
+    "archive/alerts/updated_chain_baseline_manifest.md": {
+      "size": 11540,
+      "md5": "0a6c72cb3f2f817223c588685bf878cc"
+    },
+    "archive/alerts/v869_d_alcupb_gray_alarm_log.csv": {
+      "size": 1732,
+      "md5": "ca9985c8d051b0c5fc605fb269a4638f"
+    },
+    "archive/alerts/v869_d_alcupb_gray_patrol_result.csv": {
+      "size": 10821,
+      "md5": "1226d7def34ffb61068f58b29d8e0c87"
+    },
+    "archive/alerts/vis_001_integration_p12.json": {
+      "size": 139417,
+      "md5": "36bf831b2edf68b583443e5a414de5f6"
+    },
+    "archive/alerts/vis_alert_export_p12.json": {
+      "size": 200057,
+      "md5": "e2466256d7b5edf20b262ea273acdc1e"
+    },
+    "archive/alerts/vis_alert_regression_p12.json": {
+      "size": 2614,
+      "md5": "e96af2455f6b044a1bb37596094566a4"
+    },
+    "archive/alerts/vis_alert_timeline_p12.json": {
+      "size": 6081,
+      "md5": "bc1517f15ccbd6b076951e4d7612971c"
+    },
+    "archive/alerts/vis_alert_validate_p12.json": {
+      "size": 1757,
+      "md5": "10c2ee42bdf823253a6dd5f5b42e9da7"
+    },
+    "archive/alerts/vis_fail_push_verify_p12.json": {
+      "size": 2319,
+      "md5": "c4eec578d2dde4ade5703d0a1795a653"
+    },
+    "archive/backtests/backtest_AL.json": {
+      "size": 1843,
+      "md5": "e92a1b82be3791adc63eabee9451e66a"
+    },
+    "archive/backtests/backtest_CU.json": {
+      "size": 1846,
+      "md5": "696317acc885f116ecae7d9e4254ad2c"
+    },
+    "archive/backtests/backtest_NI.json": {
+      "size": 1838,
+      "md5": "e05846cada57c66850bd7b03bff0261a"
+    },
+    "archive/backtests/backtest_PB.json": {
+      "size": 1847,
+      "md5": "5eca50eab703a0c073a2515d4ff6d967"
+    },
+    "archive/backtests/backtest_SI.json": {
+      "size": 1840,
+      "md5": "b4d94debb94efb6f941e38ec3a6747f7"
+    },
+    "archive/backtests/backtest_SN.json": {
+      "size": 1839,
+      "md5": "d38a397302d1d9f8a9014ac1e6208645"
+    },
+    "archive/backtests/backtest_ZN.json": {
+      "size": 1844,
+      "md5": "96e1574642885f197693738fcc98a13c"
+    },
+    "archive/dsha_v1/vis_dashboard_main.html": {
+      "size": 147681,
+      "md5": "f0036dc3ab906629f246b529de55f544"
+    },
+    "archive/factors/AL_CU_PB_factor_gray_rating_report.md": {
+      "size": 25995,
+      "md5": "5b63f715655a3fdd261f778955819e85"
+    },
+    "archive/factors/AL_PHASE3_FACTOR_SPEC.md": {
+      "size": 13409,
+      "md5": "5e72ad6f39c8a0d3fb5c1cb971d58363"
+    },
+    "archive/factors/DSHA_Factor_Gap_Analysis_Report.md": {
+      "size": 45717,
+      "md5": "191a79ad57bbd47e000aa0ad5abc3dec"
+    },
+    "archive/factors/backtest_config.csv": {
+      "size": 5515,
+      "md5": "b220c1305416fd1b986de09a01aa52cc"
+    },
+    "archive/factors/factor_drift_alert_log.csv": {
+      "size": 5969,
+      "md5": "fa571381061074cf146a5209611aaabb"
+    },
+    "archive/factors/factor_meta_library.json": {
+      "size": 34279,
+      "md5": "694a0e58fb57aef96949218301f9503a"
+    },
+    "archive/factors/factor_rating_boundary_update.md": {
+      "size": 9560,
+      "md5": "06c1d7e969f487346bcae198a9b2dadf"
+    },
+    "archive/factors/factor_risk_boundary_alcupb_update.md": {
+      "size": 15960,
+      "md5": "49ecd1345d5545ba78f09c7e8c8070cb"
+    },
+    "archive/factors/factor_risk_boundary_spec.md": {
+      "size": 28567,
+      "md5": "699c2a0920690f67783606bd42daa06c"
+    },
+    "archive/factors/factor_techdebt_priority.csv": {
+      "size": 5391,
+      "md5": "cb2a9b568620c3d1d376180a7e7910ad"
+    },
+    "archive/factors/factors_full.json": {
+      "size": 24240,
+      "md5": "a17202a74d14a01c328e9a5177b7c0d7"
+    },
+    "archive/factors/narrative_factors_daily.json": {
+      "size": 690,
+      "md5": "44eb4e6d986e793ab47c905ce3462361"
+    },
+    "archive/factors/updated_factor_techdebt_priority_v17.csv": {
+      "size": 90017,
+      "md5": "f920ca381dd428a97b83e161d4e9bcd3"
+    },
+    "archive/manifest.json": {
+      "size": 20455,
+      "md5": "e0f4c461f9926aec7eb45234ecd05405"
+    },
+    "archive/phases/phase_P11_PHASE11_FACTOR_APPROVE.flag": {
+      "size": 16999,
+      "md5": "76456aa86a23963340b8a5a607c4bc41"
+    },
+    "archive/phases/phase_P12_PHASE12_FACTOR_APPROVE.flag": {
+      "size": 18139,
+      "md5": "7815700f376c1c6c0122cb68860e1abd"
+    },
+    "archive/phases/phase_P13_PHASE13_FACTOR_APPROVE.flag": {
+      "size": 17613,
+      "md5": "eb279acf6d98d30130b8d4cfa77d3c30"
+    },
+    "archive/phases/phase_P15_PHASE15_FACTOR_APPROVE.flag": {
+      "size": 17719,
+      "md5": "3a2ceacf5334c7a5dd7112abfde89748"
+    },
+    "archive/phases/phase_P16_PHASE16_FACTOR_APPROVE.flag": {
+      "size": 7719,
+      "md5": "2b7b545bd7fed5dc1d172c27875ad1ce"
+    },
+    "archive/phases/phase_P3_PHASE3_FACTOR_APPROVE.flag": {
+      "size": 20129,
+      "md5": "574d14ea4a8fd2826eb44974180cfd32"
+    },
+    "archive/phases/phase_P4_PHASE4_FACTOR_APPROVE.flag": {
+      "size": 24502,
+      "md5": "57c10a2cf12529cdf854f4d47a0092b5"
+    },
+    "archive/phases/phase_P5_PHASE5_FACTOR_APPROVE.flag": {
+      "size": 28953,
+      "md5": "5d9d1e8712356357800c0850b2393138"
+    },
+    "archive/phases/phase_P7_PHASE7_FACTOR_APPROVE.flag": {
+      "size": 19764,
+      "md5": "edda5261ae1dc6d8f05d95d592d711d3"
+    },
+    "archive/phases/phase_P8_PHASE8_FACTOR_APPROVE.flag": {
+      "size": 22263,
+      "md5": "200c010a103d94e29120c3ab23abceee"
+    },
+    "archive/phases/phase_P9_PHASE9_FACTOR_APPROVE.flag": {
+      "size": 23400,
+      "md5": "c79e635c27fb988860d1077240d646a2"
+    },
+    "archive/phases/phase_P_GRAY_AL_CU_PB_FACTOR_GRAY_READY.flag": {
+      "size": 14304,
+      "md5": "db538f4fd0901c452de789a6d4861137"
+    },
+    "archive/phases/phase_P_GRAY_AL_CU_PB_GRAY_PHASE1_CLOSE.flag": {
+      "size": 12507,
+      "md5": "320ee810edf6475871d10f84291cb6b0"
+    },
+    "archive/phases/phase_P_GRAY_AL_CU_PB_factor_gray_rating_report.md": {
+      "size": 25995,
+      "md5": "5b63f715655a3fdd261f778955819e85"
+    },
+    "archive/phases/phase_P_SHADOW_ZN_NI_SN_SI_factor_rating_report.md": {
+      "size": 25951,
+      "md5": "5b7f8fe52958980015b590a82809273f"
+    },
+    "archive/phases/phase_P_SHADOW_ZN_NI_SN_SI_synthetic_data_archive.md": {
+      "size": 7523,
+      "md5": "ba7803f2d7aa951939b4bd4bc08a974b"
+    },
+    "archive/phases/phase_P_SHADOW_zn_ni_sn_si_precheck_automation.py": {
+      "size": 47797,
+      "md5": "bd94d2e42e04f0723165eb2f7ee16aed"
+    },
+    "archive/trades/trades_AL.json": {
+      "size": 873,
+      "md5": "8e3b343cc154c730f8007f9ab8d6c0bd"
+    },
+    "archive/trades/trades_CU.json": {
+      "size": 1540,
+      "md5": "681975978a454d190656965f566c23a7"
+    },
+    "archive/trades/trades_NI.json": {
+      "size": 1574,
+      "md5": "572b0ca7ad8316b0ddf98cd4dc833c77"
+    },
+    "archive/trades/trades_PB.json": {
+      "size": 3578,
+      "md5": "c4eef0c8b54b79617f9d5237825f05d9"
+    },
+    "archive/trades/trades_SI.json": {
+      "size": 2910,
+      "md5": "440b56bc1e38637f5d3e08adb353403a"
+    },
+    "archive/trades/trades_SN.json": {
+      "size": 858,
+      "md5": "767fae40da934dceccdcca133b192472"
+    },
+    "archive/trades/trades_ZN.json": {
+      "size": 3466,
+      "md5": "ebf2f4c3bad498d29fb81cee70ca0c67"
+    },
+    "data/backtest_AL.json": {
+      "size": 2366,
+      "md5": "97f122857613046016a3a18d6d7b7049"
+    },
+    "data/backtest_CU.json": {
+      "size": 2364,
+      "md5": "3a373e7404ee0a4eb3e51305e6815653"
+    },
+    "data/backtest_NI.json": {
+      "size": 2367,
+      "md5": "435121360588e532a56d6b64048fba63"
+    },
+    "data/backtest_PB.json": {
+      "size": 2365,
+      "md5": "cb0bf59009977ae0bc81f92429660533"
+    },
+    "data/backtest_SI.json": {
+      "size": 2367,
+      "md5": "09a9bcc71c1e92f45dfb67d3fa67a138"
+    },
+    "data/backtest_SN.json": {
+      "size": 2366,
+      "md5": "fd0b69c7500edecd401909a3d4f1e0af"
+    },
+    "data/backtest_ZN.json": {
+      "size": 2367,
+      "md5": "1b894f875b61893251df7560b03f0204"
+    },
+    "data/cross_variety_comparison.json": {
+      "size": 4442,
+      "md5": "3c1226fbcfd2c598b0b099fb6002acbc"
+    },
+    "data/data_completion_status.json": {
+      "size": 2575,
+      "md5": "caa85f809d7e2655d4ae1bdf7adadbb3"
+    },
+    "data/data_defect_alerts.json": {
+      "size": 2234,
+      "md5": "dd6f72dc9e211b79890aa8ea1b15e349"
+    },
+    "data/dataset_index.json": {
+      "size": 10760,
+      "md5": "7fb3b7a3482d1afe0ae5334c201debae"
+    },
+    "data/drift_root_cause.json": {
+      "size": 10226,
+      "md5": "9e4715d0e666993ea7d111292ebc290b"
+    },
+    "data/experiment_index.json": {
+      "size": 2311,
+      "md5": "4740e2d6e9858fe6d0aa0be27b6469bd"
+    },
+    "data/experiment_manifest.json": {
+      "size": 12408,
+      "md5": "86c60228a24aab8cfa137967903046a0"
+    },
+    "data/factor_drift_alerts.json": {
+      "size": 3634,
+      "md5": "a8b0eb263691bc1273f1f7e4184758a8"
+    },
+    "data/factors_full.json": {
+      "size": 59852,
+      "md5": "1641faed8c79f15b4a00e8efb380ac3c"
+    },
+    "data/fr_risk_alerts.json": {
+      "size": 7237,
+      "md5": "3ba91b71e36e8d224427e7b56d7f837d"
+    },
+    "data/ic_drift_timeseries.json": {
+      "size": 16721,
+      "md5": "2aeb64af2714612e9ef16b46f7cbf8dd"
+    },
+    "data/ni_si_panels.json": {
+      "size": 1948,
+      "md5": "8009a037a949c9499e48f40b9386aba4"
+    },
+    "data/p25_site_health.json": {
+      "size": 3068,
+      "md5": "0a0dca25c6556ada8f0c76fa5a9cb9f3"
+    },
+    "data/pb_cu_gray_admission_status.json": {
+      "size": 8455,
+      "md5": "27466f8f41b289886bc62024c0c42efd"
+    },
+    "data/pc003_status.json": {
+      "size": 2462,
+      "md5": "5ca36d35d91c460c16e9490e6fab192a"
+    },
+    "data/pc003_unlock_assessment.json": {
+      "size": 13146,
+      "md5": "e060b98cad745f07b644948354e13872"
+    },
+    "data/phase4_precheck.json": {
+      "size": 3830,
+      "md5": "24ac2cada9acca862a5670db6592c65f"
+    },
+    "data/pl_summary.json": {
+      "size": 2224,
+      "md5": "bc53115fe6f9d46458c36c55f33ece0f"
+    },
+    "data/portfolio_backtest.json": {
+      "size": 7944,
+      "md5": "9cf55953397841d98b5c338fbe932ba4"
+    },
+    "data/portfolio_backtest_7asset.json": {
+      "size": 24339,
+      "md5": "d2e4fe0e8004ea4eba23698bd2b897cc"
+    },
+    "data/portfolio_correlation.json": {
+      "size": 12400,
+      "md5": "3c68d719d05119be04047232db79058e"
+    },
+    "data/portfolio_daily_position.json": {
+      "size": 63265,
+      "md5": "fe9d311b69c9fd1400ed5dac221bb046"
+    },
+    "data/portfolio_risk_contribution.json": {
+      "size": 29006,
+      "md5": "4c8c2a5b0500a3ff481301b4c0f5bb4b"
+    },
+    "data/portfolio_risk_contribution_timeseries.json": {
+      "size": 118715,
+      "md5": "92adcab5f47b3510bab4a738ffe73d10"
+    },
+    "data/portfolio_risk_metrics.json": {
+      "size": 3358,
+      "md5": "bc08ea87b30f22dac32ce051871fb1fc"
+    },
+    "data/rollback_events.json": {
+      "size": 1370,
+      "md5": "81b0d3c703547f234e4e55948e74fa08"
+    },
+    "data/rolling_correlation_matrix.json": {
+      "size": 42917,
+      "md5": "b6c11ab1fc6fc808d6cd4e5c1c85f99a"
+    },
+    "data/trades_AL.json": {
+      "size": 5562,
+      "md5": "f8fa40ad6f04a520585061c8b56edcc6"
+    },
+    "data/trades_CU.json": {
+      "size": 5559,
+      "md5": "2b0dabb2a71194114dd810de949fa741"
+    },
+    "data/trades_NI.json": {
+      "size": 4975,
+      "md5": "217de291ab2bea1efa489f297f54014b"
+    },
+    "data/trades_PB.json": {
+      "size": 5560,
+      "md5": "b31cb33a24795b7d1fa0fd93f7133f7e"
+    },
+    "data/trades_SI.json": {
+      "size": 4362,
+      "md5": "eaf394f6aaf9eb8ae60bda31fef7b9e9"
+    },
+    "data/trades_SN.json": {
+      "size": 4374,
+      "md5": "68e34afc1a6f697228eb8ed1a307b8a8"
+    },
+    "data/trades_ZN.json": {
+      "size": 4961,
+      "md5": "7f1215732a8689f94f3382660e6b5263"
+    },
+    "data/version_index.json": {
+      "size": 1068,
+      "md5": "a2511d9116c2beccb61b751a2456b5ab"
+    },
+    "data/vis_dashboard_main.html": {
+      "size": 25124,
+      "md5": "6205e5b7d134ed6a83a1a7dea6dcb60b"
+    },
+    "data/vis_dataset_manifest.json": {
+      "size": 7346,
+      "md5": "baa848567056edd040c578eb87574de8"
+    },
+    "data/vis_pre_calc_AL_F19_F20_comparison.csv": {
+      "size": 1844,
+      "md5": "2a2c80ae7064daa7d3420aace420660b"
+    },
+    "data/vis_pre_calc_AL_alpha.csv": {
+      "size": 9320,
+      "md5": "b80adf29974aaffbd33b3a1b4e05c0e8"
+    },
+    "data/vis_pre_calc_AL_factor_contributions.csv": {
+      "size": 8015,
+      "md5": "a4d4bdc65a902305ec0486fdfb7a0c3b"
+    },
+    "data/vis_pre_calc_AL_kline.csv": {
+      "size": 18227,
+      "md5": "78a59ef5eb4bb58bca066d21017e8b69"
+    },
+    "data/vis_pre_calc_AL_nav.csv": {
+      "size": 8574,
+      "md5": "a356dfda641c31b4b7f29252dc926d3b"
+    },
+    "data/vis_pre_calc_AL_signals.csv": {
+      "size": 3387,
+      "md5": "e76d188baecb61a0fe2dee5cc5773045"
+    },
+    "data/vis_pre_calc_CU_alpha.csv": {
+      "size": 9253,
+      "md5": "839d54b74741cebce77f2710e05099e0"
+    },
+    "data/vis_pre_calc_CU_kline.csv": {
+      "size": 18252,
+      "md5": "db8907956cd748bbe85179fe494c6430"
+    },
+    "data/vis_pre_calc_CU_nav.csv": {
+      "size": 9020,
+      "md5": "d78b850c0109143ed3c40a62a5f0e351"
+    },
+    "data/vis_pre_calc_CU_signals.csv": {
+      "size": 3089,
+      "md5": "7b26ac099ddef85d0cd74a83ac206a44"
+    },
+    "data/vis_pre_calc_PB_alpha.csv": {
+      "size": 9305,
+      "md5": "85f512e4cbefe631f91e72b608e62b7d"
+    },
+    "data/vis_pre_calc_PB_kline.csv": {
+      "size": 18037,
+      "md5": "ecc0d77894d5394209bab9325dedc6c2"
+    },
+    "data/vis_pre_calc_PB_nav.csv": {
+      "size": 8573,
+      "md5": "b2378580411b6b0955c46766ab2a1c40"
+    },
+    "data/vis_pre_calc_PB_signals.csv": {
+      "size": 3255,
+      "md5": "aed76d0059771eb71f4efa118fb3f529"
+    },
+    "data/vis_validation_report.md": {
+      "size": 2595,
+      "md5": "ad4f845d46c236fcf793a1e64974d97f"
+    },
+    "index.html": {
+      "size": 207450,
+      "md5": "dadc222b6bddab9aa84136de3083ed23"
+    }
+  }
+}
