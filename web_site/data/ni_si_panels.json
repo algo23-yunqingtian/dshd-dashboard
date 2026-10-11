@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.1",
-  "generated_at": "2026-10-09T13:33:39+08:00",
+  "dataset_version": "1.7",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "NI/SI independent panel data for P19 T2 visualization upgrade",
   "panels": {
@@ -58,5 +58,13 @@
       "m4_status": "PENDING",
       "version_tag": "P19"
     }
+  },
+  "version_tag": "P25",
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "p25_notes": {
+    "data_recovery": "NI_SI_M3_M4_COMPLETE",
+    "cleaning_script": "ZN_NI_SN_SI_data_cleaning_script.py (READY_WAIT_DATA)"
   }
 }
