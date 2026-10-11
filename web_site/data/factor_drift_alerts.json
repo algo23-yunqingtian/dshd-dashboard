@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.0",
-  "generated_at": "2026-10-09T12:24:08+08:00",
+  "dataset_version": "1.7",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "source": "factor_drift_alert_log.csv + P12 vis_alert_export",
   "alerts": [
@@ -55,15 +55,68 @@
       "action": "RECORD",
       "status": "OPEN",
       "handling": "CU F11 记录观察, 48h 内复核"
+    },
+    {
+      "alert_id": "DRIFT-BLOCK-001",
+      "ts": "2026-10-09T19:31:50+08:00",
+      "factor": "F01-F28",
+      "variety": "ALL",
+      "drift_type": "ic_drift_block",
+      "magnitude": 5.1,
+      "threshold": 5.0,
+      "color": "RED",
+      "action": "BLOCK",
+      "status": "OPEN",
+      "handling": "IC漂移5.1%≥5.0%阈值, 准入阻断已激活; 阻断PB/CU灰度转正与新品种准入; 连续2阶段<4.5%方可解除",
+      "fr_risk_link": "FR-RISK-PG25-ICDRIFT-015",
+      "first_over_threshold_phase": "Phase24"
+    },
+    {
+      "alert_id": "DRIFT-PSYCH-001",
+      "ts": "2026-10-09T19:31:50+08:00",
+      "factor": "F19/F20",
+      "variety": "AL",
+      "drift_type": "threshold_tightening",
+      "magnitude": 5.0,
+      "threshold": 10.0,
+      "color": "YELLOW",
+      "action": "NOTIFY",
+      "status": "OPEN",
+      "handling": "漂移阈值由10.0%收紧至5.0%; P20及以前按旧阈值均不告警, 历史无RED记录, 判读口径变更已归档"
+    },
+    {
+      "alert_id": "DRIFT-PSYCH-002",
+      "ts": "2026-10-09T19:46:18+08:00",
+      "factor": "F01/F09",
+      "variety": "ALL",
+      "drift_type": "structural_slow_decay_main_source",
+      "magnitude": -0.9,
+      "threshold": 0.0,
+      "color": "RED",
+      "action": "MITIGATE",
+      "status": "OPEN",
+      "handling": "F01持仓量扩张(-0.9%)/F09动量(-1.0%) 为主漂移因子, 量价因子贡献约60%; 方案D: 权重微调 F01/F09->0.85 + 衰减补偿 + 伪影修正, 预估漂移压回 4.7%",
+      "recommended_scheme": "D",
+      "est_drift_pct": 4.7
     }
   ],
   "stats": {
-    "total": 4,
-    "open": 2,
+    "total": 7,
+    "open": 5,
     "closed": 2,
     "by_color": {
+      "GREEN": 0,
+      "YELLOW": 3,
       "ORANGE": 2,
-      "YELLOW": 2
+      "RED": 2
     }
+  },
+  "version_tag": "P25",
+  "phase": "P25",
+  "description": "P25 factor drift alerts - P24 7 条 + P25 增强漂移阻断/根因/方案 3 条",
+  "threshold_pct": 5.0,
+  "legacy_threshold_pct": 10.0,
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
   }
 }
