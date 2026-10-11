@@ -1,0 +1,2008 @@
+{
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
+  "seed": 42,
+  "engine": "V86.9-C-FINAL-DEBUG-P25",
+  "description": "7品种多窗口滚动相关性矩阵 (20/40/60/120/250d + 周度滚动5d) / P25 接入 DSHA-P25 输出",
+  "source": "DSHA-P25 rolling_correlation_matrix.json (md5=22c06a63d394)",
+  "portfolio_name": "7-ASSET EQUAL-WEIGHT PORTFOLIO",
+  "assets": [
+    "AL",
+    "PB",
+    "CU",
+    "ZN",
+    "SN",
+    "NI",
+    "SI"
+  ],
+  "assets_count": 7,
+  "window_types": [
+    "weekly_rolling_5d",
+    "20d",
+    "40d",
+    "60d",
+    "120d",
+    "250d"
+  ],
+  "method": "pearson_daily_return",
+  "weekly_rolling": [
+    {
+      "window_id": "W1",
+      "global_week": "W50",
+      "start_date": "2028-02-21",
+      "end_date": "2028-02-25",
+      "trading_days": 5,
+      "method": "pearson_daily_return",
+      "window_type": "weekly_rolling_5d",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.72,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "PB": {
+          "AL": 0.72,
+          "PB": 1.0,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "CU": {
+          "AL": 0.72,
+          "PB": 0.72,
+          "CU": 1.0,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "ZN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 1.0,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "SN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 1.0,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "NI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 1.0,
+          "SI": 0.64
+        },
+        "SI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.72,
+      "battery_correlation": 0.64,
+      "cross_sector_correlation": 0.35
+    },
+    {
+      "window_id": "W2",
+      "global_week": "W51",
+      "start_date": "2028-02-28",
+      "end_date": "2028-03-03",
+      "trading_days": 5,
+      "method": "pearson_daily_return",
+      "window_type": "weekly_rolling_5d",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.73,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "PB": {
+          "AL": 0.73,
+          "PB": 1.0,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "CU": {
+          "AL": 0.73,
+          "PB": 0.73,
+          "CU": 1.0,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "ZN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 1.0,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "SN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 1.0,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "NI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 1.0,
+          "SI": 0.65
+        },
+        "SI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.73,
+      "battery_correlation": 0.65,
+      "cross_sector_correlation": 0.36
+    },
+    {
+      "window_id": "W3",
+      "global_week": "W52",
+      "start_date": "2028-03-06",
+      "end_date": "2028-03-10",
+      "trading_days": 5,
+      "method": "pearson_daily_return",
+      "window_type": "weekly_rolling_5d",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.72,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "PB": {
+          "AL": 0.72,
+          "PB": 1.0,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "CU": {
+          "AL": 0.72,
+          "PB": 0.72,
+          "CU": 1.0,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "ZN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 1.0,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "SN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 1.0,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "NI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 1.0,
+          "SI": 0.64
+        },
+        "SI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.72,
+      "battery_correlation": 0.64,
+      "cross_sector_correlation": 0.35
+    },
+    {
+      "window_id": "W4",
+      "global_week": "W53",
+      "start_date": "2028-03-13",
+      "end_date": "2028-03-17",
+      "trading_days": 5,
+      "method": "pearson_daily_return",
+      "window_type": "weekly_rolling_5d",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.72,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "PB": {
+          "AL": 0.72,
+          "PB": 1.0,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "CU": {
+          "AL": 0.72,
+          "PB": 0.72,
+          "CU": 1.0,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "ZN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 1.0,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "SN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 1.0,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "NI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 1.0,
+          "SI": 0.64
+        },
+        "SI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.72,
+      "battery_correlation": 0.64,
+      "cross_sector_correlation": 0.35
+    },
+    {
+      "window_id": "W5",
+      "global_week": "W54",
+      "start_date": "2028-03-20",
+      "end_date": "2028-03-24",
+      "trading_days": 5,
+      "method": "pearson_daily_return",
+      "window_type": "weekly_rolling_5d",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.73,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "PB": {
+          "AL": 0.73,
+          "PB": 1.0,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "CU": {
+          "AL": 0.73,
+          "PB": 0.73,
+          "CU": 1.0,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "ZN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 1.0,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "SN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 1.0,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "NI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 1.0,
+          "SI": 0.65
+        },
+        "SI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.73,
+      "battery_correlation": 0.65,
+      "cross_sector_correlation": 0.36
+    },
+    {
+      "window_id": "W6",
+      "global_week": "W55",
+      "start_date": "2028-03-27",
+      "end_date": "2028-03-31",
+      "trading_days": 5,
+      "method": "pearson_daily_return",
+      "window_type": "weekly_rolling_5d",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.72,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "PB": {
+          "AL": 0.72,
+          "PB": 1.0,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "CU": {
+          "AL": 0.72,
+          "PB": 0.72,
+          "CU": 1.0,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "ZN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 1.0,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "SN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 1.0,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "NI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 1.0,
+          "SI": 0.64
+        },
+        "SI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.72,
+      "battery_correlation": 0.64,
+      "cross_sector_correlation": 0.35
+    },
+    {
+      "window_id": "W7",
+      "global_week": "W56",
+      "start_date": "2028-04-03",
+      "end_date": "2028-04-07",
+      "trading_days": 5,
+      "method": "pearson_daily_return",
+      "window_type": "weekly_rolling_5d",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.73,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "PB": {
+          "AL": 0.73,
+          "PB": 1.0,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "CU": {
+          "AL": 0.73,
+          "PB": 0.73,
+          "CU": 1.0,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "ZN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 1.0,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "SN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 1.0,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "NI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 1.0,
+          "SI": 0.65
+        },
+        "SI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.73,
+      "battery_correlation": 0.65,
+      "cross_sector_correlation": 0.36
+    }
+  ],
+  "multi_window": [
+    {
+      "window_type": "20d",
+      "window_id": "W1",
+      "start_date": "2028-02-07",
+      "end_date": "2028-03-03",
+      "trading_days": 14,
+      "method": "pearson_daily_return",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.72,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "PB": {
+          "AL": 0.72,
+          "PB": 1.0,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "CU": {
+          "AL": 0.72,
+          "PB": 0.72,
+          "CU": 1.0,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "ZN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 1.0,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "SN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 1.0,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "NI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 1.0,
+          "SI": 0.64
+        },
+        "SI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.72,
+      "battery_correlation": 0.64,
+      "cross_sector_correlation": 0.35
+    },
+    {
+      "window_type": "20d",
+      "window_id": "W2",
+      "start_date": "2028-03-03",
+      "end_date": "2028-04-07",
+      "trading_days": 14,
+      "method": "pearson_daily_return",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.73,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "PB": {
+          "AL": 0.73,
+          "PB": 1.0,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "CU": {
+          "AL": 0.73,
+          "PB": 0.73,
+          "CU": 1.0,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "ZN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 1.0,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "SN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 1.0,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "NI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 1.0,
+          "SI": 0.65
+        },
+        "SI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.73,
+      "battery_correlation": 0.65,
+      "cross_sector_correlation": 0.36
+    },
+    {
+      "window_type": "40d",
+      "window_id": "W1",
+      "start_date": "2028-01-24",
+      "end_date": "2028-04-07",
+      "trading_days": 24,
+      "method": "pearson_daily_return",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.74,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "PB": {
+          "AL": 0.74,
+          "PB": 1.0,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "CU": {
+          "AL": 0.74,
+          "PB": 0.74,
+          "CU": 1.0,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "ZN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 1.0,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "SN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 1.0,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "NI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 1.0,
+          "SI": 0.66
+        },
+        "SI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.74,
+      "battery_correlation": 0.66,
+      "cross_sector_correlation": 0.34
+    },
+    {
+      "window_type": "60d",
+      "window_id": "W1",
+      "start_date": "2028-01-04",
+      "end_date": "2028-04-07",
+      "trading_days": 44,
+      "method": "pearson_daily_return",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.72,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "PB": {
+          "AL": 0.72,
+          "PB": 1.0,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "CU": {
+          "AL": 0.72,
+          "PB": 0.72,
+          "CU": 1.0,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "ZN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 1.0,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "SN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 1.0,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "NI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 1.0,
+          "SI": 0.64
+        },
+        "SI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.72,
+      "battery_correlation": 0.64,
+      "cross_sector_correlation": 0.35
+    },
+    {
+      "window_type": "120d",
+      "window_id": "W1",
+      "start_date": "2027-11-02",
+      "end_date": "2028-04-07",
+      "trading_days": 98,
+      "method": "pearson_daily_return",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.73,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "PB": {
+          "AL": 0.73,
+          "PB": 1.0,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "CU": {
+          "AL": 0.73,
+          "PB": 0.73,
+          "CU": 1.0,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "ZN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 1.0,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "SN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 1.0,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "NI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 1.0,
+          "SI": 0.65
+        },
+        "SI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.73,
+      "battery_correlation": 0.65,
+      "cross_sector_correlation": 0.36
+    },
+    {
+      "window_type": "250d",
+      "window_id": "W1",
+      "start_date": "2027-06-07",
+      "end_date": "2028-04-07",
+      "trading_days": 208,
+      "method": "pearson_daily_return",
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.74,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "PB": {
+          "AL": 0.74,
+          "PB": 1.0,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "CU": {
+          "AL": 0.74,
+          "PB": 0.74,
+          "CU": 1.0,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "ZN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 1.0,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "SN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 1.0,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "NI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 1.0,
+          "SI": 0.66
+        },
+        "SI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 1.0
+        }
+      },
+      "core_correlation": 0.74,
+      "battery_correlation": 0.66,
+      "cross_sector_correlation": 0.34
+    }
+  ],
+  "multi_window_by_type": {
+    "120d": [
+      {
+        "window_id": "W1",
+        "start_date": "2027-11-02",
+        "end_date": "2028-04-07",
+        "trading_days": 98,
+        "correlation_matrix": {
+          "AL": {
+            "AL": 1.0,
+            "PB": 0.73,
+            "CU": 0.73,
+            "ZN": 0.36,
+            "SN": 0.36,
+            "NI": 0.36,
+            "SI": 0.36
+          },
+          "PB": {
+            "AL": 0.73,
+            "PB": 1.0,
+            "CU": 0.73,
+            "ZN": 0.36,
+            "SN": 0.36,
+            "NI": 0.36,
+            "SI": 0.36
+          },
+          "CU": {
+            "AL": 0.73,
+            "PB": 0.73,
+            "CU": 1.0,
+            "ZN": 0.36,
+            "SN": 0.36,
+            "NI": 0.36,
+            "SI": 0.36
+          },
+          "ZN": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 1.0,
+            "SN": 0.65,
+            "NI": 0.65,
+            "SI": 0.65
+          },
+          "SN": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 0.65,
+            "SN": 1.0,
+            "NI": 0.65,
+            "SI": 0.65
+          },
+          "NI": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 0.65,
+            "SN": 0.65,
+            "NI": 1.0,
+            "SI": 0.65
+          },
+          "SI": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 0.65,
+            "SN": 0.65,
+            "NI": 0.65,
+            "SI": 1.0
+          }
+        },
+        "core_correlation": 0.73,
+        "battery_correlation": 0.65,
+        "cross_sector_correlation": 0.36
+      }
+    ],
+    "20d": [
+      {
+        "window_id": "W1",
+        "start_date": "2028-02-07",
+        "end_date": "2028-03-03",
+        "trading_days": 14,
+        "correlation_matrix": {
+          "AL": {
+            "AL": 1.0,
+            "PB": 0.72,
+            "CU": 0.72,
+            "ZN": 0.35,
+            "SN": 0.35,
+            "NI": 0.35,
+            "SI": 0.35
+          },
+          "PB": {
+            "AL": 0.72,
+            "PB": 1.0,
+            "CU": 0.72,
+            "ZN": 0.35,
+            "SN": 0.35,
+            "NI": 0.35,
+            "SI": 0.35
+          },
+          "CU": {
+            "AL": 0.72,
+            "PB": 0.72,
+            "CU": 1.0,
+            "ZN": 0.35,
+            "SN": 0.35,
+            "NI": 0.35,
+            "SI": 0.35
+          },
+          "ZN": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 1.0,
+            "SN": 0.64,
+            "NI": 0.64,
+            "SI": 0.64
+          },
+          "SN": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 0.64,
+            "SN": 1.0,
+            "NI": 0.64,
+            "SI": 0.64
+          },
+          "NI": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 0.64,
+            "SN": 0.64,
+            "NI": 1.0,
+            "SI": 0.64
+          },
+          "SI": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 0.64,
+            "SN": 0.64,
+            "NI": 0.64,
+            "SI": 1.0
+          }
+        },
+        "core_correlation": 0.72,
+        "battery_correlation": 0.64,
+        "cross_sector_correlation": 0.35
+      },
+      {
+        "window_id": "W2",
+        "start_date": "2028-03-03",
+        "end_date": "2028-04-07",
+        "trading_days": 14,
+        "correlation_matrix": {
+          "AL": {
+            "AL": 1.0,
+            "PB": 0.73,
+            "CU": 0.73,
+            "ZN": 0.36,
+            "SN": 0.36,
+            "NI": 0.36,
+            "SI": 0.36
+          },
+          "PB": {
+            "AL": 0.73,
+            "PB": 1.0,
+            "CU": 0.73,
+            "ZN": 0.36,
+            "SN": 0.36,
+            "NI": 0.36,
+            "SI": 0.36
+          },
+          "CU": {
+            "AL": 0.73,
+            "PB": 0.73,
+            "CU": 1.0,
+            "ZN": 0.36,
+            "SN": 0.36,
+            "NI": 0.36,
+            "SI": 0.36
+          },
+          "ZN": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 1.0,
+            "SN": 0.65,
+            "NI": 0.65,
+            "SI": 0.65
+          },
+          "SN": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 0.65,
+            "SN": 1.0,
+            "NI": 0.65,
+            "SI": 0.65
+          },
+          "NI": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 0.65,
+            "SN": 0.65,
+            "NI": 1.0,
+            "SI": 0.65
+          },
+          "SI": {
+            "AL": 0.36,
+            "PB": 0.36,
+            "CU": 0.36,
+            "ZN": 0.65,
+            "SN": 0.65,
+            "NI": 0.65,
+            "SI": 1.0
+          }
+        },
+        "core_correlation": 0.73,
+        "battery_correlation": 0.65,
+        "cross_sector_correlation": 0.36
+      }
+    ],
+    "250d": [
+      {
+        "window_id": "W1",
+        "start_date": "2027-06-07",
+        "end_date": "2028-04-07",
+        "trading_days": 208,
+        "correlation_matrix": {
+          "AL": {
+            "AL": 1.0,
+            "PB": 0.74,
+            "CU": 0.74,
+            "ZN": 0.34,
+            "SN": 0.34,
+            "NI": 0.34,
+            "SI": 0.34
+          },
+          "PB": {
+            "AL": 0.74,
+            "PB": 1.0,
+            "CU": 0.74,
+            "ZN": 0.34,
+            "SN": 0.34,
+            "NI": 0.34,
+            "SI": 0.34
+          },
+          "CU": {
+            "AL": 0.74,
+            "PB": 0.74,
+            "CU": 1.0,
+            "ZN": 0.34,
+            "SN": 0.34,
+            "NI": 0.34,
+            "SI": 0.34
+          },
+          "ZN": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 1.0,
+            "SN": 0.66,
+            "NI": 0.66,
+            "SI": 0.66
+          },
+          "SN": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 0.66,
+            "SN": 1.0,
+            "NI": 0.66,
+            "SI": 0.66
+          },
+          "NI": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 0.66,
+            "SN": 0.66,
+            "NI": 1.0,
+            "SI": 0.66
+          },
+          "SI": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 0.66,
+            "SN": 0.66,
+            "NI": 0.66,
+            "SI": 1.0
+          }
+        },
+        "core_correlation": 0.74,
+        "battery_correlation": 0.66,
+        "cross_sector_correlation": 0.34
+      }
+    ],
+    "40d": [
+      {
+        "window_id": "W1",
+        "start_date": "2028-01-24",
+        "end_date": "2028-04-07",
+        "trading_days": 24,
+        "correlation_matrix": {
+          "AL": {
+            "AL": 1.0,
+            "PB": 0.74,
+            "CU": 0.74,
+            "ZN": 0.34,
+            "SN": 0.34,
+            "NI": 0.34,
+            "SI": 0.34
+          },
+          "PB": {
+            "AL": 0.74,
+            "PB": 1.0,
+            "CU": 0.74,
+            "ZN": 0.34,
+            "SN": 0.34,
+            "NI": 0.34,
+            "SI": 0.34
+          },
+          "CU": {
+            "AL": 0.74,
+            "PB": 0.74,
+            "CU": 1.0,
+            "ZN": 0.34,
+            "SN": 0.34,
+            "NI": 0.34,
+            "SI": 0.34
+          },
+          "ZN": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 1.0,
+            "SN": 0.66,
+            "NI": 0.66,
+            "SI": 0.66
+          },
+          "SN": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 0.66,
+            "SN": 1.0,
+            "NI": 0.66,
+            "SI": 0.66
+          },
+          "NI": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 0.66,
+            "SN": 0.66,
+            "NI": 1.0,
+            "SI": 0.66
+          },
+          "SI": {
+            "AL": 0.34,
+            "PB": 0.34,
+            "CU": 0.34,
+            "ZN": 0.66,
+            "SN": 0.66,
+            "NI": 0.66,
+            "SI": 1.0
+          }
+        },
+        "core_correlation": 0.74,
+        "battery_correlation": 0.66,
+        "cross_sector_correlation": 0.34
+      }
+    ],
+    "60d": [
+      {
+        "window_id": "W1",
+        "start_date": "2028-01-04",
+        "end_date": "2028-04-07",
+        "trading_days": 44,
+        "correlation_matrix": {
+          "AL": {
+            "AL": 1.0,
+            "PB": 0.72,
+            "CU": 0.72,
+            "ZN": 0.35,
+            "SN": 0.35,
+            "NI": 0.35,
+            "SI": 0.35
+          },
+          "PB": {
+            "AL": 0.72,
+            "PB": 1.0,
+            "CU": 0.72,
+            "ZN": 0.35,
+            "SN": 0.35,
+            "NI": 0.35,
+            "SI": 0.35
+          },
+          "CU": {
+            "AL": 0.72,
+            "PB": 0.72,
+            "CU": 1.0,
+            "ZN": 0.35,
+            "SN": 0.35,
+            "NI": 0.35,
+            "SI": 0.35
+          },
+          "ZN": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 1.0,
+            "SN": 0.64,
+            "NI": 0.64,
+            "SI": 0.64
+          },
+          "SN": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 0.64,
+            "SN": 1.0,
+            "NI": 0.64,
+            "SI": 0.64
+          },
+          "NI": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 0.64,
+            "SN": 0.64,
+            "NI": 1.0,
+            "SI": 0.64
+          },
+          "SI": {
+            "AL": 0.35,
+            "PB": 0.35,
+            "CU": 0.35,
+            "ZN": 0.64,
+            "SN": 0.64,
+            "NI": 0.64,
+            "SI": 1.0
+          }
+        },
+        "core_correlation": 0.72,
+        "battery_correlation": 0.64,
+        "cross_sector_correlation": 0.35
+      }
+    ]
+  },
+  "rolling_correlation": {
+    "120d": {
+      "window_id": "W1",
+      "start_date": "2027-11-02",
+      "end_date": "2028-04-07",
+      "trading_days": 98,
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.73,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "PB": {
+          "AL": 0.73,
+          "PB": 1.0,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "CU": {
+          "AL": 0.73,
+          "PB": 0.73,
+          "CU": 1.0,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "ZN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 1.0,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "SN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 1.0,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "NI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 1.0,
+          "SI": 0.65
+        },
+        "SI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 1.0
+        }
+      },
+      "core_pair_AL_CU": 0.73,
+      "core_pair_AL_PB": 0.73,
+      "core_pair_CU_PB": 0.73,
+      "battery_pair_ZN_SN": 0.65,
+      "battery_pair_NI_SN": 0.65,
+      "cross_sector_pair_AL_ZN": 0.36,
+      "cross_sector_pair_AL_SN": 0.36,
+      "core_avg": 0.73,
+      "battery_avg": 0.65,
+      "cross_sector_avg": 0.36,
+      "n_windows": 1
+    },
+    "20d": {
+      "window_id": "W2",
+      "start_date": "2028-03-03",
+      "end_date": "2028-04-07",
+      "trading_days": 14,
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.73,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "PB": {
+          "AL": 0.73,
+          "PB": 1.0,
+          "CU": 0.73,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "CU": {
+          "AL": 0.73,
+          "PB": 0.73,
+          "CU": 1.0,
+          "ZN": 0.36,
+          "SN": 0.36,
+          "NI": 0.36,
+          "SI": 0.36
+        },
+        "ZN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 1.0,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "SN": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 1.0,
+          "NI": 0.65,
+          "SI": 0.65
+        },
+        "NI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 1.0,
+          "SI": 0.65
+        },
+        "SI": {
+          "AL": 0.36,
+          "PB": 0.36,
+          "CU": 0.36,
+          "ZN": 0.65,
+          "SN": 0.65,
+          "NI": 0.65,
+          "SI": 1.0
+        }
+      },
+      "core_pair_AL_CU": 0.73,
+      "core_pair_AL_PB": 0.73,
+      "core_pair_CU_PB": 0.73,
+      "battery_pair_ZN_SN": 0.65,
+      "battery_pair_NI_SN": 0.65,
+      "cross_sector_pair_AL_ZN": 0.36,
+      "cross_sector_pair_AL_SN": 0.36,
+      "core_avg": 0.73,
+      "battery_avg": 0.65,
+      "cross_sector_avg": 0.36,
+      "n_windows": 2
+    },
+    "250d": {
+      "window_id": "W1",
+      "start_date": "2027-06-07",
+      "end_date": "2028-04-07",
+      "trading_days": 208,
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.74,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "PB": {
+          "AL": 0.74,
+          "PB": 1.0,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "CU": {
+          "AL": 0.74,
+          "PB": 0.74,
+          "CU": 1.0,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "ZN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 1.0,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "SN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 1.0,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "NI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 1.0,
+          "SI": 0.66
+        },
+        "SI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 1.0
+        }
+      },
+      "core_pair_AL_CU": 0.74,
+      "core_pair_AL_PB": 0.74,
+      "core_pair_CU_PB": 0.74,
+      "battery_pair_ZN_SN": 0.66,
+      "battery_pair_NI_SN": 0.66,
+      "cross_sector_pair_AL_ZN": 0.34,
+      "cross_sector_pair_AL_SN": 0.34,
+      "core_avg": 0.74,
+      "battery_avg": 0.66,
+      "cross_sector_avg": 0.34,
+      "n_windows": 1
+    },
+    "40d": {
+      "window_id": "W1",
+      "start_date": "2028-01-24",
+      "end_date": "2028-04-07",
+      "trading_days": 24,
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.74,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "PB": {
+          "AL": 0.74,
+          "PB": 1.0,
+          "CU": 0.74,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "CU": {
+          "AL": 0.74,
+          "PB": 0.74,
+          "CU": 1.0,
+          "ZN": 0.34,
+          "SN": 0.34,
+          "NI": 0.34,
+          "SI": 0.34
+        },
+        "ZN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 1.0,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "SN": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 1.0,
+          "NI": 0.66,
+          "SI": 0.66
+        },
+        "NI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 1.0,
+          "SI": 0.66
+        },
+        "SI": {
+          "AL": 0.34,
+          "PB": 0.34,
+          "CU": 0.34,
+          "ZN": 0.66,
+          "SN": 0.66,
+          "NI": 0.66,
+          "SI": 1.0
+        }
+      },
+      "core_pair_AL_CU": 0.74,
+      "core_pair_AL_PB": 0.74,
+      "core_pair_CU_PB": 0.74,
+      "battery_pair_ZN_SN": 0.66,
+      "battery_pair_NI_SN": 0.66,
+      "cross_sector_pair_AL_ZN": 0.34,
+      "cross_sector_pair_AL_SN": 0.34,
+      "core_avg": 0.74,
+      "battery_avg": 0.66,
+      "cross_sector_avg": 0.34,
+      "n_windows": 1
+    },
+    "60d": {
+      "window_id": "W1",
+      "start_date": "2028-01-04",
+      "end_date": "2028-04-07",
+      "trading_days": 44,
+      "correlation_matrix": {
+        "AL": {
+          "AL": 1.0,
+          "PB": 0.72,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "PB": {
+          "AL": 0.72,
+          "PB": 1.0,
+          "CU": 0.72,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "CU": {
+          "AL": 0.72,
+          "PB": 0.72,
+          "CU": 1.0,
+          "ZN": 0.35,
+          "SN": 0.35,
+          "NI": 0.35,
+          "SI": 0.35
+        },
+        "ZN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 1.0,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "SN": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 1.0,
+          "NI": 0.64,
+          "SI": 0.64
+        },
+        "NI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 1.0,
+          "SI": 0.64
+        },
+        "SI": {
+          "AL": 0.35,
+          "PB": 0.35,
+          "CU": 0.35,
+          "ZN": 0.64,
+          "SN": 0.64,
+          "NI": 0.64,
+          "SI": 1.0
+        }
+      },
+      "core_pair_AL_CU": 0.72,
+      "core_pair_AL_PB": 0.72,
+      "core_pair_CU_PB": 0.72,
+      "battery_pair_ZN_SN": 0.64,
+      "battery_pair_NI_SN": 0.64,
+      "cross_sector_pair_AL_ZN": 0.35,
+      "cross_sector_pair_AL_SN": 0.35,
+      "core_avg": 0.72,
+      "battery_avg": 0.64,
+      "cross_sector_avg": 0.35,
+      "n_windows": 1
+    }
+  },
+  "latest_snapshot": {
+    "window_type": "250d",
+    "window_id": "W1",
+    "start_date": "2027-06-07",
+    "end_date": "2028-04-07",
+    "trading_days": 208,
+    "correlation_matrix": {
+      "AL": {
+        "AL": 1.0,
+        "PB": 0.74,
+        "CU": 0.74,
+        "ZN": 0.34,
+        "SN": 0.34,
+        "NI": 0.34,
+        "SI": 0.34
+      },
+      "PB": {
+        "AL": 0.74,
+        "PB": 1.0,
+        "CU": 0.74,
+        "ZN": 0.34,
+        "SN": 0.34,
+        "NI": 0.34,
+        "SI": 0.34
+      },
+      "CU": {
+        "AL": 0.74,
+        "PB": 0.74,
+        "CU": 1.0,
+        "ZN": 0.34,
+        "SN": 0.34,
+        "NI": 0.34,
+        "SI": 0.34
+      },
+      "ZN": {
+        "AL": 0.34,
+        "PB": 0.34,
+        "CU": 0.34,
+        "ZN": 1.0,
+        "SN": 0.66,
+        "NI": 0.66,
+        "SI": 0.66
+      },
+      "SN": {
+        "AL": 0.34,
+        "PB": 0.34,
+        "CU": 0.34,
+        "ZN": 0.66,
+        "SN": 1.0,
+        "NI": 0.66,
+        "SI": 0.66
+      },
+      "NI": {
+        "AL": 0.34,
+        "PB": 0.34,
+        "CU": 0.34,
+        "ZN": 0.66,
+        "SN": 0.66,
+        "NI": 1.0,
+        "SI": 0.66
+      },
+      "SI": {
+        "AL": 0.34,
+        "PB": 0.34,
+        "CU": 0.34,
+        "ZN": 0.66,
+        "SN": 0.66,
+        "NI": 0.66,
+        "SI": 1.0
+      }
+    },
+    "core_correlation": 0.74,
+    "battery_correlation": 0.66,
+    "cross_sector_correlation": 0.34
+  },
+  "thresholds": {
+    "core_correlation_warn": 0.75,
+    "cross_sector_warn": 0.5,
+    "max_pair_corr_cap": 0.85
+  },
+  "p25_checks": {
+    "window_types_expected": [
+      "20d",
+      "40d",
+      "60d",
+      "120d",
+      "250d"
+    ],
+    "window_types_found": [
+      "120d",
+      "20d",
+      "250d",
+      "40d",
+      "60d"
+    ],
+    "windows_per_type": {
+      "120d": 1,
+      "20d": 2,
+      "250d": 1,
+      "40d": 1,
+      "60d": 1
+    },
+    "weekly_window_count": 7,
+    "multi_window_count": 6,
+    "max_offdiag_corr": 0.74,
+    "out_of_range_pairs": [],
+    "assets_count": 7,
+    "status": "PASS"
+  },
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  }
+}
