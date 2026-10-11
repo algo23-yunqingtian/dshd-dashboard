@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 cross-variety comparison - 7 varieties radar + Phase4 monitoring",
+  "description": "P31 cross-variety comparison / V31.0",
   "comparison": {
     "varieties": [
       "AL",
@@ -133,7 +133,11 @@
     "portfolio_total_return": 67.96,
     "diversification_benefit": 0.38,
     "hhi": 0.1429,
-    "m7_final_assessment": "COMPLETED_P23"
+    "m7_final_assessment": "COMPLETED_P23",
+    "sharpe": 2.2,
+    "ic": 0.0493,
+    "ir": 34.7,
+    "diversification": 0.38
   },
   "cross_variety_correlation": {
     "AL": {
@@ -200,14 +204,10 @@
       "SI": 1.0
     }
   },
-  "p24_additions": {
-    "phase4_monitoring": "Phase4 monitoring data integrated",
-    "pb_cu_gray_admission": "PB/CU gray admission: EDGE_PENDING"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
-  },
-  "p25_notes": {
+  "p31_notes": {
     "note": "IC漂移5.2%阻断期, 品种对比维持P24结论; 量价因子F01/F09为主漂移源"
   }
 }
