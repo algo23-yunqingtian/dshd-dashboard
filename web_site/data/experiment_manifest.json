@@ -1,16 +1,16 @@
 {
   "manifest_id": "DSHC-EXPERIMENT-MANIFEST-P3-P18",
   "version": "18.0-P18-GH-PAGES-LAUNCH",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG",
-  "total_phases": 16,
-  "phase_range": "P3-P18",
-  "total_monitor_days": 350,
-  "total_zero_rollback_days": 350,
-  "cumulative_ic_drift_pct": 4.1,
-  "cumulative_drift_alert_counter": 560,
-  "cumulative_audits": 728,
+  "engine": "V86.9-C-FINAL-DEBUG-P31",
+  "total_phases": 31,
+  "phase_range": "P3-P31",
+  "total_monitor_days": 805,
+  "total_zero_rollback_days": 805,
+  "cumulative_ic_drift_pct": 3.6,
+  "cumulative_drift_alert_counter": 1435,
+  "cumulative_audits": 868,
   "cumulative_sigma_weeks": 70,
   "cumulative_sigma_max": 70,
   "td_046_enforced": true,
@@ -515,9 +515,9 @@
       "conclusion": "DONE_GITHUB_PAGES_LIVE"
     }
   ],
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   }
 }
