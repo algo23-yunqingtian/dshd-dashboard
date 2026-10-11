@@ -1,10 +1,10 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 per-variety risk contribution - Euler time series + time slice optimization",
-  "source": "DSHA-P23 portfolio_backtest_7asset.json (P22 MRC+Euler + P23 time series)",
+  "description": "P31 per-variety risk contribution / V31.0",
+  "source": "DSHA-P31 portfolio_daily_position.json risk_contribution_timeseries",
   "methodology": "Marginal risk contribution (MRC) + Euler decomposition + time-series rolling",
   "portfolio_risk": {
     "portfolio_volatility": 0.82,
@@ -1183,15 +1183,10 @@
     "all_milestones_completed": true,
     "production_ready": true
   },
-  "p24_additions": {
-    "time_slice_support": "7d/14d/30d/35d/all time slice viewing",
-    "risk_contribution_timeseries": "portfolio_risk_contribution_timeseries.json (NEW)",
-    "phase4_monitoring": "Phase4 monitoring data integrated"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
-  },
-  "p25_drift_gate": {
+  "p31_drift_gate": {
     "ic_drift_pct": 5.2,
     "threshold_pct": 5.0,
     "block_active": true,
