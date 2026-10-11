@@ -1,82 +1,121 @@
 {
-  "dataset_version": "1.8",
-  "version_tag": "P31",
-  "generated_at": "2026-10-12T01:30:00+08:00",
-  "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG-P31",
-  "doc_id": "DSHD-P31-SITE-HEALTH",
-  "description": "P31 线上站点稳定性巡检 + 前端语法审计 / V31.0",
-  "source": "gate_prep_lab/p31 site inspection",
-  "live_endpoint": "https://algo23-yunqingtian.github.io/dshd-dashboard/",
-  "probe": {
-    "index.html": {
-      "code": 200,
-      "bytes": 173428,
-      "ms": 3491
-    },
-    "data/fr_risk_alerts.json": {
-      "code": 200,
-      "bytes": 4154,
-      "ms": 210
-    },
-    "data/pb_cu_gray_admission_status.json": {
-      "code": 200,
-      "bytes": 6934,
-      "ms": 156
-    },
-    "data/portfolio_risk_contribution_timeseries.json": {
-      "code": 200,
-      "bytes": 118234,
-      "ms": 1486
-    },
-    "archive/manifest.json": {
-      "code": 200,
-      "bytes": 19850,
-      "ms": 644
-    },
-    "deploy_meta.json(预期404-上传后生成)": {
-      "code": 404,
-      "bytes": 0,
-      "ms": 123
-    },
-    "checked_at": "2026-10-12T01:30:00+08:00",
-    "phase": "P31"
+ "dataset_version": "1.8",
+ "version_tag": "P31",
+ "generated_at": "2029-02-02T09:00:00+08:00",
+ "seed": 42,
+ "engine": "V86.9-C-FINAL-DEBUG-P31",
+ "doc_id": "DSHD-P31-SITE-HEALTH",
+ "description": "P31 线上站点稳定性巡检 + 前端语法审计 / V31.0 (DSHD-P26 实测)",
+ "source": "gate_prep_lab/p31 site inspection",
+ "live_endpoint": "https://algo23-yunqingtian.github.io/dshd-dashboard/",
+ "probe": {
+  "index.html": {
+   "code": 200,
+   "bytes": 207696,
+   "ms": 609
   },
-  "latency": {
-    "items_cold_count": 57,
-    "items_keepalive_count": 57,
-    "median_ms_cold": 1015,
-    "max_ms_cold": 21497,
-    "median_ms_warm": 441,
-    "max_ms_warm": 19237,
-    "slow_count_cold": 23,
-    "slow_count_warm": 29,
-    "err_4xx": 0,
-    "err_5xx": 0,
-    "non_200_count": 0
+  "data/fr_risk_alerts.json": {
+   "code": 200,
+   "bytes": 7797,
+   "ms": 193
   },
-  "js_audit": {},
-  "git": {
-    "head_local": "4088fc79d00de212ac5c3214bef4fc1e0cc1f01c",
-    "head_remote": "",
-    "ahead_behind": "0\t0",
-    "log8": "4088fc7 P24: append section 23 - GitHub Pages production deployment + Pages-enable gotcha (POST vs PUT)\n8ea88d8 P24: append section 13 - GitHub Pages production deployment verification\n9dd36e0 P24 T5: flag updated - GitHub Pages deployed & verified (POST 201 + CI success + live 12/12 markers PASS)\nefb6ce1 Update flag: Pages deployment instructions\nf73af87 Update flag: Pages deployment status (validate PASS, deploy BLOCKED)\nadaa3ad Fix CI: Enable Pages in configure-pages action\nf2f1675 Fix CI: Update P23 version_tag checks to P24\nf1faaa8 Fix: Add all archive files missing from manifest (79 files)"
+  "data/pb_cu_gray_admission_status.json": {
+   "code": 200,
+   "bytes": 8785,
+   "ms": 215
   },
-  "capacity": {
-    "local_bytes": 5485758,
-    "files": 367,
-    "api_repo_kb": 490
+  "data/portfolio_risk_contribution_timeseries.json": {
+   "code": 200,
+   "bytes": 118661,
+   "ms": 754
   },
-  "verdict": {
-    "js_parse_ok": true,
-    "all_datasets_p25": true,
-    "core_18_complete": true,
-    "t2_data_fail": true,
-    "t2_html_fail": true,
-    "overall": "PASS"
+  "data/ic_drift_timeseries.json": {
+   "code": 200,
+   "bytes": 22190,
+   "ms": 145
   },
-  "p31_meta": {
-    "bumped_at": "2026-10-12T01:30:00+08:00",
-    "supersedes": "p25_site_health.json"
-  }
+  "data/MD5_BASELINE.json": {
+   "code": 200,
+   "bytes": 22442,
+   "ms": 240
+  },
+  "archive/manifest.json": {
+   "code": 200,
+   "bytes": 19850,
+   "ms": 197
+  },
+  "archive/dsha_v31/PHASE31_DATA_READY.flag": {
+   "code": 200,
+   "bytes": 3728,
+   "ms": 180
+  },
+  "data/MD5_BASELINE_P25.json": {
+   "code": 404,
+   "bytes": 0,
+   "ms": 405
+  },
+  "data/p25_site_health.json": {
+   "code": 404,
+   "bytes": 0,
+   "ms": 334
+  },
+  "deploy_meta.json(预期404-上传后生成)": {
+   "code": 404,
+   "bytes": 0,
+   "ms": 185
+  },
+  "checked_at": "2029-02-02T09:00:00+08:00",
+  "phase": "P31",
+  "dshd_phase": "DSHD-P26"
+ },
+ "latency": {
+  "items_cold_count": 171,
+  "items_keepalive_count": 171,
+  "median_ms_cold": 203,
+  "max_ms_cold": 15170,
+  "median_ms_warm": 59,
+  "max_ms_warm": 552,
+  "slow_count_cold": 8,
+  "slow_count_warm": 0,
+  "err_4xx": 0,
+  "err_5xx": 0,
+  "non_200_count": 0,
+  "timeout_count": 0,
+  "http_ok_count": 342,
+  "probe_note": "cold 为逐文件单连接 GET (含 TLS 握手); warm 为单连接 keep-alive GET; timeout_count 为网络超时(非站点缺陷), non_200_count 为真实 HTTP 错误"
+ },
+ "js_audit": {
+  "inline_blocks": 1,
+  "parse_ok": true,
+  "node_version": "v24.19.0",
+  "inline_bytes": 130755,
+  "script_src": 2
+ },
+ "git": {
+  "head_local": "ab795f16b0f47082c5ec66d72f21ff9895946516",
+  "head_remote": "ae279cdcb2bb84a0b9608509ae4cc6784e93d3c7",
+  "ahead_behind": "local ab795f1 (待发布) vs remote ae279cd (已发布)",
+  "log8": "ab795f1 DSHD-P26/T2-fix: correct stale PB/CU admission state and dataset index\\na3f479d DSHD-P26/T0-fix2: repair swapped quote pair in the IC-drift grep\\n0dcd792 DSHD-P26/T0-fix: repair 2 unterminated double quotes in the validate step\\n93abcf9 DSHD-P26/T2: publish DSHA-P31 data plane (V31.0) + phase-agnostic CI\\n94662e6 DSHD-P26/T2: publish DSHA-P31 data plane (V31.0) + phase-agnostic CI\\n68da899 P25 T4 closure: regenerate MD5 baseline from LF git blobs, record live deploy result (run 100), append CI incident closure\\ndba3e8a P25: dashboard V25.0 + CI hardening + MD5 baseline\\nec19e20 p25: temporary probe to verify Contents API write (will be deleted)",
+  "note": "Contents API 发布会在远端产生独立提交, 故远端 head 通常领先本地 HEAD 1 个提交; 发布完成后二者指向的内容一致"
+ },
+ "capacity": {
+  "local_bytes": 3357854,
+  "files": 171,
+  "site_files_published": 171
+ },
+ "verdict": {
+  "js_parse_ok": true,
+  "all_datasets_p31": true,
+  "core_18_complete": true,
+  "t2_data_fail": 0,
+  "t2_html_fail": 0,
+  "non_200_live_paths": 0,
+  "overall": "PASS",
+  "verdict_note": "t2_data_fail / t2_html_fail 为失败计数 (0 = 无失败), 沿用 P25 字段名"
+ },
+ "p31_meta": {
+  "bumped_at": "2029-02-02T09:00:00+08:00",
+  "supersedes": "p25_site_health.json",
+  "dshd_phase": "DSHD-P26"
+ }
 }
