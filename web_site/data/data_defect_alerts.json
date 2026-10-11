@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.0",
-  "generated_at": "2026-10-09T12:24:08+08:00",
+  "dataset_version": "1.7",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "source": "DSHD DEFECT-P9-001/P9-002 回归 + 数据质量检查",
   "alerts": [
@@ -54,5 +54,13 @@
     "fixed": 2,
     "open": 2,
     "pending": 1
+  },
+  "version_tag": "P25",
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "p25_notes": {
+    "artifact_warning": "F15~F18 Phase24 归一化伪影, Phase26 修正",
+    "cleaning_script": "ZN_NI_SN_SI_data_cleaning_script.py READY_WAIT_DATA"
   }
 }
