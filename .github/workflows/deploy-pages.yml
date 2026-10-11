@@ -97,6 +97,228 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      # ============================================================
+      # 1.2b  P25 T3: 前置静态数据校验 (PRE-FLIGHT STATIC DATA GATE)
+      #       先于 JSON/HTML/归档 校验执行; 任一硬门禁失败即中止部署
+      # ============================================================
+      - name: 'P25 T3: Pre-flight static data validation'
+        if: steps.skip.outputs.skip != 'true'
+        id: preflight_p25
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "========== P25 T3 pre-flight static data validation =========="
+          python3 - <<'PYEOF'
+          import json, os, sys
+          DATA = "web_site/data"
+          CORE18 = [
+                        "fr_risk_alerts",
+              "factor_drift_alerts",
+              "ic_drift_timeseries",
+              "drift_root_cause",
+              "pb_cu_gray_admission_status",
+              "pc003_status",
+              "pc003_unlock_assessment",
+              "phase4_precheck",
+              "data_completion_status",
+              "experiment_index",
+              "version_index",
+              "pl_summary",
+              "cross_variety_comparison",
+              "portfolio_backtest",
+              "portfolio_correlation",
+              "portfolio_risk_metrics",
+              "portfolio_risk_contribution",
+              "rolling_correlation_matrix",
+          ]
+          fail, warn = [], []
+          def chk(desc, ok, detail=""):
+              if ok:
+                  print("  [PASS] " + desc)
+              else:
+                  print("  [FAIL] " + desc + " :: " + str(detail))
+                  fail.append(desc + " :: " + str(detail))
+          def wrn(desc, detail=""):
+              print("  [WARN] " + desc + (" :: " + str(detail) if detail else ""))
+              warn.append(desc)
+          print("  --- A. 18 core datasets present ---")
+          files = sorted(os.listdir(DATA))
+          js = [f for f in files if f.endswith(".json")]
+          for c in CORE18:
+              chk("  core " + c + ".json", (c + ".json") in files)
+          n_core = len([c for c in CORE18 if (c + ".json") in files])
+          chk("core coverage 18/18", n_core == 18, str(n_core) + "/18")
+          print("  --- B. version_tag / dataset_version consistency ---")
+          bad_tag, no_tag, bad_ver = [], [], []
+          for f in js:
+              try:
+                  d = json.load(open(os.path.join(DATA, f), encoding="utf-8"))
+              except Exception as e:
+                  bad_tag.append(f + " (unreadable " + str(e) + ")"); continue
+              t = d.get("version_tag", "")
+              v = d.get("dataset_version", "")
+              if not t: no_tag.append(f)
+              elif t != "P25": bad_tag.append(f + " -> " + str(t))
+              if str(v) != "1.7": bad_ver.append(f + " -> " + str(v))
+          chk("all version_tag == P25", len(bad_tag) == 0, str(bad_tag[:6]))
+          chk("all dataset_version == 1.7", len(bad_ver) == 0, str(bad_ver[:6]))
+          wrn("datasets without version_tag", str(no_tag[:6]))
+          print("  --- C. P25 new-dataset structural integrity ---")
+          try:
+              ics = json.load(open(os.path.join(DATA, "ic_drift_timeseries.json"), encoding="utf-8"))
+              ps = ics.get("phase_series") or []
+              chk("ic_drift phase_series >= 17 phases", len(ps) >= 17, "n=" + str(len(ps)))
+              names = [str(x.get("phase", "")) for x in ps]
+              chk("ic_drift covers Phase6..Phase25", "Phase6" in names and "Phase25" in names, str(names[:2]) + ".." + str(names[-2:]))
+              chk("ic_drift threshold_pct == 5.0", abs(float(ics.get("threshold_pct", 0)) - 5.0) < 1e-9)
+              chk("ic_drift over_threshold_phases == 2", int((ics.get("summary") or {}).get("over_threshold_phases", 0)) == 2)
+              chk("ic_drift summary.current_ic == 0.0578", abs(float((ics.get("summary") or {}).get("current_ic", 0)) - 0.0578) < 1e-9)
+          except Exception as e:
+              fail.append("ic_drift_timeseries read :: " + str(e))
+          try:
+              r = json.load(open(os.path.join(DATA, "drift_root_cause.json"), encoding="utf-8"))
+              chk("drift_root_cause factor_drift == 12", len(r.get("factor_drift") or []) == 12)
+              chk("drift_root_cause schemes == 4", len(r.get("schemes") or []) == 4)
+              chk("drift_root_cause recommended_scheme == D", r.get("recommended_scheme") == "D")
+              chk("drift_root_cause priority == P0", r.get("priority") == "P0")
+          except Exception as e:
+              fail.append("drift_root_cause read :: " + str(e))
+          try:
+              m = json.load(open(os.path.join(DATA, "rolling_correlation_matrix.json"), encoding="utf-8"))
+              roll = m.get("rolling_correlation") or {}
+              keys = sorted(roll.keys())
+              chk("rolling_correlation 5 windows 20/40/60/120/250d", keys == ["120d", "20d", "250d", "40d", "60d"], str(keys))
+              for k in keys:
+                  w = roll[k]
+                  mm = w.get("correlation_matrix") or {}
+                  chk("  " + k + " matrix 7x7", len(mm) == 7, str(len(mm)))
+                  chk("  " + k + " core/battery/cross_sector avg", all(x in w for x in ("core_avg", "battery_avg", "cross_sector_avg")))
+          except Exception as e:
+              fail.append("rolling_correlation_matrix read :: " + str(e))
+          print("  --- D. cross-dataset alert consistency ---")
+          try:
+              fr = json.load(open(os.path.join(DATA, "fr_risk_alerts.json"), encoding="utf-8"))
+              al = fr.get("alerts") or []
+              ids = [str(a.get("id", "")) for a in al]
+              chk("fr_risk_alerts total == 15", len(al) == 15, "n=" + str(len(al)))
+              chk("fr_risk PG25-ICDRIFT-015 present", any("PG25-ICDRIFT-015" in i for i in ids), str(ids[-3:]))
+              blk = fr.get("ic_drift_block") or {}
+              chk("fr_risk ic_drift_block.active == true", blk.get("active") is True)
+              chk("fr_risk ic_drift_block.drift_pct == 5.2", abs(float(blk.get("drift_pct", 0)) - 5.2) < 1e-9)
+          except Exception as e:
+              fail.append("fr_risk_alerts read :: " + str(e))
+          out = {"core18_ok": n_core, "datasets": len(js), "fail": fail, "warn": warn}
+          open("validate_p25.json", "w", encoding="utf-8").write(json.dumps(out, ensure_ascii=False, indent=2))
+          print("\n  hard fail: %d | warn: %d" % (len(fail), len(warn)))
+          for x in fail: print("    FAIL: " + x)
+          if fail:
+              print("PRE-FLIGHT GATE: BLOCKED", file=sys.stderr); sys.exit(10)
+          print("PRE-FLIGHT GATE: PASS")
+          PYEOF
+      # ============================================================
+      # 1.2c  P25 T3: 内联 JS 语法审计 (node --check)
+      #        阻断 "整页 JS 解析失败" 类缺陷上线 (P24 曾因 const rc 重复声明整页不渲染)
+      # ============================================================
+      - name: 'P25 T3: Inline JS syntax audit (node --check)'
+        if: steps.skip.outputs.skip != 'true'
+        id: js_audit_p25
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "========== P25 T3 inline JS syntax audit =========="
+          python3 - <<'PYEOF'
+          import re, subprocess, tempfile, os, sys
+          src = open("web_site/index.html", encoding="utf-8").read()
+          blocks = re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>', src, flags=re.S)
+          errs, ok = [], 0
+          for i, b in enumerate(blocks, 1):
+              if not b.strip(): continue
+              with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8",
+                                              newline="\n", delete=False) as tf:
+                  tf.write(b); path = tf.name
+              r = subprocess.run(["node", "--check", path], capture_output=True, text=True)
+              os.unlink(path)
+              st = (r.stderr or "").splitlines()
+              if r.returncode:
+                  msg = next((x.strip() for x in st if x.strip().startswith("SyntaxError")), st[0] if st else "rc=%d" % r.returncode)
+                  errs.append("block#%d: %s" % (i, msg))
+              else:
+                  ok += 1
+                  print("  [PASS] block#%d node --check ok (%d chars)" % (i, len(b)))
+          for e in errs: print("  [FAIL] " + e, file=sys.stderr)
+          print("  blocks checked: %d | syntax errors: %d" % (ok, len(errs)))
+          if errs: sys.exit(11)
+          PYEOF
+          grep -q "ic-drift-panel" web_site/index.html && echo "  P25 IC drift panel container OK"
+          grep -q "renderICDriftPanel" web_site/index.html && echo "  P25 renderICDriftPanel OK"
+          grep -q "correlation-band-chart" web_site/index.html && echo "  P25 correlation band chart OK"
+          grep -q "fr-risk-block-status" web_site/index.html && echo "  P25 FR-RISK block status OK"
+      # ============================================================
+      # 1.2d  P25 T3: 安全扫描 (secret leakage / 明文凭证 / 依赖钉住)
+      # ============================================================
+      - name: 'P25 T3: Security scan'
+        if: steps.skip.outputs.skip != 'true'
+        id: secscan_p25
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "========== P25 T3 security scan =========="
+          python3 - <<'PYEOF'
+          import os, re, sys, json
+          ROOT = "web_site"
+          PATTERNS = [
+              (r"ghp_[A-Za-z0-9]{30,}",                   "GitHub PAT classic"),
+              (r"github_pat_[A-Za-z0-9_]{20,}",           "GitHub PAT fine-grained"),
+              (r"gh[osu]_[A-Za-z0-9]{30,}",               "GitHub token"),
+              (r"AKIA[0-9A-Z]{16}",                       "AWS access key"),
+              (r"-----BEGIN [A-Z ]*PRIVATE KEY-----",      "PEM private key"),
+              (r"aws_secret_access_key\s*[:=]\s*['\"]?[A-Za-z0-9/+]{20,}", "AWS secret"),
+              (r"PRIVATE-TOKEN\s*[:=]\s*[A-Za-z0-9_\-]{20,}",  "GitLab PAT"),
+          ]
+          SKIP_EXT = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".woff", ".woff2", ".ttf"}
+          hits, scanned = [], 0
+          for dp, dn, fn in os.walk(ROOT):
+              for f in fn:
+                  if os.path.splitext(f)[1].lower() in SKIP_EXT: continue
+                  p = os.path.join(dp, f)
+                  try:
+                      txt = open(p, encoding="utf-8", errors="ignore").read()
+                  except Exception:
+                      continue
+                  scanned += 1
+                  for rx, name in PATTERNS:
+                      for m in re.finditer(rx, txt):
+                          hits.append((os.path.relpath(p, ROOT), name, m.group(0)[:24]))
+          print("  files scanned: %d | secret-pattern hits: %d" % (scanned, len(hits)))
+          for h in hits: print("    LEAK: %s :: %s :: %s" % h, file=sys.stderr)
+          if hits:
+              print("SECURITY SCAN: FAILED", file=sys.stderr); sys.exit(20)
+          PYEOF
+          echo "  -- plaintext credential files --"
+          if ls web_site/**/.env web_site/.env web_site/*.pem web_site/*.key 2>/dev/null | grep -q .; then
+              echo "  [FAIL] credential file present in site artifact" >&2; exit 21
+          fi
+          echo "  [PASS] no credential file in artifact"
+          echo "  -- non-HTTPS external resource check --"
+          if grep -nE 'src="http://' web_site/index.html | grep -q .; then
+              echo "  [FAIL] non-HTTPS external resource" >&2; exit 22
+          fi
+          echo "  [PASS] all external resources HTTPS"
+          python3 - <<'PYEOF'
+          import re, json
+          src = open("web_site/index.html", encoding="utf-8").read()
+          cdns = sorted(set(re.findall(r'https://[^"\)]+?\.(?:js|css)(?![A-Za-z0-9])', src)))
+          unpinned = [c for c in cdns if not re.search(r'(?:/v[0-9]+/|@[0-9]+(?:\.[0-9]+)?|/dist/)', c)]
+          evals = len(re.findall(r"\beval\s*\(", src))
+          inner = len(re.findall(r"\.innerHTML\s*=", src))
+          print("  CDN endpoints: %d | unpinned: %d | eval() calls: %d | innerHTML assignments: %d" % (len(cdns), len(unpinned), evals, inner))
+          for u in unpinned: print("    UNPINNED CDN: " + u)
+          if evals: print("    ADVISORY: eval() present")
+          json.dump({"files_scanned": 0, "secret_hits": 0, "cdn_endpoints": len(cdns),
+                    "unpinned_cdn": unpinned, "eval_calls": evals, "innerHTML_assignments": inner},
+                    open("security_scan.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+          PYEOF
+          echo "  [PASS] security scan clean"
       # 1.3 JSON 数据集完整性校验
       - name: Validate JSON datasets
         if: steps.skip.outputs.skip != 'true'
@@ -468,6 +690,40 @@ jobs:
         run: |
           python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution_timeseries.json')); assert d.get('version_tag')=='P24'; assert 'variety_time_series' in d; assert len(d['variety_time_series'])>=7; print('Risk contribution time series JSON verified')"
 
+      # 1.6 P25 数据集 / 面板标记校验
+      - name: 'P25: 42+ datasets published'
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          test "$(ls web_site/data/*.json | wc -l)" -ge 42 && echo "  datasets OK"
+      - name: 'P25: IC drift timeseries Phase6..Phase25'
+        run: |
+          grep -q "Phase25" web_site/data/ic_drift_timeseries.json && grep -q "Phase6" web_site/data/ic_drift_timeseries.json && echo "  ic_drift P6..P25 OK"
+      - name: 'P25: drift root cause report (P0 / scheme D)'
+        run: |
+          grep -q "SCHEME_D_RECOMMENDED" web_site/data/drift_root_cause.json && echo "  drift_root_cause OK"
+      - name: 'P25: multi-window rolling correlation'
+        run: |
+          grep -q "250d" web_site/data/rolling_correlation_matrix.json && grep -q "core_avg" web_site/data/rolling_correlation_matrix.json && echo "  rolling 5 windows OK"
+      - name: 'P25: FR-RISK PG25 drift block'
+        run: |
+          grep -q "FR-RISK-PG25-ICDRIFT-015" web_site/data/fr_risk_alerts.json && grep -q "ic_drift_block" web_site/data/fr_risk_alerts.json && echo "  PG25-ICDRIFT-015 OK"
+      - name: 'P25: PB/CU live readings'
+        run: |
+          grep -q "pb_cu_live_readings" web_site/data/fr_risk_alerts.json && echo "  PB/CU live OK"
+      - name: 'P25: IC drift panel + 5.0% threshold'
+        run: |
+          grep -q "ic-drift-panel" web_site/index.html && grep -q "IC_DRIFT_THRESHOLD" web_site/index.html && echo "  IC drift UI OK"
+      - name: 'P25: FR-RISK block status panel'
+        run: |
+          grep -q "fr-risk-block-status" web_site/index.html && grep -q "renderFRRiskBlockStatus" web_site/index.html && echo "  FR-RISK block UI OK"
+      - name: 'P25: multi-window correlation matrix + band chart'
+        run: |
+          grep -q "renderCorrelationMatrixP25" web_site/index.html && grep -q "correlation-band-chart" web_site/index.html && echo "  multi-window corr UI OK"
+      - name: 'P25: MD5 baseline manifest'
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          test -f web_site/data/MD5_BASELINE_P25.json || (echo "::warning::MD5_BASELINE_P25.json absent" && exit 0)
+          python3 -c "import json;d=json.load(open('web_site/data/MD5_BASELINE_P25.json'));f=d.get('files',d);print('  baseline entries:',len(f))"
   # ============================================================
   deploy:
     name: Deploy to GitHub Pages
@@ -529,22 +785,315 @@ jobs:
           EOF
 
   # ============================================================
-  # Job 3: 部署通知 (可选)
+  # Job 2b: 部署失败自动重试 (P25 T3)
+  #        primary deploy 失败 -> 重新 checkout / 上传 / 部署一次
+  # ============================================================
+  deploy-retry:
+    name: Deploy Retry (P25 T3)
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: ${{ always() && needs.deploy.result == 'failure' }}
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Upload site artifact (retry)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web_site/
+          retention-days: 30
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment_retry
+        uses: actions/deploy-pages@v4
+      - name: Retry result
+        run: |
+          echo "## Retry deploy: SUCCESS" >> "$GITHUB_STEP_SUMMARY"
+          echo "Page URL: ${{ steps.deployment_retry.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"
+
+  # ============================================================
+  # Job 2c: 网络异常降级 - API 提交模式 (P25 T3)
+  #        github.com:443 不可达 且 Actions 部署连续两次失败
+  #        -> 改用 api.github.com Contents API 直写 gh-pages 分支
+  # ============================================================
+  deploy-fallback:
+    name: Deploy Fallback / API Contents Mode (P25 T3)
+    runs-on: ubuntu-latest
+    needs: [deploy, deploy-retry]
+    if: ${{ always() && needs.deploy.result != 'success' && needs.deploy-retry.result != 'success' }}
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    env:
+      SITE_DIR: web_site
+      TARGET_BRANCH: gh-pages
+      TOKEN: ${{ secrets.PAGES_FALLBACK_TOKEN || github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Probe github.com / api.github.com reachability
+        id: probe
+        shell: bash
+        run: |
+          set -uo pipefail
+          echo "========== P25 T3 network probe =========="
+          ok=0
+          for i in 1 2 3; do
+            if curl -fsS --connect-timeout 5 --max-time 15 -o /dev/null https://github.com/ 2>/dev/null; then ok=1; break; fi
+            sleep 3
+          done
+          apiok=0
+          for i in 1 2 3; do
+            if curl -fsS --connect-timeout 5 --max-time 15 -o /dev/null https://api.github.com/ 2>/dev/null; then apiok=1; break; fi
+            sleep 3
+          done
+          echo "github_ok=$ok" >> "$GITHUB_OUTPUT"
+          echo "api_ok=$apiok" >> "$GITHUB_OUTPUT"
+          echo "| Target | Reachable |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|--------|-----------|" >> "$GITHUB_STEP_SUMMARY"
+          [ "$ok" = "1" ] && echo "| github.com:443 | yes |" >> "$GITHUB_STEP_SUMMARY" || echo "| github.com:443 | no |" >> "$GITHUB_STEP_SUMMARY"
+          [ "$apiok" = "1" ] && echo "| api.github.com:443 | yes |" >> "$GITHUB_STEP_SUMMARY" || echo "| api.github.com:443 | no |" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fallback gate - network is healthy
+        if: steps.probe.outputs.github_ok == '1'
+        run: |
+          echo "::error title=Network fallback not applicable::github.com:443 is reachable, so the Actions deploy failed for a non-network reason. Read the deploy job log instead of falling back."
+          exit 1
+
+      - name: Fallback gate - api.github.com unreachable
+        if: steps.probe.outputs.api_ok != '1'
+        run: |
+          echo "::error title=Both endpoints unreachable::github.com:443 and api.github.com:443 are both unreachable; no fallback path is available."
+          exit 1
+
+      - name: Publish site to gh-pages via Contents API
+        id: push
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PYEOF'
+          #!/usr/bin/env python3
+          """DSHD-P25 T3: API-Contents fallback publisher.
+          
+          When github.com:443 is unreachable and the Actions Pages deployment has failed
+          twice, publish the built site directly to the gh-pages branch using the GitHub
+          Contents API on api.github.com (a different host than github.com).
+          
+          Environment (injected by the workflow):
+            GITHUB_REPOSITORY, GITHUB_SHA, GITHUB_REF_NAME, TOKEN
+            SITE_DIR (default web_site), TARGET_BRANCH (default gh-pages)
+          """
+          import base64
+          import json
+          import os
+          import sys
+          import time
+          import urllib.error
+          import urllib.request
+          
+          OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "")
+          OWNER, REPO = (OWNER_REPO.split("/") + [""])[:2]
+          API = "https://api.github.com"
+          TOKEN = os.environ.get("TOKEN") or os.environ.get("GITHUB_TOKEN")
+          SITE = os.environ.get("SITE_DIR", "web_site")
+          BRANCH = os.environ.get("TARGET_BRANCH", "gh-pages")
+          COMMIT_SHA = os.environ.get("GITHUB_SHA", "")
+          BASE_BRANCH = os.environ.get("GITHUB_REF_NAME", "main")
+          OUT = os.environ.get("GITHUB_STEP_SUMMARY", "/dev/null")
+          GH_OUT = os.environ.get("GITHUB_OUTPUT", "/dev/null")
+          
+          SKIP_SUFFIX = (".bak_p24",)
+          
+          
+          def req(method, path, body=None):
+              url = API + "/repos/" + OWNER_REPO + path
+              data = json.dumps(body).encode("utf-8") if body is not None else None
+              r = urllib.request.Request(url, data=data, method=method)
+              r.add_header("Authorization", "Bearer " + TOKEN)
+              r.add_header("Accept", "application/vnd.github+json")
+              r.add_header("X-GitHub-Api-Version", "2022-11-28")
+              r.add_header("User-Agent", "dshd-p25-deploy-fallback")
+              if data:
+                  r.add_header("Content-Type", "application/json")
+              try:
+                  with urllib.request.urlopen(r, timeout=60) as resp:
+                      raw = resp.read()
+                      return resp.status, (json.loads(raw) if raw else {})
+              except urllib.error.HTTPError as e:
+                  raw = e.read()
+                  try:
+                      return e.code, json.loads(raw)
+                  except Exception:
+                      return e.code, {"message": raw.decode("utf-8", "replace")[:300]}
+              except Exception as e:
+                  return -1, {"message": "%s: %s" % (type(e).__name__, e)}
+          
+          
+          def call(method, path, body=None, tries=3):
+              last = None
+              for i in range(1, tries + 1):
+                  st, bd = req(method, path, body)
+                  if 200 <= st < 300:
+                      return bd
+                  last = (st, bd)
+                  if st in (401, 403, 404, 409, 422):
+                      break
+                  time.sleep(2 ** i)
+              raise RuntimeError("API %s %s -> %s %s" % (method, path, last[0], str(last[1])[:200]))
+          
+          
+          def summary(text):
+              print(text)
+              with open(OUT, "a", encoding="utf-8") as f:
+                  f.write(text + "\n")
+          
+          
+          def main():
+              if not OWNER_REPO or not TOKEN:
+                  raise SystemExit("GITHUB_REPOSITORY / TOKEN not set")
+              if not os.path.isdir(SITE):
+                  raise SystemExit("site dir missing: " + SITE)
+          
+              # 1. collect site files
+              files = []
+              for dp, dn, fn in os.walk(SITE):
+                  for f in fn:
+                      if f.endswith(SKIP_SUFFIX):
+                          continue
+                      p = os.path.join(dp, f)
+                      rel = os.path.relpath(p, ".").replace(os.sep, "/")
+                      files.append((rel, os.path.getsize(p)))
+              files.sort()
+              total = sum(s for _, s in files)
+              summary("### Deploy fallback (API-Contents mode)")
+              summary("")
+              summary("site files to publish: **%d** (%s)" % (len(files), "{:,}".format(total) + " B"))
+          
+              # 2. ensure the target branch exists
+              st, ref = req("GET", "/git/ref/heads/" + BRANCH)
+              if st == 200:
+                  base = ref["object"]["sha"]
+                  summary("target branch `%s` exists @ `%s`" % (BRANCH, base[:12]))
+              else:
+                  st2, mainref = req("GET", "/git/ref/heads/" + BASE_BRANCH)
+                  if st2 != 200:
+                      raise RuntimeError("cannot resolve base branch %s: %s" % (BASE_BRANCH, mainref))
+                  basesha = mainref["object"]["sha"]
+                  bd = call("POST", "/branches", {"branch": BRANCH, "sha": basesha})
+                  base = bd["commit"]["sha"]
+                  summary("created branch `%s` @ `%s` (from `%s`)" % (BRANCH, base[:12], BASE_BRANCH))
+          
+              # 3. existing tree in a single call
+              existing = {}
+              st, tree = req("GET", "/git/trees/" + base + "?recursive=1")
+              if st == 200 and isinstance(tree.get("tree"), list):
+                  for e in tree["tree"]:
+                      if e.get("type") == "blob":
+                          existing[e["path"]] = e["sha"]
+              summary("blobs already on `%s`: **%d**" % (BRANCH, len(existing)))
+          
+              # 4. create / update each file
+              msg = "ci(pages-fallback): publish DSHD-P25 site @" + COMMIT_SHA[:12]
+              pushed, updated, skipped = 0, 0, 0
+              errors = []
+              for rel, sz in files:
+                  with open(rel, "rb") as fp:
+                      b64 = base64.b64encode(fp.read()).decode("ascii")
+                  body = {"message": msg, "content": b64, "encoding": "base64", "branch": BRANCH}
+                  if rel in existing:
+                      body["sha"] = existing[rel]
+                      action = "update"
+                  else:
+                      action = "create"
+                  try:
+                      call("PUT", "/contents/" + rel, body)
+                  except RuntimeError as e:
+                      errors.append("%s %s: %s" % (action, rel, str(e)[:160]))
+                      continue
+                  if action == "create":
+                      pushed += 1
+                  else:
+                      updated += 1
+              if errors:
+                  summary("")
+                  summary("**%d** file(s) failed:" % len(errors))
+                  for e in errors[:20]:
+                      summary("- " + e)
+          
+              # 5. best effort: point the Pages source at the gh-pages branch
+              st, bd = req("PATCH", "/pages", {"source": {"branch": BRANCH, "path": "/"}})
+              switched = 200 <= st < 300
+              if switched:
+                  summary("Pages source switched to `%s`" % BRANCH)
+              else:
+                  summary("`PATCH /repos/.../pages` -> %s (needs `admin:public_repo`; "
+                          "repo token cannot change the Pages source)." % st)
+          
+              report = {
+                  "mode": "api_contents",
+                  "branch": BRANCH,
+                  "base_sha": base[:12],
+                  "files_total": len(files),
+                  "pushed_new": pushed,
+                  "updated": updated,
+                  "unchanged_skipped": skipped,
+                  "failed": len(errors),
+                  "commit_sha": COMMIT_SHA,
+                  "github_com_reachable": False,
+                  "api_github_com_reachable": True,
+                  "pages_source_switched": switched,
+              }
+              open("deploy_fallback_report.json", "w", encoding="utf-8").write(json.dumps(report, indent=2))
+              summary("")
+              summary("| Metric | Value |")
+              summary("|--------|-------|")
+              summary("| Files published | %d new + %d updated |" % (pushed, updated))
+              summary("| Failed | %d |" % len(errors))
+              summary("| Commit | `%s` |" % COMMIT_SHA[:12])
+              summary("| Pages source switched | %s |" % switched)
+              if errors:
+                  raise SystemExit("fallback completed with %d failed file(s)" % len(errors))
+              with open(GH_OUT, "a", encoding="utf-8") as f:
+                  f.write("done=1\n")
+          
+          
+          if __name__ == "__main__":
+              main()
+          PYEOF
+
+      - name: Fallback report
+        run: |
+          cat deploy_fallback_report.json 2>/dev/null || echo "no fallback report"
+
+  # ============================================================
+  # Job 3: 部署通知 (P25 T3)
   # ============================================================
   notify:
     name: Notify
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: [deploy, deploy-retry, deploy-fallback]
     if: always()
     steps:
       - name: Summary
         run: |
           {
-            echo "## DSHD-P24 Deployment Summary"
+            echo "## DSHD-P25 Deployment Summary"
             echo ""
             echo "| Field | Value |"
             echo "|-------|-------|"
-            echo "| Status | ${{ needs.deploy.result }} |"
+            echo "| Primary deploy | ${{ needs.deploy.result }} |"
+            echo "| Auto retry | ${{ needs.deploy-retry.result }} |"
+            echo "| API-Contents fallback | ${{ needs.deploy-fallback.result }} |"
             echo "| SHA | ${{ needs.validate.outputs.deploy_sha }} |"
             echo "| Datasets | ${{ needs.validate.outputs.dataset_count }} |"
             echo "| Archived | ${{ needs.validate.outputs.archive_count }} |"
