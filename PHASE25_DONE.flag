@@ -1,0 +1,58 @@
+# PHASE25_DONE.flag
+# =========================================================================
+# Phase: DSHD-P25  (可视化看板迭代与 Pages 运维)
+# Completed: 2026-10-11T22:58:08+08:00
+# SEED: 42   ENGINE: V86.9-C-FINAL-DEBUG-P25
+# =========================================================================
+PHASE25_DONE=TRUE
+PHASE=DSHD-P25
+COMPLETED_AT=2026-10-11T22:58:08+08:00
+SEED=42
+ENGINE=V86.9-C-FINAL-DEBUG-P25
+DATA_VERSION=1.7
+VERSION_TAG=P25
+VERDICT=PASS
+ACCEPTANCE=6/6 ALL-VERIFIED
+
+# === 任务闭环 ===
+T0_PRECHECK=PASS            (151 checks: 138 PASS / 8 FAIL 已闭环 / 5 WARN 已归因)
+T1_SITE_INSPECTION=PASS     (线上 6 探测全 200 + 57 资源时延基线)
+T2_DATA=PASS                (113/113)
+T2_HTML=PASS                (111/111, 0 语法错误, 9 缺陷修复)
+T3_CI_HARDENING=PASS        (前置校验 + JS 语法门禁 + 安全扫描 + 部署重试 + API 降级)
+T4_AUDIT=PASS               (MD5 基线 140 文件 + 部署审计日志 + 6 交付物)
+
+# === 关键指标 ===
+IC_NOW=0.0578
+IC_BASELINE_P6=0.0610
+IC_DRIFT_PCT=5.2
+IC_DRIFT_THRESHOLD=5.0
+IC_DRIFT_BLOCK=ACTIVE (2 phases sustained)
+PB_BEAR_IC=0.0288  CU_BEAR_IC=0.023
+FR_RISK_ALERTS=15
+JSON_DATASETS=42 (all P25 / 1.7)
+HTML_SIZE=207450 (Δ+34022)
+HTML_MD5=dadc222b6bddab9aa84136de3083ed23
+
+# === 交付物 ===
+FLAG_READY=PHASE25_GATE_RUN_READY.flag
+SUMMARY_REPORT=phase25_gate_summary_report.md
+FINAL_CHECK=vis_phase25_final_check.md
+DEPLOY_MANUAL=web_deploy_manual.md §24
+FR_RISK_ARCHIVE=fr_risk_alert_archive.md §22
+GATE_LOG=gate_periodic_check_log.csv (PG25-R1, 13 rows)
+MD5_BASELINE=web_site/data/MD5_BASELINE_P25.json
+SITE_HEALTH=web_site/data/p25_site_health.json
+CAPACITY_REPORT=repo_storage_capacity_report.md
+
+# === 遗留 / 移交 P26 ===
+P0_IC_DRIFT_ROOT_CAUSE=结构性慢衰减 slope=-0.0001/phase (P6 0.0610 -> P25 0.0578, 无加速)
+P0_RECOMMENDED_FIX=方案D (F01/F09->0.85, F19/F20->1.1, 衰减补偿, F15~F18 伪影修正)
+P0_ADMISSION_BLOCKED=TRUE (解除条件: 连续2阶段漂移率<4.8%% 且 IC>=0.0575)
+P2_SITE_LATENCY=warm_median=441ms (阈值400ms; 冷连接max=21497ms)
+P3_NETWORK=github.com:443 间歇不可达 (已加 retry + API-Contents 降级)
+P3_PAT_MISSING=推送与 workflow_dispatch 需用户提供 GitHub PAT
+
+# =========================================================================
+# END OF PHASE25
+# =========================================================================
