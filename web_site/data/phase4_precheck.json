@@ -1,7 +1,7 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "P24 Phase4 precheck report - 12/12 PASS",
   "precheck_results": {
@@ -158,5 +158,12 @@
       "snapshot_id": "MD5-P4-20261009163524"
     }
   ],
-  "overall_status": "PASS"
+  "overall_status": "PASS",
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "phase": "P25",
+  "p25_notes": {
+    "ic_drift_block": "Phase4 预检维持 PASS; IC漂移5.2%阻断不影响预检项"
+  }
 }
