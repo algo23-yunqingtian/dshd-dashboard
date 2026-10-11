@@ -847,3 +847,146 @@ curl -X POST \
 - [x] 仓库容量 5.06MB / 800MB (0.63%)，远低于限制
 - [x] 版本锁定文件 (`v87_03_monitor_service.py` md5=e2f0d4cc, `vis_alert_export_api.py` md5=474ff0ae) 内容未被修改
 - [x] `.gitignore` 已排除内部脚本/缓存/历史 phase 文件，仓库只含发布产物
+
+## 24. DSHD-P25 看板迭代与 CI/CD 加固 (2026-10-11T22:58:08+08:00)
+
+### 24.1 版本信息
+
+| 字段 | 值 |
+|------|-----|
+| 阶段 | DSHD-P25 |
+| 看板版本 | V25.0 |
+| 数据版本 / version_tag | 1.7 / P25 |
+| ENGINE | V86.9-C-FINAL-DEBUG-P25 |
+| index.html | 173,428 → 207,450 (Δ +34022 B) |
+| index.html MD5 | `dadc222b6bddab9aa84136de3083ed23` |
+| 数据集 | 42 个 JSON, 全部 version_tag=P25 / dataset_version=1.7 |
+
+### 24.2 新增功能
+
+- IC 漂移预警导航 tab + page-icdrift 面板
+- IC 漂移趋势图: Phase6~P25 完整时序 + 5.0% markLine + 超标红色散点 + 阻断区背景带
+- 历史 10% 阈值对照开关 (P24 起 10% 已废止)
+- 漂移根因: 12 因子漂移表 + 来源分类占比条 + 4 套方案测算对比表
+- PB/CU BEAR_IC 实时读数卡 (阈值缺口 + 35 日时序 + 阻断来源)
+- FR-RISK 告警面板阻断状态增强
+- 多窗口滚动相关性矩阵: 20/40/60/120/250d 切换 + 分档均值条形图
+- 阻断动作链 (RECORD→WATCH→NOTIFY→BLOCK) + 解除条件
+- 版本标识 P24 -> P25 / V24 -> V25 / 八版本 DS 标识
+
+### 24.3 修复的 P24 遗留缺陷 (上线前必修)
+
+> **背景**: T1 巡检发现 P24 线上 `index.html` 存在 `SyntaxError: Identifier 'rc' has already been declared`,
+> 导致**整页内联脚本失效, 所有图表与面板均不渲染**。T2 一并修复并新增 CI 语法门禁防止复发。
+
+| ID | 缺陷 | 影响 |
+|----|------|------|
+| D1 | const rc 三处重复声明 (renderPortfolioOverview/updateHeader/renderVersions) | 主内联脚本 SyntaxError 导致全站 JS 失效 (图表/面板均不渲染) |
+| D2 | loadJSON('portfolio_risk_contribution.json (P24 Euler)') 参数含内嵌注释 | 请求 URL 含空格与括号, 永远 404, portfolioRiskContribution 恒为 null |
+| D3 | switchRollingWindow() 被 <select onchange> 引用但未定义 | 滚动窗口下拉切换触发 ReferenceError |
+| D4 | renderCompletionRadar 的 splitArea 行多一个 } (提前闭合 setOption 参数对象) | SyntaxError: missing ) after argument list -> 主脚本失效, 整页不渲染 |
+| D5 | renderVarietyRadar 同一 splitArea 行多一个 } | SyntaxError: missing ) after argument list -> 主脚本失效, 整页不渲染 |
+| D1-4 | renderVersions() 第二段 const rc 重复声明 (非相邻, 同函数作用域) | SyntaxError: Identifier 'rc' has already been declared -> 主脚本失效, 整页不渲染 |
+| D8 | GitHub 工作流展示模板中 ${{ github.sha }} 未转义, 被当作模板插值 | SyntaxError: Unexpected token '.' -> 主脚本失效, 整页不渲染 |
+| D6 | renderVersions() 模板 background 三元链少一个 ) (3 组括号实有 2 个) | SyntaxError: Unexpected token '}' -> 主脚本失效, 整页不渲染 |
+| D7 | renderVersions() 模板 color 三元链少一个 ) (5 组括号实有 4 个) | SyntaxError: Unexpected token '}' -> 主脚本失效, 整页不渲染 |
+
+### 24.4 CI/CD 加固 (deploy-pages.yml)
+
+`validate` job 新增 4 个门禁步骤:
+
+| 步骤 | 行为 | 失败码 |
+|------|------|--------|
+| `1.2b P25 T3: Pre-flight static data validation` | 42 数据集 + core18 + version_tag/dataset_version 全量一致性 + 3 个 P25 新数据集结构断言 + FR-RISK 跨数据集一致性 | 10 |
+| `1.2c P25 T3: Inline JS syntax audit (node --check)` | 抽取全部 `<script>` 内联块逐块 `node --check`; 有语法错误即阻断部署 | 11 |
+| `1.2d P25 T3: Security scan` | secret 模式扫描 140 文件 + 凭证文件 + 非 HTTPS 外部资源 + CDN 版本钉住 | 20 / 21 / 22 |
+| `1.6 P25 markers` | 42 数据集 + P25 三个新数据集 + IC 漂移面板 + FR-RISK 阻断面板 + 多窗口相关性 + MD5 基线 manifest | — |
+
+`deploy` job 之后新增 2 个 job:
+
+```yaml
+deploy-retry:      # 部署失败自动重试
+  needs: deploy
+  if: ${{ always() && needs.deploy.result == 'failure' }}
+  steps: checkout -> configure-pages -> upload-pages-artifact -> deploy-pages
+
+deploy-fallback:   # 网络异常降级: API 提交模式
+  needs: [deploy, deploy-retry]
+  if: ${{ always() && needs.deploy.result != 'success' && needs.deploy-retry.result != 'success' }}
+  permissions: { contents: write }
+  env: { TOKEN: ${{ secrets.PAGES_FALLBACK_TOKEN || github.token }} }
+  steps:
+    - 探测 github.com:443 与 api.github.com:443
+    - github.com 可达 -> 报错 (降级不适用, 是别的原因失败)
+    - api.github.com 不可达 -> 报错 (无降级路径)
+    - 否则 python3 gate_prep_lab/p25_api_fallback.py  # Contents API 直写 gh-pages
+```
+
+### 24.5 手动降级命令 (API 提交模式)
+
+```bash
+# 1. 本地探测网络状态
+curl -fsS --connect-timeout 5 https://github.com/ >/dev/null      && echo github.com OK || echo github.com DOWN
+curl -fsS --connect-timeout 5 https://api.github.com/ >/dev/null  && echo api.github.com OK || echo api.github.com DOWN
+
+# 2. github.com 不通而 api.github.com 通时, 手动执行降级发布
+cd dshd_arch_gate_prep
+SITE_DIR=web_site TARGET_BRANCH=gh-pages GITHUB_REPOSITORY=algo23-yunqingtian/dshd-dashboard \
+  GITHUB_SHA=$(git rev-parse HEAD) GITHUB_TOKEN=$PAT \
+  python3 gate_prep_lab/p25_api_fallback.py
+
+# 3. 查看结果
+cat deploy_fallback_report.json
+```
+
+可选: 在仓库 Settings → Secrets 配置 `PAGES_FALLBACK_TOKEN` (fine-grained PAT, 需 `Contents: Read and write`), 之后 fallback job 自动使用; 未配置时回落到 `github.token`。
+
+### 24.6 部署步骤
+
+```bash
+# 1. 数据刷新 (T2a)
+python3 gate_prep_lab/p25_t2_data_build.py
+
+# 2. 前端构建 (T2b, 从 P24 备份重建, 幂等)
+cp web_site/index.html.bak_p24 web_site/index.html
+python3 gate_prep_lab/p25_t2_html_build.py
+
+# 3. 审计归档 (T4)
+python3 gate_prep_lab/p25_t4_final.py
+
+# 4. 推送触发 CI (自动 5 job: validate -> deploy -> [deploy-retry] -> [deploy-fallback] -> notify)
+git add -A && git commit -m 'P25: dashboard V25.0 + CI hardening + MD5 baseline' && git push origin main
+
+# 5. 或手动触发 workflow_dispatch
+#    https://github.com/algo23-yunqingtian/dshd-dashboard/actions/workflows/deploy-pages.yml
+```
+
+### 24.7 部署验证清单
+
+- [ ] CI `validate` job: pre-flight / JS syntax / security scan 三步全绿
+- [ ] CI `deploy` job: SUCCESS (或 `deploy-retry` SUCCESS)
+- [ ] 线上首页 HTTP 200, 体积约 207,450
+- [ ] 首页导航出现 **IC 漂移预警** tab
+- [ ] IC 漂移趋势图显示 Phase6~P25 17 点 + 5.0% markLine + 超标红色散点
+- [ ] FR-RISK 面板显示阻断状态与 PB/CU BEAR_IC 实时读数
+- [ ] 相关性矩阵可切换 20/40/60/120/250d 且分档均值行正常
+- [ ] `data/MD5_BASELINE_P25.json` 在线可访问
+- [ ] `deploy_meta.json` 在线 (由 `upload-pages-artifact` 后生成, 部署前 404 属预期)
+
+### 24.8 仓库容量
+
+| 指标 | P24 | P25 |
+|------|-----|-----|
+| 本地体积 | 5.24 MB | 5.23 MB |
+| 文件数 | 366 | 367 |
+| 数据目录 | 616 KB | 683,978 |
+| 占用 / 100 MB 上限 | 0.63%% | 0.73%% |
+
+### 24.9 遗留项
+
+- **P0** IC 漂移根因: 结构性慢衰减 (每阶段 -0.0001), 推荐方案 D (F01/F09→0.85, F19/F20→1.1 + 衰减补偿 + F15~F18 伪影修正)。详见 `web_site/data/drift_root_cause.json`。
+- **P0** 准入阻断维持中 (`FR-RISK-PG25-ICDRIFT-015`), 解除条件: 连续 2 阶段漂移率 < 4.8% 且 IC >= 0.0575。
+- **P2** 站点 keep-alive 中位时延 441 ms 超 400 ms 阈值 (冷连接最大 21.5 s), 建议后续合并小文件 / 启用 Brotli。
+- **P3** `github.com:443` 间歇不可达; 已加 retry + API-Contents 降级双保险。
+- **P3** 缺失 GitHub PAT: 推送与 `workflow_dispatch` 需用户提供; `PAGES_FALLBACK_TOKEN` secret 可选。
+
