@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P25 FR-RISK alerts - P24 13 条基线 + P25 2 条新增 (FR-RISK-PG25-ICDRIFT-015 IC漂移阻断持续, FR-RISK-PG25-PBCU-016 PB/CU BEAR_IC 实时读数)",
+  "description": "P31 FR-RISK alerts - P31 漂移解除 + PB/CU 灰度持续 / V31.0",
   "alerts": [
     {
       "id": "FR-RISK-PG21-UNLOCK-001",
@@ -164,59 +164,80 @@
       "blocked_by": "FR-RISK-PG25-ICDRIFT-015",
       "data_ref": "pb_cu_gray_admission_status.json",
       "triggered_at": "2026-10-09T19:31:50+08:00"
+    },
+    {
+      "id": "FR-RISK-PG31-ICDRIFT-021",
+      "phase": "P31",
+      "severity": "GREEN",
+      "level": "RELEASED",
+      "title": "IC 漂移阻断永久解除 (6/6 阶段达标)",
+      "status": "RELEASED",
+      "detail": "漂移率 3.6% < 4.8% 警戒线, IC 0.0586 >= 0.0575; P26~P31 连续6阶段达标, 准入阻断永久解除, 转入动态监控模式",
+      "color": "GREEN",
+      "category": "IC_DRIFT"
+    },
+    {
+      "id": "FR-RISK-PG31-PBCU-022",
+      "phase": "P31",
+      "severity": "YELLOW",
+      "level": "WATCH",
+      "title": "PB/CU BEAR_IC 灰度持续跟踪 (PB 14/14 达标, CU 6/14)",
+      "status": "ACTIVE",
+      "detail": "PB BEAR_IC 0.0294 (DSHC 0.0318, 14/14 阈值达标已持续); CU BEAR_IC 0.0234 (DSHC 0.0260, 6/14 未达 0.025 阈值), 维持 1.5% 仓位 + 加强监控",
+      "color": "YELLOW",
+      "category": "PBCU"
     }
   ],
-  "total_alerts": 15,
-  "p23_additions": [
-    "FR-RISK-PG23-M7-011: M7 final assessment PASS",
-    "FR-RISK-PG23-NI-012: NI delay final assessment RESOLVED"
-  ],
+  "total_alerts": 17,
   "color_statistics": {
-    "GREEN": 11,
-    "YELLOW": 3,
+    "GREEN": 12,
+    "YELLOW": 4,
     "RED": 1
   },
-  "p24_additions": [
-    "FR-RISK-PG24-PB-013: PB/CU灰度准入评估",
-    "FR-RISK-PG24-PHASE4-014: Phase4监控面板集成"
+  "phase": "P31",
+  "p31_additions": [
+    "FR-RISK-PG31-ICDRIFT-021: IC 漂移阻断永久解除 (6/6)",
+    "FR-RISK-PG31-PBCU-022: PB/CU BEAR_IC 灰度持续跟踪"
   ],
-  "phase": "P25",
-  "p25_additions": [
-    "FR-RISK-PG25-ICDRIFT-015: IC漂移5.2%阻断持续 + 根因报告V1.0 + 方案D推荐",
-    "FR-RISK-PG25-PBCU-016: PB/CU BEAR_IC实时读数 + 阻断叠加 (双重条件均不满足)"
-  ],
-  "fr_risk_days_active": 600,
+  "fr_risk_days_active": 810,
   "ic_drift_block": {
-    "active": true,
-    "drift_pct": 5.2,
+    "active": false,
+    "drift_pct": 3.6,
     "threshold_pct": 5.0,
     "block_since": "Phase24",
-    "consecutive_phases": 2,
-    "fr_risk_id": "FR-RISK-PG25-ICDRIFT-015",
-    "block_action": "阻断准入流程: 禁止 PB/CU 灰度转正与新品种准入",
-    "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575",
-    "root_cause": "ISSUED_V1.0",
-    "fix_plan": "SCHEME_D_RECOMMENDED",
-    "admission_frozen": true,
-    "new_factor_admission_frozen": true
+    "released_at": "Phase31",
+    "released_status": "PERMANENTLY_UNBLOCKED",
+    "consecutive_phases_under": 6,
+    "fr_risk_id": "FR-RISK-PG31-ICDRIFT-021",
+    "block_action": "已解除: 准入流程恢复, 动态监控模式",
+    "recovery_condition": "连续2阶段漂移率<4.8%%且IC>=0.0575 (P26~P31 6/6 满足)",
+    "root_cause": "ISSUED_V2.5",
+    "fix_plan": "SCHEME_D_FROZEN",
+    "admission_frozen": false,
+    "new_factor_admission_frozen": false
   },
   "pb_cu_live_readings": {
-    "pb_bear_ic": 0.0288,
-    "cu_bear_ic": 0.023,
-    "pb_threshold": 0.03,
-    "cu_threshold": 0.025,
-    "pb_gap_to_threshold": 0.0012,
-    "cu_gap_to_threshold": 0.002,
-    "pb_bear_ic_14day_count": "14/14",
-    "pb_status": "EDGE_PENDING",
-    "cu_status": "EDGE_PENDING",
-    "admission_status": "BLOCKED_BY_IC_DRIFT",
-    "blocked_by": "FR-RISK-PG25-ICDRIFT-015",
-    "technical_bear_ic_met": false,
-    "business_blocked": true
+    "pb": {
+      "bear_ic": 0.0294,
+      "threshold": 0.03,
+      "progress": "14/14",
+      "dshc_value": 0.0318,
+      "status": "THRESHOLD_MET_SUSTAINED",
+      "position_pct": 1.5
+    },
+    "cu": {
+      "bear_ic": 0.0234,
+      "threshold": 0.025,
+      "progress": "6/14",
+      "dshc_value": 0.026,
+      "status": "BELOW_THRESHOLD",
+      "position_pct": 1.5
+    },
+    "al_stable_days": 95,
+    "updated_at": "2026-10-12T01:30:00+08:00"
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "drift_alert_counter": 1015
+  "drift_alert_counter": 1435
 }
