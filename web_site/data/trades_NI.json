@@ -1,244 +1,215 @@
 {
   "variety": "NI",
-  "engine_version": "V86.9-C-FINAL-DEBUG-P25",
-  "phase": "Phase25",
-  "total_trades": 14,
-  "open_trades": 7,
-  "close_trades": 7,
+  "engine_version": "V86.9-C-FINAL-DEBUG-P31",
+  "phase": "Phase31",
+  "total_trades": 12,
+  "open_trades": 6,
+  "close_trades": 6,
   "total_pnl_pct": 0,
   "metrics": {
-    "ic_mean": 0.0414,
-    "ir": 25.1,
-    "bear_ic": 0.023,
-    "crisis_ic": 0.0505,
-    "vif": 1.0073,
-    "max_drawdown": -3.81,
-    "total_return": 31.2,
-    "final_nav": 1.312,
-    "annualized_return": 2099.3,
-    "sharpe": 1.18
+    "ic_mean": 0.0586,
+    "ir": 47.8,
+    "bear_ic": 0.0392,
+    "crisis_ic": 0.0663,
+    "vif": 1.0065,
+    "max_drawdown": 0.0005,
+    "total_return": 57.1,
+    "final_nav": 1.571,
+    "annualized_return": 595.5,
+    "sharpe": 2.67
   },
   "shadow": true,
-  "completeness": 0.85,
+  "completeness": 1.0,
   "data_recovery": "BAD_SAMPLE_MASKER",
   "trades": [
     {
       "trade_id": 1,
       "variety": "NI",
       "type": "LONG",
-      "date": "2028-02-22",
-      "price": 127900,
-      "position": "3%",
+      "date": "2028-12-18",
+      "price": 115631.4,
+      "position": "5%",
       "regime": "NORMAL",
-      "factor_drivers": [
-        "F01",
-        "F08"
-      ],
-      "signal_strength": 0.03,
-      "confidence": 0.55
-    },
-    {
-      "trade_id": 2,
-      "variety": "NI",
-      "type": "SHORT",
-      "date": "2028-02-28",
-      "price": 127903,
-      "position": "3%",
-      "regime": "BEAR",
       "factor_drivers": [
         "F01",
         "F19"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.56
+      "signal_strength": 0.0303,
+      "confidence": 0.6025
+    },
+    {
+      "trade_id": 2,
+      "variety": "NI",
+      "type": "CLOSE",
+      "date": "2028-12-20",
+      "price": 115310.0,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F19"
+      ],
+      "signal_strength": 0.0248,
+      "confidence": 0.4582
     },
     {
       "trade_id": 3,
       "variety": "NI",
       "type": "LONG",
-      "date": "2028-03-03",
-      "price": 127906,
-      "position": "3%",
+      "date": "2028-12-25",
+      "price": 112421.8,
+      "position": "5%",
       "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
-        "F08"
+        "F08",
+        "F12"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.56
+      "signal_strength": 0.0279,
+      "confidence": 0.6931
     },
     {
       "trade_id": 4,
       "variety": "NI",
-      "type": "SHORT",
-      "date": "2028-03-09",
-      "price": 127909,
-      "position": "3%",
+      "type": "CLOSE",
+      "date": "2028-12-28",
+      "price": 109740.2,
+      "position": "5%",
       "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
-        "F19"
+        "F08",
+        "F12"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.57
+      "signal_strength": 0.027,
+      "confidence": 0.5593
     },
     {
       "trade_id": 5,
       "variety": "NI",
       "type": "LONG",
-      "date": "2028-03-15",
-      "price": 127912,
-      "position": "3%",
-      "regime": "BEAR",
+      "date": "2029-01-04",
+      "price": 135202.0,
+      "position": "5%",
+      "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
-        "F08"
+        "F19",
+        "F09"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.57
+      "signal_strength": 0.0269,
+      "confidence": 0.6047
     },
     {
       "trade_id": 6,
       "variety": "NI",
-      "type": "SHORT",
-      "date": "2028-03-21",
-      "price": 127915,
-      "position": "3%",
+      "type": "CLOSE",
+      "date": "2029-01-09",
+      "price": 135750.1,
+      "position": "5%",
       "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
-        "F19"
+        "F19",
+        "F09"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.55
+      "signal_strength": 0.024,
+      "confidence": 0.6416
     },
     {
       "trade_id": 7,
       "variety": "NI",
       "type": "LONG",
-      "date": "2028-03-27",
-      "price": 127918,
-      "position": "3%",
+      "date": "2029-01-15",
+      "price": 107429.3,
+      "position": "5%",
       "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
-        "F08"
+        "F15",
+        "F02"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.56
+      "signal_strength": 0.038,
+      "confidence": 0.6116
     },
     {
       "trade_id": 8,
       "variety": "NI",
-      "type": "SHORT",
-      "date": "2028-03-31",
-      "price": 127921,
-      "position": "3%",
-      "regime": "BEAR",
+      "type": "CLOSE",
+      "date": "2029-01-18",
+      "price": 108638.5,
+      "position": "5%",
+      "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
-        "F19"
+        "F15",
+        "F02"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.56
+      "signal_strength": 0.034,
+      "confidence": 0.4977
     },
     {
       "trade_id": 9,
       "variety": "NI",
       "type": "LONG",
-      "date": "2028-04-06",
-      "price": 127924,
-      "position": "3%",
+      "date": "2029-01-24",
+      "price": 133493.6,
+      "position": "5%",
       "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
+        "F20",
         "F08"
       ],
       "signal_strength": 0.03,
-      "confidence": 0.57
+      "confidence": 0.5726
     },
     {
       "trade_id": 10,
       "variety": "NI",
-      "type": "SHORT",
-      "date": "2028-04-07",
-      "price": 127927,
-      "position": "3%",
+      "type": "CLOSE",
+      "date": "2029-01-29",
+      "price": 129771.4,
+      "position": "5%",
       "regime": "NORMAL",
       "factor_drivers": [
-        "F01",
-        "F19"
+        "F20",
+        "F08"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.57
+      "signal_strength": 0.0246,
+      "confidence": 0.558
     },
     {
       "trade_id": 11,
       "variety": "NI",
       "type": "LONG",
-      "date": "2028-04-07",
-      "price": 127930,
-      "position": "3%",
-      "regime": "BEAR",
+      "date": "2029-01-31",
+      "price": 115765.5,
+      "position": "5%",
+      "regime": "NORMAL",
       "factor_drivers": [
         "F01",
-        "F08"
+        "F09"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.55
+      "signal_strength": 0.0478,
+      "confidence": 0.6691
     },
     {
       "trade_id": 12,
       "variety": "NI",
-      "type": "SHORT",
-      "date": "2028-04-07",
-      "price": 127933,
-      "position": "3%",
+      "type": "CLOSE",
+      "date": "2029-02-05",
+      "price": 118412.7,
+      "position": "5%",
       "regime": "NORMAL",
       "factor_drivers": [
         "F01",
-        "F19"
+        "F09"
       ],
-      "signal_strength": 0.03,
-      "confidence": 0.56
-    },
-    {
-      "trade_id": 13,
-      "variety": "NI",
-      "type": "LONG",
-      "date": "2028-04-07",
-      "price": 127936,
-      "position": "3%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F01",
-        "F08"
-      ],
-      "signal_strength": 0.03,
-      "confidence": 0.56
-    },
-    {
-      "trade_id": 14,
-      "variety": "NI",
-      "type": "SHORT",
-      "date": "2028-04-07",
-      "price": 127939,
-      "position": "3%",
-      "regime": "BEAR",
-      "factor_drivers": [
-        "F01",
-        "F19"
-      ],
-      "signal_strength": 0.03,
-      "confidence": 0.57
+      "signal_strength": 0.0205,
+      "confidence": 0.5988
     }
   ],
   "seed": 42,
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
-  "p25_meta": {
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
+  "p31_meta": {
     "synced_from": "DSHA-P25 trades_NI.json (md5=da40b53a58ad)",
     "bumped_at": "2026-10-09T19:48:29+08:00"
-  }
+  },
+  "formal_production": true
 }
