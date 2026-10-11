@@ -377,7 +377,7 @@ jobs:
       - name: Validate HTML structure
         if: steps.skip.outputs.skip != 'true'
         run: |
-          echo "========== HTML structure validation ==========""
+          echo "========== HTML structure validation =========="
           test -f "web_site/index.html" || (echo "index.html missing" >&2; exit 3)
           grep -q "<!DOCTYPE html>" web_site/index.html && echo "DOCTYPE OK"
           grep -q "<html" web_site/index.html && echo "html tag OK"
@@ -457,7 +457,7 @@ jobs:
            grep -q "shutdown_drill" web_site/data/pc003_unlock_assessment.json && echo "Shutdown drill OK"
            grep -q "M6.*COMPLETED" web_site/data/data_completion_status.json && echo "M6 COMPLETED OK"
            grep -Eq '"version_tag": "P[0-9]+"' web_site/data/pc003_unlock_assessment.json && echo "PC003 P23 tag OK"
-           grep -Eq "\"version_tag\": "P[0-9]+\"" web_site/data/portfolio_risk_contribution.json && echo "Risk contribution phase tag OK"
+           grep -Eq '"version_tag": "P[0-9]+"' web_site/data/portfolio_risk_contribution.json && echo "Risk contribution phase tag OK"
            grep -q "repo_storage_capacity_report" web_site/data/dataset_index.json && echo "Capacity report in index OK"
            grep -Eq '"version_tag": "P[0-9]+"' web_site/data/cross_variety_comparison.json && echo "Cross variety P23 tag OK"
            grep -Eq '"version_tag": "P[0-9]+"' web_site/data/portfolio_backtest.json && echo "Portfolio backtest P23 tag OK"
@@ -491,7 +491,7 @@ jobs:
             grep -Eq '"version_tag": "P[0-9]+"' web_site/data/experiment_index.json && echo "P24 in experiment index OK"
             grep -Eq '"version_tag": "P[0-9]+"' web_site/data/portfolio_backtest.json && echo "P24 in portfolio backtest OK"
             grep -Eq '"version_tag": "P[0-9]+"' web_site/data/portfolio_correlation.json && echo "P24 in portfolio correlation OK"
-            grep -Eq "\"version_tag\": "P[0-9]+\"" web_site/data/portfolio_risk_contribution.json && echo "Current phase tag in risk contribution OK"
+            grep -Eq '"version_tag": "P[0-9]+"' web_site/data/portfolio_risk_contribution.json && echo "Current phase tag in risk contribution OK"
             grep -Eq '"version_tag": "P[0-9]+"' web_site/data/cross_variety_comparison.json && echo "P24 in cross variety OK"
             echo "legacy phase-tag checks: done"
 
