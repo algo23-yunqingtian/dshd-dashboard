@@ -1,12 +1,12 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 multi-variety portfolio backtest - 7-variety equal-weight + Phase4 monitoring",
-  "source": "DSHA-P23 7-ASSET EQUAL-WEIGHT PORTFOLIO (P22 baseline + M7 assessment)",
-  "experiment": "DSHA-P24",
-  "phase": "Phase24",
+  "description": "P31 multi-variety portfolio backtest / V31.0",
+  "source": "DSHA-P31 7-ASSET EQUAL-WEIGHT portfolio_backtest_7asset.json",
+  "experiment": "DSHA-P31",
+  "phase": "Phase31",
   "weighting_scheme": "equal_weight",
   "weight_per_asset": 0.1429,
   "asset_count": 7,
@@ -390,29 +390,10 @@
       "NI-SI": 0.64
     }
   },
-  "p23_additions": {
-    "m7_final_assessment": "PC003 FINAL UNLOCK - M7 COMPLETED",
-    "euler_time_series": "Euler risk contribution time series added",
-    "ni_delay_final": "NI delay monitoring final assessment",
-    "fr_risk_review": "P23 FR-RISK review 100%"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "p24_additions": {
-    "phase4_monitoring": "Phase4 monitoring data integrated",
-    "pb_cu_gray_admission": "PB/CU gray admission status: EDGE_PENDING",
-    "risk_contribution_timeseries": "portfolio_risk_contribution_timeseries.json",
-    "phase4_metrics": {
-      "ic": 0.0614,
-      "bear_ic": 0.0421,
-      "crisis_ic": 0.067,
-      "ir": 48.02,
-      "total_return_pct": 2.54,
-      "win_rate_pct": 52.02
-    }
-  },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
-  },
-  "p25_drift_gate": {
+  "p31_drift_gate": {
     "ic_drift_pct": 5.2,
     "threshold_pct": 5.0,
     "block_active": true,
