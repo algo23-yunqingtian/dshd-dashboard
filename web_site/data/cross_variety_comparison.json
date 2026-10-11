@@ -1,7 +1,7 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "P24 cross-variety comparison - 7 varieties radar + Phase4 monitoring",
   "comparison": {
@@ -203,5 +203,11 @@
   "p24_additions": {
     "phase4_monitoring": "Phase4 monitoring data integrated",
     "pb_cu_gray_admission": "PB/CU gray admission: EDGE_PENDING"
+  },
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "p25_notes": {
+    "note": "IC漂移5.2%阻断期, 品种对比维持P24结论; 量价因子F01/F09为主漂移源"
   }
 }
