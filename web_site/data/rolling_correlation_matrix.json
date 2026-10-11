@@ -1,11 +1,11 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG-P25",
-  "description": "7品种多窗口滚动相关性矩阵 (20/40/60/120/250d + 周度滚动5d) / P25 接入 DSHA-P25 输出",
-  "source": "DSHA-P25 rolling_correlation_matrix.json (md5=22c06a63d394)",
+  "engine": "V86.9-C-FINAL-DEBUG-P31",
+  "description": "P31 7品种多窗口滚动相关性矩阵 (20/40/60/120/250d) / V31.0",
+  "source": "DSHA-P31 rolling_correlation_matrix.json",
   "portfolio_name": "7-ASSET EQUAL-WEIGHT PORTFOLIO",
   "assets": [
     "AL",
@@ -1973,7 +1973,7 @@
     "cross_sector_warn": 0.5,
     "max_pair_corr_cap": 0.85
   },
-  "p25_checks": {
+  "p31_checks": {
     "window_types_expected": [
       "20d",
       "40d",
@@ -2002,7 +2002,7 @@
     "assets_count": 7,
     "status": "PASS"
   },
-  "p25_meta": {
+  "p31_meta": {
     "bumped_at": "2026-10-09T19:48:29+08:00"
   }
 }
