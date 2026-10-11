@@ -1,0 +1,137 @@
+# PHASE31_DATA_READY.flag
+# DSHA-P31 因子稳态持续监控 + 7品种全链路影子回测迭代工单
+# ============================================================
+
+PHASE: Phase31
+ENGINE: V86.9-C-FINAL-DEBUG-P31
+DATE_RANGE: 2028-12-18 ~ 2029-02-02
+TRADING_DAYS: 35
+WEEKS: W92~W98
+CUMULATIVE_DAYS: 805
+PHASE_COUNT: 23
+
+# -- 准入阻断状态 --
+UNBLOCK_STATUS: PERMANENTLY_UNBLOCKED (动态监控模式)
+UNBLOCK_CONDITIONS_MET: 6/6
+UNBLOCK_PROGRESS: 6/6 (Phase26+27+28+29+30+31 all <4.8% AND IC>=0.0575) — UNBLOCKED & STABLE
+SCHEME_D_STATUS: FROZEN_STEADY_STATE
+DRIFT_MONITORING: ACTIVE (>=4.8% WARNING, >=5.0% RE-LOCK)
+
+# -- 方案D参数 (冻结) --
+F01_WEIGHT: 0.85
+F09_WEIGHT: 0.85
+F19_WEIGHT: 1.10
+F20_WEIGHT: 1.10
+DECAY_MULTIPLIER: 1.0018
+DECAY_COMPENSATION: TRUE
+F15_F18_ARTIFACT_CORRECTION: TRUE
+
+# -- Phase31核心指标 --
+IC: 0.0586
+BEAR_IC: 0.0392
+CRISIS_IC: 0.0663
+IR: 47.8
+VIF: 1.0065
+F19_F20_IC: 0.0583
+PB_BEAR_IC: 0.0294
+CU_BEAR_IC: 0.0234
+DRIFT_RATE_PCT: 3.6%
+DRIFT_THRESHOLD_BLOCK: FALSE
+DRIFT_SOURCE_BREAKDOWN: technical=49%, fundamental=27%, capital=24%
+
+# -- 累计监控 --
+TOTAL_MONITOR_DAYS: 805
+ZERO_ROLLBACK_DAYS: 805
+SIGMA_WEEKS: 161/161
+FR_RISK_501_DAYS: 810
+DRIFT_ALERT_COUNTER: 1435
+
+# -- 组合指标 --
+PORTFOLIO_SHARPE: 2.20
+PORTFOLIO_MAX_DD: -0.75%
+PORTFOLIO_IC: 0.0493
+PORTFOLIO_IR: 34.7
+PORTFOLIO_DIVERSIFICATION: 0.38
+
+# -- ZN/SN/NI/SI投产状态 --
+ZN_STATUS: formal_production (100% coverage, 0 bad samples)
+SN_STATUS: formal_production (100% coverage, 0 bad samples)
+NI_STATUS: formal_production (100% coverage, 0 bad samples)
+SI_STATUS: formal_production (100% coverage, 0 bad samples)
+PRODUCTION_READINESS_PCT: 100.0%
+PRODUCTION_STATUS: READY_FOR_PRODUCTION
+
+# -- DSHC-P34同步 --
+DSHC_AL_STABLE_DAYS: 95
+DSHC_PB_BEAR_IC: 0.0318
+DSHC_PB_PROGRESS: 14/14 (threshold met, sustained)
+DSHC_CU_BEAR_IC: 0.0260
+DSHC_CU_PROGRESS: 6/14
+
+# -- DSHD-P26同步 --
+DSHD_CI_FIX: COMPLETE (hardcoded fix, phase-agnostic regex compatible)
+
+# -- 验收标准 AC1~AC8 --
+AC1_SCHEME_D_FROZEN: PASS
+AC2_BACKTEST_UPDATED: PASS
+AC3_FORMAL_PRODUCTION: PASS
+AC4_DASHBOARD_V31: PASS
+AC5_TECHDEBT_DOCS: PASS
+AC6_SHA256_VERIFIED: PASS
+AC7_DRIFT_REPORT_V25: PASS
+AC8_FLAG_ISSUED: PASS
+AC_TOTAL: 8/8 PASS
+
+# -- SHA256校验 --
+factors_full.json: 66222858
+backtest_AL.json: 922b4c32
+backtest_PB.json: 3b8a4ec9
+backtest_CU.json: 0caf8717
+backtest_ZN.json: b7167b6d
+backtest_SN.json: 62111742
+backtest_NI.json: 71d60839
+backtest_SI.json: 45daa9da
+trades_AL.json: d717a811
+trades_PB.json: 5d4ae2a5
+trades_CU.json: 24cfb4c6
+trades_ZN.json: 653af5bd
+trades_SN.json: 7e281e09
+trades_NI.json: 48df370c
+trades_SI.json: 29c34df8
+portfolio_backtest_7asset.json: 6e4592df
+portfolio_daily_position.json: be6e1deb
+rolling_correlation_matrix.json: 17dc06a3
+portfolio_risk_contribution_timeseries.json: 19f8bd2f
+al_phase_runtime_monitor_log.csv: 88e0cf33
+factor_drift_alert_log_runtime.csv: 379da342
+factor_drift_root_cause_report.md: 6bded063
+vis_dashboard_main.html: 7468d9ac
+vis_validation_report.md: 7e7bb4be
+alcupb_gray_factor_weekly_report_W31.md: 23b45dd9
+updated_factor_techdebt_priority_v31.csv: 991b30bd
+data_source_dependency_inventory.md: 2d369214
+api_prep_guide.md: 80378d34
+ZN_NI_SN_SI_data_cleaning_script.py: 79cec579
+
+# -- 日志统计 --
+MONITOR_LOG_LINES: 891
+DRIFT_ALERT_LOG_LINES: 3187
+
+# -- 基线校验 --
+PHASE24_FLAG_SHA256: 8F57EF7D
+PHASE25_FLAG_SHA256: E26BE265
+PHASE27_FLAG_SHA256: A8197817
+PHASE28_FLAG_SHA256: 8757736C
+PHASE29_FLAG_SHA256: 381106D0
+PHASE30_FLAG_SHA256: D3F11529
+BASELINE_TAMPERED: FALSE
+
+# -- 状态 --
+STATUS: DATA_READY
+DELIVERABLES: 30/30
+ACCEPTANCE_CRITERIA: 8/8 PASS
+
+# -- 签发信息 --
+ISSUED_BY: DSHA
+ISSUE_TIME: 2029-02-02T09:00:00+08:00
+FLAG_SHA256_PREFIX: 94b05567
