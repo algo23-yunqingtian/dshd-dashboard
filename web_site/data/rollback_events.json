@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.0",
-  "generated_at": "2026-10-09T12:24:08+08:00",
+  "dataset_version": "1.7",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "source": "DSHD 全阶段回滚事件记录",
   "events": [
@@ -37,5 +37,15 @@
     "completed": 1,
     "in_progress": 1,
     "open": 1
+  },
+  "version_tag": "P25",
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "p25_summary": {
+    "zero_rollback_days": 595,
+    "rollback_events": 0,
+    "drift_block_rollback_guard": true,
+    "note": "阻断期间禁止灰度转正, 回滚防护有效"
   }
 }
