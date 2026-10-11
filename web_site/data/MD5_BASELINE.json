@@ -8,7 +8,7 @@
   "description": "P31 全部静态资源 MD5 基线 (可复算, 供 CI pre-flight 与后续阶段回归比对); LF 归一化 git blob 形式, index.html md5 cfac3b0e",
   "site_root": "web_site/",
   "file_count": 171,
-  "total_bytes": 3503516,
+  "total_bytes": 3502124,
   "line_endings": "LF (git blob form; .gitattributes pins text eol=lf)",
   "index_html": {
     "size": 207696,
@@ -497,8 +497,8 @@
       "md5": "0b6cbba07882a1984983b7f4d52ec9ba"
     },
     "data/dataset_index.json": {
-      "size": 11804,
-      "md5": "07a3422c297c7e14168556b8b69aafbe"
+      "size": 11016,
+      "md5": "ff4ef1b00ed44eeeb66e55cfe62745fe"
     },
     "data/drift_root_cause.json": {
       "size": 10388,
@@ -537,8 +537,8 @@
       "md5": "2329cb36dca9b5e500ac16a9c1db32ab"
     },
     "data/pb_cu_gray_admission_status.json": {
-      "size": 9389,
-      "md5": "0da9ad821c655ca417c2934bbc376424"
+      "size": 8785,
+      "md5": "2e76f80f3f1e4b2f4e1fdd4acfa9a859"
     },
     "data/pc003_status.json": {
       "size": 2311,
