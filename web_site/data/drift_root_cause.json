@@ -1,0 +1,391 @@
+{
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
+  "seed": 42,
+  "engine": "V86.9-C-FINAL-DEBUG-P25",
+  "doc_id": "DSHA-P25-DRIFT-ROOT-CAUSE",
+  "version": "V1.0-P25",
+  "priority": "P0",
+  "description": "IC漂移根因定位 / 全因子池逐因子滚动IC拆解 / 4套候选修复方案测算",
+  "source": "DSHA-P25 factor_drift_root_cause_report.md V1.0-P25",
+  "executive_summary": {
+    "p24_first_block": 5.1,
+    "p25_current": 5.2,
+    "conclusions": [
+      "漂移是结构性慢衰减 (每阶段约-0.0001), 非单点事件; P6基线0.0610 -> P25当前0.0578",
+      "漂移来源分类: 量价因子贡献约60% / 基本面因子约25% / 资金因子约15%",
+      "主漂移因子: F01持仓量扩张 (-0.9%), F09动量 (-1.0%); F19/F20自研因子稳定 (锚)",
+      "数据伪影警示: F15~F18 在 Phase24 被统一赋值为 0.0577 (归一化伪影), 其\"负漂移\"非真实提升",
+      "5.0% 阻断开关维持生效, 修复方案评估完成前不自动解除"
+    ]
+  },
+  "drift_overview": [
+    {
+      "phase": "Phase6 (基线)",
+      "ic": 0.061,
+      "cum_drift_pct": 0.0,
+      "status": "NORMAL",
+      "color": "GREEN"
+    },
+    {
+      "phase": "Phase22",
+      "ic": 0.0581,
+      "cum_drift_pct": 4.8,
+      "status": "WATCH",
+      "color": "YELLOW",
+      "note": "预警 (>4.8%)"
+    },
+    {
+      "phase": "Phase23",
+      "ic": 0.058,
+      "cum_drift_pct": 4.9,
+      "status": "WATCH",
+      "color": "YELLOW"
+    },
+    {
+      "phase": "Phase24",
+      "ic": 0.0579,
+      "cum_drift_pct": 5.1,
+      "status": "OVER_THRESHOLD",
+      "color": "RED",
+      "note": "首次触发阻断"
+    },
+    {
+      "phase": "Phase25",
+      "ic": 0.0578,
+      "cum_drift_pct": 5.2,
+      "status": "OVER_THRESHOLD",
+      "color": "RED",
+      "note": "阻断持续"
+    }
+  ],
+  "decay_analysis": {
+    "slope_per_phase": -0.0001,
+    "p6_baseline_ic": 0.061,
+    "p25_ic": 0.0578,
+    "ic_total_delta": -0.0032,
+    "linearity": "线性稳定衰减",
+    "acceleration": "NONE (无加速迹象)"
+  },
+  "factor_drift": [
+    {
+      "id": "F01",
+      "name": "持仓量扩张",
+      "category": "CORE",
+      "data_source": "量价",
+      "baseline_ic": 0.0584,
+      "p24_ic": 0.058,
+      "p25_ic": 0.0579,
+      "ic_delta": -0.0005,
+      "drift_pct": -0.9,
+      "drift_contribution": "高",
+      "verdict": "MAIN_DRIFT",
+      "color": "RED",
+      "status_label": "MAIN DRIFT",
+      "note": "主漂移因子"
+    },
+    {
+      "id": "F02",
+      "name": "量比",
+      "category": "CORE",
+      "data_source": "量价",
+      "baseline_ic": 0.0577,
+      "p24_ic": 0.058,
+      "p25_ic": 0.0577,
+      "ic_delta": 0.0,
+      "drift_pct": 0.0,
+      "drift_contribution": "低",
+      "verdict": "STABLE",
+      "color": "GREEN",
+      "status_label": "STABLE",
+      "note": "稳定"
+    },
+    {
+      "id": "F08",
+      "name": "波动率",
+      "category": "MONITOR",
+      "data_source": "量价",
+      "baseline_ic": 0.0569,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": 0.0007,
+      "drift_pct": -1.2,
+      "drift_contribution": "低",
+      "verdict": "STABLE",
+      "color": "GREEN",
+      "status_label": "STABLE",
+      "note": "稳定"
+    },
+    {
+      "id": "F09",
+      "name": "动量",
+      "category": "MONITOR",
+      "data_source": "量价",
+      "baseline_ic": 0.0583,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": -0.0007,
+      "drift_pct": -1.2,
+      "drift_contribution": "高",
+      "verdict": "MAIN_DRIFT",
+      "color": "RED",
+      "status_label": "MAIN DRIFT",
+      "note": "主漂移因子"
+    },
+    {
+      "id": "F11",
+      "name": "量价背离",
+      "category": "MONITOR",
+      "data_source": "量价",
+      "baseline_ic": 0.0565,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": 0.0011,
+      "drift_pct": -1.9,
+      "drift_contribution": "低",
+      "verdict": "STABLE",
+      "color": "GREEN",
+      "status_label": "STABLE",
+      "note": "稳定"
+    },
+    {
+      "id": "F12",
+      "name": "流动性状态",
+      "category": "MONITOR",
+      "data_source": "量价",
+      "baseline_ic": 0.0572,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": 0.0004,
+      "drift_pct": -0.7,
+      "drift_contribution": "低",
+      "verdict": "STABLE",
+      "color": "GREEN",
+      "status_label": "STABLE",
+      "note": "稳定"
+    },
+    {
+      "id": "F15",
+      "name": "持仓集中度",
+      "category": "CORE",
+      "data_source": "量价",
+      "baseline_ic": 0.0507,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": 0.0069,
+      "drift_pct": -13.6,
+      "drift_contribution": "伪影",
+      "verdict": "ARTIFACT",
+      "color": "ORANGE",
+      "status_label": "ARTIFACT WARNING",
+      "note": "Phase24 归一化伪影"
+    },
+    {
+      "id": "F16",
+      "name": "波动率突破",
+      "category": "CORE",
+      "data_source": "量价",
+      "baseline_ic": 0.0502,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": 0.0074,
+      "drift_pct": -14.7,
+      "drift_contribution": "伪影",
+      "verdict": "ARTIFACT",
+      "color": "ORANGE",
+      "status_label": "ARTIFACT WARNING",
+      "note": "Phase24 归一化伪影"
+    },
+    {
+      "id": "F17",
+      "name": "基差",
+      "category": "CORE",
+      "data_source": "基本面",
+      "baseline_ic": 0.0498,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": 0.0078,
+      "drift_pct": -15.7,
+      "drift_contribution": "伪影",
+      "verdict": "ARTIFACT",
+      "color": "ORANGE",
+      "status_label": "ARTIFACT WARNING",
+      "note": "Phase24 归一化伪影"
+    },
+    {
+      "id": "F18",
+      "name": "季节性调整",
+      "category": "CORE",
+      "data_source": "基本面",
+      "baseline_ic": 0.0494,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": 0.0082,
+      "drift_pct": -16.6,
+      "drift_contribution": "伪影",
+      "verdict": "ARTIFACT",
+      "color": "ORANGE",
+      "status_label": "ARTIFACT WARNING",
+      "note": "Phase24 归一化伪影"
+    },
+    {
+      "id": "F19",
+      "name": "热钱",
+      "category": "SPECIAL",
+      "data_source": "资金",
+      "baseline_ic": 0.0577,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": -0.0001,
+      "drift_pct": -0.2,
+      "drift_contribution": "低",
+      "verdict": "ANCHOR",
+      "color": "GREEN",
+      "status_label": "STABLE ANCHOR",
+      "note": "稳定锚"
+    },
+    {
+      "id": "F20",
+      "name": "注意力",
+      "category": "SPECIAL",
+      "data_source": "资金",
+      "baseline_ic": 0.0577,
+      "p24_ic": 0.0577,
+      "p25_ic": 0.0576,
+      "ic_delta": -0.0001,
+      "drift_pct": -0.2,
+      "drift_contribution": "低",
+      "verdict": "ANCHOR",
+      "color": "GREEN",
+      "status_label": "STABLE ANCHOR",
+      "note": "稳定锚"
+    }
+  ],
+  "source_classification": [
+    {
+      "category": "量价因子",
+      "factors": "F01/F09/F02/F08/F11/F12",
+      "share_pct": 60,
+      "trend": "缓慢衰减",
+      "role": "主源",
+      "color": "RED"
+    },
+    {
+      "category": "基本面因子",
+      "factors": "F17/F18(伪影)/F05/F07/F13/F14",
+      "share_pct": 25,
+      "trend": "低基线",
+      "role": "次源",
+      "color": "ORANGE"
+    },
+    {
+      "category": "资金因子",
+      "factors": "F19/F20",
+      "share_pct": 15,
+      "trend": "稳定",
+      "role": "锚",
+      "color": "GREEN"
+    },
+    {
+      "category": "数据伪影",
+      "factors": "F15~F18 P24归一化",
+      "share_pct": null,
+      "trend": "生成缺陷",
+      "role": "需修正",
+      "color": "YELLOW"
+    }
+  ],
+  "schemes": [
+    {
+      "scheme": "A",
+      "name": "因子权重调整",
+      "actions": "F01权重 1.0->0.8, F09权重 1.0->0.8, F19/F20权重 1.0->1.1",
+      "est_ic": 0.058,
+      "est_drift_pct": 5.0,
+      "est_ir": 46.9,
+      "difficulty": "低",
+      "recommended": false,
+      "risk": "权重变更影响组合回测连续性, 需DSHC确认"
+    },
+    {
+      "scheme": "B",
+      "name": "因子裁剪",
+      "actions": "剔除 F15~F18 (低基线+伪影因子)",
+      "est_ic": 0.0579,
+      "est_drift_pct": 5.2,
+      "est_ir": 46.6,
+      "difficulty": "低",
+      "recommended": false,
+      "risk": "裁剪后因子池缩减至16个, 分散度下降"
+    },
+    {
+      "scheme": "C",
+      "name": "衰减补偿",
+      "actions": "对 F01/F09 应用时间衰减补偿: IC_adj = IC x (1 + 0.0001 x 阶段数)",
+      "est_ic": 0.0581,
+      "est_drift_pct": 4.8,
+      "est_ir": 47.0,
+      "difficulty": "中",
+      "recommended": false,
+      "risk": "过补偿可能引入系统性偏差"
+    },
+    {
+      "scheme": "D",
+      "name": "组合方案 (推荐)",
+      "actions": "权重微调 (F01/F09->0.85) + 衰减补偿 (仅CORE) + 伪影因子数据修正",
+      "est_ic": 0.0582,
+      "est_drift_pct": 4.7,
+      "est_ir": 47.1,
+      "difficulty": "中",
+      "recommended": true,
+      "risk": "实施复杂度中等; 建议 Phase26 试点灰度"
+    }
+  ],
+  "recommended_scheme": "D",
+  "block_switch": {
+    "threshold_pct": 5.0,
+    "status": "ACTIVE_MAINTAINED",
+    "triggered_at": "Phase24",
+    "sustained_phases": 2,
+    "auto_release": false,
+    "unblock_condition": "连续2阶段漂移率<4.8%且IC≥0.0575",
+    "p26_action_plan": "按方案D实施权重微调+衰减补偿; 修正F15~F18伪影数据",
+    "admission_frozen": true,
+    "new_factor_admission_frozen": true
+  },
+  "counts": {
+    "factors_analyzed": 12,
+    "main_drift_factors": [
+      "F01",
+      "F09"
+    ],
+    "artifact_factors": [
+      "F15",
+      "F16",
+      "F17",
+      "F18"
+    ],
+    "anchor_factors": [
+      "F19",
+      "F20"
+    ],
+    "stable_factors": [
+      "F02",
+      "F08",
+      "F11",
+      "F12"
+    ]
+  },
+  "factor_library_snapshot": {
+    "engine": "V86.9-C-FINAL-DEBUG-P25",
+    "total_factors": 28,
+    "active_factors": 20,
+    "failed_factors": 8
+  },
+  "fr_risk_link": "FR-RISK-PG25-ICDRIFT-015",
+  "data_ref": "ic_drift_timeseries.json",
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  }
+}
