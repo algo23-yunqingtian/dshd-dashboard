@@ -1,0 +1,107 @@
+{
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-11T22:58:08+08:00",
+  "seed": 42,
+  "engine": "V86.9-C-FINAL-DEBUG-P25",
+  "doc_id": "DSHD-P25-SITE-HEALTH",
+  "description": "P25 线上站点稳定性巡检 + T2 前端语法审计复测 + git/容量基线",
+  "source": "gate_prep_lab/p25_t0_t1_results.json + p25_t2_html_results.json",
+  "live_endpoint": "https://algo23-yunqingtian.github.io/dshd-dashboard/",
+  "probe": {
+    "index.html": {
+      "code": 200,
+      "bytes": 173428,
+      "ms": 3491
+    },
+    "data/fr_risk_alerts.json": {
+      "code": 200,
+      "bytes": 4154,
+      "ms": 210
+    },
+    "data/pb_cu_gray_admission_status.json": {
+      "code": 200,
+      "bytes": 6934,
+      "ms": 156
+    },
+    "data/portfolio_risk_contribution_timeseries.json": {
+      "code": 200,
+      "bytes": 118234,
+      "ms": 1486
+    },
+    "archive/manifest.json": {
+      "code": 200,
+      "bytes": 19850,
+      "ms": 644
+    },
+    "deploy_meta.json(预期404-上传后生成)": {
+      "code": 404,
+      "bytes": 0,
+      "ms": 123
+    }
+  },
+  "latency": {
+    "items_cold_count": 57,
+    "items_keepalive_count": 57,
+    "median_ms_cold": 1015,
+    "max_ms_cold": 21497,
+    "median_ms_warm": 441,
+    "max_ms_warm": 19237,
+    "slow_count_cold": 23,
+    "slow_count_warm": 29,
+    "err_4xx": 0,
+    "err_5xx": 0,
+    "non_200_count": 0
+  },
+  "js_audit": {
+    "pre_p25_fix": {
+      "blocks": 1,
+      "syntax_ok": false,
+      "defects_found": 2,
+      "defect_ids": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "impact": "SyntaxError 导致整页内联脚本失效, 全部图表与面板不渲染"
+    },
+    "post_p25_fix": {
+      "blocks": 3,
+      "syntax_ok": true,
+      "syntax_errors": [],
+      "defects_fixed": 9,
+      "defect_ids_fixed": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D1-4",
+        "D8",
+        "D6",
+        "D7"
+      ],
+      "index_md5": "dadc222b6bddab9aa84136de3083ed23",
+      "index_bytes": 207450
+    }
+  },
+  "git": {
+    "head_local": "4088fc79d00de212ac5c3214bef4fc1e0cc1f01c",
+    "head_remote": "",
+    "ahead_behind": "0\t0",
+    "log8": "4088fc7 P24: append section 23 - GitHub Pages production deployment + Pages-enable gotcha (POST vs PUT)\n8ea88d8 P24: append section 13 - GitHub Pages production deployment verification\n9dd36e0 P24 T5: flag updated - GitHub Pages deployed & verified (POST 201 + CI success + live 12/12 markers PASS)\nefb6ce1 Update flag: Pages deployment instructions\nf73af87 Update flag: Pages deployment status (validate PASS, deploy BLOCKED)\nadaa3ad Fix CI: Enable Pages in configure-pages action\nf2f1675 Fix CI: Update P23 version_tag checks to P24\nf1faaa8 Fix: Add all archive files missing from manifest (79 files)"
+  },
+  "capacity": {
+    "local_bytes": 5485758,
+    "files": 367,
+    "api_repo_kb": 490
+  },
+  "verdict": {
+    "js_parse_ok": true,
+    "all_datasets_p25": true,
+    "core_18_complete": true,
+    "t2_data_fail": true,
+    "t2_html_fail": true,
+    "overall": "PASS"
+  }
+}
