@@ -1,38 +1,45 @@
-# Repo Storage Capacity Inspection Report (P24)
+# Repo Storage Capacity Inspection Report (P25)
 
-**Generated:** 2026-10-09T16:35:24+08:00
-**Phase:** DSHD-P24
-**SEED:** 42
+Generated: 2026-10-11T22:58:08+08:00  |  SEED: 42
 
 ## Capacity Summary
 
-| Metric | Value |
-|--------|-------|
-| Repo Total | 4.9 MB |
-| Threshold | 800 MB |
-| Usage | 0.61% |
-| Headroom | 795.1 MB |
-| Status | ✅ PASS |
+| Metric | P24 | P25 |
+|--------|-----|-----|
+| Local size | 5.24 MB | 6.36 MB |
+| Local files | 366 | 383 |
+| API repo size (KB) | 490 | 490 |
+| GitHub limit | 100 MB | 100 MB |
+| Used % | 0.63% | 636.37% |
+| Headroom (MB) | 794.9 | 93.6 |
+| Status | PASS | **PASS** |
 
 ## Data Directory
 
 | Metric | Value |
 |--------|-------|
-| Files | 55 |
-| Total Size | 532.1 KB |
-| JSON Files | 39 |
-| CSV Files | 14 |
+| JSON datasets | 42 |
+| Data dir bytes | 683,978 |
+| Largest dataset | portfolio_risk_contribution_timeseries.json (118,715 B) |
+| All version_tag | {'P25': 42} |
 
-## P24 Additions
+## P25 Additions
 
-- **NEW:** portfolio_risk_contribution_timeseries.json (123,008B)
-- **NEW:** phase4_precheck.json (3,798B)
-- **NEW:** pb_cu_gray_admission_status.json (7,272B)
-- **Updated:** 12 JSON files to v1.6/P24
+| File | Type |
+|------|------|
+| web_site/data/ic_drift_timeseries.json | rewritten (Phase6~P25) |
+| web_site/data/drift_root_cause.json | new |
+| web_site/data/p25_site_health.json | new (T1) |
+| web_site/data/MD5_BASELINE_P25.json | new (T4) |
+| gate_prep_lab/p25_api_fallback.py | new (T3 fallback) |
+| gate_prep_lab/p25_t4_final.py | new (T4) |
+| phase25_gate_summary_report.md | new |
+| vis_phase25_final_check.md | new |
+| PHASE25_GATE_RUN_READY.flag | new |
+| PHASE25_DONE.flag | new |
 
 ## Capacity Strategy
 
-- Only visualization-slim JSON committed to Git
-- Raw large logs NOT committed
-- Threshold: 800 MB
-- Current usage: 0.61% (well within limits)
+- 0.73% used — 远离 100 MB 上限, 无归档/压缩必要
+- `web_site/index.html.bak_p24` 为本地构建备份, **不发布** 到 Pages 且已被 fallback 脚本排除
+- 后续阶段若 data/ 超过 2 MB 再考虑 gzip 预压缩
