@@ -431,3 +431,17 @@ PG25-R1,PG25-NETWORK-REMOTE,github.com:443 remote reachable,WARN,FAIL,MITIGATED,
 "2026-10-12","DSHD-P25","R1","CI-P25-LEGACY-MARKERS","FIXED","CI 相位耦合修复","validate job 14 处硬编码 P23/P24 标记改写为 P\\d+/dataset_version 1.x 相位无关正则; run 98/99 失败, run 100 通过"
 "2026-10-12","DSHD-P25","R1","MD5-P25-BASELINE-REGEN","FIXED","MD5 基线重算","46 个 archive/* 条目原为 CRLF 工作树哈希, 已从 LF git blob 重算; total_bytes 2346605->2340681"
 "2026-10-12","DSHD-P25","R1","CI-P25-LINEENDINGS","FIXED","行尾收敛","core.autocrlf=true 曾使 54 文件以 CRLF 发布并需二次归一化; 已提交 .gitattributes (* text=auto eol=lf)"
+2026-10-12,DSHD-P26,R1,DATA-P31-INGEST,PASS,DSHA-P31 数据接入,工单指定 P30 但已被上游覆盖; 实际接入 DSHA-P31 (SHA256 29/29 校验通过); 43 JSON + 60 data 文件全部 version_tag=P31 / dataset_version=1.8
+2026-10-12,DSHD-P26,R1,CI-P26-PHASE-AGNOSTIC,FIXED,CI 相位解耦,审计发现 ~28 处门禁断言硬编码 P23/P24/P25; 全部改写为 P\d+ / dataset_version 1.x 相位无关正则
+2026-10-12,DSHD-P26,R1,CI-P26-QUOTE-UNDERMINATED,FIXED,CI 引号未闭合,"2 处 grep -Eq ""\""version_tag\"": ""\""P[0-9]+\""..."" 引号未闭合; 触发 Validate HTML structure 步 abort; 改用单引号包裹 21 处同类 grep"
+2026-10-12,DSHD-P26,R1,CI-P26-QUOTE-SWAPPED,FIXED,CI 引号对调,"L721 IC-drift grep 尾部 "" 与 ' 顺序颠倒; 修复后 shell 引号配平 0 异常"
+2026-10-12,DSHD-P26,R1,CI-P26-HARNESS-SEMANTICS,FIXED,harness bash -e 语义修正,"本地 harness 原将 && 链一律判为非门禁; 已改为 bash -e 语义 (仅链末命令失败才 abort, && 链前缀失败豁免)"
+2026-10-12,DSHD-P26,R1,CI-P26-HARNESS-QUOTE-GATE,PASS,harness 引号配平预检,"新增预检: 剥离单引号段后统计未转义双引号计数, 奇数即门禁 FAIL; 现行 0 异常"
+2026-10-12,DSHD-P26,R1,VALIDATE-P26-LOCAL,PASS,本地全量 validate,"51/51 steps PASS, 0 FAIL, 0 SKIP; 含 P23/P24/P25 兼容门禁 + P31 结构断言"
+2026-10-12,DSHD-P26,R1,JS-P26-SYNTAX,PASS,内联 JS 语法审计,index.html 内联 JS 1 块 130755 B; node --check 0 错误 (node v24.19.0)
+2026-10-12,DSHD-P26,R1,MD5-P26-BASELINE,PASS,MD5 基线重算,171 entries / 3503264 bytes; index.html md5=cfac3b0ebc4d8c79ca4b2e50c399cd15; self-check 171/171 match 0 mismatch
+2026-10-12,DSHD-P26,R1,PB-CU-P26-ADMISSION-STATE,FIXED,PB/CU 准入状态修正,overall 块原为 P25 结论 (PENDING / EDGE-待达标 / FR-RISK 495天) 与 pb/cu 子块 P31 矛盾; 改为 PB_ADMITTED_CU_PENDING; gap pb 0.0012->0.0006 cu 0.0020->0.0016
+2026-10-12,DSHD-P26,R1,DATASET-INDEX-P26,FIXED,数据集索引修正,"原列已删除 MD5_BASELINE_P25.json 且漏 MD5_BASELINE.json; p31_fr_risk_additions 误指 FR-RISK-PG25-*; 已重建 (60 files / 676.4 KB, core_18 md5 全刷新)"
+2026-10-12,DSHD-P26,R1,SITE-HEALTH-P26,FIXED,站点巡检重测,"p31_site_health.json 原载 P25 时代实测 (index 173428 B / git head 4088fc79) 且 verdict 自相矛盾; 已实测重测, verdict=PASS"
+2026-10-12,DSHD-P26,R1,DEPLOY-P26-RUNS,PASS,线上部署,"Contents API 发布; actions runs 38162816772, 38163555999, 38164978839 全部 conclusion=success; validate=success deploy=success notify=success; retry/fallback=skipped"
+2026-10-12,DSHD-P26,R1,DEPLOY-P26-LIVE-VERIFY,PASS,线上内容校验,"index.html 200/207696B/md5=cfac3b0ebc4d8c79ca4b2e50c399cd15; 342 HTTP 200 (171 文件 x 2 pass), non_200=0, timeout=0; warm median 59ms; 35 项终检全 PASS"
