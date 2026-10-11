@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 data completion status - M1-M7 ALL COMPLETED, Phase4 monitoring, PB/CU gray admission",
+  "description": "P31 data completion status - M1~M8 ALL COMPLETED / V31.0",
   "milestones": {
     "M1": {
       "status": "COMPLETED",
@@ -93,14 +93,9 @@
   "full_data_varieties": 3,
   "data_coverage_pct": 100.0,
   "data_quality_grade": "A+",
-  "p24_updates": {
-    "phase4_monitoring": "INTEGRATED",
-    "pb_cu_gray_admission": "PENDING",
-    "risk_contribution_timeseries": "NEW",
-    "phase4_precheck": "PASS",
-    "md5_snapshot": "PASS"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
-  }
+  "production_readiness_pct": 100.0,
+  "production_status": "READY_FOR_PRODUCTION"
 }
