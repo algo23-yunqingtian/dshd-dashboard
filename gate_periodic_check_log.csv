@@ -426,3 +426,8 @@ PG25-R1,PG25-CI-SECSCAN,CI security scan,PASS,N/A,NEW,"140 files scanned, 0 secr
 PG25-R1,PG25-MD5-BASELINE,static resource MD5 baseline,PASS,N/A,NEW,140 files 2346605 bytes; index.html md5=dadc222b6bddab9aa84136de3083ed23,2026-10-11T22:58:08Z,42,,ead52edca8a52bb9b80e90c2742d4e3d
 PG25-R1,PG25-SITE-LATENCY,site latency keep-alive,WARN,WARN,NO_CHANGE,warm_median=441ms warm_max=19237ms (threshold 400ms; 冷连接 max=21497ms),2026-10-11T22:58:08Z,42,,06a57a0422857b5925891ce97116562d
 PG25-R1,PG25-NETWORK-REMOTE,github.com:443 remote reachable,WARN,FAIL,MITIGATED,ls-remote 4 attempts failed; T3 API-Contents fallback job added,2026-10-11T22:58:08Z,42,,81707bbf24bba2e9d0ed2a7be5dc4c9d
+"2026-10-12","DSHD-P25","R1","DEPLOY-P25-RUN100","PASS","线上部署","actions run 38154205964 @ e3367026; validate=success(56 steps) deploy=success(9 steps) notify=success(3); retry/fallback=skipped"
+"2026-10-12","DSHD-P25","R1","DEPLOY-P25-LIVE-VERIFY","PASS","线上内容校验","index.html 200/207450B/md5=dadc222b6bdd + 8 数据集 md5 全匹配基线; deploy_meta.json=404 预期; 9/10 PASS"
+"2026-10-12","DSHD-P25","R1","CI-P25-LEGACY-MARKERS","FIXED","CI 相位耦合修复","validate job 14 处硬编码 P23/P24 标记改写为 P\\d+/dataset_version 1.x 相位无关正则; run 98/99 失败, run 100 通过"
+"2026-10-12","DSHD-P25","R1","MD5-P25-BASELINE-REGEN","FIXED","MD5 基线重算","46 个 archive/* 条目原为 CRLF 工作树哈希, 已从 LF git blob 重算; total_bytes 2346605->2340681"
+"2026-10-12","DSHD-P25","R1","CI-P25-LINEENDINGS","FIXED","行尾收敛","core.autocrlf=true 曾使 54 文件以 CRLF 发布并需二次归一化; 已提交 .gitattributes (* text=auto eol=lf)"
