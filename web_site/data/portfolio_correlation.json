@@ -1,10 +1,10 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 cross-variety correlation matrix - 7x7 + rolling windows + time series switching",
-  "source": "DSHA-P23 portfolio_backtest_7asset.json (P22 baseline + P23 rolling)",
+  "description": "P31 cross-variety correlation matrix / V31.0",
+  "source": "DSHA-P31 portfolio_backtest_7asset.json correlation_matrix",
   "variety_count": 7,
   "variety_names": [
     "AL",
@@ -534,12 +534,8 @@
       "correlation": 0.35
     }
   ],
-  "p24_additions": {
-    "time_series_switching": "Enhanced rolling window correlation with time series switching",
-    "phase4_monitoring": "Phase4 monitoring data integrated"
-  },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
   "rolling_window_types": [
     "120d",
@@ -549,7 +545,7 @@
     "60d"
   ],
   "rolling_source": "rolling_correlation_matrix.json (DSHA-P25 输出)",
-  "p25_multi_window": {
+  "p31_multi_window": {
     "window_types": [
       "120d",
       "20d",
@@ -582,7 +578,7 @@
     "max_offdiag_corr": 0.74,
     "note": "P25: 多窗口滚动相关性矩阵接入 (20/40/60/120/250d 共6窗口 + 周度滚动5d 7窗口)"
   },
-  "p25_drift_gate": {
+  "p31_drift_gate": {
     "ic_drift_pct": 5.2,
     "threshold_pct": 5.0,
     "block_active": true,
