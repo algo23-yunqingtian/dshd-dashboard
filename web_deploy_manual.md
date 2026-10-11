@@ -990,3 +990,96 @@ git add -A && git commit -m 'P25: dashboard V25.0 + CI hardening + MD5 baseline'
 - **P3** `github.com:443` 间歇不可达; 已加 retry + API-Contents 降级双保险。
 - **P3** 缺失 GitHub PAT: 推送与 `workflow_dispatch` 需用户提供; `PAGES_FALLBACK_TOKEN` secret 可选。
 
+
+
+## 25. DSHD-P26 看板迭代与 CI 流水线运维 (2026-10-12T02:44:15+08:00)
+
+### 25.1 版本信息
+
+| 项 | 值 |
+|----|----|
+| 看板相位 | DSHD-P26 |
+| 数据源 | **DSHA-P31** (工单指定 DSHA-P30 / V30.0, 该数据集已被上游就地覆盖) |
+| VERSION_TAG / DATA_VERSION | P31 / 1.8 |
+| ENGINE | V86.9-C-FINAL-DEBUG-P31 |
+| index.html | 207,696 B / md5 cfac3b0ebc4d8c79ca4b2e50c399cd15 |
+| JSON 数据集 | 43 (全部 P31 / 1.8) |
+| data/ 文件 | 60 (676.4 KB) |
+| MD5 基线 | 171 entries / 3,503,264 B |
+
+### 25.2 关键指标
+
+| 指标 | 值 | 状态 |
+|------|----|:----:|
+| IC | 0.0586 | 达标 |
+| IC 漂移率 | 3.6% | 优于阈值 4.8% |
+| IC 漂移阻断 | FALSE | 已解除 |
+| 解锁条件 | 6/6 MET (PERMANENTLY_UNBLOCKED) | PASS |
+| PB BEAR_IC | 0.0294 / 阈值 0.030 | 14/14 THRESHOLD_MET_SUSTAINED |
+| CU BEAR_IC | 0.0234 / 阈值 0.025 | 6/14 BELOW_THRESHOLD (维持 1.5% 上限) |
+| 品种 | 7 (AL/CU/PB/ZN/NI/SN/SI) | 全部正式投产 |
+| FR-RISK | 17 条, PG31-ICDRIFT-021 / -PBCU-022 已 RELEASED | PASS |
+
+### 25.3 CI 相位解耦 (本阶段核心工作)
+
+审计发现 validate job 中约 28 处门禁断言仍硬编码 P23/P24/P25, 每推进一步相位都会
+在门禁处断裂。已全部改写为相位无关正则:
+
+```
+P\d+              # 相位标签
+dataset_version 1.x
+"version_tag": "P[0-9]+"'   # JSON 内联
+```
+
+同时修复 3 处 shell 引号缺陷 (此前从未被触发, 因为前序步骤已 abort):
+
+- 2 处 `grep -Eq "\"version_tag\": "\"P[0-9]+\"..."` 引号未闭合, 改用单引号包裹 (共 21 处同类 grep 已统一)
+- 1 处 IC-drift grep 尾部 `"` 与 `'` 顺序颠倒
+
+### 25.4 本地 harness 语义修正
+
+原本地 validate harness 将 `A && B` 链一律判为「非门禁 (静默探针)」, 导致 2 类真实
+CI 失败无法在本地复现。已改为 `bash -e` 语义:
+
+- 裸命令失败 -> abort
+- `&&` / `||` 链的**末位**命令失败 -> abort
+- `&&` 链**前缀**失败 -> **豁免** (bash `set -e` 规则)
+- 块末行的状态成为该步 exit code
+
+新增 shell 引号配平预检: 剥离单引号段后统计未转义双引号计数, 奇数即门禁 FAIL。
+现行 0 异常。
+
+### 25.5 部署步骤
+
+```
+# 1. 数据接入 (T1) — 从 DSHA-P31 重建 data/*.json + dataset_index.json
+# 2. 前端构建 (T2) — index.html V31.0, node --check 内联 JS
+# 3. 基线重算 (T3)
+python D:\DSH_WORK\_p26_make_baseline.py        # 171 entries / self-check
+# 4. 本地全量验证 (T3)
+python D:\DSH_WORK\_p26_validate.py              # 51/51 PASS
+# 5. 发布 (T2)
+python D:\DSH_WORK\_p26_deploy.py                # Contents API 逐文件发布
+# 6. 线上巡检 (T4)
+python D:\DSH_WORK\_p26_live_probe.py            # 342 HTTP 200 / warm 59ms
+python D:\DSH_WORK\_p26_verify_final.py           # 35 项终检
+```
+
+### 25.6 部署验证清单
+
+- [x] index.html HTTP 200 / 207,696 B / md5 cfac3b0ebc4d8c79ca4b2e50c399cd15
+- [x] 171 文件 x 2 pass = 342 HTTP 200, non_200=0, timeout=0
+- [x] warm (keep-alive) median 59ms / max 552ms (< 400ms 阈值)
+- [x] cold median 203ms / max 15170ms (含 TLS 握手, 可接受)
+- [x] MD5_BASELINE_P25.json / p25_site_health.json 已下线 (HTTP 404)
+- [x] deploy_meta.json = 404 (预期: 由 upload-pages-artifact 之后生成)
+
+### 25.7 遗留项
+
+| 编号 | 项 | 严重度 | 处置 |
+|------|----|:------:|------|
+| P1 | CU 灰度 6/14 未达标 (BEAR_IC 0.0234 < 0.025) | P1 | 维持 1.5% 仓位上限, 下一采集点评估 |
+| P1 | github.com:443 smart-HTTP push 仍不可达 | P1 | 已固化 Contents API 发布 + T3 API 降级 job |
+| P2 | Contents API 发布使远端 head 领先本地 HEAD 1 提交 | P2 | 内容一致, 仅审计提示 |
+| P3 | cold 连接 max 15170ms (TLS 握手) | P3 | warm 已达标, 可接受 |
+| P3 | 部分 step 名仍含 P23/P24 字样 (仅显示名) | P3 | 建议 P27 清理 |
