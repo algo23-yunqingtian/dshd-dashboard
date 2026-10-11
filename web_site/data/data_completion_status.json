@@ -1,7 +1,7 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "P24 data completion status - M1-M7 ALL COMPLETED, Phase4 monitoring, PB/CU gray admission",
   "milestones": {
@@ -32,6 +32,12 @@
     "M7": {
       "status": "COMPLETED",
       "phase": "P23"
+    },
+    "M8": {
+      "phase": "P25",
+      "status": "COMPLETED",
+      "name": "IC漂移阻断可视化 + 准入门禁分层",
+      "details": "18项数据集升级v1.7; IC漂移时序(Phase6~P25); 漂移根因分析(逐因子/4方案); 多窗口滚动相关性(20/40/60/120/250d); Euler风险贡献时序(7品种x35天)"
     }
   },
   "pc003_status": "UNLOCKED_FINAL",
@@ -93,5 +99,8 @@
     "risk_contribution_timeseries": "NEW",
     "phase4_precheck": "PASS",
     "md5_snapshot": "PASS"
+  },
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
   }
 }
