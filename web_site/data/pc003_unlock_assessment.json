@@ -1,7 +1,7 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "P24 PC003 unlock assessment - Phase4 monitoring + PB/CU gray admission",
   "pc003_status": "UNLOCKED_FINAL",
@@ -306,6 +306,20 @@
       "name": "PC003 final unlock assessment report",
       "status": "COMPLETED",
       "phase": "P23"
+    },
+    "M8": {
+      "name": "IC漂移阻断可视化与准入门禁分层",
+      "phase": "P25",
+      "status": "COMPLETED",
+      "details": "IC漂移趋势面板(Phase6~P25+5.0%阈值+超标红色标记) + 漂移根因面板(逐因子/来源分类/4方案) + FR-RISK阻断状态展示 + PB/CU BEAR_IC实时读数 + PC003技术解锁与业务准入阻断分层判读",
+      "deliverables": [
+        "ic_drift_timeseries.json",
+        "drift_root_cause.json",
+        "FR-RISK-PG25-ICDRIFT-015",
+        "FR-RISK-PG25-PBCU-016",
+        "rolling_correlation_matrix.json"
+      ],
+      "dsha_dependency": "DSHA-P25 PHASE25_DATA_READY.flag (8/8 PASS)"
     }
   },
   "variety_readiness": {
@@ -409,7 +423,9 @@
       "level_1": "Single variety anomaly → Reduce position 50%",
       "level_2": "Cross-variety resonance >10% → Pause new entries",
       "level_3": "Portfolio drawdown >5% → Full shutdown + postmortem"
-    }
+    },
+    "ic_drift_gate": "BLOCKED (business admission, IC drift 5.2%)",
+    "updated_at": "2026-10-09T19:48:29+08:00"
   },
   "p23_additions": {
     "m7_final_assessment": "PC003 FINAL UNLOCK - M7 COMPLETED",
@@ -444,5 +460,27 @@
       "FR-RISK-PG24-PB-013",
       "FR-RISK-PG24-PHASE4-014"
     ]
+  },
+  "phase": "P25",
+  "ic_drift_gate": {
+    "gate_id": "IC-DRIFT-GATE-P25",
+    "checked_at": "2026-10-09T19:48:29+08:00",
+    "ic_drift_pct": 5.2,
+    "threshold_pct": 5.0,
+    "passed": false,
+    "color": "RED",
+    "effect": "PC003 维持 UNLOCKED_FINAL (技术面不变), 但准入执行层被 FR-RISK-PG25-ICDRIFT-015 阻断",
+    "separation_note": "PC003 为技术解锁门禁 (已解锁); IC漂移阻断为业务准入门禁 (P24 起), 两层独立判读",
+    "block_fr_risk_id": "FR-RISK-PG25-ICDRIFT-015",
+    "block_since": "Phase24",
+    "consecutive_phases": 2,
+    "unblock_condition": "连续2阶段漂移率<4.8%且IC≥0.0575",
+    "root_cause_report": "ISSUED_V1.0",
+    "fix_plan": "SCHEME_D_RECOMMENDED",
+    "pc003_status_dsha": "READY_ALL_VARIETIES",
+    "data_ref": "ic_drift_timeseries.json + drift_root_cause.json"
+  },
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
   }
 }
