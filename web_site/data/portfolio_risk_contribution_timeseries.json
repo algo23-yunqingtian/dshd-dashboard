@@ -1,10 +1,10 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 per-variety risk contribution time series - Euler decomposition + time slice viewing",
-  "source": "DSHA-P24 derived from P23 portfolio_risk_contribution.json",
+  "description": "P31 per-variety risk contribution time series / V31.0",
+  "source": "DSHA-P31 portfolio_daily_position.json",
   "methodology": "Marginal risk contribution (MRC) + Euler decomposition + time slice",
   "time_slice_options": [
     "7d",
@@ -4772,10 +4772,10 @@
       }
     }
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "p25_drift_gate": {
+  "p31_drift_gate": {
     "ic_drift_pct": 5.2,
     "threshold_pct": 5.0,
     "block_active": true,
