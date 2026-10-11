@@ -1,0 +1,98 @@
+# PHASE26_DONE.flag
+# =========================================================================
+# Phase: DSHD-P26  (GitHub Pages 看板迭代与 CI 流水线运维)
+# Completed: 2026-10-12T02:44:15+08:00
+# SEED: 42   ENGINE: V86.9-C-FINAL-DEBUG-P31
+# =========================================================================
+PHASE26_DONE=TRUE
+PHASE=DSHD-P26
+COMPLETED_AT=2026-10-12T02:44:15+08:00
+SEED=42
+ENGINE=V86.9-C-FINAL-DEBUG-P31
+DATA_VERSION=1.8
+VERSION_TAG=P31
+VERDICT=PASS
+ACCEPTANCE=6/6 ALL-VERIFIED
+
+# === 数据源声明 (重要) ===
+DATA_SOURCE=DSHA-P31
+DATA_SOURCE_NOTE=工单原文指定 DSHA-P30 / V30.0; DSHA-P30 数据集已被上游就地覆盖, 实际接入 DSHA-P31
+DSHA_P31_SHA256=29/29 VERIFIED
+
+# === 任务闭环 ===
+T0_CI_PHASE_AGNOSTIC=PASS    (审计发现 ~28 处门禁断言仍相位耦合, 全部改写为 P\d+ / dataset_version 1.x 相位无关正则)
+T1_DATA_INGEST=PASS          (43 JSON + 60 data 文件, 全部 version_tag=P31 / dataset_version=1.8)
+T1_HTML=PASS                 (index.html 207696 B, 内联 JS 1 块 130755 B, node --check 0 错误)
+T2_PUBLISH=PASS              (Contents API 发布, 3 次 Actions run 全 success)
+T3_CI_OPS_AUDIT=PASS         (本地 validate 51/51 PASS + shell 引号配平 0 异常)
+T4_AUDIT_AND_HANDOFF=PASS    (MD5 基线 171 文件 + 部署审计日志 + DSHC 通知)
+T5_ARCHIVE=PASS              (PHASE26_DONE.flag + 报告 + 归档 + P27 复用说明)
+
+# === 关键指标 ===
+IC_NOW=0.0586
+IC_DRIFT_PCT=3.6
+IC_DRIFT_THRESHOLD=4.8
+IC_DRIFT_BLOCK=FALSE
+UNBLOCK_CONDITIONS=6/6 MET (PERMANENTLY_UNBLOCKED)
+PB_BEAR_IC=0.0294  PB_THRESHOLD=0.030  PB_PROGRESS=14/14  PB_STATUS=THRESHOLD_MET_SUSTAINED
+CU_BEAR_IC=0.0234  CU_THRESHOLD=0.025  CU_PROGRESS=6/14   CU_STATUS=BELOW_THRESHOLD
+F19_F20_IC=0.0583
+VIF=1.0065
+FR_RISK_ALERTS=17
+FR_RISK_PG31=FR-RISK-PG31-ICDRIFT-021, FR-RISK-PG31-PBCU-022 (both RELEASED)
+VARIETIES=7 (AL/CU/PB/ZN/NI/SN/SI 全部正式投产)
+JSON_DATASETS=43 (all P31 / 1.8)
+DATA_FILES=60
+HTML_SIZE=207696
+HTML_MD5=cfac3b0ebc4d8c79ca4b2e50c399cd15
+MD5_BASELINE_ENTRIES=171
+MD5_BASELINE_TOTAL_BYTES=3503264
+MD5_BASELINE_SELFCHECK=171/171 MATCH
+
+# === 线上部署结果 ===
+DEPLOY_RESULT=PASS
+DEPLOY_RUNS=38162816772, 38163555999, 38164978839 (all conclusion=success)
+DEPLOY_JOBS=validate=success deploy=success notify=success retry=skipped fallback=skipped
+DEPLOY_PUSH_MODE=GitHub Contents API (github.com:443 push unreachable from build host)
+SITE_URL=https://algo23-yunqingtian.github.io/dshd-dashboard/
+LIVE_INDEX_HTTP=200
+LIVE_INDEX_SIZE=207696
+LIVE_INDEX_MD5=cfac3b0ebc4d8c79ca4b2e50c399cd15
+LIVE_SWEEP=171 files x 2 passes = 342 HTTP 200, non_200=0, timeout=0
+LIVE_LATENCY=cold median 203ms / max 15170ms; warm(keep-alive) median 59ms / max 552ms
+LIVE_JS_AUDIT=inline 1 block 130755 B, node --check OK (node v24.19.0)
+LIVE_DATA_VERSION=1.8  LIVE_VERSION_TAG=P31
+CI_VALIDATE_STEPS=51/51 PASS
+
+# === 交付物 ===
+FLAG_READY=PHASE26_DONE.flag
+SUMMARY_REPORT=phase26_gate_summary_report.md
+FINAL_CHECK=vis_phase26_final_check.md
+DEPLOY_MANUAL=web_deploy_manual.md §25
+HANDOFF=phase26_to_phase27_handoff.md
+GATE_LOG=gate_periodic_check_log.csv (PG26-R1, 14 rows)
+MD5_BASELINE=web_site/data/MD5_BASELINE.json
+SITE_HEALTH=web_site/data/p31_site_health.json
+DSHC_NOTIFY=DSHD-P26_TO_DSHC_PB_GRAY_HANDOFF.md
+
+# === 本阶段修复的实际缺陷 (上线后才发现, 已闭环) ===
+FIX_CI_QUOTE_UNDERMINATED=2 处 `grep -Eq "\"version_tag\"..."` 引号未闭合 -> Validate HTML structure 步 abort
+FIX_CI_QUOTE_SWAPPED=1 处 IC-drift grep 引号对调
+FIX_HARNESS_SEMANTICS=本地 harness 曾将 && 链一律判为非门禁; 已改为 bash -e 语义 (仅链末命令失败才 abort)
+FIX_HARNESS_QUOTE_GATE=新增 shell 引号配平预检 (剥离单引号段后计数)
+FIX_PB_CU_OVERALL=pb_cu_gray_admission_status.json overall 块仍为 P25 结论 (PENDING/EDGE-待达标/495天) 而 pb/cu 子块已是 P31, 看板自相矛盾
+FIX_PB_CU_GAP=pb gap 0.0012->0.0006, cu gap 0.0020->0.0016
+FIX_DATASET_INDEX=列出已删除 MD5_BASELINE_P25.json / 漏 MD5_BASELINE.json / p31_fr_risk_additions 误指 P25 告警 ID
+FIX_SITE_HEALTH_STALE=p31_site_health.json 载 P25 时代实测值 (index 173428 B / git head 4088fc79) 且 verdict 自相矛盾 (t2_*_fail=true 而 overall=PASS)
+
+# === 遗留 / 移交 P27 ===
+P1_CU_GRAY=CU 6/14 未达标 (BEAR_IC 0.0234 < 0.025), 维持 1.5% 仓位上限, 下一采集点评估
+P1_NETWORK=github.com:443 smart-HTTP push 仍不可达; 已固化 Contents API 发布路径 + T3 API 降级 job
+P2_GIT_HEAD_DRIFT=Contents API 发布在远端产生独立提交, 远端 head 领先本地 HEAD 1 个提交 (内容一致)
+P3_LATENCY=COLD 连接 max=15170ms (含 TLS 握手); warm(keep-alive) 已达标 (median 59ms < 400ms 阈值)
+P3_PAT=ghp_TW0z...3wi9s3 已轮换, 后续工单需重新提供
+P4_CI_STEP_NAMING=deploy-pages.yml 中部分 step 名仍含 P23/P24 字样 (仅显示名, 断言已相位无关), 建议 P27 清理
+
+# =========================================================================
+# END OF PHASE26
+# =========================================================================
