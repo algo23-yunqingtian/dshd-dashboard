@@ -33,6 +33,18 @@ FR_RISK_ALERTS=15
 JSON_DATASETS=42 (all P25 / 1.7)
 HTML_SIZE=207450 (Δ+34022)
 HTML_MD5=dadc222b6bddab9aa84136de3083ed23
+# === 线上部署结果 (%s) ===
+DEPLOY_RESULT=PASS
+DEPLOY_RUN=100 (github actions run 38154205964, commit e3367026)
+DEPLOY_JOBS=validate=success deploy=success notify=success retry=skipped fallback=skipped
+DEPLOY_PUSH_MODE=GitHub Contents API (github.com:443 push unreachable from build host)
+SITE_URL=https://algo23-yunqingtian.github.io/dshd-dashboard/
+LIVE_INDEX_HTTP=200
+LIVE_INDEX_SIZE=207450
+LIVE_INDEX_MD5=dadc222b6bddab9aa84136de3083ed23
+LIVE_MARKERS=9/10 PASS (deploy_meta.json=404 expected: 由 upload-pages-artifact 之后生成)
+LIVE_MD5_VERIFIED=index.html, ic_drift_timeseries, drift_root_cause, rolling_correlation_matrix, fr_risk_alerts, p25_site_health, MD5_BASELINE_P25, backtest_PB, archive/manifest
+LIVE_DATA_VERSION=1.7  LIVE_VERSION_TAG=P25
 
 # === 交付物 ===
 FLAG_READY=PHASE25_GATE_RUN_READY.flag
@@ -48,10 +60,13 @@ CAPACITY_REPORT=repo_storage_capacity_report.md
 # === 遗留 / 移交 P26 ===
 P0_IC_DRIFT_ROOT_CAUSE=结构性慢衰减 slope=-0.0001/phase (P6 0.0610 -> P25 0.0578, 无加速)
 P0_RECOMMENDED_FIX=方案D (F01/F09->0.85, F19/F20->1.1, 衰减补偿, F15~F18 伪影修正)
-P0_ADMISSION_BLOCKED=TRUE (解除条件: 连续2阶段漂移率<4.8%% 且 IC>=0.0575)
+P0_ADMISSION_BLOCKED=TRUE (解除条件: 连续2阶段漂移率<4.8% 且 IC>=0.0575)
 P2_SITE_LATENCY=warm_median=441ms (阈值400ms; 冷连接max=21497ms)
 P3_NETWORK=github.com:443 间歇不可达 (已加 retry + API-Contents 降级)
 P3_PAT_MISSING=推送与 workflow_dispatch 需用户提供 GitHub PAT
+P3_GIT_PUSH_UNREACHABLE=github.com:443 smart-HTTP 上传持续超时 (4 次尝试均 hang); 已改用 api.github.com Contents API 逐文件发布, 与 T3 deploy-fallback job 同机制
+P4_CI_LEGACY_MARKERS=validate job 存在 14 处硬编码 P23/P24 相位标记, 已改写为 P\d+/dataset_version 1.x 相位无关正则
+P4_AUTOCRLF=core.autocrlf=true 使工作树 CRLF 化, 已提交 .gitattributes (* text=auto eol=lf) 收敛
 
 # =========================================================================
 # END OF PHASE25
