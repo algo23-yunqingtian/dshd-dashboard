@@ -1,7 +1,7 @@
 {
   "manifest_id": "DSHC-EXPERIMENT-MANIFEST-P3-P18",
   "version": "18.0-P18-GH-PAGES-LAUNCH",
-  "generated_at": "2026-11-20T11:00:00+08:00",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG",
   "total_phases": 16,
@@ -514,5 +514,10 @@
       "github_pages": "LIVE",
       "conclusion": "DONE_GITHUB_PAGES_LIVE"
     }
-  ]
+  ],
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  }
 }
