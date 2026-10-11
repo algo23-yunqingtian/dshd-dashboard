@@ -8,6 +8,16 @@ node_modules/
 *.log
 .DS_Store
 
+# CI build artifacts (written by deploy-pages.yml at runtime, never committed)
+validate.json
+validate_p25.json
+security_scan.json
+deploy_fallback_report.json
+web_site/deploy_meta.json
+
+# Build backups (local rebuild source, never published to Pages)
+web_site/index.html.bak_*
+
 # Internal project files (root level only - use / prefix)
 /ch001_repair_baseline/
 /gate_prep_lab/
