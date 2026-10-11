@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.6",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "P24 portfolio risk metrics - updated for P24 monitoring",
   "portfolio_risk": {
@@ -99,9 +99,23 @@
       "response_time_min": 5
     }
   ],
-  "version_tag": "P24",
+  "version_tag": "P25",
   "p24_additions": {
     "phase4_monitoring": "Phase4 monitoring data integrated",
     "risk_contribution_timeseries": "portfolio_risk_contribution_timeseries.json"
+  },
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "p25_drift_gate": {
+    "ic_drift_pct": 5.2,
+    "threshold_pct": 5.0,
+    "block_active": true,
+    "block_since": "Phase24",
+    "consecutive_phases": 2,
+    "fr_risk_id": "FR-RISK-PG25-ICDRIFT-015",
+    "root_cause": "ISSUED_V1.0",
+    "fix_plan": "SCHEME_D_RECOMMENDED",
+    "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
   }
 }
