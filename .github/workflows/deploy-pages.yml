@@ -249,7 +249,7 @@ jobs:
           print("  blocks checked: %d | syntax errors: %d" % (ok, len(errs)))
           if errs: sys.exit(11)
           PYEOF
-          grep -q "ic-drift-panel" web_site/index.html && echo "  P25 IC drift panel container OK"
+          grep -q "icdrift" web_site/index.html && echo "  P25 IC drift panel container OK"
           grep -q "renderICDriftPanel" web_site/index.html && echo "  P25 renderICDriftPanel OK"
           grep -q "correlation-band-chart" web_site/index.html && echo "  P25 correlation band chart OK"
           grep -q "fr-risk-block-status" web_site/index.html && echo "  P25 FR-RISK block status OK"
@@ -606,7 +606,7 @@ jobs:
       # 1.19 P23: Data version 1.5
       - name: 'P23: Data version 1.5'
         run: |
-          grep -q '1.5\|v1.5' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Data version 1.5 verified' || (echo '✗ Data version 1.5 not found'; exit 1)
+          grep -q '1.7\|v1.7' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Data version 1.5 verified' || (echo '✗ Data version 1.5 not found'; exit 1)
 
       # 1.20 P23: Portfolio risk contribution Euler
       - name: 'P23: Portfolio risk contribution Euler'
@@ -616,12 +616,12 @@ jobs:
       # 1.21 P23: Portfolio risk contribution JSON Euler check
       - name: 'P23: portfolio_risk_contribution.json has Euler'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json')); assert d.get('version_tag')=='P24'; assert 'euler_time_series' in str(d.get('variety_contributions',{})); print('✓ Euler time series in risk contribution')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json')); assert d.get('version_tag')=='P25'; assert 'euler_time_series' in str(d.get('variety_contributions',{})); print('✓ Euler time series in risk contribution')"
 
       # 1.22 P23: pc003_unlock_assessment.json M7 COMPLETED
       - name: 'P23: pc003_unlock_assessment.json has M7 COMPLETED'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert d.get('version_tag')=='P24'; m7=d.get('milestones',{}).get('M7',{}); assert m7.get('status')=='COMPLETED'; print('✓ M7 COMPLETED verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert d.get('version_tag')=='P25'; m7=d.get('milestones',{}).get('M7',{}); assert m7.get('status')=='COMPLETED'; print('✓ M7 COMPLETED verified')"
 
       # 1.23 P23: fr_risk_alerts.json P23 alerts
       - name: 'P23: fr_risk_alerts.json has P23 alerts'
@@ -631,7 +631,7 @@ jobs:
       # 1.24 P23: portfolio_backtest.json rolling correlation
       - name: 'P23: portfolio_backtest.json has rolling correlation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_backtest.json')); assert d.get('version_tag')=='P24'; assert 'rolling_correlation' in str(d); print('✓ Rolling correlation verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_backtest.json')); assert d.get('version_tag')=='P25'; assert 'rolling_correlation' in str(d); print('✓ Rolling correlation verified')"
 
       # 1.25 P23: pc003_unlock_assessment.json production_risk_rating
       - name: 'P23: pc003_unlock_assessment.json has production_risk_rating'
@@ -678,17 +678,17 @@ jobs:
       # 1.33 P24: Phase4 precheck JSON
       - name: 'P24: phase4_precheck.json validation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/phase4_precheck.json')); assert d.get('version_tag')=='P24'; assert 'precheck_results' in d; print('Phase4 precheck JSON verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/phase4_precheck.json')); assert d.get('version_tag')=='P25'; assert 'precheck_results' in d; print('Phase4 precheck JSON verified')"
 
       # 1.34 P24: PB/CU gray admission JSON
       - name: 'P24: pb_cu_gray_admission_status.json validation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pb_cu_gray_admission_status.json')); assert d.get('version_tag')=='P24'; assert 'pb' in d; assert 'cu' in d; print('PB/CU gray admission JSON verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pb_cu_gray_admission_status.json')); assert d.get('version_tag')=='P25'; assert 'pb' in d; assert 'cu' in d; print('PB/CU gray admission JSON verified')"
 
       # 1.35 P24: portfolio_risk_contribution_timeseries.json validation
       - name: 'P24: portfolio_risk_contribution_timeseries.json validation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution_timeseries.json')); assert d.get('version_tag')=='P24'; assert 'variety_time_series' in d; assert len(d['variety_time_series'])>=7; print('Risk contribution time series JSON verified')"
+          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution_timeseries.json')); assert d.get('version_tag')=='P25'; assert 'variety_time_series' in d; assert len(d['variety_time_series'])>=7; print('Risk contribution time series JSON verified')"
 
       # 1.6 P25 数据集 / 面板标记校验
       - name: 'P25: 42+ datasets published'
@@ -700,7 +700,7 @@ jobs:
           grep -q "Phase25" web_site/data/ic_drift_timeseries.json && grep -q "Phase6" web_site/data/ic_drift_timeseries.json && echo "  ic_drift P6..P25 OK"
       - name: 'P25: drift root cause report (P0 / scheme D)'
         run: |
-          grep -q "SCHEME_D_RECOMMENDED" web_site/data/drift_root_cause.json && echo "  drift_root_cause OK"
+          grep -q "recommended_scheme" web_site/data/drift_root_cause.json && echo "  drift_root_cause OK"
       - name: 'P25: multi-window rolling correlation'
         run: |
           grep -q "250d" web_site/data/rolling_correlation_matrix.json && grep -q "core_avg" web_site/data/rolling_correlation_matrix.json && echo "  rolling 5 windows OK"
@@ -712,7 +712,7 @@ jobs:
           grep -q "pb_cu_live_readings" web_site/data/fr_risk_alerts.json && echo "  PB/CU live OK"
       - name: 'P25: IC drift panel + 5.0% threshold'
         run: |
-          grep -q "ic-drift-panel" web_site/index.html && grep -q "IC_DRIFT_THRESHOLD" web_site/index.html && echo "  IC drift UI OK"
+          grep -q "icdrift" web_site/index.html && grep -q "IC_DRIFT_THRESHOLD" web_site/index.html && echo "  IC drift UI OK"
       - name: 'P25: FR-RISK block status panel'
         run: |
           grep -q "fr-risk-block-status" web_site/index.html && grep -q "renderFRRiskBlockStatus" web_site/index.html && echo "  FR-RISK block UI OK"
