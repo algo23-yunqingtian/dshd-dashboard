@@ -140,3 +140,21 @@ ALL_T0_T4_PASS=TRUE
 NEXT_PHASE=DSHD-P26
 NEXT_ACTION=按方案 D 实施 IC 漂移修复 (F01/F09 权重 -> 0.85, F19/F20 -> 1.1 + 衰减补偿 + F15~F18 伪影修正)
 UNBLOCK_CONDITION=连续2阶段漂移率<4.8% 且 IC>=0.0575
+
+# === 线上部署结果 (2026-10-12) ===
+DEPLOY_RESULT=PASS
+DEPLOY_RUN=100 (actions run 38154205964 @ e3367026)
+DEPLOY_VALIDATE=success (56 steps)
+DEPLOY_PAGES=success (9 steps)
+DEPLOY_RETY=skipped
+DEPLOY_FALLBACK=skipped
+SITE_URL=https://algo23-yunqingtian.github.io/dshd-dashboard/
+LIVE_INDEX_HTTP=200
+LIVE_INDEX_SIZE=207450
+LIVE_INDEX_MD5=dadc222b6bddab9aa84136de3083ed23
+LIVE_MARKERS=9/10 PASS (deploy_meta.json 404=预期)
+DEPLOY_PUSH_MODE=api.github.com Contents API
+CI_LEGACY_MARKERS_FIXED=14 (P23/P24 硬编码 -> P\d+ 相位无关)
+MD5_BASELINE_REGENERATED=TRUE (46 个 archive/* 条目原为 CRLF 工作树哈希, 已从 LF git blob 重算)
+GATTRIBUTES_ADDED=TRUE (* text=auto eol=lf)
+
