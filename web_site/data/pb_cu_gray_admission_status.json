@@ -1,17 +1,17 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "PB/CU灰度准入动态评估 / P25 接入 DSHA-P25 实时读数 + IC漂移阻断叠加 (双重条件均不满足)",
-  "phase": "P25",
+  "description": "PB/CU灰度准入动态评估 / P31 PB 14/14 达标持续 / V31.0",
+  "phase": "P31",
   "pb": {
     "variety": "PB",
     "name": "铅",
-    "bear_ic": 0.0288,
+    "bear_ic": 0.0294,
     "bear_ic_threshold": 0.03,
     "gap_to_threshold": 0.0012,
-    "status": "EDGE_PENDING",
+    "status": "THRESHOLD_MET_SUSTAINED",
     "status_detail": "BEAR_IC 0.0288, 距阈值0.030差0.0012 (DSHA-P25 读数)",
     "bear_ic_time_series": [
       {
@@ -172,15 +172,19 @@
       "blocked_since": "Phase24",
       "consecutive_phases": 2,
       "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
-    }
+    },
+    "bear_ic_latest": 0.0294,
+    "progress": "14/14",
+    "threshold_met": false,
+    "updated_at": "2026-10-12T01:30:00+08:00"
   },
   "cu": {
     "variety": "CU",
     "name": "铜",
-    "bear_ic": 0.023,
+    "bear_ic": 0.0234,
     "bear_ic_threshold": 0.025,
     "gap_to_threshold": 0.002,
-    "status": "EDGE_PENDING",
+    "status": "BELOW_THRESHOLD",
     "status_detail": "BEAR_IC 0.023, 距阈值0.025差0.0020 (DSHA-P25 读数)",
     "bear_ic_time_series": [
       {
@@ -341,7 +345,11 @@
       "blocked_since": "Phase24",
       "consecutive_phases": 2,
       "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
-    }
+    },
+    "bear_ic_latest": 0.0234,
+    "progress": "6/14",
+    "threshold_met": false,
+    "updated_at": "2026-10-12T01:30:00+08:00"
   },
   "overall": {
     "status": "PENDING",
@@ -350,7 +358,13 @@
     "pb_conclusion": "EDGE - 待达标",
     "cu_conclusion": "EDGE - 待达标",
     "summary": "PB/CU灰度准入均未达标，FR-RISK-501/502持续495天",
-    "next_review": "W22 (2027-11-19)"
+    "next_review": "W22 (2027-11-19)",
+    "drift_pct": 3.6,
+    "ic": 0.0586,
+    "ic_drift_block_active": false,
+    "unblock_status": "PERMANENTLY_UNBLOCKED",
+    "unblock_conditions_met": "6/6",
+    "production_readiness_pct": 100.0
   },
   "phase25_overlay": {
     "ic_drift_block_active": true,
@@ -372,7 +386,21 @@
     "fix_plan": "SCHEME_D_RECOMMENDED",
     "next_review": "P26 (按方案D实施权重微调+衰减补偿)"
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "p31_overlay": {
+    "phase": "P31",
+    "ic": 0.0586,
+    "drift_pct": 3.6,
+    "drift_threshold_block": false,
+    "pb_bear_ic": 0.0294,
+    "cu_bear_ic": 0.0234,
+    "dshc_pb_progress": "14/14",
+    "dshc_cu_progress": "6/14",
+    "scheme_d_status": "FROZEN_STEADY_STATE",
+    "unblock_status": "PERMANENTLY_UNBLOCKED",
+    "note": "P31: 方案D 冻结稳态; IC 漂移阻断永久解除; PB 14/14 阈值达标并持续; CU 6/14 未达标维持监控",
+    "updated_at": "2026-10-12T01:30:00+08:00"
   }
 }
