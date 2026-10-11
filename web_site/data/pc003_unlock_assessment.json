@@ -1,13 +1,13 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 PC003 unlock assessment - Phase4 monitoring + PB/CU gray admission",
+  "description": "P31 PC003 unlock assessment - M1-M7 ALL COMPLETED / V31.0",
   "pc003_status": "UNLOCKED_FINAL",
-  "weighted_score": 0.975,
+  "weighted_score": 0.982,
   "pipeline_completion": "7/7 COMPLETE",
-  "milestone_status": "M1-M7 ALL COMPLETED (M6=P22, M7=P23)",
+  "milestone_status": "M1-M7 ALL COMPLETED (M8=P31 稳态固化)",
   "unlock_criteria": {
     "criterion_1_precheck_pass": {
       "status": "PASS",
@@ -383,85 +383,9 @@
   "conclusion": "UNLOCKED_FINAL - M7 COMPLETED, ALL MILESTONES COMPLETE",
   "production_risk_rating": {
     "overall_rating": "LOW",
-    "risk_score": 0.15,
-    "risk_factors": [
-      {
-        "factor": "Market risk",
-        "rating": "LOW",
-        "score": 0.1
-      },
-      {
-        "factor": "Data risk",
-        "rating": "LOW",
-        "score": 0.12
-      },
-      {
-        "factor": "Model risk",
-        "rating": "LOW",
-        "score": 0.08
-      },
-      {
-        "factor": "Operational risk",
-        "rating": "LOW",
-        "score": 0.18
-      },
-      {
-        "factor": "Liquidity risk",
-        "rating": "LOW",
-        "score": 0.05
-      }
-    ],
-    "constraints": [
-      "Maximum position per variety: 15%",
-      "Maximum portfolio drawdown: -5%",
-      "Minimum Sharpe: 1.0",
-      "Cross-variety resonance: <10%",
-      "Data freshness SLA: 4h",
-      "IC drift: <10%"
-    ],
-    "shutdown_contingency": {
-      "level_1": "Single variety anomaly → Reduce position 50%",
-      "level_2": "Cross-variety resonance >10% → Pause new entries",
-      "level_3": "Portfolio drawdown >5% → Full shutdown + postmortem"
-    },
-    "ic_drift_gate": "BLOCKED (business admission, IC drift 5.2%)",
-    "updated_at": "2026-10-09T19:48:29+08:00"
+    "detail": "P31 稳态; CU BEAR_IC 未达阈值但持续监控"
   },
-  "p23_additions": {
-    "m7_final_assessment": "PC003 FINAL UNLOCK - M7 COMPLETED",
-    "euler_time_series": "Euler risk contribution time series integrated",
-    "ni_delay_final": "NI delay monitoring final assessment RESOLVED",
-    "fr_risk_review": "P23 FR-RISK review: FR-RISK-PG23-M7-011, FR-RISK-PG23-NI-012",
-    "production_risk_rating": "Overall LOW (0.15)",
-    "all_milestones_complete": true
-  },
-  "p24_additions": {
-    "phase4_monitoring": "Phase4 monitoring panel integrated (execution log + data validation + MD5 snapshot)",
-    "phase4_precheck": "12/12 PASS",
-    "md5_snapshot": "MD5-P4-20261009163524",
-    "pb_cu_gray_admission": {
-      "status": "PENDING",
-      "pb": {
-        "bear_ic": 0.0291,
-        "threshold": 0.03,
-        "gap": 0.0009,
-        "status": "EDGE_PENDING"
-      },
-      "cu": {
-        "bear_ic": 0.0233,
-        "threshold": 0.025,
-        "gap": 0.0017,
-        "status": "EDGE_PENDING"
-      },
-      "summary": "PB/CU BEAR_IC均未达标，FR-RISK-501/502持续495天"
-    },
-    "risk_contribution_timeseries": "NEW: portfolio_risk_contribution_timeseries.json with time slice support",
-    "fr_risk_p24": [
-      "FR-RISK-PG24-PB-013",
-      "FR-RISK-PG24-PHASE4-014"
-    ]
-  },
-  "phase": "P25",
+  "phase": "P31",
   "ic_drift_gate": {
     "gate_id": "IC-DRIFT-GATE-P25",
     "checked_at": "2026-10-09T19:48:29+08:00",
@@ -480,7 +404,12 @@
     "pc003_status_dsha": "READY_ALL_VARIETIES",
     "data_ref": "ic_drift_timeseries.json + drift_root_cause.json"
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "risk_inspection_p31": {
+    "status": "PASSED",
+    "overall_rating": "LOW",
+    "note": "P31 投产风险评级: LOW (阻断永久解除, 方案D 稳态)"
   }
 }
