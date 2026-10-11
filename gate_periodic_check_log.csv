@@ -299,3 +299,130 @@ PG24-R1,GATE-P24-17,EULER_TS,PASS,PASS,NO_CHANGE,"NO_CHANGE",Euler风险贡献�
 PG24-R1,GATE-P24-18,PB_CU_BEAR_IC,PASS,PASS,NO_CHANGE,"NO_CHANGE",PB BEAR_IC=0.0291(<0.030), CU BEAR_IC=0.0233(<0.025), 35天时序,2026-10-09T16:47:51+08:00,e7e7e416bcdbff997984d63ee25ed941
 PG24-R1,GATE-P24-19,FIVE_LINKAGE,PASS,PASS,NO_CHANGE,"NO_CHANGE",FR-RISK↔PC003↔M5/M6/M7/Phase4 六联动验证,2026-10-09T16:47:51+08:00,a4b9230932750b35c140421a384b4cb2
 PG24-R1,GATE-P24-20,VERDICT,PASS,PASS,NO_CHANGE,"NO_CHANGE",P24全链路断言通过, 验收6/6 PASS,2026-10-09T16:47:51+08:00,acb7d020e305b558bcc229b10e9dbef8
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,backtest_AL.json,200,1896,4742,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,backtest_AL.json,200,1896,136,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,backtest_CU.json,200,1896,894,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,backtest_CU.json,200,1896,137,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,backtest_NI.json,200,1888,401,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,backtest_NI.json,200,1888,628,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,backtest_PB.json,200,1895,359,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,backtest_PB.json,200,1895,309,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,backtest_SI.json,200,1897,1568,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,backtest_SI.json,200,1897,144,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,backtest_SN.json,200,1894,1015,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,backtest_SN.json,200,1894,140,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,backtest_ZN.json,200,1890,371,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,backtest_ZN.json,200,1890,149,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,cross_variety_comparison.json,200,4253,469,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,cross_variety_comparison.json,200,4253,1299,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,data_completion_status.json,200,2181,504,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,data_completion_status.json,200,2181,142,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,data_defect_alerts.json,200,1970,1650,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,data_defect_alerts.json,200,1970,128,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,dataset_index.json,200,2562,338,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,dataset_index.json,200,2562,473,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,experiment_index.json,200,2245,397,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,experiment_index.json,200,2245,467,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,experiment_manifest.json,200,12290,3517,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,experiment_manifest.json,200,12290,363,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,factor_drift_alerts.json,200,1762,381,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,factor_drift_alerts.json,200,1762,140,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,factors_full.json,200,45890,1670,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,factors_full.json,200,45890,5223,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,fr_risk_alerts.json,200,4154,15337,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,fr_risk_alerts.json,200,4154,392,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,ni_si_panels.json,200,1712,391,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,ni_si_panels.json,200,1712,523,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,pb_cu_gray_admission_status.json,200,6934,260,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,pb_cu_gray_admission_status.json,200,6934,836,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,pc003_status.json,200,1988,525,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,pc003_status.json,200,1988,223,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,pc003_unlock_assessment.json,200,11458,4931,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,pc003_unlock_assessment.json,200,11458,769,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,phase4_precheck.json,200,3637,2445,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,phase4_precheck.json,200,3637,326,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,pl_summary.json,200,1745,851,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,pl_summary.json,200,1745,156,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,portfolio_backtest.json,200,7403,4822,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,portfolio_backtest.json,200,7403,459,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,portfolio_backtest_7asset.json,200,3959,1637,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,portfolio_backtest_7asset.json,200,3959,1887,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,portfolio_correlation.json,200,4684,318,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,portfolio_correlation.json,200,4684,503,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,portfolio_daily_position.json,200,47452,1612,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,portfolio_daily_position.json,200,47452,2670,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,portfolio_risk_contribution.json,200,28525,1599,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,portfolio_risk_contribution.json,200,28525,2200,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,portfolio_risk_contribution_timeseries.json,200,118234,1143,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,portfolio_risk_contribution_timeseries.json,200,118234,3470,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,portfolio_risk_metrics.json,200,2940,399,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,portfolio_risk_metrics.json,200,2940,472,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,rollback_events.json,200,1094,452,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,rollback_events.json,200,1094,148,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,trades_AL.json,200,5335,2397,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,trades_AL.json,200,5335,191,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,trades_CU.json,200,5335,1889,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,trades_CU.json,200,5335,187,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,trades_NI.json,200,4725,340,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,trades_NI.json,200,4725,468,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,trades_PB.json,200,5334,474,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,trades_PB.json,200,5334,476,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,trades_SI.json,200,4128,5818,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,trades_SI.json,200,4128,166,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,trades_SN.json,200,4128,612,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,trades_SN.json,200,4128,650,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,trades_ZN.json,200,4727,1044,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,trades_ZN.json,200,4727,1391,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,version_index.json,200,868,384,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,version_index.json,200,868,456,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_dashboard_main.html,200,24750,3954,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_dashboard_main.html,200,24750,683,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_dataset_manifest.json,200,6247,2987,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_dataset_manifest.json,200,6247,216,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_AL_F19_F20_comparison.csv,200,1843,328,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_AL_F19_F20_comparison.csv,200,1843,441,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_AL_alpha.csv,200,9319,367,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_AL_alpha.csv,200,9319,877,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_AL_factor_contributions.csv,200,8014,21497,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_AL_factor_contributions.csv,200,8014,218,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_AL_kline.csv,200,18226,499,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_AL_kline.csv,200,18226,905,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_AL_nav.csv,200,8573,496,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_AL_nav.csv,200,8573,327,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_AL_signals.csv,200,3386,1886,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_AL_signals.csv,200,3386,1249,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_CU_alpha.csv,200,9252,1427,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_CU_alpha.csv,200,9252,245,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_CU_kline.csv,200,18251,453,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_CU_kline.csv,200,18251,794,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_CU_nav.csv,200,9019,1497,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_CU_nav.csv,200,9019,593,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_CU_signals.csv,200,3088,3979,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_CU_signals.csv,200,3088,168,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_PB_alpha.csv,200,9304,1621,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_PB_alpha.csv,200,9304,461,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_PB_kline.csv,200,18036,435,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_PB_kline.csv,0,0,19237,SLOW_WARM,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_PB_nav.csv,200,8572,438,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_PB_nav.csv,200,8572,227,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_pre_calc_PB_signals.csv,200,3254,2201,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_pre_calc_PB_signals.csv,200,3254,78,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,vis_validation_report.md,200,2526,1244,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,vis_validation_report.md,200,2526,75,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,index.html,200,173428,1862,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,index.html,200,173428,341,PASS,warm_median=441ms warm_max=19237ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY,archive/manifest.json,200,19850,262,PASS,cold_median=1015ms cold_max=21497ms
+2026-10-09T18:51:40Z,P25,PG25-SITE-LATENCY-KEEPALIVE,archive/manifest.json,200,19850,177,PASS,warm_median=441ms warm_max=19237ms
+PG25-R1,PG25-DATA-CORE18,core18 datasets present & P25,PASS,N/A,NEW,"18/18 PASS, all version_tag=P25 dataset_version=1.7",2026-10-11T22:58:08Z,42,,ffb21b13b3eb0be440e274286aa025a5
+PG25-R1,PG25-IC-DRIFT,ic_drift_timeseries Phase6..Phase25,PASS,N/A,NEW,17 phases; threshold 5.0%; over_threshold=2 (Phase24/Phase25); ic_now=0.0578,2026-10-11T22:58:08Z,42,,6ea59a77891cfc7564b23d4866175918
+PG25-R1,PG25-DRIFT-ROOT-CAUSE,drift_root_cause P0 report,PASS,N/A,NEW,12 factors analyzed; 4 schemes; recommended=D; priority=P0,2026-10-11T22:58:08Z,42,,179c2a4263399c90d89473ba43713fae
+PG25-R1,PG25-ROLLING-CORR,multi-window rolling correlation,PASS,N/A,NEW,5 windows (20/40/60/120/250d) x 7x7 matrix + core/battery/cross_sector avg,2026-10-11T22:58:08Z,42,,020c9903c4b54c1bdf970c4f7b2a7f09
+PG25-R1,PG25-FR-RISK-BLOCK,FR-RISK PG25-ICDRIFT-015 block,PASS,N/A,NEW,ic_drift_block.active=TRUE drift_pct=5.2 admission_frozen=TRUE,2026-10-11T22:58:08Z,42,,11e79827d7557423fda0e971b0817eda
+PG25-R1,PG25-JS-SYNTAX,inline JS syntax audit,PASS,FAIL,FIXED,"node --check 3 blocks 0 errors; 9 defects fixed (D1,D2,D3,D4,D5,D1-4,D8,D6,D7)",2026-10-11T22:58:08Z,42,,2866de20ffab5d2c381c603aa0c9ce2c
+PG25-R1,PG25-CI-PREFLIGHT,CI pre-flight static data gate,PASS,N/A,NEW,42 datasets + core18 + version_tag + P25 structural assertions + 18 markers,2026-10-11T22:58:08Z,42,,4827302c239a5087f2f599b6086e16ee
+PG25-R1,PG25-CI-RETRY,CI deploy auto-retry job,PASS,N/A,NEW,deploy-retry needs:deploy if:always()&&result==failure (5 steps),2026-10-11T22:58:08Z,42,,3c08b2e2e21810ee595a5e1ff6913071
+PG25-R1,PG25-CI-FALLBACK,CI API-Contents fallback job,PASS,N/A,NEW,github.com:443 probe -> api.github.com Contents API -> gh-pages branch,2026-10-11T22:58:08Z,42,,69b9bb24ead490a43546410739a6b237
+PG25-R1,PG25-CI-SECSCAN,CI security scan,PASS,N/A,NEW,"140 files scanned, 0 secret-pattern hits, 0 non-HTTPS external resource",2026-10-11T22:58:08Z,42,,80fd3ea89e0b43146650bdb2ccbaaebd
+PG25-R1,PG25-MD5-BASELINE,static resource MD5 baseline,PASS,N/A,NEW,140 files 2346605 bytes; index.html md5=dadc222b6bddab9aa84136de3083ed23,2026-10-11T22:58:08Z,42,,ead52edca8a52bb9b80e90c2742d4e3d
+PG25-R1,PG25-SITE-LATENCY,site latency keep-alive,WARN,WARN,NO_CHANGE,warm_median=441ms warm_max=19237ms (threshold 400ms; 冷连接 max=21497ms),2026-10-11T22:58:08Z,42,,06a57a0422857b5925891ce97116562d
+PG25-R1,PG25-NETWORK-REMOTE,github.com:443 remote reachable,WARN,FAIL,MITIGATED,ls-remote 4 attempts failed; T3 API-Contents fallback job added,2026-10-11T22:58:08Z,42,,81707bbf24bba2e9d0ed2a7be5dc4c9d
