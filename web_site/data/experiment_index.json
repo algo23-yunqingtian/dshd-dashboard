@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.7",
-  "version_tag": "P25",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "version_tag": "P31",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 experiment index - P2~P24 (19 experiments)",
+  "description": "P31 experiment index - P2~P31 全阶段实验索引 / V31.0",
   "experiments": [
     {
       "phase": "P2",
@@ -121,10 +121,10 @@
       "phase_num": 24
     }
   ],
-  "total_experiments": 24,
-  "current": "P24",
-  "version_separation": "P18/P19/P20/P21/P22/P23/P24",
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
+  "total_experiments": 31,
+  "current": "P31",
+  "version_separation": "P18/P19/P20/P21/P22/P23/P24/P25/P26/P27/P28/P29/P30/P31",
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   }
 }
