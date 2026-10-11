@@ -1,7 +1,7 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "P24 PC003 status - UNLOCKED_FINAL, M1-M7 ALL COMPLETED, Phase4 monitoring",
   "real_state": {
@@ -88,5 +88,19 @@
     "total_stages": 7,
     "completed_stages": 7,
     "pipeline_completion": "7/7 COMPLETE"
+  },
+  "ic_drift_block": {
+    "active": true,
+    "drift_pct": 5.2,
+    "threshold_pct": 5.0,
+    "fr_risk_id": "FR-RISK-PG25-ICDRIFT-015",
+    "color": "RED",
+    "block_since": "Phase24",
+    "consecutive_phases": 2,
+    "note": "PC003 技术状态不变 (UNLOCKED_FINAL / READY_ALL_VARIETIES); 业务准入由 IC 漂移阻断控制",
+    "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
+  },
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
   }
 }
