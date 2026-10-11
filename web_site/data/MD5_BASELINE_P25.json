@@ -1,14 +1,15 @@
 {
   "dataset_version": "1.7",
   "version_tag": "P25",
-  "generated_at": "2026-10-11T22:58:08+08:00",
+  "generated_at": "2026-10-12T00:23:42+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG-P25",
   "doc_id": "DSHD-P25-MD5-BASELINE",
-  "description": "P25 全部静态资源 MD5 基线 (可复算, 供 CI pre-flight 与后续阶段回归比对)",
+  "description": "P25 全部静态资源 MD5 基线 (可复算, 供 CI pre-flight 与后续阶段回归比对) (regenerated %s from LF-normalized git blobs; v1 recorded md5 from a CRLF working-tree checkout for 46 archive/* files)",
   "site_root": "web_site/",
   "file_count": 140,
-  "total_bytes": 2346605,
+  "total_bytes": 2340681,
+  "line_endings": "LF (git blob form; .gitattributes pins text eol=lf)",
   "index_html": {
     "size": 207450,
     "md5": "dadc222b6bddab9aa84136de3083ed23",
@@ -44,20 +45,20 @@
       "md5": "0cbe7961db0821dd381ef00ae9dc72c7"
     },
     "archive/alerts/fr_risk_escalation_state.json": {
-      "size": 358,
-      "md5": "eb68984912ffb3d5d0ed726729062890"
+      "size": 341,
+      "md5": "97ebb587b77c96abb272c4f64c69c1ec"
     },
     "archive/alerts/fr_risk_receive_log.csv": {
-      "size": 8895,
-      "md5": "fe1e3c51959cac4d95c6f5e7aa518d23"
+      "size": 8867,
+      "md5": "74acedf1cbf94106e9d9e4d3d68caa85"
     },
     "archive/alerts/fr_risk_triggers_deploy.json": {
       "size": 4161,
       "md5": "8c43a48704d4097b5bd32799cf168a3e"
     },
     "archive/alerts/gate_periodic_check_log.csv": {
-      "size": 33586,
-      "md5": "30be8d668cff765ce0731cb8ec493f96"
+      "size": 33424,
+      "md5": "beb8b35023903ddc2c9736faf2142b42"
     },
     "archive/alerts/j15_drill_report.md": {
       "size": 4242,
@@ -72,12 +73,12 @@
       "md5": "ec5c76c540ba8f8a5b7de2d64760b973"
     },
     "archive/alerts/pc003_activation_manifest_p12.json": {
-      "size": 7802,
-      "md5": "2715314cba4ed831d1e2ae2ac9bc37aa"
+      "size": 7555,
+      "md5": "a37c84186ec8ce3a933873c77954184e"
     },
     "archive/alerts/pc003_activation_manifest_p12_labpos.json": {
-      "size": 7396,
-      "md5": "d4219612445289cd69fd08ce008bc2a1"
+      "size": 7161,
+      "md5": "2a5af426fdeba8cf25d589b7ab3c9938"
     },
     "archive/alerts/pc003_dshc_event_p12.json": {
       "size": 1509,
@@ -92,40 +93,40 @@
       "md5": "dee99fef55bb51283b3a5c5f34cc0400"
     },
     "archive/alerts/phase1_live_monitor_log.csv": {
-      "size": 16620,
-      "md5": "addb564b39c0df3621e14c04c5d2f8f0"
+      "size": 16530,
+      "md5": "1a1ec593952b9269e3c53dcd77120f81"
     },
     "archive/alerts/phase1_monitor_summary.md": {
       "size": 7801,
       "md5": "fef3f91a23cfab342742a47a684e4182"
     },
     "archive/alerts/position_verify_audit_log.csv": {
-      "size": 2672,
-      "md5": "20ba29e466a3048e07197860a845888a"
+      "size": 2659,
+      "md5": "4ad811ad6bc00fb48e7491cfbd690dbf"
     },
     "archive/alerts/position_verify_audit_log_alcupb.csv": {
-      "size": 7606,
-      "md5": "ec9bab744864c77d2f20ca332ebb2e78"
+      "size": 7569,
+      "md5": "c5eb847314befdd91dddfd0ab9ed3568"
     },
     "archive/alerts/position_verify_result.csv": {
-      "size": 2101,
-      "md5": "0bd71a7e8c28142de62db9e9cc1a3261"
+      "size": 2088,
+      "md5": "6ee042b037f73cabecd90244a58f373a"
     },
     "archive/alerts/position_verify_result_alcupb.csv": {
-      "size": 5968,
-      "md5": "179ce42a928abfa69befec861894febd"
+      "size": 5931,
+      "md5": "85383c6180325374bf42519298b8bb36"
     },
     "archive/alerts/updated_chain_baseline_manifest.md": {
       "size": 11540,
       "md5": "0a6c72cb3f2f817223c588685bf878cc"
     },
     "archive/alerts/v869_d_alcupb_gray_alarm_log.csv": {
-      "size": 1732,
-      "md5": "ca9985c8d051b0c5fc605fb269a4638f"
+      "size": 1723,
+      "md5": "4e5915c7947b12ce6a9596cb97908889"
     },
     "archive/alerts/v869_d_alcupb_gray_patrol_result.csv": {
-      "size": 10821,
-      "md5": "1226d7def34ffb61068f58b29d8e0c87"
+      "size": 10746,
+      "md5": "b7dc0ea33b32e762edb61dcbecae3fb2"
     },
     "archive/alerts/vis_001_integration_p12.json": {
       "size": 139417,
@@ -152,32 +153,32 @@
       "md5": "c4eec578d2dde4ade5703d0a1795a653"
     },
     "archive/backtests/backtest_AL.json": {
-      "size": 1843,
-      "md5": "e92a1b82be3791adc63eabee9451e66a"
+      "size": 1718,
+      "md5": "8ccf53d8e26d126804f0b9dedf3009ca"
     },
     "archive/backtests/backtest_CU.json": {
-      "size": 1846,
-      "md5": "696317acc885f116ecae7d9e4254ad2c"
+      "size": 1721,
+      "md5": "243e1e6d81180f1a0f4102f24d0f32cf"
     },
     "archive/backtests/backtest_NI.json": {
-      "size": 1838,
-      "md5": "e05846cada57c66850bd7b03bff0261a"
+      "size": 1713,
+      "md5": "6e00c1c635e3239196084b0075b88f27"
     },
     "archive/backtests/backtest_PB.json": {
-      "size": 1847,
-      "md5": "5eca50eab703a0c073a2515d4ff6d967"
+      "size": 1722,
+      "md5": "1e3b7d49abf70bf4e37608d39cc00f63"
     },
     "archive/backtests/backtest_SI.json": {
-      "size": 1840,
-      "md5": "b4d94debb94efb6f941e38ec3a6747f7"
+      "size": 1715,
+      "md5": "ff210dec95fdb3b49491e0900ef20e10"
     },
     "archive/backtests/backtest_SN.json": {
-      "size": 1839,
-      "md5": "d38a397302d1d9f8a9014ac1e6208645"
+      "size": 1714,
+      "md5": "37a251692a15302f246b67c04929df0c"
     },
     "archive/backtests/backtest_ZN.json": {
-      "size": 1844,
-      "md5": "96e1574642885f197693738fcc98a13c"
+      "size": 1719,
+      "md5": "4691a64d0035f575ee553cab71e0fe71"
     },
     "archive/dsha_v1/vis_dashboard_main.html": {
       "size": 147681,
@@ -204,8 +205,8 @@
       "md5": "fa571381061074cf146a5209611aaabb"
     },
     "archive/factors/factor_meta_library.json": {
-      "size": 34279,
-      "md5": "694a0e58fb57aef96949218301f9503a"
+      "size": 32962,
+      "md5": "d74db59fe279f6708b11a286a907e6ae"
     },
     "archive/factors/factor_rating_boundary_update.md": {
       "size": 9560,
@@ -224,20 +225,20 @@
       "md5": "cb2a9b568620c3d1d376180a7e7910ad"
     },
     "archive/factors/factors_full.json": {
-      "size": 24240,
-      "md5": "a17202a74d14a01c328e9a5177b7c0d7"
+      "size": 23323,
+      "md5": "574fe306dd8f48d28d1225e0fbe87147"
     },
     "archive/factors/narrative_factors_daily.json": {
       "size": 690,
       "md5": "44eb4e6d986e793ab47c905ce3462361"
     },
     "archive/factors/updated_factor_techdebt_priority_v17.csv": {
-      "size": 90017,
-      "md5": "f920ca381dd428a97b83e161d4e9bcd3"
+      "size": 89917,
+      "md5": "6728d95c2f5a4f06c26030aac0cdaec7"
     },
     "archive/manifest.json": {
-      "size": 20455,
-      "md5": "e0f4c461f9926aec7eb45234ecd05405"
+      "size": 19850,
+      "md5": "5588bba3f5679b55429b84858f8ecffc"
     },
     "archive/phases/phase_P11_PHASE11_FACTOR_APPROVE.flag": {
       "size": 16999,
@@ -308,32 +309,32 @@
       "md5": "bd94d2e42e04f0723165eb2f7ee16aed"
     },
     "archive/trades/trades_AL.json": {
-      "size": 873,
-      "md5": "8e3b343cc154c730f8007f9ab8d6c0bd"
+      "size": 832,
+      "md5": "deb5f47f48c33a09ef28e92a4f09955f"
     },
     "archive/trades/trades_CU.json": {
-      "size": 1540,
-      "md5": "681975978a454d190656965f566c23a7"
+      "size": 1468,
+      "md5": "22f51febea87f5d623b4ff57072304d1"
     },
     "archive/trades/trades_NI.json": {
-      "size": 1574,
-      "md5": "572b0ca7ad8316b0ddf98cd4dc833c77"
+      "size": 1500,
+      "md5": "59d1afde5fdc41b5da4e3ab2f9ca2b9b"
     },
     "archive/trades/trades_PB.json": {
-      "size": 3578,
-      "md5": "c4eef0c8b54b79617f9d5237825f05d9"
+      "size": 3411,
+      "md5": "5e1fa647089d8c4bd8fa27539a83fafc"
     },
     "archive/trades/trades_SI.json": {
-      "size": 2910,
-      "md5": "440b56bc1e38637f5d3e08adb353403a"
+      "size": 2774,
+      "md5": "a135cb87642685a7d44bdf34a7daf807"
     },
     "archive/trades/trades_SN.json": {
-      "size": 858,
-      "md5": "767fae40da934dceccdcca133b192472"
+      "size": 818,
+      "md5": "89ac76b992093285669cbc42f8b844d8"
     },
     "archive/trades/trades_ZN.json": {
-      "size": 3466,
-      "md5": "ebf2f4c3bad498d29fb81cee70ca0c67"
+      "size": 3306,
+      "md5": "8067b4586934e82c94c33e678024b0e5"
     },
     "data/backtest_AL.json": {
       "size": 2366,
@@ -504,76 +505,79 @@
       "md5": "a2511d9116c2beccb61b751a2456b5ab"
     },
     "data/vis_dashboard_main.html": {
-      "size": 25124,
-      "md5": "6205e5b7d134ed6a83a1a7dea6dcb60b"
+      "size": 24750,
+      "md5": "a04727c073c8ba366037f026a784298e"
     },
     "data/vis_dataset_manifest.json": {
       "size": 7346,
       "md5": "baa848567056edd040c578eb87574de8"
     },
     "data/vis_pre_calc_AL_F19_F20_comparison.csv": {
-      "size": 1844,
-      "md5": "2a2c80ae7064daa7d3420aace420660b"
+      "size": 1843,
+      "md5": "efd6c1c275eeeb4c26fe917ec4f06f93"
     },
     "data/vis_pre_calc_AL_alpha.csv": {
-      "size": 9320,
-      "md5": "b80adf29974aaffbd33b3a1b4e05c0e8"
+      "size": 9319,
+      "md5": "4286e86d0297f09d76ce5962b1c4c2ef"
     },
     "data/vis_pre_calc_AL_factor_contributions.csv": {
-      "size": 8015,
-      "md5": "a4d4bdc65a902305ec0486fdfb7a0c3b"
+      "size": 8014,
+      "md5": "1c8b788b7d5cde4b0b115938331a9bd4"
     },
     "data/vis_pre_calc_AL_kline.csv": {
-      "size": 18227,
-      "md5": "78a59ef5eb4bb58bca066d21017e8b69"
+      "size": 18226,
+      "md5": "3fa041e630280d531f19faabe9294d4a"
     },
     "data/vis_pre_calc_AL_nav.csv": {
-      "size": 8574,
-      "md5": "a356dfda641c31b4b7f29252dc926d3b"
+      "size": 8573,
+      "md5": "2905b0f6ea0d5c2d11a9fe1664a29be8"
     },
     "data/vis_pre_calc_AL_signals.csv": {
-      "size": 3387,
-      "md5": "e76d188baecb61a0fe2dee5cc5773045"
+      "size": 3386,
+      "md5": "4656d3afcfa41a2ac3e70fd552a08a8a"
     },
     "data/vis_pre_calc_CU_alpha.csv": {
-      "size": 9253,
-      "md5": "839d54b74741cebce77f2710e05099e0"
+      "size": 9252,
+      "md5": "1b89dbd7b79bf18c63c075c7bb0e8e1c"
     },
     "data/vis_pre_calc_CU_kline.csv": {
-      "size": 18252,
-      "md5": "db8907956cd748bbe85179fe494c6430"
+      "size": 18251,
+      "md5": "723a466b9963becf8eaf65f6e62bfef6"
     },
     "data/vis_pre_calc_CU_nav.csv": {
-      "size": 9020,
-      "md5": "d78b850c0109143ed3c40a62a5f0e351"
+      "size": 9019,
+      "md5": "ec5c718462da673417763492fc26ca33"
     },
     "data/vis_pre_calc_CU_signals.csv": {
-      "size": 3089,
-      "md5": "7b26ac099ddef85d0cd74a83ac206a44"
+      "size": 3088,
+      "md5": "94b2b071010f176c970cee6ceddb9f14"
     },
     "data/vis_pre_calc_PB_alpha.csv": {
-      "size": 9305,
-      "md5": "85f512e4cbefe631f91e72b608e62b7d"
+      "size": 9304,
+      "md5": "8466a06fb3249d1f0bd2f55b12a0c426"
     },
     "data/vis_pre_calc_PB_kline.csv": {
-      "size": 18037,
-      "md5": "ecc0d77894d5394209bab9325dedc6c2"
+      "size": 18036,
+      "md5": "9a9ece8a154996da53d1807853d29443"
     },
     "data/vis_pre_calc_PB_nav.csv": {
-      "size": 8573,
-      "md5": "b2378580411b6b0955c46766ab2a1c40"
+      "size": 8572,
+      "md5": "aec4eb66c470e8ebddceae2dfe7ba3a1"
     },
     "data/vis_pre_calc_PB_signals.csv": {
-      "size": 3255,
-      "md5": "aed76d0059771eb71f4efa118fb3f529"
+      "size": 3254,
+      "md5": "1b1fa3f0407fe873bdd2c758c535f039"
     },
     "data/vis_validation_report.md": {
-      "size": 2595,
-      "md5": "ad4f845d46c236fcf793a1e64974d97f"
+      "size": 2526,
+      "md5": "3f95ad5a664b8a45c983b475a490f55f"
     },
     "index.html": {
       "size": 207450,
       "md5": "dadc222b6bddab9aa84136de3083ed23"
     }
-  }
+  },
+  "excludes": [
+    "data/MD5_BASELINE_P25.json"
+  ]
 }
