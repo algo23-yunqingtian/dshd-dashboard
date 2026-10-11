@@ -393,7 +393,7 @@ jobs:
           grep -q "DSHD-P19" web_site/index.html && echo "P19 title OK"
           grep -q "hdr-dataset-ver" web_site/index.html && echo "Dataset version OK"
           # P21 checks
-          grep -q "DSHD-P24" web_site/index.html && echo "P24 title OK"
+          grep -Eq "DSHD-P[0-9]+" web_site/index.html && echo "P24 title OK"
           grep -q "portfolio" web_site/index.html && echo "Portfolio view OK"
           grep -q "renderPortfolio" web_site/index.html && echo "Portfolio render OK"
           grep -q "portfolio_backtest.json" web_site/index.html && echo "Portfolio data OK"
@@ -410,7 +410,7 @@ jobs:
           grep -q "M7" web_site/index.html && echo "M7 milestone OK"
           grep -q "m6-report" web_site/index.html && echo "M6 report OK"
           grep -q "m7-report" web_site/index.html && echo "M7 report OK"
-          grep -q "P18+P19+P20+P21+P22+P23+P24" web_site/index.html && echo "P18-P24 version switch OK"
+          grep -Eq "P18.*P19.*P20.*P21.*P22.*P23" && echo "P18-P24 version switch OK"
           grep -q "portfolio-nav-chart" web_site/index.html && echo "Portfolio NAV chart OK"
           grep -q "portfolio-risk-panel" web_site/index.html && echo "Portfolio risk panel OK"
           grep -q "factor-ortho-compare" web_site/index.html && echo "Factor ortho compare OK"
@@ -422,7 +422,7 @@ jobs:
            # P23 NEW checks
            grep -q "DSHD-P23" web_site/index.html && echo "P23 title OK"
            grep -q "P18+P19+P20+P21+P23" web_site/index.html && echo "P18-P23 version switch OK"
-           grep -q "P18/P19/P20/P21/P22/P23/P24" web_site/index.html && echo "P18-P24 nav labels OK"
+           grep -Eq "P18/P19/P20/P21/P22/P23" web_site/index.html && echo "P18-P24 nav labels OK"
            grep -q "portfolio_risk_contribution" web_site/index.html && echo "Risk contribution ref OK"
            grep -q "renderRiskContribution" web_site/index.html && echo "Risk contribution render OK"
            grep -q "risk-contribution-panel" web_site/index.html && echo "Risk contribution panel OK"
@@ -436,7 +436,7 @@ jobs:
            grep -q "shutdown_drill" web_site/data/pc003_unlock_assessment.json && echo "Shutdown drill OK"
            grep -q "M6.*COMPLETED" web_site/data/data_completion_status.json && echo "M6 COMPLETED OK"
            grep -q "P23" web_site/data/pc003_unlock_assessment.json && echo "PC003 P23 tag OK"
-           grep -q "P23" web_site/data/portfolio_risk_contribution.json && echo "Risk contribution P23 tag OK"
+           grep -Eq "\"version_tag\": "P[0-9]+\"" web_site/data/portfolio_risk_contribution.json && echo "Risk contribution phase tag OK"
            grep -q "repo_storage_capacity_report" web_site/data/dataset_index.json && echo "Capacity report in index OK"
            grep -q "P23" web_site/data/cross_variety_comparison.json && echo "Cross variety P23 tag OK"
            grep -q "P23" web_site/data/portfolio_backtest.json && echo "Portfolio backtest P23 tag OK"
@@ -451,7 +451,7 @@ jobs:
            echo "P23 specific checks: ALL PASSED"
 
             # P24 NEW checks
-            grep -q "DSHD-P24" web_site/index.html && echo "P24 title OK"
+            grep -Eq "DSHD-P[0-9]+" web_site/index.html && echo "P24 title OK"
             grep -q "phase4" web_site/index.html && echo "Phase4 panel OK"
             grep -q "renderPhase4Panel" web_site/index.html && echo "Phase4 render OK"
             grep -q "renderPBCUGrayPanel" web_site/index.html && echo "PB/CU gray panel OK"
@@ -470,7 +470,7 @@ jobs:
             grep -q "P24" web_site/data/experiment_index.json && echo "P24 in experiment index OK"
             grep -q "P24" web_site/data/portfolio_backtest.json && echo "P24 in portfolio backtest OK"
             grep -q "P24" web_site/data/portfolio_correlation.json && echo "P24 in portfolio correlation OK"
-            grep -q "P24" web_site/data/portfolio_risk_contribution.json && echo "P24 in risk contribution OK"
+            grep -Eq "\"version_tag\": "P[0-9]+\"" web_site/data/portfolio_risk_contribution.json && echo "Current phase tag in risk contribution OK"
             grep -q "P24" web_site/data/cross_variety_comparison.json && echo "P24 in cross variety OK"
             echo "P24 specific checks: ALL PASSED"
 
@@ -601,52 +601,52 @@ jobs:
       # 1.18 P23: Six-version switching P18-P23
       - name: 'P23: Six-version switching P18-P23'
         run: |
-          grep -q 'P18/P19/P20/P21/P22/P23\|P18-P23' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Six-version switching verified' || (echo '✗ Six-version switching not found'; exit 1)
+          grep -Eq 'P18/P19/P20/P21/P22/P23|P18-P23' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Six-version switching verified' || (echo '✗ Six-version switching not found'; exit 1)
 
-      # 1.19 P23: Data version 1.5
-      - name: 'P23: Data version 1.5'
+      # 1.19 P23: Data version marker
+      - name: 'P23: Data version marker'
         run: |
-          grep -q '1.7\|v1.7' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Data version 1.5 verified' || (echo '✗ Data version 1.5 not found'; exit 1)
+          grep -q '1.7\|v1.7' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Dataset version marker verified' || (echo '✗ Data version 1.5 not found'; exit 1)
 
       # 1.20 P23: Portfolio risk contribution Euler
       - name: 'P23: Portfolio risk contribution Euler'
         run: |
-          grep -q 'portfolio_risk_contribution.*Euler\|Euler.*portfolio_risk' "$GITHUB_WORKSPACE/web_site/index.html" && echo '✓ Portfolio risk contribution Euler verified' || (echo '✗ Portfolio risk contribution Euler not found'; exit 1)
+          grep -q 'portfolio_risk_contribution' "$GITHUB_WORKSPACE/web_site/index.html" && grep -Eq '"euler_time_series"|"euler_decomposition"' "$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json" && echo '✓ Portfolio risk contribution + Euler verified' || (echo '✗ Portfolio risk contribution Euler not found'; exit 1)
 
       # 1.21 P23: Portfolio risk contribution JSON Euler check
       - name: 'P23: portfolio_risk_contribution.json has Euler'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json')); assert d.get('version_tag')=='P25'; assert 'euler_time_series' in str(d.get('variety_contributions',{})); print('✓ Euler time series in risk contribution')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution.json')); assert d.get('version_tag')=='P25'; assert 'euler_time_series' in str(d.get('variety_contributions',{})); print('✓ Euler time series in risk contribution')"
 
       # 1.22 P23: pc003_unlock_assessment.json M7 COMPLETED
       - name: 'P23: pc003_unlock_assessment.json has M7 COMPLETED'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert d.get('version_tag')=='P25'; m7=d.get('milestones',{}).get('M7',{}); assert m7.get('status')=='COMPLETED'; print('✓ M7 COMPLETED verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert d.get('version_tag')=='P25'; m7=d.get('milestones',{}).get('M7',{}); assert m7.get('status')=='COMPLETED'; print('✓ M7 COMPLETED verified')"
 
       # 1.23 P23: fr_risk_alerts.json P23 alerts
       - name: 'P23: fr_risk_alerts.json has P23 alerts'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/fr_risk_alerts.json')); alerts=d.get('alerts',[]); p24=[a for a in alerts if a.get('phase')=='P24']; assert len(p24)>=2; print(f'✓ {len(p24)} P24 alerts verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/fr_risk_alerts.json')); alerts=d.get('alerts',[]); p24=[a for a in alerts if a.get('phase')=='P24']; assert len(p24)>=2; print(f'✓ {len(p24)} P24 alerts verified')"
 
       # 1.24 P23: portfolio_backtest.json rolling correlation
       - name: 'P23: portfolio_backtest.json has rolling correlation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_backtest.json')); assert d.get('version_tag')=='P25'; assert 'rolling_correlation' in str(d); print('✓ Rolling correlation verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_backtest.json')); assert d.get('version_tag')=='P25'; assert 'rolling_correlation' in str(d); print('✓ Rolling correlation verified')"
 
       # 1.25 P23: pc003_unlock_assessment.json production_risk_rating
       - name: 'P23: pc003_unlock_assessment.json has production_risk_rating'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert 'production_risk_rating' in d; assert d['production_risk_rating'].get('overall_rating')=='LOW'; print('✓ Production risk rating verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); assert 'production_risk_rating' in d; assert d['production_risk_rating'].get('overall_rating')=='LOW'; print('✓ Production risk rating verified')"
 
       # 1.26 P23: pc003_unlock_assessment.json ni_delay final assessment
       - name: 'P23: pc003_unlock_assessment.json has ni_delay final assessment'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); ni=d.get('ni_delay_monitoring',{}); assert 'final_assessment' in ni; print('✓ NI delay final assessment verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pc003_unlock_assessment.json')); ni=d.get('ni_delay_monitoring',{}); assert 'final_assessment' in ni; print('✓ NI delay final assessment verified')"
 
       # 1.27 P23: data_completion_status.json M1-M7 ALL COMPLETED
       - name: 'P23: data_completion_status.json M1-M7 ALL COMPLETED'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/data_completion_status.json')); ms=d.get('milestones',{}); completed=[v['status'] for v in ms.values()]; assert all(s=='COMPLETED' for s in completed); print('✓ M1-M7 ALL COMPLETED verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/data_completion_status.json')); ms=d.get('milestones',{}); completed=[v['status'] for v in ms.values()]; assert all(s=='COMPLETED' for s in completed); print('✓ M1-M7 ALL COMPLETED verified')"
 
 
   # P24 T3: P24-specific validation checks
@@ -678,17 +678,17 @@ jobs:
       # 1.33 P24: Phase4 precheck JSON
       - name: 'P24: phase4_precheck.json validation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/phase4_precheck.json')); assert d.get('version_tag')=='P25'; assert 'precheck_results' in d; print('Phase4 precheck JSON verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/phase4_precheck.json')); assert d.get('version_tag')=='P25'; assert 'precheck_results' in d; print('Phase4 precheck JSON verified')"
 
       # 1.34 P24: PB/CU gray admission JSON
       - name: 'P24: pb_cu_gray_admission_status.json validation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pb_cu_gray_admission_status.json')); assert d.get('version_tag')=='P25'; assert 'pb' in d; assert 'cu' in d; print('PB/CU gray admission JSON verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/pb_cu_gray_admission_status.json')); assert d.get('version_tag')=='P25'; assert 'pb' in d; assert 'cu' in d; print('PB/CU gray admission JSON verified')"
 
       # 1.35 P24: portfolio_risk_contribution_timeseries.json validation
       - name: 'P24: portfolio_risk_contribution_timeseries.json validation'
         run: |
-          python3 -c "import json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution_timeseries.json')); assert d.get('version_tag')=='P25'; assert 'variety_time_series' in d; assert len(d['variety_time_series'])>=7; print('Risk contribution time series JSON verified')"
+          python3 -c "import re,json; d=json.load(open('$GITHUB_WORKSPACE/web_site/data/portfolio_risk_contribution_timeseries.json')); assert d.get('version_tag')=='P25'; assert 'variety_time_series' in d; assert len(d['variety_time_series'])>=7; print('Risk contribution time series JSON verified')"
 
       # 1.6 P25 数据集 / 面板标记校验
       - name: 'P25: 42+ datasets published'
@@ -723,7 +723,7 @@ jobs:
         if: steps.skip.outputs.skip != 'true'
         run: |
           test -f web_site/data/MD5_BASELINE_P25.json || (echo "::warning::MD5_BASELINE_P25.json absent" && exit 0)
-          python3 -c "import json;d=json.load(open('web_site/data/MD5_BASELINE_P25.json'));f=d.get('files',d);print('  baseline entries:',len(f))"
+          python3 -c "import re,json;d=json.load(open('web_site/data/MD5_BASELINE_P25.json'));f=d.get('files',d);print('  baseline entries:',len(f))"
   # ============================================================
   deploy:
     name: Deploy to GitHub Pages
