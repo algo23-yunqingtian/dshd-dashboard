@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
-  "description": "P24 dataset index - 49 files (new: portfolio_risk_contribution_timeseries.json)",
+  "description": "P25 dataset index - 18 core visualization datasets (v1.7)",
   "total_files": 49,
   "total_size_kb": 452.2,
   "files": {
@@ -74,5 +74,375 @@
   ],
   "new_files_p24": [
     "portfolio_risk_contribution_timeseries.json"
-  ]
+  ],
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  },
+  "core_18_datasets": [
+    {
+      "seq": 1,
+      "file": "fr_risk_alerts.json",
+      "exists": true,
+      "size": 7237,
+      "md5": "3ba91b71e36e",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "alerts",
+        "total_alerts",
+        "p23_additions"
+      ]
+    },
+    {
+      "seq": 2,
+      "file": "factor_drift_alerts.json",
+      "exists": true,
+      "size": 3634,
+      "md5": "a8b0eb263691",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "generated_at",
+        "seed",
+        "source",
+        "alerts",
+        "stats",
+        "version_tag",
+        "phase"
+      ]
+    },
+    {
+      "seq": 3,
+      "file": "ic_drift_timeseries.json",
+      "exists": true,
+      "size": 16721,
+      "md5": "2aeb64af2714",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "engine",
+        "description",
+        "source",
+        "threshold_pct"
+      ]
+    },
+    {
+      "seq": 4,
+      "file": "drift_root_cause.json",
+      "exists": true,
+      "size": 10226,
+      "md5": "9e4715d0e666",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "engine",
+        "doc_id",
+        "version",
+        "priority"
+      ]
+    },
+    {
+      "seq": 5,
+      "file": "pb_cu_gray_admission_status.json",
+      "exists": true,
+      "size": 8455,
+      "md5": "27466f8f41b2",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "phase",
+        "pb",
+        "cu"
+      ]
+    },
+    {
+      "seq": 6,
+      "file": "pc003_status.json",
+      "exists": true,
+      "size": 2462,
+      "md5": "5ca36d35d91c",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "real_state",
+        "p24_linkage",
+        "variety_gates"
+      ]
+    },
+    {
+      "seq": 7,
+      "file": "pc003_unlock_assessment.json",
+      "exists": true,
+      "size": 13146,
+      "md5": "e060b98cad74",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "pc003_status",
+        "weighted_score",
+        "pipeline_completion"
+      ]
+    },
+    {
+      "seq": 8,
+      "file": "phase4_precheck.json",
+      "exists": true,
+      "size": 3830,
+      "md5": "24ac2cada9ac",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "precheck_results",
+        "md5_snapshot",
+        "execution_log"
+      ]
+    },
+    {
+      "seq": 9,
+      "file": "data_completion_status.json",
+      "exists": true,
+      "size": 2575,
+      "md5": "caa85f809d7e",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "milestones",
+        "pc003_status",
+        "pc003_weighted_score"
+      ]
+    },
+    {
+      "seq": 10,
+      "file": "experiment_index.json",
+      "exists": true,
+      "size": 2311,
+      "md5": "4740e2d6e985",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "experiments",
+        "total_experiments",
+        "current"
+      ]
+    },
+    {
+      "seq": 11,
+      "file": "version_index.json",
+      "exists": true,
+      "size": 1068,
+      "md5": "a2511d9116c2",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "current_version",
+        "versions",
+        "p18_p19_p20_p21_p22_p23_p24_separation"
+      ]
+    },
+    {
+      "seq": 12,
+      "file": "pl_summary.json",
+      "exists": true,
+      "size": 2224,
+      "md5": "bc53115fe6f9",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "varieties",
+        "portfolio_summary",
+        "p25_meta"
+      ]
+    },
+    {
+      "seq": 13,
+      "file": "cross_variety_comparison.json",
+      "exists": true,
+      "size": 4442,
+      "md5": "3c1226fbcfd2",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "comparison",
+        "portfolio_summary",
+        "cross_variety_correlation"
+      ]
+    },
+    {
+      "seq": 14,
+      "file": "portfolio_backtest.json",
+      "exists": true,
+      "size": 7944,
+      "md5": "9cf559533978",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "source",
+        "experiment",
+        "phase"
+      ]
+    },
+    {
+      "seq": 15,
+      "file": "portfolio_correlation.json",
+      "exists": true,
+      "size": 12400,
+      "md5": "3c68d719d051",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "source",
+        "variety_count",
+        "variety_names"
+      ]
+    },
+    {
+      "seq": 16,
+      "file": "portfolio_risk_metrics.json",
+      "exists": true,
+      "size": 3358,
+      "md5": "bc08ea87b30f",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "generated_at",
+        "seed",
+        "description",
+        "portfolio_risk",
+        "stress_test",
+        "risk_limits",
+        "emergency_stop_conditions"
+      ]
+    },
+    {
+      "seq": 17,
+      "file": "portfolio_risk_contribution.json",
+      "exists": true,
+      "size": 29006,
+      "md5": "4c8c2a5b0500",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "description",
+        "source",
+        "methodology",
+        "portfolio_risk"
+      ]
+    },
+    {
+      "seq": 18,
+      "file": "rolling_correlation_matrix.json",
+      "exists": true,
+      "size": 42917,
+      "md5": "b6c11ab1fc6f",
+      "version_tag": "P25",
+      "dataset_version": "1.7",
+      "top_keys": [
+        "dataset_version",
+        "version_tag",
+        "generated_at",
+        "seed",
+        "engine",
+        "description",
+        "source",
+        "portfolio_name"
+      ]
+    }
+  ],
+  "core_18_count": 18,
+  "core_18_total_size_bytes": 173956,
+  "new_in_p25": [
+    "ic_drift_timeseries.json (P25 重写: Phase6~P25 时序)",
+    "drift_root_cause.json (P25 NEW: 根因+4方案测算)",
+    "rolling_correlation_matrix.json (P25 重写: 多窗口6窗口)",
+    "p25_site_health.json (T1 稳定性巡检)"
+  ],
+  "p25_fr_risk_additions": [
+    "FR-RISK-PG25-ICDRIFT-015",
+    "FR-RISK-PG25-PBCU-016"
+  ],
+  "p25_factor_drift_additions": [
+    "DRIFT-BLOCK-001",
+    "DRIFT-PSYCH-001",
+    "DRIFT-PSYCH-002"
+  ],
+  "dsha_p25_source": {
+    "flag": "PHASE25_DATA_READY.flag",
+    "version": "25.0-P25-DRIFT-ROOT-CAUSE",
+    "engine": "V86.9-C-FINAL-DEBUG-P25",
+    "acceptance": "8/8 PASS"
+  }
 }
