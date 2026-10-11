@@ -1,8 +1,8 @@
 {
-  "dataset_version": "1.7",
-  "generated_at": "2026-10-09T19:48:29+08:00",
+  "dataset_version": "1.8",
+  "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "description": "P24 portfolio risk metrics - updated for P24 monitoring",
+  "description": "P31 portfolio risk metrics / V31.0",
   "portfolio_risk": {
     "total_varieties": 7,
     "active_varieties": 7,
@@ -12,7 +12,11 @@
     "weighted_sharpe": 6.86,
     "weighted_ic": 0.049,
     "portfolio_ic": 0.0406,
-    "portfolio_ir": 34.43
+    "portfolio_ir": 34.43,
+    "sharpe": 2.2,
+    "max_drawdown": -0.75,
+    "ic": 0.0493,
+    "ir": 34.7
   },
   "stress_test": {
     "scenario_1_5pct_drop": {
@@ -99,23 +103,16 @@
       "response_time_min": 5
     }
   ],
-  "version_tag": "P25",
-  "p24_additions": {
-    "phase4_monitoring": "Phase4 monitoring data integrated",
-    "risk_contribution_timeseries": "portfolio_risk_contribution_timeseries.json"
+  "version_tag": "P31",
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "p25_meta": {
-    "bumped_at": "2026-10-09T19:48:29+08:00"
-  },
-  "p25_drift_gate": {
-    "ic_drift_pct": 5.2,
+  "p31_drift_gate": {
+    "drift_pct": 3.6,
     "threshold_pct": 5.0,
-    "block_active": true,
-    "block_since": "Phase24",
-    "consecutive_phases": 2,
-    "fr_risk_id": "FR-RISK-PG25-ICDRIFT-015",
-    "root_cause": "ISSUED_V1.0",
-    "fix_plan": "SCHEME_D_RECOMMENDED",
-    "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
+    "status": "RELEASED",
+    "block_active": false,
+    "ic": 0.0586,
+    "unblock_status": "PERMANENTLY_UNBLOCKED"
   }
 }
