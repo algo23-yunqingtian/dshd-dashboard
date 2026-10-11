@@ -1,7 +1,7 @@
 {
-  "dataset_version": "1.6",
-  "version_tag": "P24",
-  "generated_at": "2026-10-09T16:35:24+08:00",
+  "dataset_version": "1.7",
+  "version_tag": "P25",
+  "generated_at": "2026-10-09T19:48:29+08:00",
   "seed": 42,
   "description": "P24 experiment index - P2~P24 (19 experiments)",
   "experiments": [
@@ -121,7 +121,10 @@
       "phase_num": 24
     }
   ],
-  "total_experiments": 23,
+  "total_experiments": 24,
   "current": "P24",
-  "version_separation": "P18/P19/P20/P21/P22/P23/P24"
+  "version_separation": "P18/P19/P20/P21/P22/P23/P24",
+  "p25_meta": {
+    "bumped_at": "2026-10-09T19:48:29+08:00"
+  }
 }
