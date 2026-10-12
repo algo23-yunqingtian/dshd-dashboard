@@ -1227,3 +1227,27 @@ P25 残留数据修复：
 ### Rollback
 - Previous version: V34.0 (P34 data)
 - Rollback file: index.html.bak_p24
+
+
+## V36.0 (P36) - DSHD-P32
+
+### Version
+- Version: V36.0 | Data: P36 (dataset_version 1.11) | Date: 2026-10-12T05:55:33Z
+
+### New Features
+1. Euler Risk Contribution Panel - 7 varieties, daily time series, volatility analysis
+2. Portfolio Construction Vectorization - 151.4x total (alloc 29.3x, boundary 223.1x, rebalance 172.5x)
+3. CU BEAR_IC Progress Bar - 64.3% (9/14 -> 14/14 target)
+4. Performance Panel Upgrade - P35->P36 comparison, 6 optimization techniques
+5. Mobile Responsive - 768px/480px breakpoints for Euler panel
+
+### Deployment
+- Files: 176 web_site + root docs
+- Method: GitHub Contents API
+- Health: 176/176 HTTP 200, median 488ms, P95 657ms
+
+### Key Metrics
+- IC: 0.0586 | BEAR_IC: 0.0393 | IR: 47.9
+- PB BEAR_IC: 0.0322 (17/17) | CU BEAR_IC: 0.0244 (9/14)
+- Cumulative: 980 days | Frozen: 11 phases | FR-RISK-501: 985 days
+- Runtime: 1.151s (down 36.1%) | Memory: 21.3MB
