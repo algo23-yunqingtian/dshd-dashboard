@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 experiment index - P2~P31 全阶段实验索引 / V31.0",
@@ -126,5 +126,10 @@
   "version_separation": "P18/P19/P20/P21/P22/P23/P24/P25/P26/P27/P28/P29/P30/P31",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
