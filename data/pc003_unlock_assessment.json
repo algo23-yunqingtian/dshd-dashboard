@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P34",
+  "dataset_version": "1.14",
+  "version_tag": "P39",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 PC003 unlock assessment - M1-M7 ALL COMPLETED / V31.0",
@@ -412,6 +412,15 @@
     "overall_rating": "LOW",
     "note": "P31 投产风险评级: LOW (阻断永久解除, 方案D 稳态)"
   },
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10"
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.149516",
+    "data_source": "DSHA-P38"
+  }
 }
