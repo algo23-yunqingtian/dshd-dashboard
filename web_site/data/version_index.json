@@ -1,14 +1,14 @@
 {
-  "dataset_version": "1.12",
-  "version_tag": "P37",
-  "generated_at": "2026-10-12T14:13:21.129310+08:00",
+  "dataset_version": "1.13",
+  "version_tag": "P38",
+  "generated_at": "2026-10-12T14:49:49.191513",
   "seed": 42,
-  "description": "P33 version index - P18~P37 十九阶段版本索引 / V37.0",
-  "current_version": "P37",
-  "total_data_version": "1.12",
-  "phase_count": 37,
-  "total_versions": 19,
-  "version_range": "P18-P37",
+  "description": "P34 version index - P18~P38 二十个阶段版本索引 / V38.0",
+  "current_version": "P38",
+  "total_data_version": "1.13",
+  "phase_count": 38,
+  "total_versions": 20,
+  "version_range": "P18-P38",
   "versions": [
     {
       "status": "ARCHIVED",
@@ -377,74 +377,11 @@
       "note": "P36: PB 17/17, CU 0.0244, Portfolio vectorization 151.4x"
     },
     {
-      "version_tag": "P37",
-      "dataset_version": "1.12",
-      "phase": "Phase37",
-      "engine": "V86.9-C-FINAL-DEBUG-P37",
-      "date_range": {
-        "start": "2029-10-08",
-        "end": "2029-11-22",
-        "trading_days": 35
-      },
-      "weeks": [
-        "W134",
-        "W135",
-        "W136",
-        "W137",
-        "W138",
-        "W139",
-        "W140"
-      ],
-      "metrics": {
-        "IC": 0.0586,
-        "BEAR_IC": 0.0393,
-        "CRISIS_IC": 0.0664,
-        "IR": 47.9,
-        "VIF": 1.0065,
-        "F19_F20_IC": 0.0583,
-        "PB_BEAR_IC": 0.0322,
-        "CU_BEAR_IC": 0.0247,
-        "drift_pct": 2.4,
-        "cumulative_days": 1015,
-        "sigma_weeks": 203,
-        "FR_RISK_501_days": 1020,
-        "drift_alert_counter": 1834,
-        "F15_baseline": 0.0506,
-        "F16_baseline": 0.0501,
-        "F17_baseline": 0.0497,
-        "F18_baseline": 0.0493,
-        "drift_trend_pp": -0.2
-      },
-      "status": "ACTIVE",
-      "cumulative_days": 1015,
-      "scheme_d_frozen": true,
-      "frozen_phases": 12,
-      "features": [
-        "Euler risk contribution vectorized (113.8x)",
-        "Portfolio construction vectorization (151.4x, retained)",
-        "PB BEAR_IC 18/18 sustained",
-        "CU BEAR_IC improving (0.0247, approaching 0.025 gate)",
-        "AL 305 days stable"
-      ],
-      "performance": {
-        "parallel_speedup": "151.4x",
-        "runtime_seconds": 1.031,
-        "runtime_reduction_pct": 10.4,
-        "memory_mb": 21.3,
-        "euler_total_speedup": "113.8x",
-        "euler_identity_dev": "2.08e-17",
-        "euler_consistency": "PASS",
-        "runtime_vs_p36": 1.151,
-        "runtime_vs_p35": 1.338,
-        "runtime_vs_p34": 1.801
-      }
-    }
-  ],
-  "versions_by_tag": {
-    "P37": {
-      "status": "ACTIVE",
+      "status": "ARCHIVED",
       "data_version": "1.12",
+      "version": "P37",
       "phase": "Phase37",
+      "version_tag": "P37",
       "factors": 20,
       "varieties": [
         "AL",
@@ -457,8 +394,108 @@
       ],
       "shadow": [],
       "note": "P37: Euler vectorized 113.8x, PB 18/18, CU 0.0247 improving"
+    },
+    {
+      "status": "ACTIVE",
+      "data_version": "1.13",
+      "version": "P38",
+      "phase": "Phase38",
+      "version_tag": "P38",
+      "engine": "V86.9-C-FINAL-DEBUG-P38",
+      "date_range": {
+        "start": "2029-11-27",
+        "end": "2030-01-11",
+        "trading_days": 35
+      },
+      "weeks": [
+        "W141",
+        "W142",
+        "W143",
+        "W144",
+        "W145",
+        "W146",
+        "W147"
+      ],
+      "metrics": {
+        "IC": 0.0586,
+        "BEAR_IC": 0.0393,
+        "CRISIS_IC": 0.0664,
+        "IR": 47.9,
+        "VIF": 1.0065,
+        "F19_F20_IC": 0.0583,
+        "PB_BEAR_IC": 0.0322,
+        "CU_BEAR_IC": 0.025,
+        "drift_pct": 2.2,
+        "cumulative_days": 1050,
+        "sigma_weeks": 210,
+        "FR_RISK_501_days": 1055,
+        "drift_alert_counter": 1869,
+        "drift_trend_pp": -0.2
+      },
+      "cumulative_days": 1050,
+      "scheme_d_frozen": true,
+      "frozen_phases": 13,
+      "features": [
+        "Float32 mixed-precision dual-branch (P38)",
+        "Incremental tail-slice update (P38)",
+        "Euler risk contribution vectorized 114.4x (P37 retained)",
+        "Portfolio construction vectorization 151.4x (P36 retained)",
+        "PB BEAR_IC 19/19 sustained",
+        "CU BEAR_IC 0.0250 gate reached (unconfirmed)",
+        "AL 340 days stable",
+        "FR-RISK-501 released (unconfirmed)"
+      ],
+      "performance": {
+        "float32_adopted": [
+          "euler_risk_contribution",
+          "portfolio_weights"
+        ],
+        "float32_rejected": [
+          "rolling_correlation"
+        ],
+        "float32_global_max_dev": "3.958e-08",
+        "float32_tolerance": "1e-06",
+        "float32_gate": "PASS",
+        "incremental_speedup": "1.99x",
+        "incremental_max_dev": "1.893e-14",
+        "incremental_cached_prefix_days": 1015,
+        "incremental_new_slice_days": 35,
+        "parallel_speedup": "151.4x",
+        "runtime_seconds": 0.984,
+        "runtime_reduction_vs_p37_pct": 4.6,
+        "runtime_reduction_vs_p36_pct": 14.5,
+        "runtime_reduction_vs_p35_pct": 26.5,
+        "runtime_reduction_vs_p34_pct": 45.3,
+        "memory_mb": 21.3,
+        "euler_total_speedup": "114.4x",
+        "euler_identity_dev": "2.78e-17",
+        "euler_consistency": "PASS",
+        "runtime_vs_p37": 1.031,
+        "runtime_vs_p36": 1.151,
+        "runtime_vs_p35": 1.338,
+        "runtime_vs_p34": 1.801
+      }
+    }
+  ],
+  "versions_by_tag": {
+    "P38": {
+      "status": "ACTIVE",
+      "data_version": "1.13",
+      "phase": "Phase38",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB",
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "shadow": [],
+      "note": "P38: Float32 mixed-precision, incremental update, CU 0.0250 gate reached"
     }
   },
-  "active_version": "P37",
-  "last_updated": "2026-10-12T14:13:50.461519+08:00"
+  "active_version": "P38",
+  "last_updated": "2026-10-12T14:49:49.191513"
 }
