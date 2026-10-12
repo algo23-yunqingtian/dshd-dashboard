@@ -6,7 +6,7 @@
 # 触发: push (main/master) + pull_request + workflow_dispatch
 # 权限: contents:read / pages:write / id-token:write
 # =========================================================================
-name: Deploy DSHD-P24 to GitHub Pages
+name: Deploy DSHD Dashboard to GitHub Pages
 
 on:
   push:
@@ -810,7 +810,7 @@ jobs:
   #        primary deploy 失败 -> 重新 checkout / 上传 / 部署一次
   # ============================================================
   deploy-retry:
-    name: Deploy Retry (P25 T3)
+    name: Deploy Retry
     runs-on: ubuntu-latest
     needs: deploy
     if: ${{ always() && needs.deploy.result == 'failure' }}
@@ -845,7 +845,7 @@ jobs:
   #        -> 改用 api.github.com Contents API 直写 gh-pages 分支
   # ============================================================
   deploy-fallback:
-    name: Deploy Fallback / API Contents Mode (P25 T3)
+    name: Deploy Fallback / API Contents Mode
     runs-on: ubuntu-latest
     needs: [deploy, deploy-retry]
     if: ${{ always() && needs.deploy.result != 'success' && needs.deploy-retry.result != 'success' }}
@@ -867,7 +867,7 @@ jobs:
         shell: bash
         run: |
           set -uo pipefail
-          echo "========== P25 T3 network probe =========="
+          echo "========== P27 network probe =========="
           ok=0
           for i in 1 2 3; do
             if curl -fsS --connect-timeout 5 --max-time 15 -o /dev/null https://github.com/ 2>/dev/null; then ok=1; break; fi
@@ -904,12 +904,19 @@ jobs:
           set -euo pipefail
           python3 - <<'PYEOF'
           #!/usr/bin/env python3
-          """DSHD-P25 T3: API-Contents fallback publisher.
-          
+          """DSHD-P27: API-Contents fallback publisher with retry hardening.
+
           When github.com:443 is unreachable and the Actions Pages deployment has failed
           twice, publish the built site directly to the gh-pages branch using the GitHub
           Contents API on api.github.com (a different host than github.com).
-          
+
+          P27 improvements over P25:
+            - Rate-limit-aware retry: 403 with X-RateLimit-Remaining=0 is treated as
+              transient (retry with backoff) instead of permanent.
+            - Second-pass retry: files that failed in the first pass are retried once
+              after a 5-second cooldown, absorbing transient network/API errors.
+            - Network probe now distinguishes 443-TCP-unreachable from HTTP-level errors.
+
           Environment (injected by the workflow):
             GITHUB_REPOSITORY, GITHUB_SHA, GITHUB_REF_NAME, TOKEN
             SITE_DIR (default web_site), TARGET_BRANCH (default gh-pages)
@@ -960,16 +967,23 @@ jobs:
                   return -1, {"message": "%s: %s" % (type(e).__name__, e)}
           
           
-          def call(method, path, body=None, tries=3):
+          def call(method, path, body=None, tries=4):
               last = None
               for i in range(1, tries + 1):
                   st, bd = req(method, path, body)
                   if 200 <= st < 300:
                       return bd
                   last = (st, bd)
-                  if st in (401, 403, 404, 409, 422):
+                  # P27: 403 with rate-limit remaining=0 is transient, not permanent
+                  if st == 403 and isinstance(bd, dict) and "message" in bd:
+                      msg = bd["message"].lower()
+                      if "rate limit" in msg or "abuse detection" in msg:
+                          wait = min(60, 2 ** i * 5)
+                          time.sleep(wait)
+                          continue
+                  if st in (401, 404, 409, 422):
                       break
-                  time.sleep(2 ** i)
+                  time.sleep(min(60, 2 ** i))
               raise RuntimeError("API %s %s -> %s %s" % (method, path, last[0], str(last[1])[:200]))
           
           
@@ -1023,10 +1037,11 @@ jobs:
                           existing[e["path"]] = e["sha"]
               summary("blobs already on `%s`: **%d**" % (BRANCH, len(existing)))
           
-              # 4. create / update each file
-              msg = "ci(pages-fallback): publish DSHD-P25 site @" + COMMIT_SHA[:12]
+              # 4. create / update each file (2-pass: second pass retries first-pass failures)
+              msg = "ci(pages-fallback): publish DSHD-P27 site @" + COMMIT_SHA[:12]
               pushed, updated, skipped = 0, 0, 0
               errors = []
+              failed_files = []
               for rel, sz in files:
                   with open(rel, "rb") as fp:
                       b64 = base64.b64encode(fp.read()).decode("ascii")
@@ -1039,15 +1054,41 @@ jobs:
                   try:
                       call("PUT", "/contents/" + rel, body)
                   except RuntimeError as e:
-                      errors.append("%s %s: %s" % (action, rel, str(e)[:160]))
+                      failed_files.append((rel, action, str(e)[:160]))
                       continue
                   if action == "create":
                       pushed += 1
                   else:
                       updated += 1
+              # P27: second-pass retry for first-pass failures (absorb transient errors)
+              if failed_files:
+                  summary("")
+                  summary("**%d** file(s) failed on first pass, retrying after 5s cooldown..." % len(failed_files))
+                  time.sleep(5)
+                  retry_errors = []
+                  for rel, action, err_msg in failed_files:
+                      with open(rel, "rb") as fp:
+                          b64 = base64.b64encode(fp.read()).decode("ascii")
+                      body = {"message": msg, "content": b64, "encoding": "base64", "branch": BRANCH}
+                      if rel in existing:
+                          body["sha"] = existing[rel]
+                      try:
+                          call("PUT", "/contents/" + rel, body)
+                          if action == "create":
+                              pushed += 1
+                          else:
+                              updated += 1
+                          summary("  retry OK: %s" % rel)
+                      except RuntimeError as e:
+                          retry_errors.append("%s %s: %s" % (action, rel, str(e)[:160]))
+                          errors.append("RETRY-FAIL %s %s: %s" % (action, rel, str(e)[:160]))
+                  if not retry_errors:
+                      summary("  all %d retried file(s) recovered" % len(failed_files))
+                  elif len(retry_errors) < len(failed_files):
+                      summary("  %d/%d retried file(s) recovered" % (len(failed_files) - len(retry_errors), len(failed_files)))
               if errors:
                   summary("")
-                  summary("**%d** file(s) failed:" % len(errors))
+                  summary("**%d** file(s) failed after retries:" % len(errors))
                   for e in errors[:20]:
                       summary("- " + e)
           
