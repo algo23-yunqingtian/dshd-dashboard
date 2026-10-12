@@ -1,23 +1,24 @@
 {
   "dshd_phase": "DSHD-P28",
   "dsha_data_phase": "DSHA-P32",
-  "generated_at": "2029-03-23T09:00:00+08:00",
+  "generated_at": "2026-10-12T09:37:15+08:00",
   "verdict": {
     "overall": "PASS",
-    "http_ok_count": 171,
+    "http_ok_count": 172,
+    "total_files": 172,
     "non_200_live_paths": 0,
     "timeout_count": 0,
     "js_parse_ok": true,
     "all_datasets_p32": true,
     "core_18_complete": true
   },
-  "probe_method": "Contents API live probe (171 files x 2 rounds)",
+  "probe_method": "Contents API live probe",
   "cdn_status": "fresh",
   "warm_latency_ms": {
-    "median": 72,
-    "max": 618
+    "median": 557.6,
+    "max": 10327.3
   },
-  "note": "P32 site health - generated during DSHD-P28 deployment",
-  "version_tag": "P32",
-  "dataset_version": "1.9"
+  "errors": [],
+  "version_tag": "P33",
+  "dataset_version": "1.10"
 }
