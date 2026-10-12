@@ -1,0 +1,207 @@
+{
+  "variety": "SN",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P31",
+  "phase": "Phase31",
+  "total_trades": 12,
+  "open_trades": 6,
+  "close_trades": 6,
+  "total_pnl_pct": 0,
+  "metrics": {
+    "ic_mean": 0.0586,
+    "ir": 47.8,
+    "bear_ic": 0.0392,
+    "crisis_ic": 0.0663,
+    "vif": 1.0065,
+    "max_drawdown": 0.0005,
+    "total_return": 55.0,
+    "final_nav": 1.55,
+    "annualized_return": 573.6,
+    "sharpe": 2.55
+  },
+  "shadow": false,
+  "completeness": 1.0,
+  "data_recovery": "FULL_REAL_DATA",
+  "formal_production": true,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2028-12-18",
+      "price": 138693.9,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F19"
+      ],
+      "signal_strength": 0.0458,
+      "confidence": 0.5457
+    },
+    {
+      "trade_id": 2,
+      "variety": "SN",
+      "type": "CLOSE",
+      "date": "2028-12-20",
+      "price": 139431.4,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F19"
+      ],
+      "signal_strength": 0.0279,
+      "confidence": 0.5667
+    },
+    {
+      "trade_id": 3,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2028-12-25",
+      "price": 135001.6,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F08",
+        "F12"
+      ],
+      "signal_strength": 0.0296,
+      "confidence": 0.665
+    },
+    {
+      "trade_id": 4,
+      "variety": "SN",
+      "type": "CLOSE",
+      "date": "2028-12-28",
+      "price": 131510.0,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F08",
+        "F12"
+      ],
+      "signal_strength": 0.0361,
+      "confidence": 0.4771
+    },
+    {
+      "trade_id": 5,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2029-01-04",
+      "price": 141299.3,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F19",
+        "F09"
+      ],
+      "signal_strength": 0.048,
+      "confidence": 0.5186
+    },
+    {
+      "trade_id": 6,
+      "variety": "SN",
+      "type": "CLOSE",
+      "date": "2029-01-09",
+      "price": 145266.1,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F19",
+        "F09"
+      ],
+      "signal_strength": 0.0394,
+      "confidence": 0.5457
+    },
+    {
+      "trade_id": 7,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2029-01-15",
+      "price": 120642.6,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F15",
+        "F02"
+      ],
+      "signal_strength": 0.0425,
+      "confidence": 0.6089
+    },
+    {
+      "trade_id": 8,
+      "variety": "SN",
+      "type": "CLOSE",
+      "date": "2029-01-18",
+      "price": 117561.3,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F15",
+        "F02"
+      ],
+      "signal_strength": 0.0177,
+      "confidence": 0.4953
+    },
+    {
+      "trade_id": 9,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2029-01-24",
+      "price": 133796.1,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F20",
+        "F08"
+      ],
+      "signal_strength": 0.0232,
+      "confidence": 0.5709
+    },
+    {
+      "trade_id": 10,
+      "variety": "SN",
+      "type": "CLOSE",
+      "date": "2029-01-29",
+      "price": 131990.4,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F20",
+        "F08"
+      ],
+      "signal_strength": 0.0167,
+      "confidence": 0.5171
+    },
+    {
+      "trade_id": 11,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2029-01-31",
+      "price": 135250.9,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F09"
+      ],
+      "signal_strength": 0.0432,
+      "confidence": 0.5407
+    },
+    {
+      "trade_id": 12,
+      "variety": "SN",
+      "type": "CLOSE",
+      "date": "2029-02-05",
+      "price": 133642.0,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F09"
+      ],
+      "signal_strength": 0.0179,
+      "confidence": 0.4996
+    }
+  ]
+}
