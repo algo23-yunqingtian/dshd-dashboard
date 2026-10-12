@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.10",
+  "dataset_version": "1.15",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "source": "DSHD 全阶段回滚事件记录",
@@ -38,7 +38,7 @@
     "in_progress": 1,
     "open": 1
   },
-  "version_tag": "P34",
+  "version_tag": "P40",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
@@ -48,6 +48,15 @@
     "drift_block_rollback_guard": true,
     "note": "阻断期间禁止灰度转正, 回滚防护有效"
   },
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10"
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.178512",
+    "data_source": "DSHA-P38"
+  }
 }
