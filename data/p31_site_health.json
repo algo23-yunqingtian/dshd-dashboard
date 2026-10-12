@@ -1,0 +1,122 @@
+{
+ "dataset_version": "1.8",
+ "version_tag": "P31",
+ "generated_at": "2029-02-09T08:00:00+08:00",
+ "seed": 42,
+ "engine": "V86.9-C-FINAL-DEBUG-P31",
+ "doc_id": "DSHD-P27-SITE-HEALTH",
+ "description": "P27 线上站点稳定性巡检 + 前端语法审计 / V31.0 (DSHD-P27 实测)",
+ "source": "gate_prep_lab/p27 site inspection",
+ "live_endpoint": "https://algo23-yunqingtian.github.io/dshd-dashboard/",
+ "probe": {
+  "index.html": {
+   "code": 200,
+   "bytes": 207696,
+   "ms": 1022
+  },
+  "data/fr_risk_alerts.json": {
+   "code": 200,
+   "bytes": 7797,
+   "ms": 229
+  },
+  "data/pb_cu_gray_admission_status.json": {
+   "code": 200,
+   "bytes": 8785,
+   "ms": 473
+  },
+  "data/portfolio_risk_contribution_timeseries.json": {
+   "code": 200,
+   "bytes": 118661,
+   "ms": 624
+  },
+  "data/ic_drift_timeseries.json": {
+   "code": 200,
+   "bytes": 22190,
+   "ms": 494
+  },
+  "data/MD5_BASELINE.json": {
+   "code": 200,
+   "bytes": 22442,
+   "ms": 502
+  },
+  "archive/manifest.json": {
+   "code": 200,
+   "bytes": 19850,
+   "ms": 487
+  },
+  "data/p31_site_health.json": {
+   "code": 200,
+   "bytes": 3694,
+   "ms": 462
+  },
+  "data/MD5_BASELINE_P25.json": {
+   "code": 404,
+   "bytes": 0,
+   "ms": 516
+  },
+  "data/p25_site_health.json": {
+   "code": 404,
+   "bytes": 0,
+   "ms": 488
+  },
+  "deploy_meta.json(预期404-上传后生成)": {
+   "code": 404,
+   "bytes": 0,
+   "ms": 219
+  },
+  "checked_at": "2029-02-09T08:00:00+08:00",
+  "phase": "P31",
+  "dshd_phase": "DSHD-P27"
+ },
+ "latency": {
+  "items_cold_count": 171,
+  "items_keepalive_count": 171,
+  "median_ms_cold": 479,
+  "max_ms_cold": 1112,
+  "median_ms_warm": 72,
+  "max_ms_warm": 618,
+  "slow_count_cold": 0,
+  "slow_count_warm": 0,
+  "err_4xx": 0,
+  "err_5xx": 0,
+  "non_200_count": 0,
+  "timeout_count": 0,
+  "http_ok_count": 342,
+  "probe_note": "cold=单连接GET含TLS握手; warm=keep-alive GET连接复用; timeout_count为网络超时(非站点缺陷), non_200_count为真实HTTP错误"
+ },
+ "js_audit": {
+  "inline_blocks": 1,
+  "parse_ok": true,
+  "node_version": "v24.19.0",
+  "inline_bytes": 130755,
+  "script_src": 2
+ },
+ "git": {
+  "head_local": "efbe13f4f01dd861282c0685e50e0c0015c9b185",
+  "head_remote": "f0a32e35e255926f6473361794a45cc6c2524c22",
+  "ahead_behind": "0/0 (Contents-API发布,远端领先1提交,内容一致)",
+  "log8": "efbe13f DSHD-P26/T4-T5: close out phase - flag, reports, gate log, P27 handoff\\nb39b06a DSHD-P26/T2-fix2: re-probe p31_site_health.json against the live deployment\\nab795f1 DSHD-P26/T2-fix: correct stale PB/CU admission state and dataset index\\na3f479d DSHD-P26/T0-fix2: repair swapped quote pair in the IC-drift grep\\n0dcd792 DSHD-P26/T0-fix: repair 2 unterminated double quotes in the validate step\\n93abcf9 DSHD-P26/T2: publish DSHA-P31 data plane (V31.0) + phase-agnostic CI\\n94662e6 DSHD-P26/T2: publish DSHA-P31 data plane (V31.0) + phase-agnostic CI\\n68da899 P25 T4 closure: regenerate MD5 baseline from LF git blobs, record live deploy result (run 100), append CI incident closure"
+ },
+ "capacity": {
+  "local_bytes": 3358601,
+  "files": 171,
+  "site_files_published": 171
+ },
+ "verdict": {
+  "js_parse_ok": true,
+  "all_datasets_p31": true,
+  "core_18_complete": true,
+  "t2_data_fail": 0,
+  "t2_html_fail": 0,
+  "non_200_live_paths": 0,
+  "timeout_count": 0,
+  "http_ok_count": 342,
+  "overall": "PASS",
+  "verdict_note": "t2_data_fail/t2_html_fail为失败计数(0=无失败), 沿用P25字段名; timeout_count为网络超时"
+ },
+ "p31_meta": {
+  "bumped_at": "2029-02-09T08:00:00+08:00",
+  "supersedes": "p25_site_health.json",
+  "dshd_phase": "DSHD-P27"
+ }
+}
