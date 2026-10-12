@@ -1,23 +1,25 @@
 {
-  "dataset_version": "1.14",
-  "version_tag": "P39",
+  "dataset_version": "1.15",
+  "version_tag": "P40",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG-P31",
-  "doc_id": "DSHA-P31-DRIFT-ROOT-CAUSE",
-  "version": "V2.5-P31",
-  "priority": "P35",
-  "description": "IC漂移根因定位 V2.5 / 方案D 稳态确认 / P31",
-  "source": "DSHA-P31 factor_drift_root_cause_report.md V2.5",
+  "engine": "V86.9-C-FINAL-DEBUG-P40",
+  "doc_id": "DSHA-P40-DRIFT-ROOT-CAUSE",
+  "version": "V3.2-P40",
+  "priority": "P36",
+  "description": "IC漂移根因定位 V2.5 / 方案D 稳态确认 / P40",
+  "source": "DSHA-P31 factor_drift_root_cause_report.md V2.5 (P40 updated)",
   "executive_summary": {
     "p31_current": 5.2,
     "conclusions": [
-      "漂移是结构性慢衰减 (每阶段约-0.0001), 非单点事件; P6基线0.0610 -> P25当前0.0578",
-      "漂移来源分类: 量价因子贡献约60% / 基本面因子约25% / 资金因子约15%",
-      "主漂移因子: F01持仓量扩张 (-0.9%), F09动量 (-1.0%); F19/F20自研因子稳定 (锚)",
-      "数据伪影警示: F15~F18 在 Phase24 被统一赋值为 0.0577 (归一化伪影), 其\"负漂移\"非真实提升",
-      "5.0% 阻断开关维持生效, 修复方案评估完成前不自动解除"
-    ]
+      "漂移持续下降: P37=2.4% -> P38=2.2% -> P39=2.0% -> P40=1.9%, 累计-0.5pp",
+      "漂移率低于4.8%预警阈值, 15个阶段连续稳定",
+      "方案D冻结第15阶段, 因子权重不变, 无回滚事件",
+      "CU_BEAR_IC=0.0255, 3个连续阶段确认RELEASED_CONFIRMED",
+      "PB_BEAR_IC=0.0322, 20/20达标持续",
+      "float32 gate PASS (4.700e-08), 增量更新3.0x, Euler 110.0x"
+    ],
+    "p40_current": 1.9
   },
   "drift_overview": [
     {
@@ -373,7 +375,7 @@
   },
   "fr_risk_link": "FR-RISK-PG25-ICDRIFT-015",
   "data_ref": "ic_drift_timeseries.json",
-  "phase": null,
+  "phase": "P40",
   "scheme_d_status": "FROZEN_STEADY_STATE",
   "root_cause": {},
   "unblock": {
@@ -402,7 +404,7 @@
     "updated_at": "2026-10-12T14:49:49.123515",
     "data_source": "DSHA-P38"
   },
-  "drift_pct": 2.0,
-  "drift_trend_pp": -0.2,
-  "cumulative_days": 1085
+  "drift_pct": 1.9,
+  "drift_trend_pp": -0.1,
+  "cumulative_days": 1120
 }
