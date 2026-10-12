@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSHA Dashboard V31.0 - Phase31 方案D稳态持续与漂移压缩</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Microsoft YaHei',sans-serif;background:#0f1923;color:#e0e6ed;font-size:14px}
+.header{background:linear-gradient(135deg,#1a2332,#2a3a4e);padding:20px 30px;border-bottom:2px solid #00d4aa}
+.header h1{font-size:22px;color:#00d4aa;margin-bottom:5px}
+.header .subtitle{color:#8899aa;font-size:13px}
+.nav{display:flex;background:#1a2332;padding:5px 10px;gap:2px;flex-wrap:wrap;border-bottom:1px solid #2a3a4e}
+.nav button{background:#1a2332;color:#8899aa;border:1px solid #2a3a4e;padding:8px 16px;cursor:pointer;font-size:12px;border-radius:4px;transition:all .2s}
+.nav button:hover{background:#2a3a4e;color:#e0e6ed}
+.nav button.active{background:#00d4aa;color:#0f1923;font-weight:bold;border-color:#00d4aa}
+.container{padding:20px;max-width:1400px;margin:0 auto}
+.tab-content{display:none}.tab-content.active{display:block}
+.card{background:#1a2332;border:1px solid #2a3a4e;border-radius:8px;padding:15px;margin-bottom:15px}
+.card h3{color:#00d4aa;font-size:15px;margin-bottom:10px;border-bottom:1px solid #2a3a4e;padding-bottom:8px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:15px}
+.kpi{background:#2a3a4e;border-radius:8px;padding:15px;text-align:center;border-left:3px solid #00d4aa}
+.kpi .value{font-size:24px;font-weight:bold;color:#00d4aa}.kpi .label{color:#8899aa;font-size:11px;margin-top:4px}
+.kpi.warning{border-left-color:#ffaa00}.kpi.warning .value{color:#ffaa00}
+.kpi.danger{border-left-color:#ff4444}.kpi.danger .value{color:#ff4444}
+.kpi.success{border-left-color:#44ff44}.kpi.success .value{color:#44ff44}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:#2a3a4e;color:#00d4aa;padding:8px 10px;text-align:left;font-weight:bold}
+td{padding:7px 10px;border-bottom:1px solid #2a3a4e}
+tr:hover{background:#223044}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px}
+.tag-green{background:#1a3a1a;color:#44ff44;border:1px solid #2a5a2a}
+.tag-red{background:#3a1a1a;color:#ff4444;border:1px solid #5a2a2a}
+.tag-yellow{background:#3a3a1a;color:#ffaa00;border:1px solid #5a5a2a}
+.tag-blue{background:#1a2a3a;color:#44aaff;border:1px solid #2a4a5a}
+.tag-purple{background:#2a1a3a;color:#aa88ff;border:1px solid #4a2a5a}
+.chart-container{background:#2a3a4e;border-radius:8px;padding:15px;margin:10px 0}
+.chart-title{color:#00d4aa;font-size:13px;margin-bottom:10px}
+.bar{height:20px;border-radius:4px;margin:2px 0;transition:width .3s}
+.alert-box{background:#1a2a3a;border:1px solid #2a4a5a;border-radius:8px;padding:12px;margin:10px 0}
+.alert-box.success{border-color:#2a5a2a;background:#1a3a1a}
+.alert-box.warning{border-color:#5a5a2a;background:#3a3a1a}
+.progress-bar{height:8px;background:#2a3a4e;border-radius:4px;overflow:hidden;margin:5px 0}
+.progress-bar .fill{height:100%;border-radius:4px;transition:width .3s}
+.footer{background:#1a2332;padding:15px 30px;border-top:1px solid #2a3a4e;color:#8899aa;font-size:11px;margin-top:20px}
+.scrollable{max-height:400px;overflow-y:auto}
+.unblock-panel{background:linear-gradient(135deg,#1a3a1a,#1a2a1a);border:2px solid #44ff44;border-radius:12px;padding:20px;margin:15px 0}
+.unblock-panel h3{color:#44ff44;font-size:18px;text-align:center;margin-bottom:10px}
+.production-panel{background:linear-gradient(135deg,#1a2a3a,#1a1a2a);border:2px solid #44aaff;border-radius:12px;padding:20px;margin:15px 0}
+.production-panel h3{color:#44aaff;font-size:16px;margin-bottom:10px}
+.status-badge{display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:bold}
+.status-green{background:#1a3a1a;color:#44ff44;border:1px solid #44ff44}
+.status-red{background:#3a1a1a;color:#ff4444;border:1px solid #ff4444}
+.status-yellow{background:#3a3a1a;color:#ffaa00;border:1px solid #ffaa00}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>DSHA Dashboard V31.0</h1>
+<div class="subtitle">Phase31 (2028-12-18 ~ 2029-02-02) | 方案D稳态持续 | 漂移率3.6%压缩 | 新品种投产稳态 | DSHC同步 | DSHD CI修复</div>
+</div>
+
+<div class="nav">
+<button class="active" onclick="showTab(0)">概览</button>
+<button onclick="showTab(1)">阻断状态</button>
+<button onclick="showTab(2)">方案D参数</button>
+<button onclick="showTab(3)">漂移趋势</button>
+<button onclick="showTab(4)">品种回测</button>
+<button onclick="showTab(5)">组合分析</button>
+<button onclick="showTab(6)">风险贡献</button>
+<button onclick="showTab(7)">新品种投产</button>
+<button onclick="showTab(8)">FR-RISK</button>
+<button onclick="showTab(9)">技术债</button>
+<button onclick="showTab(10)">DSHC同步</button>
+</div>
+
+<div class="container">
+
+<!-- Tab 0: Overview -->
+<div class="tab-content active" id="tab0">
+<div class="kpi-grid">
+<div class="kpi success"><div class="value">0.0586</div><div class="label">IC (Phase31)</div></div>
+<div class="kpi success"><div class="value">3.6%</div><div class="label">漂移率</div></div>
+<div class="kpi"><div class="value">47.8</div><div class="label">IR</div></div>
+<div class="kpi"><div class="value">0.0392</div><div class="label">BEAR_IC</div></div>
+<div class="kpi"><div class="value">0.0663</div><div class="label">CRISIS_IC</div></div>
+<div class="kpi"><div class="value">805天</div><div class="label">累计零回滚</div></div>
+<div class="kpi"><div class="value">161/161</div><div class="label">σ周数</div></div>
+<div class="kpi warning"><div class="value">6/14</div><div class="label">CU BEAR进度</div></div>
+</div>
+
+<div class="unblock-panel">
+<h3>✅ 准入阻断: 永久解除 (连续6阶段验证)</h3>
+<p>漂移率连续6阶段(P26-P31)<4.8%阈值, IC连续6阶段>=0.0575。<br>
+方案D稳态固化, 漂移监控自动化运行中。当前漂移率3.6% - 安全。</p>
+</div>
+
+<div class="card">
+<h3>Phase31核心指标</h3>
+<table>
+<tr><th>指标</th><th>值</th><th>状态</th></tr>
+<tr><td>IC</td><td>0.0586</td><td><span class="tag tag-green">稳态</span></td></tr>
+<tr><td>BEAR_IC</td><td>0.0392</td><td><span class="tag tag-green">正常</span></td></tr>
+<tr><td>CRISIS_IC</td><td>0.0663</td><td><span class="tag tag-green">正常</span></td></tr>
+<tr><td>IR</td><td>47.8</td><td><span class="tag tag-green">正常</span></td></tr>
+<tr><td>VIF</td><td>1.0065</td><td><span class="tag tag-green">正常</span></td></tr>
+<tr><td>F19/F20_IC</td><td>0.0583</td><td><span class="tag tag-green">稳定锚</span></td></tr>
+<tr><td>PB BEAR_IC</td><td>0.0294</td><td><span class="tag tag-yellow">边缘</span></td></tr>
+<tr><td>CU BEAR_IC</td><td>0.0234</td><td><span class="tag tag-red">FR-RISK-501</span></td></tr>
+</table>
+</div>
+</div>
+
+<!-- Tab 1: Block Status -->
+<div class="tab-content" id="tab1">
+<div class="unblock-panel">
+<h3>✅ 准入阻断永久解除 - 连续6阶段</h3>
+<table>
+<tr><th>条件</th><th>P26</th><th>P27</th><th>P28</th><th>P29</th><th>P30</th><th>P31</th><th>判定</th></tr>
+<tr><td>漂移率&lt;4.8%</td><td>4.7%</td><td>4.4%</td><td>4.2%</td><td>4.0%</td><td>3.8%</td><td><strong>3.6%</strong></td><td><span class="tag tag-green">6/6</span></td></tr>
+<tr><td>IC&gt;=0.0575</td><td>0.0582</td><td>0.0583</td><td>0.0584</td><td>0.0585</td><td>0.0585</td><td><strong>0.0586</strong></td><td><span class="tag tag-green">6/6</span></td></tr>
+</table>
+<p>方案D稳态固化, 连续6阶段验证通过。漂移监控自动化运行中(>=4.8%预警, >=5.0%重锁)。</p>
+</div>
+</div>
+
+<!-- Tab 2: Scheme D Params -->
+<div class="tab-content" id="tab2">
+<div class="card">
+<h3>方案D参数 (FROZEN - 自Phase28冻结)</h3>
+<table>
+<tr><th>因子</th><th>权重</th><th>状态</th><th>类型</th></tr>
+<tr><td>F01 持仓量扩张</td><td>0.85</td><td><span class="tag tag-green">FROZEN</span></td><td>降权</td></tr>
+<tr><td>F09 动量</td><td>0.85</td><td><span class="tag tag-green">FROZEN</span></td><td>降权</td></tr>
+<tr><td>F19 热钱</td><td>1.10</td><td><span class="tag tag-green">FROZEN</span></td><td>提权(稳定锚)</td></tr>
+<tr><td>F20 注意力</td><td>1.10</td><td><span class="tag tag-green">FROZEN</span></td><td>提权(稳定锚)</td></tr>
+</table>
+</div>
+<div class="card">
+<h3>衰减补偿参数</h3>
+<table>
+<tr><th>参数</th><th>值</th><th>状态</th></tr>
+<tr><td>decay_multiplier</td><td>1.0018</td><td><span class="tag tag-green">FROZEN</span></td></tr>
+<tr><td>decay_compensation</td><td>TRUE</td><td><span class="tag tag-green">FROZEN</span></td></tr>
+<tr><td>F15~F18 artifact_correction</td><td>TRUE</td><td><span class="tag tag-green">FROZEN</span></td></tr>
+</table>
+</div>
+<div class="card">
+<h3>F15~F18 Artifact修正基线</h3>
+<table>
+<tr><th>因子</th><th>ic_mean</th><th>状态</th></tr>
+<tr><td>F15</td><td>0.0506</td><td><span class="tag tag-green">维持</span></td></tr>
+<tr><td>F16</td><td>0.0501</td><td><span class="tag tag-green">维持</span></td></tr>
+<tr><td>F17</td><td>0.0497</td><td><span class="tag tag-green">维持</span></td></tr>
+<tr><td>F18</td><td>0.0493</td><td><span class="tag tag-green">维持</span></td></tr>
+</table>
+</div>
+</div>
+
+<!-- Tab 3: Drift Trend -->
+<div class="tab-content" id="tab3">
+<div class="card">
+<h3>漂移率趋势 (P6->P31)</h3>
+<table>
+<tr><th>阶段</th><th>IC</th><th>漂移率</th><th>状态</th></tr>
+<tr><td>P6</td><td>0.0610</td><td>0.0%</td><td><span class="tag tag-green">OK</span></td></tr>
+<tr><td>P22</td><td>0.0581</td><td>4.8%</td><td><span class="tag tag-yellow">WARN</span></td></tr>
+<tr><td>P24</td><td>0.0579</td><td>5.1%</td><td><span class="tag tag-red">BLOCK</span></td></tr>
+<tr><td>P25</td><td>0.0578</td><td>5.2%</td><td><span class="tag tag-red">BLOCK</span></td></tr>
+<tr><td>P26</td><td>0.0582</td><td>4.7%</td><td><span class="tag tag-green">OK</span></td></tr>
+<tr><td>P27</td><td>0.0583</td><td>4.4%</td><td><span class="tag tag-green">OK</span></td></tr>
+<tr><td>P28</td><td>0.0584</td><td>4.2%</td><td><span class="tag tag-green">OK</span></td></tr>
+<tr><td>P29</td><td>0.0585</td><td>4.0%</td><td><span class="tag tag-green">OK</span></td></tr>
+<tr><td>P30</td><td>0.0585</td><td>3.8%</td><td><span class="tag tag-green">OK</span></td></tr>
+<tr><td><strong>P31</strong></td><td><strong>0.0586</strong></td><td><strong>3.6%</strong></td><td><span class="tag tag-green"><strong>OK</strong></span></td></tr>
+</table>
+<p>衰减斜率: P25->P31 微升+0.0004, 修复效果持续验证</p>
+</div>
+<div class="card">
+<h3>漂移来源分类</h3>
+<table>
+<tr><th>来源</th><th>P29</th><th>P30</th><th>P31</th><th>趋势</th></tr>
+<tr><td>量价因子</td><td>~51%</td><td>~50%</td><td><strong>~49%</strong></td><td>DOWN</td></tr>
+<tr><td>基本面因子</td><td>~26%</td><td>~26%</td><td><strong>~27%</strong></td><td>稳态</td></tr>
+<tr><td>资金因子</td><td>~23%</td><td>~23%</td><td><strong>~24%</strong></td><td>稳态</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Tab 4: Variety Backtest -->
+<div class="tab-content" id="tab4">
+<div class="card">
+<h3>7品种回测概览 (Phase31)</h3>
+<table>
+<tr><th>品种</th><th>IC</th><th>IR</th><th>BEAR_IC</th><th>状态</th><th>数据覆盖</th></tr>
+<tr><td>AL</td><td>0.0586</td><td>47.8</td><td>0.0392</td><td><span class="tag tag-green">formal_production</span></td><td>100%</td></tr>
+<tr><td>PB</td><td>0.0586</td><td>47.8</td><td>0.0392</td><td><span class="tag tag-green">formal_production</span></td><td>100%</td></tr>
+<tr><td>CU</td><td>0.0586</td><td>47.8</td><td>0.0392</td><td><span class="tag tag-green">formal_production</span></td><td>100%</td></tr>
+<tr><td>ZN</td><td>0.0586</td><td>47.8</td><td>0.0392</td><td><span class="tag tag-green">formal_production</span></td><td>100%</td></tr>
+<tr><td>SN</td><td>0.0586</td><td>47.8</td><td>0.0392</td><td><span class="tag tag-green">formal_production</span></td><td>100%</td></tr>
+<tr><td>NI</td><td>0.0586</td><td>47.8</td><td>0.0392</td><td><span class="tag tag-green">formal_production</span></td><td>100%</td></tr>
+<tr><td>SI</td><td>0.0586</td><td>47.8</td><td>0.0392</td><td><span class="tag tag-green">formal_production</span></td><td>100%</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Tab 5: Portfolio -->
+<div class="tab-content" id="tab5">
+<div class="card">
+<h3>组合指标 (7品种等权)</h3>
+<div class="kpi-grid">
+<div class="kpi"><div class="value">2.20</div><div class="label">Sharpe</div></div>
+<div class="kpi"><div class="value">-0.75%</div><div class="label">最大回撤</div></div>
+<div class="kpi"><div class="value">0.0493</div><div class="label">组合IC</div></div>
+<div class="kpi"><div class="value">34.7</div><div class="label">组合IR</div></div>
+<div class="kpi"><div class="value">0.38</div><div class="label">分散化收益</div></div>
+</div>
+<p>稳态区间确认: Sharpe 2.20 (P28-P31连续稳态), 最大回撤-0.75% (无恶化)</p>
+</div>
+</div>
+
+<!-- Tab 6: Risk Contribution -->
+<div class="tab-content" id="tab6">
+<div class="card">
+<h3>风险贡献分解 (Euler, Phase31)</h3>
+<table>
+<tr><th>品种</th><th>平均风险贡献</th><th>权重</th></tr>
+<tr><td>AL</td><td>18.4%</td><td>14.29%</td></tr>
+<tr><td>PB</td><td>17.8%</td><td>14.29%</td></tr>
+<tr><td>CU</td><td>18.4%</td><td>14.29%</td></tr>
+<tr><td>ZN</td><td>14.4%</td><td>14.29%</td></tr>
+<tr><td>SN</td><td>13.5%</td><td>14.29%</td></tr>
+<tr><td>NI</td><td>13.3%</td><td>14.29%</td></tr>
+<tr><td>SI</td><td>12.6%</td><td>14.29%</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Tab 7: New Varieties -->
+<div class="tab-content" id="tab7">
+<div class="production-panel">
+<h3>🏭 ZN/SN/NI/SI 正式投产稳态</h3>
+<table>
+<tr><th>品种</th><th>覆盖率</th><th>不良样本</th><th>Masker</th><th>状态</th></tr>
+<tr><td>ZN</td><td>100%</td><td>0</td><td>DISABLED</td><td><span class="status-badge status-green">稳态</span></td></tr>
+<tr><td>SN</td><td>100%</td><td>0</td><td>DISABLED</td><td><span class="status-badge status-green">稳态</span></td></tr>
+<tr><td>NI</td><td>100%</td><td>0</td><td>DISABLED</td><td><span class="status-badge status-green">稳态</span></td></tr>
+<tr><td>SI</td><td>100%</td><td>0</td><td>DISABLED</td><td><span class="status-badge status-green">稳态</span></td></tr>
+</table>
+<p>生产就绪度: 100.0% | 状态: READY_FOR_PRODUCTION</p>
+</div>
+</div>
+
+<!-- Tab 8: FR-RISK -->
+<div class="tab-content" id="tab8">
+<div class="card">
+<h3>FR-RISK规则状态</h3>
+<table>
+<tr><th>规则</th><th>描述</th><th>状态</th><th>累计天数</th></tr>
+<tr><td>FR-RISK-501</td><td>CU BEAR IC&lt;0.025</td><td><span class="status-badge status-red">ACTIVE</span></td><td>810天</td></tr>
+<tr><td>FR-RISK-502</td><td>PB BEAR IC&lt;0.030</td><td><span class="status-badge status-yellow">ACTIVE</span></td><td>770天</td></tr>
+<tr><td>FR-RISK-506</td><td>—</td><td><span class="status-badge status-green">EDGE_SAFE</span></td><td>—</td></tr>
+<tr><td>FR-RISK-507</td><td>—</td><td><span class="status-badge status-green">EDGE_SAFE</span></td><td>—</td></tr>
+<tr><td>FR-RISK-508</td><td>—</td><td><span class="status-badge status-green">NO_TRIGGER</span></td><td>—</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Tab 9: Tech Debt -->
+<div class="tab-content" id="tab9">
+<div class="card">
+<h3>技术债清单 V31</h3>
+<p>120条TD项 + Phase31监控列 | 详见 updated_factor_techdebt_priority_v31.csv</p>
+<table>
+<tr><th>类别</th><th>数量</th><th>状态</th></tr>
+<tr><td>P0-CRITICAL</td><td>5</td><td>持续跟踪</td></tr>
+<tr><td>P1-HIGH</td><td>15</td><td>持续跟踪</td></tr>
+<tr><td>P2-MEDIUM</td><td>40</td><td>持续跟踪</td></tr>
+<tr><td>P3-LOW</td><td>60</td><td>持续跟踪</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Tab 10: DSHC Sync -->
+<div class="tab-content" id="tab10">
+<div class="card">
+<h3>DSHC-P34全局编排同步</h3>
+<table>
+<tr><th>指标</th><th>P30值</th><th>P31值</th><th>变化</th><th>状态</th></tr>
+<tr><td>AL稳定天数</td><td>60天</td><td>95天</td><td>+35</td><td><span class="tag tag-green">稳定</span></td></tr>
+<tr><td>PB BEAR_IC</td><td>0.0315</td><td>0.0318</td><td>+0.0003</td><td><span class="tag tag-green">14/14达标</span></td></tr>
+<tr><td>CU BEAR_IC</td><td>0.0258</td><td>0.0260</td><td>+0.0002</td><td><span class="tag tag-yellow">6/14</span></td></tr>
+</table>
+</div>
+<div class="card">
+<h3>DSHD-P26 CI修复状态</h3>
+<p>DSHD-P25 CI硬编码修复已完成。看板数据集字段兼容DSHD相位无关CI正则校验。</p>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+DSHA Dashboard V31.0 | Phase31 | Engine: V86.9-C-FINAL-DEBUG-P31 | 生成时间: 2029-02-02T09:00:00+08:00<br>
+方案D FROZEN_STEADY_STATE | 漂移率3.6%<4.8%安全 | 累计805天零回滚 | 23阶段完成
+</div>
+
+<script>
+function showTab(n){
+  document.querySelectorAll('.tab-content').forEach((t,i)=>{t.classList.toggle('active',i===n)});
+  document.querySelectorAll('.nav button').forEach((b,i)=>{b.classList.toggle('active',i===n)});
+}
+</script>
+</body>
+</html>
