@@ -1200,3 +1200,30 @@ P25 残留数据修复：
 4. 重建 MD5 baseline
 5. Contents API 发布
 6. 全量巡检 + 交付物归档
+
+
+## V35.0 (P31) Deployment
+
+**Date**: 2026-10-12T04:35:23Z
+**Method**: GitHub Contents API
+**CI Run**: 38203912294 (success)
+
+### Files Deployed
+- 65 files in web_site/
+- Root docs (flags, reports, sync files)
+
+### Key Changes
+- P35 data integration (7 varieties, W120-W126)
+- Performance panel (parallel 2.19x, runtime 25.7% reduction)
+- CU progress bar (9/14 → 14/14)
+- Mobile responsive (768px/480px)
+- Error handling + loading indicators
+
+### Health Check
+- 32/32 HTTP 200 (100%)
+- Median latency: 561ms
+- P95 latency: 9026ms
+
+### Rollback
+- Previous version: V34.0 (P34 data)
+- Rollback file: index.html.bak_p24
