@@ -6,7 +6,7 @@
     "DSHD_phase": "P31",
     "DSHA_phase": "P35"
   },
-  "generated_at": "2026-10-12T04:11:27Z",
+  "generated_at": "2026-10-12T04:33:12Z",
   "phase": "DSHD-P31",
   "dashboard_version": "V35.0",
   "metrics": {
@@ -23,6 +23,22 @@
     "RUNTIME": 1.338,
     "PARALLEL_SPEEDUP": 2.19
   },
-  "health_status": "PRE_DEPLOYMENT",
-  "note": "Generated before deployment; will be updated post-deployment"
+  "health_status": "ONLINE",
+  "note": "V35.0 deployed via Contents API, CI passed, 2-round health check 32/32 HTTP 200",
+  "health_check": {
+    "date": "2026-10-12T04:33:12Z",
+    "rounds": 2,
+    "total_checks": 32,
+    "http_200": 32,
+    "errors": 0,
+    "success_rate": 100.0,
+    "latency_ms": {
+      "min": 165,
+      "max": 15212,
+      "median": 561,
+      "p95": 9026
+    },
+    "total_size_kb": 659.1015625,
+    "files_checked": 16
+  }
 }
