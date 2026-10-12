@@ -608,8 +608,8 @@
     "rollback_count": 0,
     "note": "31阶段×35天=1085天零回滚，方案D冻结后连续14阶段稳态"
   },
-  "version_tag": "P39",
-  "dataset_version": "1.14",
+  "version_tag": "P40",
+  "dataset_version": "1.15",
   "_dsd_metadata": {
     "dashboard_version": "V39.0",
     "phase": "DSHD-P35",
