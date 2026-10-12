@@ -1,9 +1,9 @@
 {
-  "version_tag": "P40",
-  "dataset_version": "1.15",
+  "version_tag": "P41",
+  "dataset_version": "1.16",
   "generated_at": "2026-10-12T14:13:21.129310+08:00",
   "phase": "Phase37",
-  "engine": "V86.9-C-FINAL-DEBUG-P37",
+  "engine": "V86.9-C-FINAL-DEBUG-P41",
   "overall_status": "PB_ADMITTED_CU_GATE_REACHED",
   "pb": {
     "bear_ic": 0.0322,
@@ -73,7 +73,7 @@
         "bear_ic": 0.0393
       }
     ],
-    "al_stable_days": 375,
+    "al_stable_days": 445,
     "fr_risk_days": 1055,
     "bear_ic_14day_count": 19
   },
@@ -161,16 +161,24 @@
   "summary": {
     "pb_bear_ic": 0.0322,
     "pb_count": 19,
-    "cu_bear_ic": 0.0253,
+    "cu_bear_ic": 0.0259,
     "cu_count": 10,
     "next_review": "P39",
-    "al_stable_days": 375,
+    "al_stable_days": 445,
     "cu_gate_status": "RELEASED_CONFIRMED"
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V39.0",
+    "dashboard_version": "V41.0",
     "updated_at": "2026-10-12T14:49:49.143514",
-    "data_source": "DSHA-P38"
+    "data_source": "DSHA-P38",
+    "phase": "DSHD-P37",
+    "source": "DSHA-P41",
+    "flags": [
+      "FR-RISK_CLOSED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
+    ]
   }
 }
