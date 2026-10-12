@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P33",
+  "dataset_version": "1.11",
+  "version_tag": "P36",
   "generated_at": "2026-10-12T10:37:04+08:00",
   "seed": 42,
   "description": "P33 version index - P18~P33 十六阶段版本索引 / V33.0",
@@ -342,7 +342,7 @@
       "phase_label": "DSHD-P31",
       "dataset_version": "1.10",
       "version_tag": "P35",
-      "status": "ACTIVE",
+      "status": "ARCHIVED",
       "date_range": "2029-07-01 ~ 2029-08-15",
       "trading_days": 35,
       "weeks": "W120-W126",
@@ -357,6 +357,62 @@
       "runtime": 1.338,
       "parallel_speedup": 2.19,
       "activated_at": "2026-10-12T04:11:27Z"
+    },
+    {
+      "version_tag": "P36",
+      "dataset_version": "1.11",
+      "phase": "Phase36",
+      "engine": "V86.9-C-FINAL-DEBUG-P36",
+      "date_range": {
+        "start": "2029-08-19",
+        "end": "2029-10-03",
+        "trading_days": 35
+      },
+      "weeks": [
+        "W127",
+        "W128",
+        "W129",
+        "W130",
+        "W131",
+        "W132",
+        "W133"
+      ],
+      "metrics": {
+        "IC": 0.0586,
+        "BEAR_IC": 0.0393,
+        "CRISIS_IC": 0.0664,
+        "IR": 47.9,
+        "VIF": 1.0065,
+        "F19_F20_IC": 0.0583,
+        "PB_BEAR_IC": 0.0322,
+        "CU_BEAR_IC": 0.0244,
+        "drift_pct": 2.6,
+        "cumulative_days": 980,
+        "sigma_weeks": 196,
+        "FR_RISK_501_days": 985,
+        "drift_alert_counter": 1799,
+        "F15_baseline": 0.0506,
+        "F16_baseline": 0.0501,
+        "F17_baseline": 0.0497,
+        "F18_baseline": 0.0493,
+        "drift_trend_pp": -0.2
+      },
+      "status": "ACTIVE",
+      "cumulative_days": 980,
+      "scheme_d_frozen": true,
+      "frozen_phases": 11,
+      "features": [
+        "Portfolio construction vectorization (151.4x)",
+        "Euler risk contribution decomposition",
+        "PB BEAR_IC 17/17 sustained",
+        "CU BEAR_IC improving"
+      ],
+      "performance": {
+        "parallel_speedup": "151.4x",
+        "runtime_seconds": 1.151,
+        "runtime_reduction_pct": 14.0,
+        "memory_mb": 21.3
+      }
     }
   ],
   "versions_by_tag": {
@@ -646,6 +702,6 @@
     "supersedes": "P32 version_index.json",
     "fix": "P33: PB双曲线切换控件, version_tag升级至P33, dataset_version升级至1.10"
   },
-  "active_version": "P35",
+  "active_version": "P36",
   "last_updated": "2026-10-12T04:11:27Z"
 }
