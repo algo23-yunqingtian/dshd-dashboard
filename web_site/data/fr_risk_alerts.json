@@ -251,5 +251,16 @@
     "dashboard_version": "V39.0",
     "updated_at": "2026-10-12T14:49:49.130515",
     "data_source": "DSHA-P38"
+  },
+  "cross_agent_sync": {
+    "fr_risk_501_status": "RELEASED_CONFIRMED",
+    "fr_risk_501_days": 1090,
+    "synced_to": [
+      "DSHC",
+      "DSHA",
+      "DSHD"
+    ],
+    "sync_version": "FR_RISK_STATUS_ENUM_V1",
+    "status_states": 7
   }
 }
