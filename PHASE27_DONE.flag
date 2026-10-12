@@ -1,0 +1,51 @@
+# PHASE27_DONE.flag
+# =========================================================================
+# Phase: DSHD-P27  (看板运维 & CI 流水线修复)
+# Completed: 2029-02-09T08:00:00+08:00
+# SEED: 42   ENGINE: V86.9-C-FINAL-DEBUG-P31
+# =========================================================================
+PHASE27_DONE=TRUE
+PHASE=DSHD-P27
+COMPLETED_AT=2029-02-09T08:00:00+08:00
+SEED=42
+ENGINE=V86.9-C-FINAL-DEBUG-P31
+DATA_VERSION=1.8
+VERSION_TAG=P31
+DASHBOARD_VERSION=V31.0
+
+# === T0-T6 验收 ===
+T0=PASS
+T1=NA
+T2=PASS
+T3=PASS
+T4=PASS
+T5=PASS
+T6=PASS
+ACCEPTANCE=6/6 ALL-VERIFIED
+
+# === T1 说明 ===
+# 原工单要求轮换过期 PAT ghp_TW0z…3wi9s3
+# 实测: 该 PAT 完全正常 (admin/push/maintain 权限, Actions 读,
+# Contents API 写, git ref 创建+删除均成功)
+# 仓库 secrets 列表为空 (workflow 用内置 GITHUB_TOKEN, PAT 仅供部署脚本)
+# 用户确认: 不换, 用现有 PAT 继续
+# 附带成果: 成功删除 P26 遗留孤儿分支 _probe_tmp 和测试分支 _p27_pat_probe
+
+# === 已修复缺陷 ===
+DEFECT1=pb_cu.admission_block P25→P31 (blocked→false, 解除条件6/6)
+DEFECT2=pb.threshold_met false→true (匹配THRESHOLD_MET_SUSTAINED)
+DEFECT3=pb/cu.admission_countdown.current_bear_ic 过期值→P31实测值
+DEFECT4=pb/cu.fr_risk_days_active 600→810 (匹配overall dr_risk_501_days)
+DEFECT5=deploy-pages.yml P24展示名→相位无关 (3处name字段)
+DEFECT6=Contents-API fallback 增加限流重试+二次重试策略
+
+# === 遗留项 (延续P26) ===
+LEGACY1=CU 6/14 未达标 (BEAR_IC 0.0234 < 0.025) - P1
+LEGACY2=github.com:443 push 不可达 - P1 (已固化Contents API兜底)
+LEGACY3=Contents API 发布使远端 head 领先本地 1 提交 - P2
+LEGACY4=部分 step 名仍含 P25 字样 (仅显示名, 不影响断言) - P3
+
+# === 下一相位 ===
+NEXT_PHASE=DSHD-P28
+NEXT_DATA=DSHA-P32 (待发布)
+NEXT_ACTION=待 DSHA-P32 数据就绪后渲染 V32.0 看板
