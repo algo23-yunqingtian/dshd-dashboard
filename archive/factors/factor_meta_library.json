@@ -1,0 +1,1318 @@
+{
+  "engine_version": "V86.9-C-FINAL-DEBUG",
+  "factor_library_version": "V86.9-C-FINAL-DEBUG",
+  "total_factors": 20,
+  "core_factor_count": 14,
+  "monitor_factor_count": 4,
+  "special_factor_count": 2,
+  "variety_count": 3,
+  "factors": {
+    "F01": {
+      "name_cn": "持仓量扩张因子",
+      "name_en": "OI Expansion Factor",
+      "category": "CORE",
+      "data_source": "TECHNICAL",
+      "description": "5日持仓量扩张率,衡量资金入场强度",
+      "weight": 1.0,
+      "ic_mean": 0.042,
+      "ir": 45.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F02": {
+      "name_cn": "量比因子",
+      "name_en": "Volume Ratio Factor",
+      "category": "CORE",
+      "data_source": "TECHNICAL",
+      "description": "5日均量/20日均量比率",
+      "weight": 1.0,
+      "ic_mean": 0.038,
+      "ir": 41.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F03": {
+      "name_cn": "振幅因子",
+      "name_en": "Amplitude Factor",
+      "category": "CORE",
+      "data_source": "TECHNICAL",
+      "description": "20日振幅归一化,衡量波动率状态",
+      "weight": 1.0,
+      "ic_mean": 0.035,
+      "ir": 38.5,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F04": {
+      "name_cn": "结算偏离因子",
+      "name_en": "Settle Spread Factor",
+      "category": "CORE",
+      "data_source": "TECHNICAL",
+      "description": "5日结算价偏离度",
+      "weight": 1.0,
+      "ic_mean": 0.033,
+      "ir": 35.9,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F05": {
+      "name_cn": "OBV斜率因子",
+      "name_en": "OBV Slope Factor",
+      "category": "CORE",
+      "data_source": "TECHNICAL",
+      "description": "5日OBV斜率,衡量量能方向",
+      "weight": 1.0,
+      "ic_mean": 0.031,
+      "ir": 33.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F06": {
+      "name_cn": "价格位置因子",
+      "name_en": "Price Position Factor",
+      "category": "CORE",
+      "data_source": "TECHNICAL",
+      "description": "20日价格区间位置百分比",
+      "weight": 0.5,
+      "ic_mean": 0.028,
+      "ir": 30.1,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F07": {
+      "name_cn": "动量因子",
+      "name_en": "Return Momentum Factor",
+      "category": "CORE",
+      "data_source": "TECHNICAL",
+      "description": "5日动量收益",
+      "weight": 0.5,
+      "ic_mean": 0.026,
+      "ir": 28.4,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F08": {
+      "name_cn": "资金动量因子",
+      "name_en": "OI-Price Momentum Factor",
+      "category": "MONITOR",
+      "data_source": "CAPITAL_FLOW",
+      "description": "持仓量与价格动量组合因子",
+      "weight": 1.0,
+      "ic_mean": 0.024,
+      "ir": 26.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F09": {
+      "name_cn": "量仓背离因子",
+      "name_en": "Vol-OI Divergence Factor",
+      "category": "MONITOR",
+      "data_source": "CAPITAL_FLOW",
+      "description": "成交量与持仓量背离信号",
+      "weight": 0.5,
+      "ic_mean": 0.021,
+      "ir": 22.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F10": {
+      "name_cn": "持仓集中度因子",
+      "name_en": "OI Concentration Factor",
+      "category": "CORE",
+      "data_source": "CAPITAL_FLOW",
+      "description": "20日持仓集中度,衡量主力合约分布",
+      "weight": 0.5,
+      "ic_mean": 0.023,
+      "ir": 25.1,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F11": {
+      "name_cn": "基本面恶化因子",
+      "name_en": "Fundamental Deterioration Factor",
+      "category": "MONITOR",
+      "data_source": "FUNDAMENTAL",
+      "description": "价格跌幅与持仓量萎缩组合过滤因子",
+      "weight": 1.0,
+      "ic_mean": 0.018,
+      "ir": 18.5,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F12": {
+      "name_cn": "流动性压力因子",
+      "name_en": "Liquidity Stress Factor",
+      "category": "MONITOR",
+      "data_source": "FUNDAMENTAL",
+      "description": "STRESS流动性压力指标",
+      "weight": 0.5,
+      "ic_mean": 0.015,
+      "ir": 15.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F13": {
+      "name_cn": "板块轮动因子",
+      "name_en": "Sector Rotation Factor",
+      "category": "CORE",
+      "data_source": "COMPOSITE",
+      "description": "有色板块相对强弱轮动因子",
+      "weight": 1.0,
+      "ic_mean": 0.036,
+      "ir": 39.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F14": {
+      "name_cn": "宏观传导因子",
+      "name_en": "Macro Capital Transmission Factor",
+      "category": "CORE",
+      "data_source": "FUNDAMENTAL",
+      "description": "宏观资金传导链因子",
+      "weight": 1.0,
+      "ic_mean": 0.032,
+      "ir": 36.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F15": {
+      "name_cn": "环境区制因子",
+      "name_en": "Environment Regime Factor",
+      "category": "CORE",
+      "data_source": "COMPOSITE",
+      "description": "多层市场环境区制判别因子",
+      "weight": 1.0,
+      "ic_mean": 0.03,
+      "ir": 34.1,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F16": {
+      "name_cn": "风险边界因子",
+      "name_en": "Risk Boundary Factor",
+      "category": "CORE",
+      "data_source": "COMPOSITE",
+      "description": "因子风险边界约束因子",
+      "weight": 1.0,
+      "ic_mean": 0.027,
+      "ir": 30.5,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F17": {
+      "name_cn": "漂移监控因子",
+      "name_en": "Drift Monitor Factor",
+      "category": "CORE",
+      "data_source": "COMPOSITE",
+      "description": "因子IC漂移预警因子",
+      "weight": 1.0,
+      "ic_mean": 0.025,
+      "ir": 28.9,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F18": {
+      "name_cn": "稳健性因子",
+      "name_en": "Robustness Factor",
+      "category": "CORE",
+      "data_source": "COMPOSITE",
+      "description": "稳健性检验综合因子",
+      "weight": 1.0,
+      "ic_mean": 0.022,
+      "ir": 25.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": [],
+        "constraint_id": null,
+        "description": "全区制无约束"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F19": {
+      "name_cn": "热钱因子",
+      "name_en": "Hot Money Factor",
+      "category": "SPECIAL",
+      "data_source": "CAPITAL_FLOW",
+      "description": "商品热钱抱团策略核心因子,监测主力资金异常流入",
+      "weight": 1.0,
+      "ic_mean": 0.061,
+      "ir": 48.81,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "TYPE_S",
+          "NORMAL",
+          "CRISIS"
+        ],
+        "disabled_regimes": [
+          "BEAR"
+        ],
+        "constraint_id": "TD-046",
+        "description": "F19热钱因子BEAR区制禁用 — CU/PB BEAR IC边缘"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    },
+    "F20": {
+      "name_cn": "注意力轮动因子",
+      "name_en": "Attention Rotation Factor",
+      "category": "SPECIAL",
+      "data_source": "SENTIMENT",
+      "description": "资金注意力轮动因子,监测市场关注焦点变化",
+      "weight": 1.0,
+      "ic_mean": 0.061,
+      "ir": 48.81,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "MIXED",
+          "CRISIS",
+          "NORMAL"
+        ],
+        "disabled_regimes": [
+          "BEAR"
+        ],
+        "constraint_id": "TD-046",
+        "description": "F20注意力轮动因子BEAR区制禁用 — CU/PB BEAR IC边缘"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15,
+          "risk_annotated": false
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15,
+          "risk_annotated": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2026-09-26",
+          "change": "Baseline factor introduction",
+          "ic_delta": 0.0
+        },
+        {
+          "version": "V86.8",
+          "date": "2026-09-28",
+          "change": "V868 enhancement — IC recalibration",
+          "ic_delta": 0.002
+        }
+      ]
+    }
+  },
+  "f19_f20_regime_constraints": {
+    "F19": {
+      "enabled_regimes": [
+        "TYPE_S",
+        "NORMAL",
+        "CRISIS"
+      ],
+      "disabled_regimes": [
+        "BEAR"
+      ],
+      "constraint_id": "TD-046",
+      "description": "F19热钱因子BEAR区制禁用 — CU/PB BEAR IC边缘"
+    },
+    "F20": {
+      "enabled_regimes": [
+        "MIXED",
+        "CRISIS",
+        "NORMAL"
+      ],
+      "disabled_regimes": [
+        "BEAR"
+      ],
+      "constraint_id": "TD-046",
+      "description": "F20注意力轮动因子BEAR区制禁用 — CU/PB BEAR IC边缘"
+    }
+  },
+  "variety_configs": {
+    "AL": {
+      "code": "AL",
+      "name_cn": "铝",
+      "status": "ACTIVE",
+      "baseline_position": 0.05,
+      "position_cap": 0.15,
+      "total_factors": 20,
+      "core_factor_list": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F10",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "monitor_factor_list": [
+        "F08",
+        "F09",
+        "F11",
+        "F12"
+      ],
+      "special_factor_list": [
+        "F19",
+        "F20"
+      ],
+      "risk_annotated": false,
+      "conditions": [],
+      "ic_mean": 0.0612,
+      "ir": 48.81,
+      "vif": 1.0059
+    },
+    "CU": {
+      "code": "CU",
+      "name_cn": "铜",
+      "status": "CONDITIONAL",
+      "baseline_position": 0.015,
+      "position_cap": 0.15,
+      "total_factors": 20,
+      "core_factor_list": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F10",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "monitor_factor_list": [
+        "F08",
+        "F09",
+        "F11",
+        "F12"
+      ],
+      "special_factor_list": [
+        "F19",
+        "F20"
+      ],
+      "risk_annotated": true,
+      "conditions": [
+        "CU_RISK_501: BEAR_IC<0.025_3DAYS",
+        "CU_RISK_RED_THRESHOLD: BEAR_IC<0.020_5DAYS"
+      ],
+      "ic_mean": 0.035,
+      "ir": 9.74,
+      "vif": 1.0067
+    },
+    "PB": {
+      "code": "PB",
+      "name_cn": "铅",
+      "status": "CONDITIONAL",
+      "baseline_position": 0.015,
+      "position_cap": 0.15,
+      "total_factors": 20,
+      "core_factor_list": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F10",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "monitor_factor_list": [
+        "F08",
+        "F09",
+        "F11",
+        "F12"
+      ],
+      "special_factor_list": [
+        "F19",
+        "F20"
+      ],
+      "risk_annotated": true,
+      "conditions": [
+        "PB_RISK: BEAR_IC<0.030_3DAYS",
+        "PB_RISK_RED_THRESHOLD: BEAR_IC<0.025_5DAYS"
+      ],
+      "ic_mean": 0.0431,
+      "ir": 16.95,
+      "vif": 1.0038
+    }
+  }
+}
