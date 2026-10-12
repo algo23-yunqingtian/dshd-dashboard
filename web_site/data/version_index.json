@@ -1,14 +1,14 @@
 {
-  "dataset_version": "1.8",
-  "version_tag": "P31",
-  "generated_at": "2026-10-12T01:30:00+08:00",
+  "dataset_version": "1.9",
+  "version_tag": "P32",
+  "generated_at": "2029-03-23T09:00:00+08:00",
   "seed": 42,
-  "description": "P31 version index - P18~P31 十四阶段版本索引 / V31.0",
-  "current_version": "P31",
-  "total_data_version": "1.8",
-  "phase_count": 31,
-  "total_versions": 14,
-  "version_range": "P18-P31",
+  "description": "P32 version index - P18~P32 十五阶段版本索引 / V32.0",
+  "current_version": "P32",
+  "total_data_version": "1.9",
+  "phase_count": 32,
+  "total_versions": 15,
+  "version_range": "P18-P32",
   "versions": [
     {
       "status": "ARCHIVED",
@@ -290,8 +290,29 @@
         "ZN"
       ],
       "shadow": [],
-      "status": "CURRENT",
+      "status": "ARCHIVED",
       "note": "P31 方案D 冻结稳态: 漂移率 3.6%, 阻断永久解除 6/6, 7品种正式投产"
+    },
+    {
+      "status": "ACTIVE",
+      "data_version": "1.9",
+      "version": "P32",
+      "phase": "Phase32",
+      "version_tag": "P32",
+      "ts": "2029-03-23T09:00:00+08:00",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB"
+      ],
+      "shadow": [
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "note": "P32: PB BEAR_IC=0.0319(14/14达标), CU BEAR_IC=0.0262(8/14改善), ZN/SN/NI/SI正式投产稳态"
     }
   ],
   "versions_by_tag": {
