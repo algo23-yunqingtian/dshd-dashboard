@@ -1,9 +1,9 @@
 {
-  "phase": "Phase37",
-  "engine": "V86.9-C-FINAL-DEBUG-P36",
+  "phase": "Phase38",
+  "engine": "V86.9-C-FINAL-DEBUG-P38",
   "date_range": {
-    "start": "2029-10-08",
-    "end": "2029-11-22"
+    "start": "2029-11-27",
+    "end": "2030-01-11"
   },
   "windows": [
     "20d",
@@ -713,38 +713,10 @@
     }
   },
   "scheme_d_frozen": true,
-  "version_tag": "P37",
-  "dataset_version": "1.12",
-  "rolling_correlation": {
-    "20d": {
-      "correlation_matrix": {},
-      "core_avg": 0,
-      "battery_avg": 0,
-      "cross_sector_avg": 0
-    },
-    "40d": {
-      "correlation_matrix": {},
-      "core_avg": 0,
-      "battery_avg": 0,
-      "cross_sector_avg": 0
-    },
-    "60d": {
-      "correlation_matrix": {},
-      "core_avg": 0,
-      "battery_avg": 0,
-      "cross_sector_avg": 0
-    },
-    "120d": {
-      "correlation_matrix": {},
-      "core_avg": 0,
-      "battery_avg": 0,
-      "cross_sector_avg": 0
-    },
-    "250d": {
-      "correlation_matrix": {},
-      "core_avg": 0,
-      "battery_avg": 0,
-      "cross_sector_avg": 0
-    }
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V38.0",
+    "updated_at": "2026-10-12T14:49:49.098514",
+    "data_source": "DSHA-P38"
   }
 }
