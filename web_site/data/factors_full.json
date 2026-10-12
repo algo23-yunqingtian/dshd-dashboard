@@ -1,11 +1,11 @@
 {
-  "phase": "Phase36",
+  "phase": "Phase37",
   "engine": "V86.9-C-FINAL-DEBUG-P36",
   "seed": 42,
   "rng": "mulberry32",
   "date_range": {
-    "start": "2029-08-19",
-    "end": "2029-10-03",
+    "start": "2029-10-08",
+    "end": "2029-11-22",
     "trading_days": 35
   },
   "weeks": [
@@ -405,6 +405,6 @@
     "rollback_count": 0,
     "note": "28阶段×35天=980天零回滚，方案D冻结后连续11阶段稳态"
   },
-  "version_tag": "P36",
-  "dataset_version": "1.11"
+  "version_tag": "P37",
+  "dataset_version": "1.12"
 }
