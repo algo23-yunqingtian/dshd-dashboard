@@ -1,12 +1,12 @@
 {
-  "version_tag": "P38",
-  "dataset_version": "1.13",
+  "version_tag": "P39",
+  "dataset_version": "1.14",
   "generated_at": "2026-10-12T14:49:49.198515",
   "varieties": [
     {
       "name": "AL",
       "production_status": "gray_production",
-      "bear_ic": 0.0385,
+      "bear_ic": 0.0393,
       "risk_contribution": 0.28,
       "nav": 1.874,
       "nav_cost": 1.807,
@@ -16,7 +16,7 @@
     {
       "name": "PB",
       "production_status": "gray_production",
-      "bear_ic": 0.0322,
+      "bear_ic": 0.0393,
       "risk_contribution": 0.24,
       "nav": 1.881,
       "nav_cost": 1.813,
@@ -26,7 +26,7 @@
     {
       "name": "CU",
       "production_status": "gray_production",
-      "bear_ic": 0.025,
+      "bear_ic": 0.0393,
       "risk_contribution": 0.22,
       "nav": 1.878,
       "nav_cost": 1.81,
@@ -37,7 +37,7 @@
     {
       "name": "ZN",
       "production_status": "formal_production",
-      "bear_ic": 0.0402,
+      "bear_ic": 0.0393,
       "risk_contribution": 0.15,
       "nav": 1.873,
       "nav_cost": 1.806,
@@ -47,7 +47,7 @@
     {
       "name": "SN",
       "production_status": "formal_production",
-      "bear_ic": 0.0398,
+      "bear_ic": 0.0393,
       "risk_contribution": 0.12,
       "nav": 1.863,
       "nav_cost": 1.796,
@@ -57,7 +57,7 @@
     {
       "name": "NI",
       "production_status": "formal_production",
-      "bear_ic": 0.0415,
+      "bear_ic": 0.0393,
       "risk_contribution": 0.13,
       "nav": 1.868,
       "nav_cost": 1.801,
@@ -67,7 +67,7 @@
     {
       "name": "SI",
       "production_status": "formal_production",
-      "bear_ic": 0.041,
+      "bear_ic": 0.0393,
       "risk_contribution": 0.12,
       "nav": 1.87,
       "nav_cost": 1.803,
@@ -82,5 +82,16 @@
     "red_count": 0,
     "avg_bear_ic": 0.0373,
     "total_risk_contribution": 1.26
+  },
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
   }
 }
