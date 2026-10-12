@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.13",
-  "version_tag": "P38",
+  "dataset_version": "1.14",
+  "version_tag": "P39",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG-P31",
@@ -725,5 +725,16 @@
     "DSHD_version": "V35.0",
     "DSHD_phase": "P31",
     "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
   }
 }
