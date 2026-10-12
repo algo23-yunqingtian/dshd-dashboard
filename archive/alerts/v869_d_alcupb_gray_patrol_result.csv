@@ -1,0 +1,75 @@
+patrol_no,check_class,item,status,detail,fixed_slot,seed,record_md5
+P1-0001,BASELINE_TAMPER,CHAIN-001-REPAIRED-1,PASS,4/4 match,2026-10-10T04:30:00+08:00,42,973814e0da4ea930eff8d1e50b1f9811
+P1-0001,BASELINE_TAMPER,CHAIN-001:acd_v867df_full_run_result.csv,PASS,expected=bbf887d0 actual=bbf887d0,2026-10-10T04:30:00+08:00,42,ede43e6f6af4d6c377e9d945fa37788b
+P1-0001,BASELINE_TAMPER,CHAIN-001:acd_v867df_24exec_diff_verify.csv,PASS,expected=3156d823 actual=3156d823,2026-10-10T04:30:00+08:00,42,7bbcb8178c38ca9a86508b3038cdf9d1
+P1-0001,BASELINE_TAMPER,CHAIN-001:acd_v867df_delivery_manifest.md5,PASS,expected=1df98028 actual=1df98028,2026-10-10T04:30:00+08:00,42,61a0910044278701596c6edc025136f5
+P1-0001,BASELINE_TAMPER,CHAIN-001:JOB_READY.flag,PASS,expected=c359ab98 actual=c359ab98,2026-10-10T04:30:00+08:00,42,04ae3ca75a18eeca14b1f20c11c2caae
+P1-0001,MTIME,ZN_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,1e999fd14885627372426d691a43a57f
+P1-0001,MTIME,NI_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,10957faa69d15037a22b73cd934c2fae
+P1-0001,MTIME,SN_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,445b8d4c0709896a636698e05aa5d823
+P1-0001,MTIME,SI_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,283785a8081f9b0dac555a788bb043c7
+P1-0001,MTIME,CHAIN_REPAIR,PASS,"scanned files=5 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,b6d4ae60422c058d88d8d7423fda89f5
+P1-0001,PERMISSION,ZN:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,689ebbcb3ff826e9e17fbaf53976347a
+P1-0001,PERMISSION,NI:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,def5492659666e1d36688fb5bb0382bc
+P1-0001,PERMISSION,SN:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,dd48d7b5fc7894f034e031848601fe35
+P1-0001,PERMISSION,SI:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,ff6dece096a196fb1645d7a83e68d51c
+P1-0001,PERMISSION,ZN_RO:READONLY,PASS,ro=8/8,2026-10-10T04:30:00+08:00,42,3d84bda75db368e3adb9a1fd27446c12
+P1-0001,CREATE_PROBE,9_TREES_SUMMARY,PASS,trees=9 residual_total=0 (0 残留 required),2026-10-10T04:30:00+08:00,42,6ddf3782228168fd2735216d2983e19f
+P1-0001,CREATE_PROBE,v869_d_al_snapshot,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,73f2a50a9067a5c40921752c362d9a5f
+P1-0001,CREATE_PROBE,v869_d_al_snapshot_ro_backup,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,4cb4ba9f3c06f3c4f4daf73757806405
+P1-0001,CREATE_PROBE,v869_al_release_delivery,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,e796fbdcda164ca6a05876e1fe72cc5c
+P1-0001,CREATE_PROBE,v869_d_cu_snapshot,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,8e9a35230670f4b2dd026e5484ca503a
+P1-0001,CREATE_PROBE,v869_d_cu_snapshot_ro_backup,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,19600cc4c4473a64af3927378a6357bc
+P1-0001,CREATE_PROBE,v869_cu_release_delivery,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,83991f4255420bf674125d6117df7c32
+P1-0001,CREATE_PROBE,v869_d_pb_snapshot,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,f28f326bb2be7effa8b9437f555855a5
+P1-0001,CREATE_PROBE,v869_d_pb_snapshot_ro_backup,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,2f7ad6ef817d155daeb23143be13d61e
+P1-0001,CREATE_PROBE,v869_pb_release_delivery,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,030807b1d0a416519a2c8ba79552f63e
+P1-0001,POSITION_VERIFY,AL:REAL,PASS,overall=PASS rc=0 (gray OK sample),2026-10-10T04:30:00+08:00,42,6e3d7368f5a166fcaca602c7f1604076
+P1-0001,POSITION_VERIFY,CU:REAL,PASS,overall=PASS rc=0 (gray OK sample),2026-10-10T04:30:00+08:00,42,abd792117a175563d34e5b08579ff8bf
+P1-0001,POSITION_VERIFY,PB:REAL,PASS,overall=PASS rc=0 (gray OK sample),2026-10-10T04:30:00+08:00,42,fc6c92554be22f6e18a48c7c50ddc36f
+P1-0001,DIFF_BINDING,RISK_CODE_27,PASS,C 实表数据行=27 (恒 27: DRI-011/ALIGN-012/SCHED-004),2026-10-10T04:30:00+08:00,42,e352db76cd192cda47b4611a94afa233
+P1-0001,DIFF_BINDING,A_SYN_MAPPING,PASS,A-SYN 映射行=39 (FR-RISK 20 + TD 19),2026-10-10T04:30:00+08:00,42,ec33f592e1b937961b3bf73db1334543
+P1-0001,DIFF_BINDING,K11,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,a987a95c0a69bfb930ee0cb199bf8d30
+P1-0001,DIFF_BINDING,K12,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,b247a3820dd44d327add8e54a3a8284d
+P1-0001,DIFF_BINDING,25vs27,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,d23b3d18618725c4e815c4c8129fbd9a
+P1-0001,DIFF_BINDING,A_RATING,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,06151e02b53ef9bba555ebd24260cba4
+P1-0001,DIFF_BINDING,C_DEV,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,1cb3133c2b33d178b77cea8dea64fa13
+P1-0001,DIFF_BINDING,PNL,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,359e8b57636e61606387b390b0848bae
+P1-0001,DIFF_BINDING,CHAIN_001,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,092043003356907be2d455c0e2355bec
+P1-0002,BASELINE_TAMPER,CHAIN-001-REPAIRED-1,PASS,4/4 match,2026-10-10T04:30:00+08:00,42,804d38c99068fae0d6d99a68f5186992
+P1-0002,BASELINE_TAMPER,CHAIN-001:acd_v867df_full_run_result.csv,PASS,expected=bbf887d0 actual=bbf887d0,2026-10-10T04:30:00+08:00,42,079ad3c4124af04c7a06c940a1769c02
+P1-0002,BASELINE_TAMPER,CHAIN-001:acd_v867df_24exec_diff_verify.csv,PASS,expected=3156d823 actual=3156d823,2026-10-10T04:30:00+08:00,42,12d0c07e45b544ba9114dfaa9945c280
+P1-0002,BASELINE_TAMPER,CHAIN-001:acd_v867df_delivery_manifest.md5,PASS,expected=1df98028 actual=1df98028,2026-10-10T04:30:00+08:00,42,4aa1ccca7efa5bb5dc1ac0e1651e4fa8
+P1-0002,BASELINE_TAMPER,CHAIN-001:JOB_READY.flag,PASS,expected=c359ab98 actual=c359ab98,2026-10-10T04:30:00+08:00,42,0c2fb6479e2f7038dcbc71f351bd7c63
+P1-0002,MTIME,ZN_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,dbf32166f58730887120b0b152a7ed04
+P1-0002,MTIME,NI_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,5a62c0b1c999f989a1cd95efe25b77b8
+P1-0002,MTIME,SN_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,2cfd73dbe2b0f925c39569a74f042cac
+P1-0002,MTIME,SI_RO,PASS,"scanned files=8 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,8db3eccaf6a676153f6e0393200d0f93
+P1-0002,MTIME,CHAIN_REPAIR,PASS,"scanned files=5 (slot mtime discipline, byte-compare authoritative)",2026-10-10T04:30:00+08:00,42,99623d129818abb7f62beb3af19bdd6b
+P1-0002,PERMISSION,ZN:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,19d9754cbf4dcc988e0af1bf0248bd52
+P1-0002,PERMISSION,NI:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,168d11c12cd1812e6e93ec0e177da65e
+P1-0002,PERMISSION,SN:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,3ba0f6646ef11d7ec4866a0b9f286679
+P1-0002,PERMISSION,SI:LOCK,PASS,locked=True no_overwrite=True,2026-10-10T04:30:00+08:00,42,24ea042ec7cd52cd4e0c48d9daf07c49
+P1-0002,PERMISSION,ZN_RO:READONLY,PASS,ro=8/8,2026-10-10T04:30:00+08:00,42,631da17e502767c92c7e1d9f0be8f546
+P1-0002,CREATE_PROBE,9_TREES_SUMMARY,PASS,trees=9 residual_total=0 (0 残留 required),2026-10-10T04:30:00+08:00,42,33957ee41c7abe08dd4cf3484add0e1e
+P1-0002,CREATE_PROBE,v869_d_al_snapshot,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,8a3fe0f0a2d31f0b773ec877c36519bf
+P1-0002,CREATE_PROBE,v869_d_al_snapshot_ro_backup,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,02b0b2178db56ef8e27b55f7441ca1e0
+P1-0002,CREATE_PROBE,v869_al_release_delivery,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,9ba0b5afbd23a780cabae73a1b9ae597
+P1-0002,CREATE_PROBE,v869_d_cu_snapshot,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,4157ce756b1367283796cf4972c40076
+P1-0002,CREATE_PROBE,v869_d_cu_snapshot_ro_backup,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,e8106871cd787a662792c08bba93a045
+P1-0002,CREATE_PROBE,v869_cu_release_delivery,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,236cd69fd0735e5e3dbb91a9bfaa6bea
+P1-0002,CREATE_PROBE,v869_d_pb_snapshot,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,09657b9c7ec77a4041a1bb235fe04efb
+P1-0002,CREATE_PROBE,v869_d_pb_snapshot_ro_backup,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,4c5792411a7a651fb76f28eb2b9fd6b5
+P1-0002,CREATE_PROBE,v869_pb_release_delivery,PASS,create=True delete=True residual=0,2026-10-10T04:30:00+08:00,42,f9cd1083a1d089fb506611728e7eaa1f
+P1-0002,POSITION_VERIFY,AL:REAL,PASS,overall=PASS rc=0 (gray OK sample),2026-10-10T04:30:00+08:00,42,5bec6a0b39c18bb7388d8594f7186ff6
+P1-0002,POSITION_VERIFY,CU:REAL,PASS,overall=PASS rc=0 (gray OK sample),2026-10-10T04:30:00+08:00,42,e211a52ef81f6e7fcc28700f96744604
+P1-0002,POSITION_VERIFY,PB:REAL,PASS,overall=PASS rc=0 (gray OK sample),2026-10-10T04:30:00+08:00,42,a9fa3b4c485b0464e67cedda99fa12a8
+P1-0002,DIFF_BINDING,RISK_CODE_27,PASS,C 实表数据行=27 (恒 27: DRI-011/ALIGN-012/SCHED-004),2026-10-10T04:30:00+08:00,42,2f2881a8c708ec9d30a7c49e1c1b82e6
+P1-0002,DIFF_BINDING,A_SYN_MAPPING,PASS,A-SYN 映射行=39 (FR-RISK 20 + TD 19),2026-10-10T04:30:00+08:00,42,21807ab52165866d20a1120ce67ab16f
+P1-0002,DIFF_BINDING,K11,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,f42b63247432ea346a3f7bea3da834ea
+P1-0002,DIFF_BINDING,K12,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,86173956b28137cf383aa4116881de6d
+P1-0002,DIFF_BINDING,25vs27,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,027fb5f4de054d9012933ab9fb86a3bb
+P1-0002,DIFF_BINDING,A_RATING,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,d53ee1f794199911468f48fb6c5290f2
+P1-0002,DIFF_BINDING,C_DEV,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,a4de242b31f9d15f954802db5564b20a
+P1-0002,DIFF_BINDING,PNL,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,686bf9b5e747ae8d56ab16f591fdf2e2
+P1-0002,DIFF_BINDING,CHAIN_001,PASS,bound (baseline/threshold/alarm-id registered),2026-10-10T04:30:00+08:00,42,51f5d3bb4db73e24c608e544a6408aca
