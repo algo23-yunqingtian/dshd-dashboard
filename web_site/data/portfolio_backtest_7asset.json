@@ -1,19 +1,19 @@
 {
-  "phase": "Phase37",
-  "engine": "V86.9-C-FINAL-DEBUG-P36",
+  "phase": "Phase38",
+  "engine": "V86.9-C-FINAL-DEBUG-P38",
   "date_range": {
-    "start": "2029-10-08",
-    "end": "2029-11-22",
+    "start": "2029-11-27",
+    "end": "2030-01-11",
     "trading_days": 35
   },
   "weeks": [
-    "W127",
-    "W128",
-    "W129",
-    "W130",
-    "W131",
-    "W132",
-    "W133"
+    "W141",
+    "W142",
+    "W143",
+    "W144",
+    "W145",
+    "W146",
+    "W147"
   ],
   "scheme_d_frozen": true,
   "scheme_d_params": {
@@ -24,21 +24,21 @@
     "decay_comp": 1.0018,
     "F15~F18_correction": "artifact",
     "frozen_since": "P28",
-    "frozen_phases": 11,
+    "frozen_phases": 13,
     "status": "FROZEN_STEADY_STATE"
   },
   "drift_monitoring": {
     "active": true,
     "warn_threshold_pct": 4.8,
     "relock_threshold_pct": 5.0,
-    "current_drift_pct": 2.6,
+    "current_drift_pct": 2.2,
     "status": "STABLE_STEADY_STATE",
-    "consecutive_phases": 11
+    "consecutive_phases": 13
   },
   "dual_backtest_results": {
     "no_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P36-NO-COST",
-      "nav": 1.864,
+      "version": "V86.9-C-FINAL-DEBUG-P38-NO-COST",
+      "nav": 1.872,
       "sharpe": 2.2,
       "max_drawdown_pct": -0.75,
       "win_rate_pct": 83,
@@ -49,8 +49,8 @@
       "cost_per_round_trip_pct": 0.0
     },
     "with_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P36-WITH-COST",
-      "nav": 1.797,
+      "version": "V86.9-C-FINAL-DEBUG-P38-WITH-COST",
+      "nav": 1.805,
       "sharpe": 2.05,
       "max_drawdown_pct": -0.92,
       "win_rate_pct": 78,
@@ -80,8 +80,8 @@
     "portfolio_ic": 0.0493,
     "portfolio_ir": 34.7,
     "portfolio_sharpe": 2.2,
-    "portfolio_nav_no_cost": 1.864,
-    "portfolio_nav_with_cost": 1.797,
+    "portfolio_nav_no_cost": 1.872,
+    "portfolio_nav_with_cost": 1.805,
     "portfolio_max_dd_no_cost": -0.75,
     "portfolio_max_dd_with_cost": -0.92,
     "var_95_pct": -1.23,
@@ -161,20 +161,21 @@
   "admission_block": {
     "drift_below_4_8": true,
     "IC_above_0_0575": true,
-    "consecutive_phases": 11,
+    "consecutive_phases": 13,
     "status": "PERMANENTLY_LIFTED"
   },
   "fr_risk_rules": {
     "FR-RISK-501": {
       "condition": "CU BEAR_IC<0.025",
-      "status": "CONTINUED",
-      "days": 985,
-      "severity": "LOW"
+      "status": "RELEASED_UNCONFIRMED",
+      "days": 1055,
+      "severity": "LOW",
+      "release_note": "P38 CU_BEAR_IC>=0.025, released after 1055 cumulative days, pending 2-phase confirmation"
     },
     "FR-RISK-502": {
       "condition": "PB BEAR_IC<0.030",
       "status": "CONTINUED",
-      "days": 910,
+      "days": 980,
       "severity": "LOW"
     },
     "FR-RISK-503": {
@@ -234,64 +235,147 @@
     "conclusion": "零成本假设使NAV高估约3.6%；已提供双版本回测供对照"
   },
   "performance_evaluation": {
-    "phase35_pipeline_seconds": 1.338,
-    "phase36_pipeline_model_seconds": 1.151,
-    "runtime_delta_pct_vs_p35": 14.0,
-    "runtime_delta_pct_vs_p34": 36.1,
-    "portfolio_module_p35_seconds": 0.28,
-    "portfolio_module_p36_projected_seconds": 0.093,
-    "portfolio_vectorization_speedup_used": 3.0,
-    "portfolio_vectorization_raw_speedup": 151.4,
-    "portfolio_vectorization_consistent": true,
-    "portfolio_consistency_max_dev": 0.0,
+    "phase37_pipeline_model_seconds": 1.031,
+    "phase38_pipeline_model_seconds": 0.984,
+    "runtime_model_breakdown_p38": {
+      "factor_generation": 0.12,
+      "backtest_parallel_7variety": 0.388,
+      "portfolio_construction": 0.0926,
+      "rolling_correlation": 0.223,
+      "risk_contribution": 0.06,
+      "logging_docs": 0.1
+    },
+    "runtime_delta_pct_vs_p37": 4.6,
+    "runtime_delta_pct_vs_p36": 14.5,
+    "mixed_precision_float32": {
+      "tolerance": 1e-06,
+      "gate": "PASS",
+      "global_max_deviation": 3.958241118207084e-08,
+      "adopted_modules": [
+        "euler_risk_contribution",
+        "portfolio_weights"
+      ],
+      "rejected_modules_retained_float64": [
+        "rolling_correlation"
+      ],
+      "per_module": {
+        "euler_risk_contribution": {
+          "module": "风险模块: Euler风险贡献分解",
+          "float64_seconds": 0.00028,
+          "float32_seconds": 0.000877,
+          "measured_speedup": 0.319,
+          "speedup_used": 1.0,
+          "max_abs_deviation": 5.2231708333461135e-09,
+          "tolerance": 1e-06,
+          "verdict": "ADOPT_FLOAT32",
+          "adopted": true
+        },
+        "portfolio_weights": {
+          "module": "因子计算模块: 组合权重构建(alloc+boundary)",
+          "float64_seconds": 0.005974,
+          "float32_seconds": 0.005876,
+          "measured_speedup": 1.017,
+          "speedup_used": 1.017,
+          "max_abs_deviation": 3.958241118207084e-08,
+          "tolerance": 1e-06,
+          "verdict": "ADOPT_FLOAT32",
+          "adopted": true
+        },
+        "rolling_correlation": {
+          "module": "时序模块: 滚动相关性(候选评估)",
+          "float64_seconds": 0.00412,
+          "float32_seconds": 0.003638,
+          "measured_speedup": 1.132,
+          "speedup_used": 1.132,
+          "max_abs_deviation": 3.476925222045679e-05,
+          "tolerance": 1e-06,
+          "verdict": "REJECT_RETAIN_FLOAT64",
+          "adopted": false
+        }
+      },
+      "negative_rc_validated": true
+    },
+    "incremental_update": {
+      "measured_speedup": 1.99,
+      "speedup_used": 1.99,
+      "full_seconds": 0.002481,
+      "incremental_seconds": 0.001246,
+      "max_abs_deviation": 1.892930256985892e-14,
+      "cached_prefix_days": 1015,
+      "new_slice_days": 35,
+      "historical_share_pct": 96.7
+    },
+    "runtime_delta_pct_vs_p35": 26.5,
+    "runtime_delta_pct_vs_p34": 45.3,
+    "risk_module_p37_seconds": 0.06,
+    "risk_module_p38_projected_seconds": 0.06,
+    "euler_vectorization_speedup_used": 114.4,
+    "euler_vectorization_raw_speedup": 114.4,
+    "euler_vectorization_consistent": true,
+    "euler_consistency_max_dev": 1.3877787807814457e-17,
+    "portfolio_module_p36_seconds": 0.093,
+    "portfolio_vectorization_retained": true,
     "parallel_backend": "process",
-    "backtest_parallel_wall_seconds": 1.147,
-    "backtest_worker_sum_seconds": 0.062,
+    "backtest_parallel_wall_seconds": 1.166,
+    "backtest_worker_sum_seconds": 0.04,
     "dual_layer_bench": {
-      "serial_wall_seconds": 3.5029,
-      "serial_sum_worker_seconds": 3.5019,
-      "parallel_wall_seconds": 2.4099,
-      "speedup_vs_serial_wall": 1.45,
+      "serial_wall_seconds": 3.8562,
+      "serial_sum_worker_seconds": 3.8551,
+      "parallel_wall_seconds": 1.9827,
+      "speedup_vs_serial_wall": 1.94,
       "backend": "process",
       "all_consistency_ok": true,
+      "all_boundary_ok": true,
       "per_variety": {
-        "AL": 0.8629,
-        "PB": 0.8531,
-        "CU": 0.8486,
-        "ZN": 0.8318,
-        "SN": 0.8155,
-        "NI": 0.8083,
-        "SI": 0.7663
+        "AL": 0.7128,
+        "PB": 0.6666,
+        "CU": 0.6525,
+        "ZN": 0.6977,
+        "SN": 0.6698,
+        "NI": 0.6739,
+        "SI": 0.6406
       },
       "max_dev_per_variety": {
-        "AL": 0.0,
-        "PB": 0.0,
-        "CU": 0.0,
-        "ZN": 0.0,
-        "SN": 0.0,
-        "NI": 0.0,
-        "SI": 0.0
+        "AL": 1.734723475976807e-18,
+        "PB": 6.938893903907228e-18,
+        "CU": 5.204170427930421e-18,
+        "ZN": 3.469446951953614e-18,
+        "SN": 3.469446951953614e-18,
+        "NI": 1.734723475976807e-18,
+        "SI": 2.6020852139652106e-18
+      },
+      "euler_max_dev_per_variety": {
+        "AL": 1.734723475976807e-18,
+        "PB": 6.938893903907228e-18,
+        "CU": 5.204170427930421e-18,
+        "ZN": 3.469446951953614e-18,
+        "SN": 3.469446951953614e-18,
+        "NI": 1.734723475976807e-18,
+        "SI": 2.6020852139652106e-18
       }
     },
     "optimizations_applied": [
-      "vectorized_rolling_correlation",
+      "vectorized_rolling_correlation (P34)",
       "precomputed_weight_matrix",
       "intermediate_caching",
       "incremental_window_update",
-      "parallel_7variant_backtest_scheduler",
-      "portfolio_construction_vectorized (alloc/boundary/rebalance)"
+      "parallel_7variant_backtest_scheduler (P35)",
+      "portfolio_construction_vectorized (P36)",
+      "euler_risk_contribution_vectorized (P37)",
+      "mixed_precision_float32_dual_branch (P38)",
+      "incremental_tail_slice_update (P38)"
     ]
   },
   "cross_agent": {
     "DSHC": {
-      "phase": "P42",
+      "phase": "P48",
       "data_loaded": true,
-      "AL_stable_days": 270,
+      "AL_stable_days": 340,
       "PB_BEAR_IC": 0.0322,
-      "CU_BEAR_IC": 0.0244
+      "CU_BEAR_IC": 0.025
     },
     "DSHD": {
-      "version": "V36.0",
+      "version": "V38.0",
       "ready": true
     }
   },
@@ -338,13 +422,50 @@
     "cumulative_days": 980,
     "sigma_weeks": 196,
     "FR_RISK_501_days": 985,
-    "drift_alert_counter": 1799,
-    "F15_baseline": 0.0506,
-    "F16_baseline": 0.0501,
-    "F17_baseline": 0.0497,
-    "F18_baseline": 0.0493,
-    "drift_trend_pp": -0.2
+    "drift_alert_counter": 1799
   },
-  "version_tag": "P37",
-  "dataset_version": "1.12"
+  "phase37_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0322,
+    "CU_BEAR_IC": 0.0247,
+    "drift_pct": 2.4,
+    "cumulative_days": 1015,
+    "sigma_weeks": 203,
+    "FR_RISK_501_days": 1020,
+    "drift_alert_counter": 1834
+  },
+  "phase38_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0322,
+    "CU_BEAR_IC": 0.025,
+    "drift_pct": 2.2,
+    "cumulative_days": 1050,
+    "sigma_weeks": 210,
+    "FR_RISK_501_days": 1055,
+    "drift_alert_counter": 1869,
+    "F15_baseline": 0.0502,
+    "F16_baseline": 0.0497,
+    "F17_baseline": 0.0493,
+    "F18_baseline": 0.0489,
+    "drift_trend_pp": -0.2,
+    "AL_STABLE_DAYS": 340,
+    "FR_RISK_502_days": 980,
+    "CU_GATE_STATUS": "RELEASED_UNCONFIRMED"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V38.0",
+    "updated_at": "2026-10-12T14:49:49.084514",
+    "data_source": "DSHA-P38"
+  }
 }
