@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.13",
-  "version_tag": "P38",
+  "dataset_version": "1.14",
+  "version_tag": "P39",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 data completion status - M1~M8 ALL COMPLETED / V31.0",
@@ -105,13 +105,13 @@
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V38.0",
+    "dashboard_version": "V39.0",
     "updated_at": "2026-10-12T14:49:49.114515",
     "data_source": "DSHA-P38"
   },
-  "cumulative_days": 1050,
-  "drift_pct": 2.2,
-  "frozen_phases": 13,
+  "cumulative_days": 1085,
+  "drift_pct": 2.0,
+  "frozen_phases": 14,
   "ic": 0.0586,
   "bear_ic": 0.0393,
   "crisis_ic": 0.0664,
