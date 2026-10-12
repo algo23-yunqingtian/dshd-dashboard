@@ -1,0 +1,113 @@
+{
+  "phase": "Phase34",
+  "engine": "V86.9-C-FINAL-DEBUG-P34",
+  "asset": "ZN",
+  "date_range": {
+    "start": "2029-05-14",
+    "end": "2029-06-28",
+    "trading_days": 35
+  },
+  "weeks": [
+    "W113",
+    "W114",
+    "W115",
+    "W116",
+    "W117",
+    "W118",
+    "W119"
+  ],
+  "scheme_d_frozen": true,
+  "production_status": "formal_production",
+  "factor_coverage_pct": 100.0,
+  "bad_samples": 0,
+  "data_quality": "EXCELLENT",
+  "metrics": {
+    "IC": 0.0587,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0062,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0393,
+    "CU_BEAR_IC": 0.0393,
+    "drift_pct": 3.0
+  },
+  "backtest_results": {
+    "no_cost": {
+      "nav": 1.86,
+      "sharpe": 2.2,
+      "max_drawdown_pct": -0.75,
+      "total_trades": 12,
+      "win_trades": 9,
+      "win_rate_pct": 75.0,
+      "avg_trade_return_pct": 9.53,
+      "profit_factor": 3.45
+    },
+    "with_cost": {
+      "nav": 1.793,
+      "sharpe": 2.05,
+      "max_drawdown_pct": -0.92,
+      "total_trades": 12,
+      "win_trades": 8,
+      "win_rate_pct": 70.0,
+      "avg_trade_return_pct": 9.89,
+      "profit_factor": 2.98,
+      "cost_model": "REALISTIC_COST",
+      "total_cost_pct": 0.16
+    },
+    "comparison": {
+      "nav_gap_pct": 3.61,
+      "sharpe_gap": 0.15,
+      "max_dd_gap_pp": 0.17,
+      "conclusion": "零成本模型NAV高估约3.6%，含成本版本NAV更为保守"
+    }
+  },
+  "risk_metrics": {
+    "var_95_pct": -1.23,
+    "tracking_error_pct": 3.85,
+    "information_ratio": 34.7
+  },
+  "drift_monitoring": {
+    "active": true,
+    "warn_threshold_pct": 4.8,
+    "relock_threshold_pct": 5.0,
+    "current_drift_pct": 3.0,
+    "status": "STABLE_STEADY_STATE"
+  },
+  "cost_parameters": {
+    "no_cost_model": {
+      "commission": 0.0,
+      "slippage": 0.0,
+      "impact": 0.0,
+      "rollover": 0.0,
+      "total_round_trip": 0.0
+    },
+    "realistic_model": {
+      "commission": 0.03,
+      "slippage": 0.02,
+      "impact": 0.01,
+      "rollover": 0.05,
+      "total_round_trip": 0.16
+    }
+  },
+  "cross_agent": {
+    "DSHC_phase": "P40",
+    "DSHD_version": "V34.0",
+    "DSHA_phase": "Phase34",
+    "DSHD_phase": "P30",
+    "deployed_at": "2026-10-12T11:15:09.679522"
+  },
+  "scheme_d_params": {
+    "F01_weight": 0.85,
+    "F09_weight": 0.85,
+    "F19_weight": 1.1,
+    "F20_weight": 1.1,
+    "decay_comp": 1.0018,
+    "F15~F18_correction": "artifact",
+    "frozen_since": "P28",
+    "frozen_phases": 9,
+    "status": "FROZEN_STEADY_STATE"
+  },
+  "version_tag": "P34",
+  "dataset_version": "1.10"
+}
