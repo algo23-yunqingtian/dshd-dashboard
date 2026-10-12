@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.13",
-  "version_tag": "P38",
+  "dataset_version": "1.14",
+  "version_tag": "P39",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 cross-variety correlation matrix / V31.0",
@@ -596,7 +596,7 @@
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V38.0",
+    "dashboard_version": "V39.0",
     "updated_at": "2026-10-12T14:49:49.158515",
     "data_source": "DSHA-P38"
   }
