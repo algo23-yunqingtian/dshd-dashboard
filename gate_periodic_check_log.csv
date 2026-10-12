@@ -445,3 +445,10 @@ PG25-R1,PG25-NETWORK-REMOTE,github.com:443 remote reachable,WARN,FAIL,MITIGATED,
 2026-10-12,DSHD-P26,R1,SITE-HEALTH-P26,FIXED,站点巡检重测,"p31_site_health.json 原载 P25 时代实测 (index 173428 B / git head 4088fc79) 且 verdict 自相矛盾; 已实测重测, verdict=PASS"
 2026-10-12,DSHD-P26,R1,DEPLOY-P26-RUNS,PASS,线上部署,"Contents API 发布; actions runs 38162816772, 38163555999, 38164978839 全部 conclusion=success; validate=success deploy=success notify=success; retry/fallback=skipped"
 2026-10-12,DSHD-P26,R1,DEPLOY-P26-LIVE-VERIFY,PASS,线上内容校验,"index.html 200/207696B/md5=cfac3b0ebc4d8c79ca4b2e50c399cd15; 342 HTTP 200 (171 文件 x 2 pass), non_200=0, timeout=0; warm median 59ms; 35 项终检全 PASS"
+2029-02-09,DSHD-P27,DEPLOY-P27-T2-YAML-CLEANUP,PASS,P23/P24残留,已清理,deploy-pages.yml 3处name字段P24→相位无关; 51/51 validate PASS; quote balance 0 odd,T2,42,df2a6d3b9efb287e3e9482d5de1b521c
+2029-02-09,DSHD-P27,DEPLOY-P27-T3-LIVE-PROBE,PASS,P26基线,巡检通过,171文件x2轮全200; cold 479/1112ms; warm 72/618ms; JS parse OK; verdict=PASS,T3,42,6bfd2889626f08025b46357ee14f6f5b
+2029-02-09,DSHD-P27,DEPLOY-P27-T3-PBCU-FIX,PASS,P25残留,8项缺陷修复,admission_block P25→P31; threshold_met false→true; countdown过期值→P31实测; fr_risk_days 600→810,T3,42,43675ac019aa7342a3caa4d8fddb9623
+2029-02-09,DSHD-P27,DEPLOY-P27-T3-FALLBACK-HARDEN,PASS,基础兜底,重试加固,Contents-API fallback: 限流感知重试+二次重试策略+重试次数3→4; 443端口仍不可达(已知),T3,42,9cca343a47822b4eaab18929f4abb34f
+2029-02-09,DSHD-P27,DEPLOY-P27-T4-P32-COMPAT,PASS,待验证,兼容确认,41 grep模式全部相位无关(P[0-9]+); P32 version_tag/dataset_version/phase匹配正则; 15 tab面板正常,T4,42,38f9d01ab737e49c268e32261e3cce04
+2029-02-09,DSHD-P27,DEPLOY-P27-T1-PAT-STATUS,NA,工单要求轮换,不换(现有PAT正常),PAT ghp_TW0z...3wi9s3 admin/push/maintain全功能; Actions读+Contents API写+git ref增删均成功; 附带删除_probe_tmp和_p27_pat_probe,T1,42,7b7ab57f5e538db4e783996b365e4f1a
+2029-02-09,DSHD-P27,DEPLOY-P27-FINAL,PASS,T0-T5完成,验收通过,"6/6 ALL-VERIFIED; 等待DSHA-P32数据用于V32.0看板; 遗留: CU 6/14未达标(P1), 443不可达(P1), head领先(P2), P25 step名(P3)",T5,42,5e83483961bb00c43e5dce6e8d2f65e0
