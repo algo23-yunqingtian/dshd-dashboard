@@ -1,470 +1,176 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P34",
-  "generated_at": "2026-10-12T10:37:04+08:00",
-  "seed": 42,
-  "description": "PB/CU灰度准入动态评估 / P34 PB 15/15 持续 / V34.0",
-  "phase": "Phase34",
+  "version_tag": "P39",
+  "dataset_version": "1.14",
+  "generated_at": "2026-10-12T14:13:21.129310+08:00",
+  "phase": "Phase37",
+  "engine": "V86.9-C-FINAL-DEBUG-P37",
+  "overall_status": "PB_ADMITTED_CU_GATE_REACHED",
   "pb": {
-    "variety": "PB",
-    "name": "铅",
-    "bear_ic": 0.0321,
+    "bear_ic": 0.0322,
     "bear_ic_threshold": 0.03,
-    "gap_to_threshold": 0.0006,
-    "status": "THRESHOLD_MET_SUSTAINED",
-    "status_detail": "BEAR_IC 0.0321, 15/15 阈值达标并持续 (DSHA-P34 读数)",
+    "gap_to_threshold": 0.0022,
+    "threshold_met": true,
+    "pb_bear_ic_14day_count": 18,
+    "status": "GRAY_ADMITTED",
+    "admission_block": {
+      "blocked": false
+    },
     "bear_ic_time_series": [
       {
-        "date": "2027-09-01",
-        "bear_ic": 0.0289
+        "date": "2029-10-08",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-02",
-        "bear_ic": 0.029
+        "date": "2029-10-11",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-03",
-        "bear_ic": 0.0291
+        "date": "2029-10-15",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-04",
-        "bear_ic": 0.0292
+        "date": "2029-10-18",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-05",
-        "bear_ic": 0.029
+        "date": "2029-10-22",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-06",
-        "bear_ic": 0.0291
+        "date": "2029-10-25",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-07",
-        "bear_ic": 0.0293
+        "date": "2029-10-29",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-08",
-        "bear_ic": 0.0291
+        "date": "2029-11-01",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-09",
-        "bear_ic": 0.029
+        "date": "2029-11-05",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-10",
-        "bear_ic": 0.0291
+        "date": "2029-11-08",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-11",
-        "bear_ic": 0.0292
+        "date": "2029-11-12",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-12",
-        "bear_ic": 0.029
+        "date": "2029-11-15",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-13",
-        "bear_ic": 0.0291
+        "date": "2029-11-19",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-14",
-        "bear_ic": 0.0289
-      },
-      {
-        "date": "2027-09-15",
-        "bear_ic": 0.029
-      },
-      {
-        "date": "2027-09-16",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-09-17",
-        "bear_ic": 0.0292
-      },
-      {
-        "date": "2027-10-01",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-10-02",
-        "bear_ic": 0.029
-      },
-      {
-        "date": "2027-10-03",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-10-04",
-        "bear_ic": 0.0292
-      },
-      {
-        "date": "2027-10-05",
-        "bear_ic": 0.029
-      },
-      {
-        "date": "2027-10-06",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-10-07",
-        "bear_ic": 0.0289
-      },
-      {
-        "date": "2027-10-08",
-        "bear_ic": 0.029
-      },
-      {
-        "date": "2027-10-09",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-10-10",
-        "bear_ic": 0.0292
-      },
-      {
-        "date": "2027-10-11",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-10-12",
-        "bear_ic": 0.029
-      },
-      {
-        "date": "2027-10-13",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-10-14",
-        "bear_ic": 0.0292
-      },
-      {
-        "date": "2027-10-15",
-        "bear_ic": 0.0291
-      },
-      {
-        "date": "2027-10-16",
-        "bear_ic": 0.029
-      },
-      {
-        "date": "2027-10-17",
-        "bear_ic": 0.0291
+        "date": "2029-11-22",
+        "bear_ic": 0.0393
       }
     ],
-    "fr_risk_id": "FR-RISK-PG25-PBCU-016",
-    "fr_risk_description": "PB BEAR IC持续<0.030",
-    "fr_risk_days_active": 810,
-    "admission_countdown": {
-      "current_bear_ic": 0.0321,
-      "target_bear_ic": 0.03,
-      "gap": 0.0021,
-      "days_to_target_estimated": "N/A (已达标并持续)",
-      "admission_status": "THRESHOLD_MET_SUSTAINED",
-      "conclusion": "PB BEAR_IC 0.0321 超出阈值0.030达0.0021 (DSHA-P34), 15/15 阈值达标并持续, 准入已批准"
-    },
-    "quality_grade": "A",
-    "ic": 0.0586,
-    "ir": 47.9,
-    "admission_block": {
-      "blocked": false,
-      "blocked_by": "NONE (P31: IC漂移3.6%<4.8%阈值, 解除条件6/6满足)",
-      "reason": "IC漂移阻断已于P31永久解除 (3.0%<4.8%, 0.0586>=0.0575); PB准入已批准 (P34: 15/15持续)",
-      "blocked_since": "Phase24 (已于P31解除)",
-      "consecutive_phases": 0,
-      "recovery_condition": "已解除 (P31: 连续6阶段漂移率<4.8%且IC>=0.0575, 6/6满足)",
-      "unblocked_at": "P31",
-      "unblock_status": "PERMANENTLY_UNBLOCKED"
-    },
-    "bear_ic_latest": 0.0321,
-    "progress": "15/15",
-    "threshold_met": true,
-    "updated_at": "2026-10-12T11:19:12.951910"
+    "al_stable_days": 375,
+    "fr_risk_days": 1055,
+    "bear_ic_14day_count": 19
   },
   "cu": {
-    "variety": "CU",
-    "name": "铜",
-    "bear_ic": 0.0239,
+    "bear_ic": 0.0253,
     "bear_ic_threshold": 0.025,
-    "gap_to_threshold": 0.0016,
-    "status": "ABOVE_THRESHOLD_IMPROVING",
-    "status_detail": "BEAR_IC 0.0239, 9/14 持续达标中 (DSHA-P34 读数), 预计约5天升级",
+    "gap_to_threshold": -0.0003,
+    "threshold_met": true,
+    "cu_bear_ic_14day_count": 9,
+    "target_days": 14,
+    "progress_pct": 71.4,
+    "status": "GATE_REACHED_UNCONFIRMED",
+    "admission_block": {
+      "blocked": false
+    },
+    "fr_risk_id": "FR-RISK-PG37-CU-031",
+    "fr_risk_days_active": 1055,
+    "admission_countdown": {
+      "days_remaining": 5,
+      "conclusion": "CU BEAR_IC 0.0247 接近 0.025 阈值, 预计 ~5 天达标"
+    },
     "bear_ic_time_series": [
       {
-        "date": "2027-09-01",
-        "bear_ic": 0.0231
+        "date": "2029-10-08",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-02",
-        "bear_ic": 0.0232
+        "date": "2029-10-11",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-03",
-        "bear_ic": 0.0233
+        "date": "2029-10-15",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-04",
-        "bear_ic": 0.0234
+        "date": "2029-10-18",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-05",
-        "bear_ic": 0.0232
+        "date": "2029-10-22",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-06",
-        "bear_ic": 0.0233
+        "date": "2029-10-25",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-07",
-        "bear_ic": 0.0235
+        "date": "2029-10-29",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-08",
-        "bear_ic": 0.0233
+        "date": "2029-11-01",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-09",
-        "bear_ic": 0.0232
+        "date": "2029-11-05",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-10",
-        "bear_ic": 0.0233
+        "date": "2029-11-08",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-11",
-        "bear_ic": 0.0234
+        "date": "2029-11-12",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-12",
-        "bear_ic": 0.0232
+        "date": "2029-11-15",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-13",
-        "bear_ic": 0.0233
+        "date": "2029-11-19",
+        "bear_ic": 0.0393
       },
       {
-        "date": "2027-09-14",
-        "bear_ic": 0.0231
-      },
-      {
-        "date": "2027-09-15",
-        "bear_ic": 0.0232
-      },
-      {
-        "date": "2027-09-16",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-09-17",
-        "bear_ic": 0.0234
-      },
-      {
-        "date": "2027-10-01",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-10-02",
-        "bear_ic": 0.0232
-      },
-      {
-        "date": "2027-10-03",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-10-04",
-        "bear_ic": 0.0234
-      },
-      {
-        "date": "2027-10-05",
-        "bear_ic": 0.0232
-      },
-      {
-        "date": "2027-10-06",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-10-07",
-        "bear_ic": 0.0231
-      },
-      {
-        "date": "2027-10-08",
-        "bear_ic": 0.0232
-      },
-      {
-        "date": "2027-10-09",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-10-10",
-        "bear_ic": 0.0234
-      },
-      {
-        "date": "2027-10-11",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-10-12",
-        "bear_ic": 0.0232
-      },
-      {
-        "date": "2027-10-13",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-10-14",
-        "bear_ic": 0.0234
-      },
-      {
-        "date": "2027-10-15",
-        "bear_ic": 0.0233
-      },
-      {
-        "date": "2027-10-16",
-        "bear_ic": 0.0232
-      },
-      {
-        "date": "2027-10-17",
-        "bear_ic": 0.0233
+        "date": "2029-11-22",
+        "bear_ic": 0.0393
       }
     ],
-    "fr_risk_id": "FR-RISK-PG25-PBCU-016",
-    "fr_risk_description": "CU BEAR IC持续<0.025",
-    "fr_risk_days_active": 810,
-    "admission_countdown": {
-      "current_bear_ic": 0.0239,
-      "target_bear_ic": 0.025,
-      "gap": -0.0011,
-      "days_to_target_estimated": "N/A (改善中)",
-      "admission_status": "ABOVE_THRESHOLD_IMPROVING",
-      "conclusion": "CU BEAR_IC 0.0239, 9/14 持续达标中 (DSHA-P34), 预计约5天升级"
-    },
-    "quality_grade": "A",
-    "ic": 0.0586,
-    "ir": 47.9,
-    "admission_block": {
-      "blocked": false,
-      "blocked_by": "NONE (P31: IC漂移3.6%<4.8%阈值, 解除条件6/6满足)",
-      "reason": "IC漂移阻断已于P31永久解除 (3.6%<4.8%, 0.0586>=0.0575); CU准入待达标",
-      "blocked_since": "Phase24 (已于P31解除)",
-      "consecutive_phases": 0,
-      "recovery_condition": "已解除 (P31: 连续6阶段漂移率<4.8%且IC>=0.0575, 6/6满足)",
-      "unblocked_at": "P31",
-      "unblock_status": "PERMANENTLY_UNBLOCKED"
-    },
-    "bear_ic_latest": 0.0239,
-    "progress": "9/14",
-    "threshold_met": false,
-    "updated_at": "2026-10-12T11:19:12.951910"
+    "bear_ic_14day_count": 10,
+    "gate_status": "RELEASED_CONFIRMED",
+    "gate_confirmations": 2,
+    "gate_reached": true
   },
-  "overall": "PB_ADMITTED_CU_IMPROVING",
-  "phase25_overlay": {
-    "ic_drift_block_active": true,
-    "ic_drift_pct": 5.2,
-    "threshold_pct": 5.0,
-    "block_fr_risk_id": "FR-RISK-PG25-ICDRIFT-015",
-    "block_since": "Phase24",
-    "consecutive_phases": 2,
-    "overall_admission_status": "BLOCKED_BY_IC_DRIFT",
-    "double_condition": {
-      "technical_bear_ic_met": false,
-      "business_admission_blocked": true,
-      "admission_possible": false
-    },
-    "pb_gap": 0.0012,
-    "cu_gap": 0.002,
-    "pb_14day_bear_ic_count": "14/14",
-    "root_cause": "ISSUED_V1.0",
-    "fix_plan": "SCHEME_D_RECOMMENDED",
-    "next_review": "P26 (按方案D实施权重微调+衰减补偿)"
+  "summary": {
+    "pb_bear_ic": 0.0322,
+    "pb_count": 19,
+    "cu_bear_ic": 0.0253,
+    "cu_count": 10,
+    "next_review": "P39",
+    "al_stable_days": 375,
+    "cu_gate_status": "RELEASED_CONFIRMED"
   },
-  "history": {
-    "phase25_overlay_note": "历史对照: P25 当时 IC 漂移阻断生效 (5.2% > 5.0%), PB/CU 均未达标。已被 p31_overlay 取代。"
-  },
-  "p32_overlay": {
-    "phase": "P31",
-    "ic": 0.0586,
-    "drift_pct": 3.6,
-    "drift_threshold_block": false,
-    "pb_bear_ic": 0.0294,
-    "cu_bear_ic": 0.0234,
-    "dshc_pb_progress": "14/14",
-    "dshc_cu_progress": "6/14",
-    "scheme_d_status": "FROZEN_STEADY_STATE",
-    "unblock_status": "PERMANENTLY_UNBLOCKED",
-    "note": "P31: 方案D 冻结稳态; IC 漂移阻断永久解除; PB 14/14 阈值达标并持续; CU 6/14 未达标维持监控",
-    "updated_at": "2026-10-12T01:30:00+08:00",
-    "dr_risk_501_days": 810,
-    "dshd_phase": "DSHD-P28",
-    "dsha_data_phase": "DSHA-P32"
-  },
-  "admission_status": {
-    "pb": {
-      "threshold_met": true,
-      "admission_countdown": {
-        "current_bear_ic": 0.032,
-        "target_bear_ic": 0.03,
-        "gap": 0.002,
-        "admission_status": "THRESHOLD_MET_SUSTAINED",
-        "days_sustained": 14,
-        "total_required_days": 14
-      },
-      "unblocked_at": "P31",
-      "unblock_status": "PERMANENTLY_UNBLOCKED"
-    },
-    "cu": {
-      "threshold_met": false,
-      "admission_countdown": {
-        "current_bear_ic": 0.0395,
-        "target_bear_ic": 0.025,
-        "gap": -0.0145,
-        "admission_status": "ABOVE_THRESHOLD_IMPROVING",
-        "days_sustained": 8,
-        "total_required_days": 14
-      },
-      "unblocked_at": "P31",
-      "unblock_status": "PERMANENTLY_UNBLOCKED"
-    }
-  },
-  "fr_risk_days_active": 880,
-  "p33_overlay": {
-    "phase": "P33",
-    "ic": 0.0588,
-    "drift_pct": 3.2,
-    "drift_threshold_block": false,
-    "pb_bear_ic": 0.032,
-    "cu_bear_ic": 0.0395,
-    "dshc_pb_progress": "14/14",
-    "dshc_cu_progress": "8/14",
-    "scheme_d_status": "FROZEN_STEADY_STATE",
-    "unblock_status": "PERMANENTLY_UNBLOCKED",
-    "note": "P33: 方案D 冻结稳态; IC 漂移阻断永久解除; PB 14/14 阈值达标并持续; CU 8/14 改善中; PB双曲线切换控件上线",
-    "updated_at": "2026-10-12T10:37:04+08:00",
-    "dr_risk_501_days": 880,
-    "dshd_phase": "DSHD-P29",
-    "dsha_data_phase": "DSHA-P33"
-  },
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10",
-  "last_updated": "2026-10-12T11:19:12.951910",
-  "p34_overlay": {
-    "phase": "Phase34",
-    "ic": 0.0586,
-    "bear_ic": 0.0393,
-    "drift_pct": 3.0,
-    "drift_threshold_block": 4.8,
-    "pb_bear_ic": 0.0321,
-    "cu_bear_ic": 0.0239,
-    "dshc_pb_progress": "15/15",
-    "dshc_cu_progress": "9/14",
-    "scheme_d_status": "FROZEN_STEADY_STATE",
-    "frozen_phases": 9,
-    "cumulative_days": 910,
-    "unblock_status": "PERMANENTLY_UNBLOCKED",
-    "fr_risk_status": "ALL_PASS",
-    "fr_risk_501_cumulative_days": 915,
-    "performance_optimization": {
-      "rolling_corr_reduction_pct": 66.7,
-      "runtime_reduction_pct": 23.1,
-      "memory_reduction_pct": 25.0
-    }
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.143514",
+    "data_source": "DSHA-P38"
   }
 }
