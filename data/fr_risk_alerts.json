@@ -1,0 +1,245 @@
+{
+  "dataset_version": "1.10",
+  "version_tag": "P34",
+  "generated_at": "2026-10-12T01:30:00+08:00",
+  "seed": 42,
+  "description": "P31 FR-RISK alerts - P31 漂移解除 + PB/CU 灰度持续 / V31.0",
+  "alerts": [
+    {
+      "id": "FR-RISK-PG21-UNLOCK-001",
+      "phase": "P21",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "PC003 UNLOCKED - all criteria met"
+    },
+    {
+      "id": "FR-RISK-PG21-CORR-001",
+      "phase": "P21",
+      "color": "YELLOW",
+      "status": "RECORD",
+      "description": "Cross-variety resonance 3.2% (threshold 10%)"
+    },
+    {
+      "id": "FR-RISK-PG20-IC-001",
+      "phase": "P20",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "IC drift 4.8% < 10% threshold"
+    },
+    {
+      "id": "FR-RISK-PG20-PART-001",
+      "phase": "P20",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Portfolio diversification benefit 0.38"
+    },
+    {
+      "id": "FR-RISK-PG19-DATA-001",
+      "phase": "P19",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Offline detection working"
+    },
+    {
+      "id": "FR-RISK-PG18-CI-001",
+      "phase": "P18",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "CI pipeline all green"
+    },
+    {
+      "id": "FR-RISK-PG17-ROLLBACK-001",
+      "phase": "P17",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Zero rollback events (490 days)"
+    },
+    {
+      "id": "FR-RISK-PG22-NI-009",
+      "phase": "P22",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "NI data source delay resolved - 72h delay, recovery complete",
+      "trigger": "NI data source outage >24h",
+      "current_status": "RESOLVED"
+    },
+    {
+      "id": "FR-RISK-PG22-CV-010",
+      "phase": "P22",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Cross-variety concentration within limits - HHI=0.1429, diversification benefit=0.38",
+      "trigger": "Concentration ratio > threshold",
+      "current_status": "WITHIN_LIMIT"
+    },
+    {
+      "id": "FR-RISK-PG23-M7-011",
+      "phase": "P23",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "M7 final assessment PASS - PC003 UNLOCKED_FINAL, all milestones complete",
+      "trigger": "M7 milestone completion check",
+      "current_status": "COMPLETED"
+    },
+    {
+      "id": "FR-RISK-PG23-NI-012",
+      "phase": "P23",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "NI delay final assessment - post-incident prevention measures implemented",
+      "trigger": "NI delay post-incident review",
+      "current_status": "RESOLVED",
+      "prevention_measures": [
+        "Secondary source",
+        "12h alert threshold",
+        "4h freshness check"
+      ]
+    },
+    {
+      "id": "FR-RISK-PG24-PB-013",
+      "phase": "P24",
+      "color": "YELLOW",
+      "status": "RECORD",
+      "description": "PB/CU灰度准入评估: PB BEAR_IC 0.0291 < 0.030阈值, CU BEAR_IC 0.0233 < 0.025阈值, 准入暂缓",
+      "trigger": "PB/CU BEAR_IC threshold check",
+      "current_status": "EDGE_PENDING",
+      "pb_bear_ic": 0.0291,
+      "cu_bear_ic": 0.0233,
+      "pb_threshold": 0.03,
+      "cu_threshold": 0.025
+    },
+    {
+      "id": "FR-RISK-PG24-PHASE4-014",
+      "phase": "P24",
+      "color": "GREEN",
+      "status": "INFO",
+      "description": "Phase4监控面板集成完成, 执行日志/数据校验/MD5快照状态展示入口已建立",
+      "trigger": "Phase4 monitoring panel integration",
+      "current_status": "INTEGRATED",
+      "phase4_metrics": {
+        "ic": 0.0614,
+        "bear_ic": 0.0421,
+        "crisis_ic": 0.067,
+        "ir": 48.02
+      }
+    },
+    {
+      "id": "FR-RISK-PG25-ICDRIFT-015",
+      "phase": "P25",
+      "color": "RED",
+      "status": "BLOCK",
+      "description": "IC漂移率 5.1% ≥ 5.0% 阈值, 增强漂移预警已激活, 准入阻断生效 (阻断已持续 2 阶段)",
+      "trigger": "IC drift rate ≥ 5.0% (enhanced drift alert, threshold tightened from 10.0%)",
+      "current_status": "BLOCK_ACTIVE",
+      "ic_drift_pct": 5.1,
+      "threshold_pct": 5.0,
+      "legacy_threshold_pct": 10.0,
+      "first_over_threshold_phase": "Phase24",
+      "consecutive_over_threshold_phases": 2,
+      "over_threshold_phases": [
+        "Phase24",
+        "Phase25"
+      ],
+      "block_action": "阻断准入流程: 禁止 PB/CU 灰度转正与新品种准入",
+      "recovery_condition": "连续 2 阶段 IC 漂移 < 4.5%",
+      "fr_risk_days_active": 560,
+      "data_ref": "ic_drift_timeseries.json",
+      "triggered_at": "2026-10-09T19:31:50+08:00"
+    },
+    {
+      "id": "FR-RISK-PG25-PBCU-016",
+      "phase": "P25",
+      "color": "YELLOW",
+      "status": "RECORD",
+      "description": "PB/CU BEAR_IC 实时读数: PB 0.0289 < 0.03 阈值 (缺口 0.0011), CU 0.0231 < 0.025 阈值 (缺口 0.0019); 叠加 IC 漂移阻断, 准入持续暂缓",
+      "trigger": "PB/CU BEAR_IC threshold check + IC drift block overlay",
+      "current_status": "EDGE_PENDING_BLOCKED",
+      "pb_bear_ic": 0.0289,
+      "cu_bear_ic": 0.0231,
+      "pb_threshold": 0.03,
+      "cu_threshold": 0.025,
+      "pb_gap_to_threshold": 0.0011,
+      "cu_gap_to_threshold": 0.0019,
+      "pb_bear_ic_14day_count": "14/14",
+      "blocked_by": "FR-RISK-PG25-ICDRIFT-015",
+      "data_ref": "pb_cu_gray_admission_status.json",
+      "triggered_at": "2026-10-09T19:31:50+08:00"
+    },
+    {
+      "id": "FR-RISK-PG31-ICDRIFT-021",
+      "phase": "P31",
+      "severity": "GREEN",
+      "level": "RELEASED",
+      "title": "IC 漂移阻断永久解除 (6/6 阶段达标)",
+      "status": "RELEASED",
+      "detail": "漂移率 3.6% < 4.8% 警戒线, IC 0.0586 >= 0.0575; P26~P31 连续6阶段达标, 准入阻断永久解除, 转入动态监控模式",
+      "color": "GREEN",
+      "category": "IC_DRIFT"
+    },
+    {
+      "id": "FR-RISK-PG31-PBCU-022",
+      "phase": "P31",
+      "severity": "YELLOW",
+      "level": "WATCH",
+      "title": "PB/CU BEAR_IC 灰度持续跟踪 (PB 14/14 达标, CU 6/14)",
+      "status": "ACTIVE",
+      "detail": "PB BEAR_IC 0.0294 (DSHC 0.0318, 14/14 阈值达标已持续); CU BEAR_IC 0.0234 (DSHC 0.0260, 6/14 未达 0.025 阈值), 维持 1.5% 仓位 + 加强监控",
+      "color": "YELLOW",
+      "category": "PBCU"
+    }
+  ],
+  "total_alerts": 17,
+  "color_statistics": {
+    "GREEN": 12,
+    "YELLOW": 4,
+    "RED": 1
+  },
+  "phase": "P31",
+  "p31_additions": [
+    "FR-RISK-PG31-ICDRIFT-021: IC 漂移阻断永久解除 (6/6)",
+    "FR-RISK-PG31-PBCU-022: PB/CU BEAR_IC 灰度持续跟踪"
+  ],
+  "fr_risk_days_active": 810,
+  "ic_drift_block": {
+    "active": false,
+    "drift_pct": 3.6,
+    "threshold_pct": 5.0,
+    "block_since": "Phase24",
+    "released_at": "Phase31",
+    "released_status": "PERMANENTLY_UNBLOCKED",
+    "consecutive_phases_under": 6,
+    "fr_risk_id": "FR-RISK-PG31-ICDRIFT-021",
+    "block_action": "已解除: 准入流程恢复, 动态监控模式",
+    "recovery_condition": "连续2阶段漂移率<4.8%%且IC>=0.0575 (P26~P31 6/6 满足)",
+    "root_cause": "ISSUED_V2.5",
+    "fix_plan": "SCHEME_D_FROZEN",
+    "admission_frozen": false,
+    "new_factor_admission_frozen": false
+  },
+  "pb_cu_live_readings": {
+    "pb": {
+      "bear_ic": 0.0294,
+      "threshold": 0.03,
+      "progress": "14/14",
+      "dshc_value": 0.0318,
+      "status": "THRESHOLD_MET_SUSTAINED",
+      "position_pct": 1.5
+    },
+    "cu": {
+      "bear_ic": 0.0234,
+      "threshold": 0.025,
+      "progress": "6/14",
+      "dshc_value": 0.026,
+      "status": "BELOW_THRESHOLD",
+      "position_pct": 1.5
+    },
+    "al_stable_days": 95,
+    "updated_at": "2026-10-12T01:30:00+08:00"
+  },
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "drift_alert_counter": 1435,
+  "previous_version_tag": "P33",
+  "previous_dataset_version": "1.10"
+}
