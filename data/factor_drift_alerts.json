@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.10",
+  "dataset_version": "1.15",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "source": "factor_drift_alert_log.csv + P12 vis_alert_export",
@@ -111,7 +111,7 @@
       "RED": 2
     }
   },
-  "version_tag": "P34",
+  "version_tag": "P40",
   "phase": "P31",
   "description": "P31 factor drift alerts - 结构性漂移方案D 稳态 / V31.0",
   "threshold_pct": 5.0,
@@ -119,6 +119,16 @@
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10"
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.126516",
+    "data_source": "DSHA-P38"
+  },
+  "drift_alert_counter": 1869
 }
