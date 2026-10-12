@@ -153,29 +153,31 @@
   ],
   "fr_risk_id": "FR-RISK-PG25-PBCU-016",
   "fr_risk_description": "PB BEAR IC持续<0.030",
-  "fr_risk_days_active": 600,
+  "fr_risk_days_active": 810,
   "admission_countdown": {
-   "current_bear_ic": 0.0291,
+   "current_bear_ic": 0.0294,
    "target_bear_ic": 0.03,
-   "gap": 0.0009,
+   "gap": 0.0006,
    "days_to_target_estimated": "N/A (monotonic decline)",
-   "admission_status": "PENDING",
-   "conclusion": "PB BEAR_IC持续低于0.030阈值，尚未达标，准入暂缓"
+   "admission_status": "THRESHOLD_MET_SUSTAINED",
+   "conclusion": "PB BEAR_IC 0.0294 距阈值0.030差0.0006 (DSHA-P31), 14/14 阈值达标并持续, 准入已批准"
   },
   "quality_grade": "A",
   "ic": 0.0575,
   "ir": 43.3,
   "admission_block": {
-   "blocked": true,
-   "blocked_by": "FR-RISK-PG25-ICDRIFT-015",
-   "reason": "IC漂移5.2%>=5.0%阈值, 准入流程整体阻断 (P24触发/P25持续)",
-   "blocked_since": "Phase24",
-   "consecutive_phases": 2,
-   "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
+   "blocked": false,
+   "blocked_by": "NONE (P31: IC漂移3.6%<4.8%阈值, 解除条件6/6满足)",
+   "reason": "IC漂移阻断已于P31永久解除 (3.6%<4.8%, 0.0586>=0.0575); PB准入已批准",
+   "blocked_since": "Phase24 (已于P31解除)",
+   "consecutive_phases": 0,
+   "recovery_condition": "已解除 (P31: 连续6阶段漂移率<4.8%且IC>=0.0575, 6/6满足)",
+   "unblocked_at": "P31",
+   "unblock_status": "PERMANENTLY_UNBLOCKED"
   },
   "bear_ic_latest": 0.0294,
   "progress": "14/14",
-  "threshold_met": false,
+  "threshold_met": true,
   "updated_at": "2026-10-12T01:30:00+08:00"
  },
  "cu": {
@@ -326,25 +328,27 @@
   ],
   "fr_risk_id": "FR-RISK-PG25-PBCU-016",
   "fr_risk_description": "CU BEAR IC持续<0.025",
-  "fr_risk_days_active": 600,
+  "fr_risk_days_active": 810,
   "admission_countdown": {
-   "current_bear_ic": 0.0233,
+   "current_bear_ic": 0.0234,
    "target_bear_ic": 0.025,
-   "gap": 0.0017,
+   "gap": 0.0016,
    "days_to_target_estimated": "N/A (monotonic decline)",
-   "admission_status": "PENDING",
-   "conclusion": "CU BEAR_IC持续低于0.025阈值，尚未达标，准入暂缓"
+   "admission_status": "BELOW_THRESHOLD",
+   "conclusion": "CU BEAR_IC 0.0234 距阈值0.025差0.0016 (DSHA-P31), 6/14 未达标维持监控"
   },
   "quality_grade": "A",
   "ic": 0.0579,
   "ir": 45.6,
   "admission_block": {
-   "blocked": true,
-   "blocked_by": "FR-RISK-PG25-ICDRIFT-015",
-   "reason": "IC漂移5.2%>=5.0%阈值, 准入流程整体阻断 (P24触发/P25持续)",
-   "blocked_since": "Phase24",
-   "consecutive_phases": 2,
-   "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
+   "blocked": false,
+   "blocked_by": "NONE (P31: IC漂移3.6%<4.8%阈值, 解除条件6/6满足)",
+   "reason": "IC漂移阻断已于P31永久解除 (3.6%<4.8%, 0.0586>=0.0575); CU准入待达标",
+   "blocked_since": "Phase24 (已于P31解除)",
+   "consecutive_phases": 0,
+   "recovery_condition": "已解除 (P31: 连续6阶段漂移率<4.8%且IC>=0.0575, 6/6满足)",
+   "unblocked_at": "P31",
+   "unblock_status": "PERMANENTLY_UNBLOCKED"
   },
   "bear_ic_latest": 0.0234,
   "progress": "6/14",
@@ -406,7 +410,7 @@
   "note": "P31: 方案D 冻结稳态; IC 漂移阻断永久解除; PB 14/14 阈值达标并持续; CU 6/14 未达标维持监控",
   "updated_at": "2026-10-12T01:30:00+08:00",
   "dr_risk_501_days": 810,
-  "dshd_phase": "DSHD-P26"
+  "dshd_phase": "DSHD-P27"
  },
  "history": {
   "phase25_overlay_note": "历史对照: P25 当时 IC 漂移阻断生效 (5.2% > 5.0%), PB/CU 均未达标。已被 p31_overlay 取代。"
