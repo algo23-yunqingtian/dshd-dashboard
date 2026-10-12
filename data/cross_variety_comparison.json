@@ -1,213 +1,97 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P33",
-  "generated_at": "2026-10-12T01:30:00+08:00",
-  "seed": 42,
-  "description": "P31 cross-variety comparison / V31.0",
-  "comparison": {
-    "varieties": [
-      "AL",
-      "PB",
-      "CU",
-      "ZN",
-      "SN",
-      "NI",
-      "SI"
-    ],
-    "dimensions": [
-      "IC均值",
-      "IR",
-      "终值NV",
-      "最大回撤%",
-      "交易次数",
-      "盈亏%",
-      "Sharpe",
-      "组合相关性",
-      "组合贡献%",
-      "风险贡献%"
-    ],
-    "data": {
-      "AL": {
-        "IC均值": 0.0582,
-        "IR": 47.2,
-        "终值NV": 0,
-        "最大回撤%": 0,
-        "交易次数": 0,
-        "盈亏%": 0,
-        "Sharpe": 0,
-        "组合相关性": 1.0,
-        "组合贡献%": 14.29,
-        "风险贡献%": 17.0
-      },
-      "PB": {
-        "IC均值": 0.0575,
-        "IR": 43.3,
-        "终值NV": 0,
-        "最大回撤%": 0,
-        "交易次数": 0,
-        "盈亏%": 0,
-        "Sharpe": 0,
-        "组合相关性": 0.72,
-        "组合贡献%": 14.29,
-        "风险贡献%": 16.79
-      },
-      "CU": {
-        "IC均值": 0.0579,
-        "IR": 45.6,
-        "终值NV": 0,
-        "最大回撤%": 0,
-        "交易次数": 0,
-        "盈亏%": 0,
-        "Sharpe": 0,
-        "组合相关性": 0.72,
-        "组合贡献%": 14.29,
-        "风险贡献%": 16.91
-      },
-      "ZN": {
-        "IC均值": 0.0437,
-        "IR": 28.3,
-        "终值NV": 0,
-        "最大回撤%": 0,
-        "交易次数": 0,
-        "盈亏%": 0,
-        "Sharpe": 0,
-        "组合相关性": 0.35,
-        "组合贡献%": 14.29,
-        "风险贡献%": 12.76
-      },
-      "SN": {
-        "IC均值": 0.0427,
-        "IR": 26.6,
-        "终值NV": 0,
-        "最大回撤%": 0,
-        "交易次数": 0,
-        "盈亏%": 0,
-        "Sharpe": 0,
-        "组合相关性": 0.35,
-        "组合贡献%": 14.29,
-        "风险贡献%": 12.47
-      },
-      "NI": {
-        "IC均值": 0.0417,
-        "IR": 25.4,
-        "终值NV": 0,
-        "最大回撤%": 0,
-        "交易次数": 0,
-        "盈亏%": 0,
-        "Sharpe": 0,
-        "组合相关性": 0.35,
-        "组合贡献%": 14.29,
-        "风险贡献%": 12.18
-      },
-      "SI": {
-        "IC均值": 0.0407,
-        "IR": 24.6,
-        "终值NV": 0,
-        "最大回撤%": 0,
-        "交易次数": 0,
-        "盈亏%": 0,
-        "Sharpe": 0,
-        "组合相关性": 0.35,
-        "组合贡献%": 14.29,
-        "风险贡献%": 11.89
-      }
+  "version_tag": "P39",
+  "dataset_version": "1.14",
+  "generated_at": "2026-10-12T14:49:49.198515",
+  "varieties": [
+    {
+      "name": "AL",
+      "production_status": "gray_production",
+      "bear_ic": 0.0393,
+      "risk_contribution": 0.28,
+      "nav": 1.874,
+      "nav_cost": 1.807,
+      "threshold_met": true,
+      "status_color": "green"
+    },
+    {
+      "name": "PB",
+      "production_status": "gray_production",
+      "bear_ic": 0.0393,
+      "risk_contribution": 0.24,
+      "nav": 1.881,
+      "nav_cost": 1.813,
+      "threshold_met": true,
+      "status_color": "green"
+    },
+    {
+      "name": "CU",
+      "production_status": "gray_production",
+      "bear_ic": 0.0393,
+      "risk_contribution": 0.22,
+      "nav": 1.878,
+      "nav_cost": 1.81,
+      "threshold_met": true,
+      "status_color": "yellow",
+      "note": "Gate reached, unconfirmed"
+    },
+    {
+      "name": "ZN",
+      "production_status": "formal_production",
+      "bear_ic": 0.0393,
+      "risk_contribution": 0.15,
+      "nav": 1.873,
+      "nav_cost": 1.806,
+      "threshold_met": true,
+      "status_color": "green"
+    },
+    {
+      "name": "SN",
+      "production_status": "formal_production",
+      "bear_ic": 0.0393,
+      "risk_contribution": 0.12,
+      "nav": 1.863,
+      "nav_cost": 1.796,
+      "threshold_met": true,
+      "status_color": "green"
+    },
+    {
+      "name": "NI",
+      "production_status": "formal_production",
+      "bear_ic": 0.0393,
+      "risk_contribution": 0.13,
+      "nav": 1.868,
+      "nav_cost": 1.801,
+      "threshold_met": true,
+      "status_color": "green"
+    },
+    {
+      "name": "SI",
+      "production_status": "formal_production",
+      "bear_ic": 0.0393,
+      "risk_contribution": 0.12,
+      "nav": 1.87,
+      "nav_cost": 1.803,
+      "threshold_met": true,
+      "status_color": "green"
     }
-  },
-  "portfolio_summary": {
+  ],
+  "summary": {
     "total_varieties": 7,
-    "active_varieties": 7,
-    "blocked_varieties": 0,
-    "full_data_varieties": [
-      "AL",
-      "PB",
-      "CU"
-    ],
-    "shadow_data_varieties": [
-      "ZN",
-      "SN",
-      "NI",
-      "SI"
-    ],
-    "portfolio_sharpe": 2.17,
-    "portfolio_max_drawdown": -0.78,
-    "portfolio_total_return": 67.96,
-    "diversification_benefit": 0.38,
-    "hhi": 0.1429,
-    "m7_final_assessment": "COMPLETED_P23",
-    "sharpe": 2.2,
-    "ic": 0.0493,
-    "ir": 34.7,
-    "diversification": 0.38
+    "green_count": 6,
+    "yellow_count": 1,
+    "red_count": 0,
+    "avg_bear_ic": 0.0373,
+    "total_risk_contribution": 1.26
   },
-  "cross_variety_correlation": {
-    "AL": {
-      "AL": 1.0,
-      "PB": 0.72,
-      "CU": 0.72,
-      "ZN": 0.35,
-      "SN": 0.35,
-      "NI": 0.35,
-      "SI": 0.35
-    },
-    "PB": {
-      "AL": 0.72,
-      "PB": 1.0,
-      "CU": 0.72,
-      "ZN": 0.35,
-      "SN": 0.35,
-      "NI": 0.35,
-      "SI": 0.35
-    },
-    "CU": {
-      "AL": 0.72,
-      "PB": 0.72,
-      "CU": 1.0,
-      "ZN": 0.35,
-      "SN": 0.35,
-      "NI": 0.35,
-      "SI": 0.35
-    },
-    "ZN": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 1.0,
-      "SN": 0.65,
-      "NI": 0.65,
-      "SI": 0.65
-    },
-    "SN": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 0.65,
-      "SN": 1.0,
-      "NI": 0.65,
-      "SI": 0.65
-    },
-    "NI": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 0.65,
-      "SN": 0.65,
-      "NI": 1.0,
-      "SI": 0.65
-    },
-    "SI": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 0.65,
-      "SN": 0.65,
-      "NI": 0.65,
-      "SI": 1.0
-    }
-  },
-  "p31_meta": {
-    "bumped_at": "2026-10-12T01:30:00+08:00"
-  },
-  "p31_notes": {
-    "note": "IC漂移5.2%阻断期, 品种对比维持P24结论; 量价因子F01/F09为主漂移源"
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
   }
 }
