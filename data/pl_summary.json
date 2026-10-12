@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P34",
+  "dataset_version": "1.15",
+  "version_tag": "P40",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 per-variety performance summary / V31.0",
@@ -17,7 +17,7 @@
     "PB": {
       "status": "ENABLED",
       "data_source": "full_data",
-      "ic": 0.0577,
+      "ic": 0.0586,
       "ir": 0.0577,
       "sharpe": 0,
       "gate_status": "PASS",
@@ -35,7 +35,7 @@
     "ZN": {
       "status": "ENABLED",
       "data_source": "shadow_data",
-      "ic": 0.0577,
+      "ic": 0.0586,
       "ir": 0.0577,
       "sharpe": 0,
       "gate_status": "PASS",
@@ -44,7 +44,7 @@
     "SN": {
       "status": "ENABLED",
       "data_source": "shadow_data",
-      "ic": 0.0577,
+      "ic": 0.0586,
       "ir": 0.0577,
       "sharpe": 0,
       "gate_status": "PASS",
@@ -53,7 +53,7 @@
     "NI": {
       "status": "ENABLED",
       "data_source": "shadow_data",
-      "ic": 0.0577,
+      "ic": 0.0586,
       "ir": 0.0577,
       "sharpe": 0,
       "gate_status": "PASS",
@@ -62,7 +62,7 @@
     "SI": {
       "status": "ENABLED",
       "data_source": "shadow_data",
-      "ic": 0.0577,
+      "ic": 0.0586,
       "ir": 0.0577,
       "sharpe": 0,
       "gate_status": "PASS",
@@ -77,14 +77,14 @@
     "sortino": 6.51,
     "ir": 34.7,
     "max_drawdown": -0.75,
-    "ic": 0.0493,
+    "ic": 0.0586,
     "diversification": 0.38
   },
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
   "p31_drift_gate": {
-    "drift_pct": 3.6,
+    "drift_pct": 2.0,
     "threshold_pct": 5.0,
     "status": "RELEASED",
     "block_active": false,
@@ -94,6 +94,15 @@
     "ic_floor": 0.0575,
     "note": "P26~P31 连续6阶段漂移率<4.8%%且IC>=0.0575, 阻断永久解除"
   },
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10"
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.155511",
+    "data_source": "DSHA-P38"
+  }
 }
