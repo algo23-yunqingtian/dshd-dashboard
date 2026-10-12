@@ -1,0 +1,60 @@
+=== DSHD-P37 PHASE DONE FLAG ===
+FLAG_ID: DSHD-P37-PHASE-DONE
+PHASE: DSHD-P37
+DASHBOARD_VERSION: V41.0
+DATASET_VERSION: 1.16
+ENGINE: V86.9-C-FINAL-DEBUG-P41
+STATUS: COMPLETED
+TIMESTAMP: 2026-10-12T19:30:00+08:00
+
+EXECUTION SUMMARY
+-----------------
+DSHD-P37: V41.0 dashboard deployed with P41 data (dataset_version=1.16)
+- 46 JSON files updated to P41/1.16
+- HTML V41.0: 20 tabs, 20 panels (18 core + P40/P41 version-compare + ZN/SN/NI/SI variety)
+- T1 data upgrade from DSHA-P41 native deliverables (flag 7C4478B8, 37 SHA256 verified)
+- T2 panels: FR-RISK CLOSED, cost model V4, T=512 mixed-precision, P40/P41 compare
+- T3 validation 89/89 PASS (100%)
+- DSHC-P54 complete (PHASE54_DONE.flag, 12 MD5 verified)
+- Deployed to main + gh-pages branches via Contents API (PUT)
+
+METRICS SUMMARY (V40->V41)
+--------------------------
+CU BEAR_IC: 0.0255 -> 0.0259 (3 confirmations, FR-RISK-501 CLOSED)
+FR-RISK-501: 1125 -> 1155 days (CLOSED)
+Drift: 1.9% -> 1.6% (-0.3pp)
+Cumulative: 1120 -> 1155 days (+35)
+Frozen Phases: 15 -> 16 (+1)
+AL Stable: 410 -> 445 days (+35)
+Float32 Gate: PASS (4.672e-08, T=512 boundary locked)
+Incremental: 3.0x -> 2.918x (3-kernel)
+Euler: 110.0x -> 112.6x
+Runtime: 0.993s -> 0.979s
+NAV Gap: 3.6% (stable, cost model V4)
+
+ACCEPTANCE CRITERIA
+-------------------
+AC1: PASS - P40 original portfolio_backtest_7asset.json UNMODIFIED (85D30344)
+AC2: PASS - T=512 mixed-precision boundary LOCKED; float32 gate PASS (4.672e-08, threshold NOT relaxed)
+AC3: PASS - 7-variety parallel backtest (incremental), dual NAV, NAV gap 3.6%
+AC4: PASS - CU 0.0259 >= 0.025 for 3 consecutive phases; FR-RISK-501 CLOSED->CLOSED
+AC5: PASS - DSHD V41.0 dashboard (20 tabs), validation 89/89 PASS
+AC6: PASS - Docs/techdebt/weekly W41 archived
+AC7: PASS - 37 DSHA-P41 deliverables SHA256 verified; 12 DSHC-P54 MD5 verified
+AC8: PASS - PHASE41_DATA_READY.flag + PHASE37_DONE.flag issued, cross-agent sync (DSHA-P41, DSHC-P54, DSHD V41.0)
+
+AC_TOTAL: 8/8 PASS
+
+CROSS-AGENT SYNC
+----------------
+DSHC: P54 (DONE, 12 deliverables verified)
+DSHA: P41 (SYNCED, flag 7C4478B8)
+DSHD: V41.0 (DEPLOYED)
+DEPLOY_URL: https://algo23-yunqingtian.github.io/dshd-dashboard/
+
+FLAG SIGNED
+-----------
+Signed by: DSHD-P37-DEPLOYMENT-AGENT
+Timestamp: 2026-10-12T19:30:00+08:00
+All deliverables: VERIFIED
+Phase 37: COMPLETED
