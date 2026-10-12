@@ -1082,4 +1082,121 @@ python D:\DSH_WORK\_p26_verify_final.py           # 35 项终检
 | P1 | github.com:443 smart-HTTP push 仍不可达 | P1 | 已固化 Contents API 发布 + T3 API 降级 job |
 | P2 | Contents API 发布使远端 head 领先本地 HEAD 1 提交 | P2 | 内容一致, 仅审计提示 |
 | P3 | cold 连接 max 15170ms (TLS 握手) | P3 | warm 已达标, 可接受 |
-| P3 | 部分 step 名仍含 P23/P24 字样 (仅显示名) | P3 | 建议 P27 清理 |
+| P3 | 部分 step 名仍含 P23/P24 字样 (仅显示名) | P3 | P27 已清理 3 处 name: 字段 (P24→相位无关) |
+
+---
+
+## 26. DSHD-P27 看板运维 & CI 流水线修复
+
+### 26.1 工单概要
+
+**相位**: DSHD-P27
+**完成时间**: 2029-02-09T08:00:00+08:00
+**验收**: 6/6 PASS (AC1~AC6)
+**看板版本**: V31.0 / P31 / dataset_version 1.8
+
+### 26.2 T1 PAT 轮换 (N/A)
+
+工单要求轮换过期 PAT `ghp_TW0z…3wi9s3`，但实测该 PAT 完全正常：
+
+| 权限测试 | 结果 |
+|----------|:----:|
+| admin/push/maintain 权限 | 通过 |
+| Actions 读取 | 通过 (5 runs) |
+| Contents API 写入 | 通过 (git ref create 201) |
+| git ref 删除 | 通过 (`DELETE /git/refs/heads/{branch}`) |
+
+仓库 secrets 列表为空 (workflow 用内置 `GITHUB_TOKEN`，PAT 仅供部署脚本)。用户确认不换。
+
+**附带成果**: 成功删除 P26 遗留孤儿分支 `_probe_tmp` 和测试分支 `_p27_pat_probe`。
+P26 因用错 DELETE 端点 (`/git/ref/heads/` → 应为 `/git/refs/heads/`) 导致分支删除失败，P27 修正了此问题。
+
+### 26.3 T2 部署脚本文字清理
+
+修改 `deploy-pages.yml` 中 3 处 `name:` 显示字段：
+
+| 行 | 修改前 | 修改后 |
+|----|--------|--------|
+| L9 | `Deploy DSHD-P24 to GitHub Pages` | `Deploy DSHD Dashboard to GitHub Pages` |
+| L813 | `Deploy Retry (P25 T3)` | `Deploy Retry` |
+| L848 | `Deploy Fallback / API Contents Mode (P25 T3)` | `Deploy Fallback / API Contents Mode` |
+
+**零改动范围**: 断言、逻辑、正则表达式、YAML 注释均未改动。
+**验证**: `git diff` 仅 3 行变更；51-step validate 51/51 PASS；shell quote balance 0 odd。
+
+### 26.4 T3 站点健康巡检与容错加固
+
+#### 26.4.1 全量 HTTP 探测
+
+171 文件 × 2 轮 (冷启动 + keep-alive 预热)：
+
+| 指标 | 冷启动 | 预热 |
+|------|:------:|:----:|
+| 中位延迟 | 479 ms | **72 ms** |
+| 最大延迟 | 1,112 ms | 618 ms |
+| 非 200 | **0** | **0** |
+| 超时 | 0 | 0 |
+
+#### 26.4.2 PB/CU 灰度面板缺陷修复 (8 项)
+
+P25 残留数据修复：
+
+| 字段 | 修复前 | 修复后 |
+|------|--------|--------|
+| `pb/cu.admission_block.blocked` | `true` (P25 IC漂移 5.2%) | `false` (P31 永久解除) |
+| `pb.threshold_met` | `false` | `true` |
+| `pb.admission_countdown.current_bear_ic` | `0.0291` | `0.0294` |
+| `cu.admission_countdown.current_bear_ic` | `0.0233` | `0.0234` |
+| `pb/cu.fr_risk_days_active` | `600` | `810` |
+| `p31_overlay.dshd_phase` | `DSHD-P26` | `DSHD-P27` |
+
+#### 26.4.3 Contents API 兜底加固
+
+**443 端口现状**: github.com:443 push 仍不可达 (P25 起已知)。Contents API 通过 `api.github.com` (不同主机) 可达。
+
+**P27 加固**:
+1. **限流感知重试**: `call()` 识别 403 + `rate limit` / `abuse detection`，按指数退避重试
+2. **二次重试**: 第一轮失败文件在 5 秒冷却后重试一次
+3. **重试次数**: 3 → 4
+
+### 26.5 T4 DSHA-P32 兼容性
+
+| 验证项 | 结果 |
+|--------|------|
+| grep 模式总数 | 41 |
+| 相位无关 (`P[0-9]+`) | 21 |
+| 相位特定 (P3x) | **0** |
+| Python 断言含 P3x | **0** |
+| Tab 面板数 | 15 |
+| PB/CU 渲染函数 | `renderPBCUGrayPanel`, `renderICDriftPBCU` |
+
+**结论**: P32 数据 (`version_tag: P32`, `dataset_version: 1.9`) 可直接接入现有 CI，无需修改断言。
+
+### 26.6 部署与验证
+
+| 项 | 值 |
+|----|-----|
+| 本地提交 | `5339360` |
+| 发布方式 | Contents API |
+| 51-step validate | **51/51 PASS** |
+| Shell quote balance | **0 odd** |
+| Live HTTP | 171 文件全 200 |
+| 前端 JS parse | **PASS** (node v24.19.0) |
+
+### 26.7 遗留项
+
+| 编号 | 项 | 严重度 | 处置 |
+|------|----|:------:|------|
+| P1 | CU 6/14 未达标 (BEAR_IC 0.0234 < 0.025) | P1 | 维持 1.5% 仓位上限 |
+| P1 | github.com:443 push 不可达 | P1 | 已固化 Contents API + 重试加固 |
+| P2 | 远端 head 领先本地 1 提交 | P2 | 内容一致, 仅审计提示 |
+| P3 | 部分 step 名含 P25 字样 (仅显示名) | P3 | 建议 P28 清理 |
+
+### 26.8 下一相位指引 (DSHD-P28)
+
+1. 等待 DSHA-P32 数据发布
+2. 更新 HTML 中 26 处静态 P31 → P32 引用
+3. 更新数据文件为 P32 版本
+4. 重建 MD5 baseline
+5. Contents API 发布
+6. 全量巡检 + 交付物归档
