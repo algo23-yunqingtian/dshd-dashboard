@@ -1,0 +1,207 @@
+{
+  "variety": "PB",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P31",
+  "phase": "Phase31",
+  "total_trades": 12,
+  "open_trades": 6,
+  "close_trades": 6,
+  "total_pnl_pct": 0,
+  "metrics": {
+    "ic_mean": 0.0586,
+    "ir": 47.8,
+    "bear_ic": 0.0392,
+    "crisis_ic": 0.0663,
+    "vif": 1.0065,
+    "max_drawdown": 0.0005,
+    "total_return": 63.7,
+    "final_nav": 1.637,
+    "annualized_return": 664.3,
+    "sharpe": 3.05
+  },
+  "shadow": false,
+  "completeness": 1.0,
+  "data_recovery": "FULL_REAL_DATA",
+  "formal_production": true,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2028-12-18",
+      "price": 14808.3,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F19"
+      ],
+      "signal_strength": 0.0339,
+      "confidence": 0.6343
+    },
+    {
+      "trade_id": 2,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2028-12-20",
+      "price": 14491.9,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F19"
+      ],
+      "signal_strength": 0.0348,
+      "confidence": 0.5406
+    },
+    {
+      "trade_id": 3,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2028-12-25",
+      "price": 15225.4,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F08",
+        "F12"
+      ],
+      "signal_strength": 0.0312,
+      "confidence": 0.6705
+    },
+    {
+      "trade_id": 4,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2028-12-28",
+      "price": 15163.6,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F08",
+        "F12"
+      ],
+      "signal_strength": 0.0287,
+      "confidence": 0.6011
+    },
+    {
+      "trade_id": 5,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2029-01-04",
+      "price": 15277.8,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F19",
+        "F09"
+      ],
+      "signal_strength": 0.0446,
+      "confidence": 0.5752
+    },
+    {
+      "trade_id": 6,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2029-01-09",
+      "price": 15599.4,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F19",
+        "F09"
+      ],
+      "signal_strength": 0.0174,
+      "confidence": 0.5525
+    },
+    {
+      "trade_id": 7,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2029-01-15",
+      "price": 16422.5,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F15",
+        "F02"
+      ],
+      "signal_strength": 0.0352,
+      "confidence": 0.615
+    },
+    {
+      "trade_id": 8,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2029-01-18",
+      "price": 16518.3,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F15",
+        "F02"
+      ],
+      "signal_strength": 0.0244,
+      "confidence": 0.4598
+    },
+    {
+      "trade_id": 9,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2029-01-24",
+      "price": 15240.9,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F20",
+        "F08"
+      ],
+      "signal_strength": 0.0289,
+      "confidence": 0.6778
+    },
+    {
+      "trade_id": 10,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2029-01-29",
+      "price": 15551.0,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F20",
+        "F08"
+      ],
+      "signal_strength": 0.0281,
+      "confidence": 0.4706
+    },
+    {
+      "trade_id": 11,
+      "variety": "PB",
+      "type": "LONG",
+      "date": "2029-01-31",
+      "price": 17282.8,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F09"
+      ],
+      "signal_strength": 0.0404,
+      "confidence": 0.5188
+    },
+    {
+      "trade_id": 12,
+      "variety": "PB",
+      "type": "CLOSE",
+      "date": "2029-02-05",
+      "price": 17731.6,
+      "position": "5%",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F09"
+      ],
+      "signal_strength": 0.0306,
+      "confidence": 0.6074
+    }
+  ]
+}
