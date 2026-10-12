@@ -1,0 +1,99 @@
+{
+  "check_id": "P12-PC003-POST-UNLOCK-SELFCHECK-1",
+  "seed": 42,
+  "scope": "PC-003 双门禁 BLOCKED/ACTIVATED 双路径 + 4 品种锁控 + 8 项模板 + 上游不可变",
+  "inputs": {
+    "blocked_manifest": {
+      "path": "pc003_activation_manifest_p12.json",
+      "md5": "2715314cba4ed831d1e2ae2ac9bc37aa",
+      "audit_id": "PC-003-LISTEN-20261116T153-20261116-001",
+      "event": "PC-003-DSHC-20261116-001"
+    },
+    "activated_manifest": {
+      "path": "pc003_activation_manifest_p12_labpos.json",
+      "md5": "d4219612445289cd69fd08ce008bc2a1",
+      "audit_id": "PC-003-LISTEN-20261116T153-20261116-002",
+      "event": "PC-003-DSHC-LABPOS-20261116-002",
+      "note": "LAB POSITIVE-PATH PROOF - 非真实推送"
+    },
+    "reserved_config": {
+      "path": "..\\phase4_reserved_slots_config.json",
+      "md5": "acb5c9fb80ce513dc45916e3c3b21742",
+      "config_id": "V86.9-ZNNISNSI-RESERVED-SLOTS-1"
+    }
+  },
+  "locked_syms": [
+    "NI",
+    "SI",
+    "SN",
+    "ZN"
+  ],
+  "sections": {
+    "BLOCKED_PATH": {
+      "checks": {
+        "verdict_is_BLOCKED": true,
+        "activated_count_zero": true,
+        "activated_empty": true,
+        "locks_ok_4of4": true,
+        "all_gates_verified_false": true,
+        "variant_count_4": true,
+        "all_target_RESERVED": true,
+        "all_current_RESERVED": true,
+        "all_variants_locked": true,
+        "si_missing_conditional": true,
+        "zn_missing_two_gates": true,
+        "blocked_reason_nonempty": true,
+        "template_items_8_each": true,
+        "gate_conditions_match": true
+      },
+      "pass": 14,
+      "total": 14,
+      "verdict": "PASS"
+    },
+    "ACTIVATED_PATH": {
+      "checks": {
+        "verdict_is_ACTIVATED": true,
+        "activated_count_4": true,
+        "activated_all_frozen_syms": true,
+        "locks_ok_4of4": true,
+        "all_gates_verified_true": true,
+        "variant_count_4": true,
+        "all_target_ACTIVE": true,
+        "all_current_RESERVED": true,
+        "no_missing_prereq": true,
+        "all_variants_eligible": true,
+        "all_variants_locked": true,
+        "template_items_8_each": true,
+        "template_keys_complete": true,
+        "si_conditional_met": true,
+        "blocked_reason_empty": true,
+        "audit_is_LABPOS": true
+      },
+      "pass": 16,
+      "total": 16,
+      "verdict": "PASS"
+    },
+    "UPSTREAM_IMMUTABILITY": {
+      "checks": {
+        "config_still_RESERVED_4of4": true,
+        "config_slot_count_4": true,
+        "config_template_unchanged": true,
+        "config_prereqs_cover_base": true,
+        "config_si_has_conditional": true,
+        "config_non_si_no_conditional": true,
+        "both_manifests_written": true,
+        "manifest_audit_ids_distinct": true,
+        "blocked_not_activated_symmetric": true,
+        "config_md5_recorded": true
+      },
+      "pass": 10,
+      "total": 10,
+      "verdict": "PASS"
+    }
+  },
+  "total_checks": 40,
+  "passed": 40,
+  "failed": 0,
+  "verdict": "PASS",
+  "note": "ACTIVATED 路径为 lab 正路径可达性证明 (假设双门禁全 VERIFIED); 真实解锁须 TD002+TD014 数据实际达标并由 DSHC 正式推送. 当前真实状态为 BLOCKED, 4 品种保持 RESERVED + LOCKED 4/4."
+}
