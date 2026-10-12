@@ -1,6 +1,6 @@
 {
-  "phase": "Phase34",
-  "engine": "V86.9-C-FINAL-DEBUG-P34",
+  "phase": "Phase39",
+  "engine": "V86.9-C-FINAL-DEBUG-P39",
   "asset": "NI",
   "total_trades": 6,
   "open_trades": 6,
@@ -9,82 +9,88 @@
   "trades": [
     {
       "trade_id": "TRD-NI-01",
-      "open_date": "2029-04-15",
-      "close_date": "2029-04-20",
+      "open_date": "2030-04-26",
+      "close_date": "2030-05-01",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2339.7,
       "exit_price": 2390.77,
       "pnl": 510.7,
       "pnl_pct": 2.18,
-      "week": "W106"
+      "week": "W162"
     },
     {
       "trade_id": "TRD-NI-02",
-      "open_date": "2029-04-22",
-      "close_date": "2029-04-27",
+      "open_date": "2030-05-03",
+      "close_date": "2030-05-08",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2154.87,
       "exit_price": 2155.53,
       "pnl": 6.6,
       "pnl_pct": 0.03,
-      "week": "W107"
+      "week": "W163"
     },
     {
       "trade_id": "TRD-NI-03",
-      "open_date": "2029-04-29",
-      "close_date": "2029-05-04",
+      "open_date": "2030-05-10",
+      "close_date": "2030-05-15",
       "direction": "SHORT",
       "position_size": 10,
       "entry_price": 1536.05,
       "exit_price": 1546.51,
       "pnl": -104.6,
       "pnl_pct": -0.68,
-      "week": "W108"
+      "week": "W164"
     },
     {
       "trade_id": "TRD-NI-04",
-      "open_date": "2029-05-06",
-      "close_date": "2029-05-11",
+      "open_date": "2030-05-17",
+      "close_date": "2030-05-22",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1791.71,
       "exit_price": 1777.88,
       "pnl": -138.3,
       "pnl_pct": -0.77,
-      "week": "W109"
+      "week": "W165"
     },
     {
       "trade_id": "TRD-NI-05",
-      "open_date": "2029-05-13",
-      "close_date": "2029-05-18",
+      "open_date": "2030-05-24",
+      "close_date": "2030-05-29",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2119.44,
       "exit_price": 2130.38,
       "pnl": 109.4,
       "pnl_pct": 0.52,
-      "week": "W110"
+      "week": "W166"
     },
     {
       "trade_id": "TRD-NI-06",
-      "open_date": "2029-05-20",
-      "close_date": "2029-05-25",
+      "open_date": "2030-05-31",
+      "close_date": "2030-06-05",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2110.39,
       "exit_price": 2155.84,
       "pnl": 454.5,
       "pnl_pct": 2.15,
-      "week": "W111"
+      "week": "W167"
     }
   ],
-  "version_tag": "P34",
-  "dataset_version": "1.10",
-  "cross_agent": {
-    "DSHD_version": "V34.0",
-    "DSHD_phase": "P30",
-    "deployed_at": "2026-10-12T11:15:09.695526"
+  "version_tag": "P40",
+  "dataset_version": "1.15",
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
   }
 }
