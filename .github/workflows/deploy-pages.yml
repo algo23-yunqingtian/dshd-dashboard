@@ -134,7 +134,7 @@ jobs:
               try:
                   m = json.load(open(os.path.join(DATA, "rolling_correlation_matrix.json"), encoding="utf-8"))
                   roll = m.get("rolling_correlation") or {}
-                  keys = sorted(roll.keys())
+                  keys = sorted(k for k in roll.keys() if not k.startswith("_"))
                   chk("rolling_correlation 5 windows 20/40/60/120/250d",
                       keys == ["120d", "20d", "250d", "40d", "60d"], str(keys))
                   for k in keys:
