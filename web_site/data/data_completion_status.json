@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 data completion status - M1~M8 ALL COMPLETED / V31.0",
@@ -97,5 +97,10 @@
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
   "production_readiness_pct": 100.0,
-  "production_status": "READY_FOR_PRODUCTION"
+  "production_status": "READY_FOR_PRODUCTION",
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  }
 }
