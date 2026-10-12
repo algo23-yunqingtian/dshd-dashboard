@@ -560,6 +560,34 @@ function renderPC003UnlockPanel(){
   }
 }
 
+
+// P31 T4: Enhanced error handling for data loading
+function handleDataLoadError(source, error) {
+  console.warn('[DSHD-P31] Data load error:', source, error);
+  // Show error indicator in header
+  const ciEl = document.getElementById('hdr-ci');
+  if (ciEl) {
+    ciEl.textContent = 'ERR';
+    ciEl.style.color = 'var(--red)';
+  }
+}
+
+// Wrap fetch with error handling
+const originalFetch = window.fetch;
+window.fetch = function(...args) {
+  return originalFetch.apply(this, args).then(response => {
+    if (!response.ok) {
+      const url = args[0] || '';
+      handleDataLoadError(url, 'HTTP ' + response.status);
+    }
+    return response;
+  }).catch(error => {
+    const url = args[0] || '';
+    handleDataLoadError(url, error.message);
+    return Promise.reject(error);
+  });
+};
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
@@ -772,6 +800,81 @@ strong{color:var(--text);}
 .pb-nav-btn { border: 1px solid #2a3a5e; border-radius: 4px; padding: 3px 10px; font-size: 10px; cursor: pointer; background: rgba(20,30,60,0.5); color: var(--dim); transition: all 0.2s; }
 .pb-nav-btn:hover { background: rgba(34,211,238,0.1); }
 .pb-nav-btn.active { background: rgba(34,211,238,0.15); border-color: var(--cyan); color: var(--cyan); }
+
+/* P31 T4: Mobile responsive improvements */
+@media (max-width: 768px) {
+  .app-nav { 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .app-nav::-webkit-scrollbar { display: none; }
+  .nav-tab { 
+    flex-shrink: 0; 
+    padding: 6px 8px !important; 
+    font-size: 10px !important;
+    white-space: nowrap;
+  }
+  .header-stats { 
+    display: none !important;
+  }
+  .app-subtitle { 
+    display: none !important;
+  }
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .grid-3 { grid-template-columns: 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .stat-card { padding: 8px !important; }
+  .stat-card .value { font-size: 14px !important; }
+  .data-table { font-size: 10px !important; }
+  .panel-body { padding: 8px !important; }
+  .toolbar { flex-wrap: wrap !important; gap: 4px !important; }
+  .btn { padding: 4px 8px !important; font-size: 10px !important; }
+}
+@media (max-width: 480px) {
+  .app-header { padding: 6px !important; }
+  .app-title { font-size: 12px !important; }
+  .badge { font-size: 8px !important; padding: 2px 6px !important; }
+  .grid-4 { grid-template-columns: 1fr !important; }
+}
+
+
+/* P31 T4: Loading indicators */
+.loading-panel { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  min-height: 100px;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.loading-panel::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+/* P31 T4: Data missing error message */
+.data-error-msg { 
+  padding: 12px; 
+  background: rgba(239,68,68,0.1); 
+  border: 1px solid rgba(239,68,68,0.3); 
+  border-radius: 6px; 
+  color: var(--red); 
+  font-size: 12px; 
+  text-align: center;
+  margin: 10px 0;
+}
+.data-error-msg .icon { font-size: 16px; margin-right: 4px; }
+
 </style>
 </head>
 <body>
