@@ -505,5 +505,70 @@
     "DSHD_version": "V35.0",
     "DSHD_phase": "P31",
     "DSHA_phase": "P35"
-  }
+  },
+  "variety_time_series": [
+    {
+      "variety": "AL",
+      "avg_risk_contribution_pct": 14.65,
+      "risk_contribution_std": 0,
+      "risk_contribution_max": 0,
+      "risk_contribution_min": 0,
+      "days_above_threshold": 0,
+      "threshold_pct": 20
+    },
+    {
+      "variety": "CU",
+      "avg_risk_contribution_pct": 14.77,
+      "risk_contribution_std": 0,
+      "risk_contribution_max": 0,
+      "risk_contribution_min": 0,
+      "days_above_threshold": 0,
+      "threshold_pct": 20
+    },
+    {
+      "variety": "PB",
+      "avg_risk_contribution_pct": 14.46,
+      "risk_contribution_std": 0,
+      "risk_contribution_max": 0,
+      "risk_contribution_min": 0,
+      "days_above_threshold": 0,
+      "threshold_pct": 20
+    },
+    {
+      "variety": "ZN",
+      "avg_risk_contribution_pct": 14.94,
+      "risk_contribution_std": 0,
+      "risk_contribution_max": 0,
+      "risk_contribution_min": 0,
+      "days_above_threshold": 0,
+      "threshold_pct": 20
+    },
+    {
+      "variety": "SN",
+      "avg_risk_contribution_pct": 13.46,
+      "risk_contribution_std": 0,
+      "risk_contribution_max": 0,
+      "risk_contribution_min": 0,
+      "days_above_threshold": 0,
+      "threshold_pct": 20
+    },
+    {
+      "variety": "NI",
+      "avg_risk_contribution_pct": 13.71,
+      "risk_contribution_std": 0,
+      "risk_contribution_max": 0,
+      "risk_contribution_min": 0,
+      "days_above_threshold": 0,
+      "threshold_pct": 20
+    },
+    {
+      "variety": "SI",
+      "avg_risk_contribution_pct": 14.01,
+      "risk_contribution_std": 0,
+      "risk_contribution_max": 0,
+      "risk_contribution_min": 0,
+      "days_above_threshold": 0,
+      "threshold_pct": 20
+    }
+  ]
 }
