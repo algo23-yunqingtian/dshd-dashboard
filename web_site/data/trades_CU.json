@@ -204,8 +204,8 @@
     }
   ],
   "seed": 42,
-  "dataset_version": "1.8",
-  "version_tag": "P31",
+  "dataset_version": "1.10",
+  "version_tag": "P33",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "p31_meta": {
     "synced_from": "DSHA-P25 trades_CU.json (md5=0bbdd5ff88de)",
