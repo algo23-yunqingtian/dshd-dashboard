@@ -1234,8 +1234,8 @@
   "total_trades_open": 50,
   "total_trades_close": 50,
   "seed": 42,
-  "dataset_version": "1.8",
-  "version_tag": "P31",
+  "dataset_version": "1.10",
+  "version_tag": "P33",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00",
