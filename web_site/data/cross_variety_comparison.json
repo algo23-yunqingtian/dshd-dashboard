@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 cross-variety comparison / V31.0",
@@ -209,5 +209,10 @@
   },
   "p31_notes": {
     "note": "IC漂移5.2%阻断期, 品种对比维持P24结论; 量价因子F01/F09为主漂移源"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
