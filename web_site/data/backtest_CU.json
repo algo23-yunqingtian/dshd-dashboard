@@ -30,7 +30,29 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0393,
     "CU_BEAR_IC": 0.0253,
-    "drift_pct": 2.0
+    "drift_pct": 1.9,
+    "version_tag": "P40",
+    "dataset_version": "1.15",
+    "dashboard_version": "V40.0",
+    "phase": "DSHD-P36",
+    "cumulative_days": 1120,
+    "frozen_phases": 15,
+    "fr_risk_501_days": 1125,
+    "fr_risk_501_status": "RELEASED_CONFIRMED",
+    "float32_gate": "PASS",
+    "float32_global_max_dev": 4.7e-08,
+    "incr_speedup": 3.0,
+    "incr_max_dev": 2.087e-14,
+    "euler_speedup": 110.0,
+    "runtime_seconds": 0.993,
+    "ic": 0.0586,
+    "bear_ic": 0.0393,
+    "pb_bear_ic": 0.0322,
+    "cu_bear_ic": 0.0255,
+    "cu_gate_status": "RELEASED_CONFIRMED",
+    "cu_gate_confirmations": 3,
+    "al_stable_days": 410,
+    "nav_gap_pct": 3.6
   },
   "backtest_results": {
     "no_cost": {
@@ -106,8 +128,8 @@
     "frozen_phases": 14,
     "status": "FROZEN_STEADY_STATE"
   },
-  "version_tag": "P39",
-  "dataset_version": "1.14",
+  "version_tag": "P40",
+  "dataset_version": "1.15",
   "_dsd_metadata": {
     "dashboard_version": "V39.0",
     "phase": "DSHD-P35",
