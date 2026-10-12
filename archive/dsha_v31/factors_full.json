@@ -1,0 +1,2218 @@
+{
+  "engine_version": "V86.9-C-FINAL-DEBUG-P31",
+  "factor_library_version": "V86.9-C-FINAL-DEBUG-P31",
+  "phase": "Phase31",
+  "phase_dates": {
+    "start": "2028-12-18",
+    "end": "2029-02-02"
+  },
+  "total_factors": 20,
+  "active_factors": 12,
+  "failed_factors": 8,
+  "seed": 42,
+  "factors": [
+    {
+      "id": "F01",
+      "name": "持仓量扩张因子",
+      "name_en": "OI Expansion Factor",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "5日持仓量扩张率,衡量资金入场强度",
+      "weight": 0.85,
+      "ic_mean": 0.0597,
+      "ir": 46.6,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-06-15",
+          "change": "Baseline factor introduction"
+        },
+        {
+          "version": "V86.8",
+          "date": "2025-09-28",
+          "change": "V868 enhancement - IC recalibration"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: IC=0.059 confirmed stable"
+        },
+        {
+          "version": "V86.9-P19",
+          "date": "2027-06-11",
+          "change": "Phase19 monitoring: IC=0.0588 confirmed stable"
+        },
+        {
+          "version": "V86.9-P20",
+          "date": "2027-07-30",
+          "change": "Phase20 monitoring: IC=0.0587 confirmed stable"
+        },
+        {
+          "version": "V86.9-P21",
+          "date": "2027-09-17",
+          "change": "Phase21 monitoring: IC=0.0586 confirmed stable"
+        },
+        {
+          "version": "V86.9-P22",
+          "date": "2027-11-12",
+          "change": "Phase22 monitoring: IC=0.0585 confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.0577 confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: IC=0.0579; drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; IC=0.058; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; IC=0.0584; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; IC=0.0606; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+行情数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase19_metrics": {
+        "ic": 0.0588,
+        "bear_ic": 0.0395,
+        "crisis_ic": 0.0667
+      },
+      "phase20_metrics": {
+        "ic": 0.0587,
+        "bear_ic": 0.0394,
+        "crisis_ic": 0.0666
+      },
+      "phase21_metrics": {
+        "ic": 0.0586,
+        "bear_ic": 0.0393,
+        "crisis_ic": 0.0665
+      },
+      "phase22_metrics": {
+        "ic": 0.0585,
+        "bear_ic": 0.0392,
+        "crisis_ic": 0.0664
+      },
+      "phase23_metrics": {
+        "ic": 0.0584,
+        "bear_ic": 0.0391,
+        "crisis_ic": 0.0663
+      },
+      "phase24_metrics": {
+        "ic": 0.058,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0579,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.058,
+        "weight_applied": 0.85,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0584,
+        "weight_applied": 0.85,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase29_metrics": {
+        "ic": 0.0597,
+        "bear_ic": 0.0398,
+        "crisis_ic": 0.0665
+      },
+      "phase31_metrics": {
+        "ic": 0.0597,
+        "bear_ic": 0.0398,
+        "crisis_ic": 0.0665
+      }
+    },
+    {
+      "id": "F02",
+      "name": "量比因子",
+      "name_en": "Volume Ratio Factor",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "5日均量/20日均量比率",
+      "weight": 1.0,
+      "ic_mean": 0.0564,
+      "ir": 45.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-06-20",
+          "change": "Baseline factor introduction"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: IC=0.0583 confirmed stable"
+        },
+        {
+          "version": "V86.9-P19",
+          "date": "2027-06-11",
+          "change": "Phase19 monitoring: IC=0.0581 confirmed stable"
+        },
+        {
+          "version": "V86.9-P20",
+          "date": "2027-07-30",
+          "change": "Phase20 monitoring: IC=0.058 confirmed stable"
+        },
+        {
+          "version": "V86.9-P21",
+          "date": "2027-09-17",
+          "change": "Phase21 monitoring: IC=0.0579 confirmed stable"
+        },
+        {
+          "version": "V86.9-P22",
+          "date": "2027-11-12",
+          "change": "Phase22 monitoring: IC=0.0578 confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.0577 confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: IC=0.0577; drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; IC=0.0577; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; IC=0.0584; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; IC=0.059; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase19_metrics": {
+        "ic": 0.0581,
+        "bear_ic": 0.0391,
+        "crisis_ic": 0.0659
+      },
+      "phase20_metrics": {
+        "ic": 0.058,
+        "bear_ic": 0.039,
+        "crisis_ic": 0.0658
+      },
+      "phase21_metrics": {
+        "ic": 0.0579,
+        "bear_ic": 0.0389,
+        "crisis_ic": 0.0657
+      },
+      "phase22_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0388,
+        "crisis_ic": 0.0656
+      },
+      "phase23_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0387,
+        "crisis_ic": 0.0655
+      },
+      "phase24_metrics": {
+        "ic": 0.058,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0577,
+        "weight_applied": 1.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0577,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      },
+      "phase31_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      }
+    },
+    {
+      "id": "F03",
+      "name": "布林带突破",
+      "name_en": "布林带突破",
+      "category": "量价",
+      "status": "FAILED",
+      "data_source": "TECHNICAL",
+      "description": "基于布林带的突破策略",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "IC=0.0312<0.04阈值, 信号频率过高",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F04",
+      "name": "动量反转",
+      "name_en": "动量反转",
+      "category": "量价",
+      "status": "FAILED",
+      "data_source": "TECHNICAL",
+      "description": "短期动量反转策略",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "IC=0.0289<0.04阈值, BEAR区制衰减严重",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F05",
+      "name": "资金流向因子",
+      "name_en": "资金流向因子",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于持仓量变化的资金流向信号",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "持仓数据T+1发布导致信号滞后1日",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F06",
+      "name": "新闻情绪因子",
+      "name_en": "新闻情绪因子",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于新闻NLP的情绪因子",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "NLP模型准确率不足",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F07",
+      "name": "产业链传导因子",
+      "name_en": "产业链传导因子",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于产业链上下游价格传导的信号",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "周频数据无法支持日内交易",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F10",
+      "name": "套利价差因子",
+      "name_en": "套利价差因子",
+      "category": "量价",
+      "status": "FAILED",
+      "data_source": "TECHNICAL",
+      "description": "跨期套利价差策略",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "价差收敛速度慢",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F13",
+      "name": "库存变化因子",
+      "name_en": "库存变化因子",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于交易所库存变化的供需信号",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "库存数据质量不稳定",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F14",
+      "name": "宏观利率因子",
+      "name_en": "宏观利率因子",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于宏观利率变化的因子",
+      "weight": 1.0,
+      "ic_mean": 0.0568,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "与有色金属价格相关性弱",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0578,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0575,
+        "weight_applied": 0.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0575,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      },
+      "phase31_metrics": {
+        "ic": 0.0568,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F08",
+      "name": "波动率因子",
+      "name_en": "Volatility Factor",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "ATR标准化波动率, 衡量市场波动程度",
+      "weight": 1.0,
+      "ic_mean": 0.0564,
+      "ir": 45.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-01",
+          "change": "Baseline factor introduction"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: IC=0.0575 confirmed stable"
+        },
+        {
+          "version": "V86.9-P19",
+          "date": "2027-06-11",
+          "change": "Phase19 monitoring: IC=0.0573 confirmed stable"
+        },
+        {
+          "version": "V86.9-P20",
+          "date": "2027-07-30",
+          "change": "Phase20 monitoring: IC=0.0572 confirmed stable"
+        },
+        {
+          "version": "V86.9-P21",
+          "date": "2027-09-17",
+          "change": "Phase21 monitoring: IC=0.0571 confirmed stable"
+        },
+        {
+          "version": "V86.9-P22",
+          "date": "2027-11-12",
+          "change": "Phase22 monitoring: IC=0.057 confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.0577 confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: IC=0.0576; drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; IC=0.0577; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; IC=0.0584; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; IC=0.059; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase19_metrics": {
+        "ic": 0.0573,
+        "bear_ic": 0.0385,
+        "crisis_ic": 0.065
+      },
+      "phase20_metrics": {
+        "ic": 0.0572,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0649
+      },
+      "phase21_metrics": {
+        "ic": 0.0571,
+        "bear_ic": 0.0383,
+        "crisis_ic": 0.0648
+      },
+      "phase22_metrics": {
+        "ic": 0.057,
+        "bear_ic": 0.0382,
+        "crisis_ic": 0.0647
+      },
+      "phase23_metrics": {
+        "ic": 0.0569,
+        "bear_ic": 0.0381,
+        "crisis_ic": 0.0646
+      },
+      "phase24_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0576,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0577,
+        "weight_applied": 1.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0576,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      },
+      "phase31_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      }
+    },
+    {
+      "id": "F09",
+      "name": "动量因子",
+      "name_en": "Momentum Factor",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "多周期动量加权合成",
+      "weight": 0.85,
+      "ic_mean": 0.0564,
+      "ir": 45.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-05",
+          "change": "Baseline factor introduction"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: IC=0.0589 confirmed stable"
+        },
+        {
+          "version": "V86.9-P19",
+          "date": "2027-06-11",
+          "change": "Phase19 monitoring: IC=0.0587 confirmed stable"
+        },
+        {
+          "version": "V86.9-P20",
+          "date": "2027-07-30",
+          "change": "Phase20 monitoring: IC=0.0586 confirmed stable"
+        },
+        {
+          "version": "V86.9-P21",
+          "date": "2027-09-17",
+          "change": "Phase21 monitoring: IC=0.0585 confirmed stable"
+        },
+        {
+          "version": "V86.9-P22",
+          "date": "2027-11-12",
+          "change": "Phase22 monitoring: IC=0.0584 confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.0577 confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: IC=0.0576; drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; IC=0.0577; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; IC=0.0584; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; IC=0.059; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase19_metrics": {
+        "ic": 0.0587,
+        "bear_ic": 0.0395,
+        "crisis_ic": 0.0666
+      },
+      "phase20_metrics": {
+        "ic": 0.0586,
+        "bear_ic": 0.0394,
+        "crisis_ic": 0.0665
+      },
+      "phase21_metrics": {
+        "ic": 0.0585,
+        "bear_ic": 0.0393,
+        "crisis_ic": 0.0664
+      },
+      "phase22_metrics": {
+        "ic": 0.0584,
+        "bear_ic": 0.0392,
+        "crisis_ic": 0.0663
+      },
+      "phase23_metrics": {
+        "ic": 0.0583,
+        "bear_ic": 0.0391,
+        "crisis_ic": 0.0662
+      },
+      "phase24_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0576,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0577,
+        "weight_applied": 0.85,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0584,
+        "weight_applied": 0.85,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase29_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      },
+      "phase31_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      }
+    },
+    {
+      "id": "F11",
+      "name": "量价背离因子",
+      "name_en": "Volume-Price Divergence",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "量价背离信号, 价格新高但成交量萎缩",
+      "weight": 1.0,
+      "ic_mean": 0.0564,
+      "ir": 45.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-10",
+          "change": "Baseline factor introduction"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: IC=0.0571 confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.0577 confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: IC=0.0576; drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; IC=0.0577; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; IC=0.0584; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; IC=0.059; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0576,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0577,
+        "weight_applied": 1.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0576,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      },
+      "phase31_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      }
+    },
+    {
+      "id": "F12",
+      "name": "流动性状态因子",
+      "name_en": "Liquidity State Factor",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "市场流动性状态评估",
+      "weight": 1.0,
+      "ic_mean": 0.0564,
+      "ir": 45.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-15",
+          "change": "Baseline factor introduction"
+        },
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18 monitoring: IC=0.0578 confirmed stable"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.0577 confirmed stable; drift=5.1%"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25 monitoring: IC=0.0576; drift=5.2% block active"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; IC=0.0577; drift=4.7%"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; IC=0.0584; drift=4.2%"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; IC=0.059; drift=4.0%"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.0577,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase25_metrics": {
+        "ic": 0.0576,
+        "bear_ic": 0.0384,
+        "crisis_ic": 0.0654
+      },
+      "phase26_metrics": {
+        "ic": 0.0577,
+        "weight_applied": 1.0,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0577,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true
+      },
+      "phase29_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      },
+      "phase31_metrics": {
+        "ic": 0.0564,
+        "bear_ic": 0.0411,
+        "crisis_ic": 0.0651
+      }
+    },
+    {
+      "id": "F15",
+      "name": "资金流向-资金流因子",
+      "name_en": "Capital Flow - Fund Flow Factor",
+      "category": "特殊",
+      "status": "ACTIVE",
+      "data_source": "CAPITAL",
+      "description": "资金流向综合分析因子 (F15~F18 Artifact修正基线)",
+      "weight": 1.0,
+      "ic_mean": 0.0506,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "iteration_history": [
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; artifact correction applied"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+资金流数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "artifact_correction": true,
+      "corrected_ic_mean": 0.0506,
+      "phase31_metrics": {
+        "ic": 0.0506,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F16",
+      "name": "资金流向-机构因子",
+      "name_en": "Capital Flow - Institutional Factor",
+      "category": "特殊",
+      "status": "ACTIVE",
+      "data_source": "CAPITAL",
+      "description": "机构资金流向因子 (F15~F18 Artifact修正基线)",
+      "weight": 1.0,
+      "ic_mean": 0.0501,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "iteration_history": [
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; artifact correction applied"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+资金流数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "artifact_correction": true,
+      "corrected_ic_mean": 0.0501,
+      "phase31_metrics": {
+        "ic": 0.0501,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F17",
+      "name": "资金流向-投机因子",
+      "name_en": "Capital Flow - Speculation Factor",
+      "category": "特殊",
+      "status": "ACTIVE",
+      "data_source": "CAPITAL",
+      "description": "投机资金流向因子 (F15~F18 Artifact修正基线)",
+      "weight": 1.0,
+      "ic_mean": 0.0497,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "iteration_history": [
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; artifact correction applied"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+资金流数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "artifact_correction": true,
+      "corrected_ic_mean": 0.0497,
+      "phase31_metrics": {
+        "ic": 0.0497,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F18",
+      "name": "资金流向-多空因子",
+      "name_en": "Capital Flow - Long-Short Factor",
+      "category": "特殊",
+      "status": "ACTIVE",
+      "data_source": "CAPITAL",
+      "description": "多空资金流向因子 (F15~F18 Artifact修正基线)",
+      "weight": 1.0,
+      "ic_mean": 0.0493,
+      "ir": 48.3,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "iteration_history": [
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; artifact correction applied"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; artifact correction confirmed"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+资金流数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "artifact_correction": true,
+      "corrected_ic_mean": 0.0493,
+      "phase31_metrics": {
+        "ic": 0.0493,
+        "bear_ic": 0.0399,
+        "crisis_ic": 0.0646
+      }
+    },
+    {
+      "id": "F19",
+      "name": "热钱因子",
+      "name_en": "Hot Money Factor",
+      "category": "特殊",
+      "status": "ACTIVE",
+      "data_source": "CAPITAL",
+      "description": "热钱流入流出因子, 稳定锚因子",
+      "weight": 1.1,
+      "ic_mean": 0.0583,
+      "ir": 47.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18: F19 stable anchor"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.058 stable anchor"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25: F19 stable anchor"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; F19 weight=1.10"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; F19 weight=1.10"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; F19 IC=0.0583 stable anchor"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+资金流数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.058,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true
+      },
+      "phase26_metrics": {
+        "ic": 0.058,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0582,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase29_metrics": {
+        "ic": 0.0583,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase31_metrics": {
+        "ic": 0.0583,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      }
+    },
+    {
+      "id": "F20",
+      "name": "注意力因子",
+      "name_en": "Attention Factor",
+      "category": "特殊",
+      "status": "ACTIVE",
+      "data_source": "CAPITAL",
+      "description": "市场注意力因子, 稳定锚因子",
+      "weight": 1.1,
+      "ic_mean": 0.0583,
+      "ir": 47.7,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.9-P18",
+          "date": "2027-04-21",
+          "change": "Phase18: F20 stable anchor"
+        },
+        {
+          "version": "V86.9-P24",
+          "date": "2028-02-18",
+          "change": "Phase24 monitoring: IC=0.058 stable anchor"
+        },
+        {
+          "version": "V86.9-P25",
+          "date": "2028-04-07",
+          "change": "Phase25: F20 stable anchor"
+        },
+        {
+          "version": "V86.9-P26",
+          "date": "2028-05-26",
+          "change": "Phase26: Scheme D applied; F20 weight=1.10"
+        },
+        {
+          "version": "V86.9-P28",
+          "date": "2028-09-01",
+          "change": "Phase28: Scheme D FROZEN; F20 weight=1.10"
+        },
+        {
+          "version": "V86.9-P29",
+          "date": "2028-10-27",
+          "change": "Phase29: Scheme D FROZEN; F20 IC=0.0583 stable anchor"
+        },
+        {
+          "version": "V86.9-P31",
+          "date": "2029-02-02",
+          "change": "Phase31 monitoring: Scheme D FROZEN; IC=0.0586 confirmed steady-state; drift=3.6%<4.8%"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+资金流数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      },
+      "phase24_metrics": {
+        "ic": 0.058,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true
+      },
+      "phase26_metrics": {
+        "ic": 0.058,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase28_metrics": {
+        "ic": 0.0582,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase29_metrics": {
+        "ic": 0.0583,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      },
+      "phase31_metrics": {
+        "ic": 0.0583,
+        "weight_applied": 1.1,
+        "scheme_d_applied": true,
+        "scheme_d_frozen": true,
+        "decay_compensation": true,
+        "decay_multiplier": 1.0018
+      }
+    }
+  ],
+  "scheme_d_frozen": true,
+  "scheme_d_parameters": {
+    "F01_weight": 0.85,
+    "F09_weight": 0.85,
+    "F19_weight": 1.1,
+    "F20_weight": 1.1,
+    "decay_multiplier": 1.0018,
+    "decay_compensation": true,
+    "F15_F18_artifact_correction": true
+  },
+  "drift_monitoring": {
+    "status": "ACTIVE",
+    "warning_threshold_pct": 4.8,
+    "relock_threshold_pct": 5.0,
+    "current_drift_pct": 3.6,
+    "consecutive_phases_below_4_8": 6,
+    "unblock_status": "PERMANENTLY_UNBLOCKED"
+  },
+  "phase31_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0392,
+    "CRISIS_IC": 0.0663,
+    "IR": 47.8,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0294,
+    "CU_BEAR_IC": 0.0234,
+    "drift_rate_pct": 3.6,
+    "total_monitor_days": 805,
+    "zero_rollback_days": 805,
+    "sigma_weeks": "161/161",
+    "fr_risk_501_days": 810,
+    "drift_alert_counter": 1435
+  }
+}
