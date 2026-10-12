@@ -281,10 +281,18 @@
   "notes": "All data is synthetic/simulated for visualization workbench pre-development (VIS-001). F19/F20 contributions are zero in BEAR regime per TD-046 constraint.",
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V39.0",
+    "dashboard_version": "V41.0",
     "updated_at": "2026-10-12T14:49:49.109515",
-    "data_source": "DSHA-P38"
+    "data_source": "DSHA-P38",
+    "phase": "DSHD-P37",
+    "source": "DSHA-P41",
+    "flags": [
+      "FR-RISK_CLOSED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
+    ]
   },
-  "version_tag": "P40",
-  "dataset_version": "1.15"
+  "version_tag": "P41",
+  "dataset_version": "1.16"
 }
