@@ -1,0 +1,39 @@
+{
+  "event_id": "PC-003-DSHC-20261116-001",
+  "ts": "2026-11-16T15:30:00+08:00",
+  "source": "DSHC",
+  "event_type": "PC-003_DUAL_GATE_POLL",
+  "pipeline": "PC-003",
+  "request": "UNLOCK",
+  "variants": ["ZN", "NI", "SN", "SI"],
+  "upstream_ref": "DSHA:PHASE12_FACTOR_APPROVE(1f1fae65);DSHA:PHASE11_DONE(c7229070);DSHD:PHASE9_GATE_RUN_READY",
+  "phase": "PHASE12",
+  "gates": {
+    "TD002": {
+      "status": "BLOCKED",
+      "condition": "TD002_PENALTY_CALC_RULES_VERIFIED",
+      "verified": false,
+      "source": "DSHC",
+      "detail": "TD002_PENALTY_UNRESOLVED - 真实持仓数据未接入, 罚金计算规则无法验证 (TD002_TRIGGER_STATUS=PENDING_DATA_VERIFICATION, PHASE12_STATUS=ACTIVE_MONITORING)"
+    },
+    "TD014": {
+      "status": "BLOCKED",
+      "condition": "TD014_DQ_RULES_VERIFIED",
+      "verified": false,
+      "source": "DSHC",
+      "detail": "TD014_DQ_RULE_UNRESOLVED - 数据质量规则未达标 (TD014_TRIGGER_STATUS=PENDING_DATA_VERIFICATION, PHASE12_STATUS=ACTIVE_MONITORING)"
+    },
+    "REAL_DATA_INGESTION": {
+      "status": "BLOCKED",
+      "verified": false,
+      "source": "DSHC",
+      "detail": "AL/CU/PB 真实快照树 ABSENT (GATE-P2-01 REAL_TREE PENDING), ZN/NI/SN/SI 冻结未解冻"
+    },
+    "CONDITIONAL_APPROVAL": {
+      "status": "BLOCKED",
+      "verified": false,
+      "source": "DSHA",
+      "detail": "SI 附加条件审批未签发 (PHASE12_APPROVAL_STATUS=APPROVED_WITH_CONDITIONS, SI_UNFREEZE_CONDITIONS 需 CONDITIONAL_APPROVAL)"
+    }
+  }
+}
