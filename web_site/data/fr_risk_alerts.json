@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 FR-RISK alerts - P31 漂移解除 + PB/CU 灰度持续 / V31.0",
@@ -202,7 +202,7 @@
   "fr_risk_days_active": 810,
   "ic_drift_block": {
     "active": false,
-    "drift_pct": 3.6,
+    "drift_pct": 2.8,
     "threshold_pct": 5.0,
     "block_since": "Phase24",
     "released_at": "Phase31",
@@ -214,7 +214,8 @@
     "root_cause": "ISSUED_V2.5",
     "fix_plan": "SCHEME_D_FROZEN",
     "admission_frozen": false,
-    "new_factor_admission_frozen": false
+    "new_factor_admission_frozen": false,
+    "last_updated": "P35"
   },
   "pb_cu_live_readings": {
     "pb": {
@@ -239,5 +240,10 @@
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "drift_alert_counter": 1435
+  "drift_alert_counter": 1435,
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  }
 }
