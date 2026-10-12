@@ -1,0 +1,33 @@
+=== DSHD-P32 DONE FLAG ===
+FLAG_ID: DSHD-P32-DONE
+PHASE: Phase32
+VERSION: V36.0
+DATE: 2026-10-12T05:55:33Z
+BRANCH: PHASE31_BASELINE
+TASK_OWNER: DSHD
+PRE_DEPENDENCY: DSHD-P31 V35.0 online, DSHA-P36 data delivered
+
+=== TASK STATUS ===
+T0 前置校验: PASS
+T1 V36.0前端迭代: PASS
+T2 本地全量验证: PASS
+T3 V36.0线上部署: PASS
+T4 缺陷修复: PASS
+T5 文档归档: PASS
+T6 跨Agent同步: PASS
+
+=== ACCEPTANCE CRITERIA ===
+AC1: PASS - V36.0 online, Euler panel, performance, CU progress
+AC2: PASS - Dual-curve toggle stable
+AC3: PASS - 176/176 HTTP 200, no 404
+AC4: PASS - All dynamic, no hardcoding, null safety
+AC5: PASS - P36 compat 12/12 PASS
+AC6: PASS - Flag issued, docs archived, cross-agent sync complete
+AC_TOTAL: 6/6 PASS
+
+=== KEY METRICS (P36) ===
+IC: 0.0586 | BEAR_IC: 0.0393 | IR: 47.9
+PB_BEAR_IC: 0.0322 (17/17, GRAY_ADMITTED)
+CU_BEAR_IC: 0.0244 (9/14, IMPROVING 64.3%)
+CUMULATIVE_DAYS: 980 | FROZEN_PHASES: 11 | FR_RISK_501: 985
+PORTFOLIO_VECTORIZATION: 151.4x | RUNTIME: 1.151s (down 36.1%)
