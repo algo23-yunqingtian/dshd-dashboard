@@ -1,0 +1,90 @@
+{
+  "phase": "Phase34",
+  "engine": "V86.9-C-FINAL-DEBUG-P34",
+  "asset": "AL",
+  "total_trades": 6,
+  "open_trades": 6,
+  "close_trades": 6,
+  "total_pnl": 804.9,
+  "trades": [
+    {
+      "trade_id": "TRD-AL-01",
+      "open_date": "2029-04-15",
+      "close_date": "2029-04-20",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1889.17,
+      "exit_price": 1891.07,
+      "pnl": 19.0,
+      "pnl_pct": 0.1,
+      "week": "W106"
+    },
+    {
+      "trade_id": "TRD-AL-02",
+      "open_date": "2029-04-22",
+      "close_date": "2029-04-27",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1934.3,
+      "exit_price": 1932.71,
+      "pnl": -15.9,
+      "pnl_pct": -0.08,
+      "week": "W107"
+    },
+    {
+      "trade_id": "TRD-AL-03",
+      "open_date": "2029-04-29",
+      "close_date": "2029-05-04",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1982.89,
+      "exit_price": 2012.05,
+      "pnl": 291.6,
+      "pnl_pct": 1.47,
+      "week": "W108"
+    },
+    {
+      "trade_id": "TRD-AL-04",
+      "open_date": "2029-05-06",
+      "close_date": "2029-05-11",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1739.69,
+      "exit_price": 1718.16,
+      "pnl": -215.3,
+      "pnl_pct": -1.24,
+      "week": "W109"
+    },
+    {
+      "trade_id": "TRD-AL-05",
+      "open_date": "2029-05-13",
+      "close_date": "2029-05-18",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 2522.07,
+      "exit_price": 2573.03,
+      "pnl": 509.6,
+      "pnl_pct": 2.02,
+      "week": "W110"
+    },
+    {
+      "trade_id": "TRD-AL-06",
+      "open_date": "2029-05-20",
+      "close_date": "2029-05-25",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1870.71,
+      "exit_price": 1892.3,
+      "pnl": 215.9,
+      "pnl_pct": 1.15,
+      "week": "W111"
+    }
+  ],
+  "version_tag": "P34",
+  "dataset_version": "1.10",
+  "cross_agent": {
+    "DSHD_version": "V34.0",
+    "DSHD_phase": "P30",
+    "deployed_at": "2026-10-12T11:15:09.686522"
+  }
+}
