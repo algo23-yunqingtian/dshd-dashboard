@@ -1,19 +1,19 @@
 {
-  "phase": "Phase33",
-  "engine": "V86.9-C-FINAL-DEBUG-P33",
+  "phase": "Phase35",
+  "engine": "V86.9-C-FINAL-DEBUG-P35",
   "date_range": {
-    "start": "2029-03-26",
-    "end": "2029-05-11",
+    "start": "2029-07-01",
+    "end": "2029-08-15",
     "trading_days": 35
   },
   "weeks": [
-    "W106",
-    "W107",
-    "W108",
-    "W109",
-    "W110",
-    "W111",
-    "W112"
+    "W120",
+    "W121",
+    "W122",
+    "W123",
+    "W124",
+    "W125",
+    "W126"
   ],
   "scheme_d_frozen": true,
   "scheme_d_params": {
@@ -24,20 +24,20 @@
     "decay_comp": 1.0018,
     "F15~F18_correction": "artifact",
     "frozen_since": "P28",
-    "frozen_phases": 8,
+    "frozen_phases": 10,
     "status": "FROZEN_STEADY_STATE"
   },
   "drift_monitoring": {
     "active": true,
     "warn_threshold_pct": 4.8,
     "relock_threshold_pct": 5.0,
-    "current_drift_pct": 3.2,
+    "current_drift_pct": 2.8,
     "status": "STABLE_STEADY_STATE",
-    "consecutive_phases": 8
+    "consecutive_phases": 10
   },
   "dual_backtest_results": {
     "no_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P33-NO-COST",
+      "version": "V86.9-C-FINAL-DEBUG-P35-NO-COST",
       "nav": 1.86,
       "sharpe": 2.2,
       "max_drawdown_pct": -0.75,
@@ -49,7 +49,7 @@
       "cost_per_round_trip_pct": 0.0
     },
     "with_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P33-WITH-COST",
+      "version": "V86.9-C-FINAL-DEBUG-P35-WITH-COST",
       "nav": 1.793,
       "sharpe": 2.05,
       "max_drawdown_pct": -0.92,
@@ -73,7 +73,7 @@
       "max_dd_gap_pp": 0.17,
       "win_rate_gap_pp": 5,
       "annual_return_gap_pp": 6.7,
-      "conclusion": "零成本模型NAV高估3.6%，Sharpe高估6.8%，年收益高估6.7pp；含成本版本NAV更为保守，建议以含成本版本作为实盘参考基准"
+      "conclusion": "零成本模型NAV高估约3.6%，含成本版本NAV更为保守"
     }
   },
   "portfolio_metrics": {
@@ -148,33 +148,33 @@
     "BEAR_IC": 0.0393,
     "CRISIS_IC": 0.0664,
     "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.032,
+    "CU_BEAR_IC": 0.0237,
     "drift_pct": 3.2,
     "cumulative_days": 875,
     "sigma_weeks": 175,
     "FR_RISK_501_days": 880,
-    "drift_alert_counter": 1599,
-    "portfolio_nav": 1.86,
-    "portfolio_sharpe": 2.2,
-    "portfolio_nav_with_cost": 1.793,
-    "portfolio_sharpe_with_cost": 2.05
+    "drift_alert_counter": 1599
   },
   "admission_block": {
     "drift_below_4_8": true,
     "IC_above_0_0575": true,
-    "consecutive_phases": 8,
+    "consecutive_phases": 10,
     "status": "PERMANENTLY_LIFTED"
   },
   "fr_risk_rules": {
     "FR-RISK-501": {
       "condition": "CU BEAR_IC<0.025",
       "status": "CONTINUED",
-      "days": 880,
+      "days": 950,
       "severity": "LOW"
     },
     "FR-RISK-502": {
       "condition": "PB BEAR_IC<0.030",
       "status": "CONTINUED",
-      "days": 805,
+      "days": 875,
       "severity": "LOW"
     },
     "FR-RISK-503": {
@@ -210,16 +210,19 @@
   },
   "cross_agent_sync": {
     "DSHC": {
-      "phase": "P40",
+      "phase": "P39",
       "data_loaded": true,
       "AL_stable_days": 165,
       "PB_BEAR_IC": 0.032,
       "CU_BEAR_IC": 0.0237
     },
     "DSHD": {
-      "version": "V33.0",
+      "version": "V32.0",
       "ready": true,
-      "issues": []
+      "issues": [
+        "页面空白",
+        "图表渲染异常"
+      ]
     }
   },
   "cost_audit_summary": {
@@ -228,8 +231,68 @@
     "annual_return_overestimation_pp": 6.7,
     "dual_version_provided": true,
     "cost_adjusted_portfolio_provided": true,
-    "conclusion": "零成本假设使NAV高估3.6%；已提供双版本回测供对照；实盘需集成成本模型"
+    "conclusion": "零成本假设使NAV高估约3.6%；已提供双版本回测供对照"
   },
-  "version_tag": "P33",
+  "performance_evaluation": {
+    "phase34_pipeline_seconds": 1.8,
+    "phase35_pipeline_model_seconds": 1.338,
+    "runtime_delta_pct": 25.7,
+    "backtest_module_serial_seconds": 0.85,
+    "backtest_module_parallel_projected_seconds": 0.388,
+    "backtest_module_actual_wall_seconds": 1.016,
+    "backtest_module_actual_worker_sum_seconds": 0.053,
+    "framework_bench_speedup": 2.19,
+    "framework_speedup_used": 2.19,
+    "parallel_backend": "process",
+    "peak_memory_mb": 21.3,
+    "optimizations_applied": [
+      "vectorized_rolling_correlation",
+      "precomputed_weight_matrix",
+      "intermediate_caching",
+      "incremental_window_update",
+      "parallel_7variant_backtest_scheduler"
+    ]
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "phase34_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0321,
+    "CU_BEAR_IC": 0.0239,
+    "drift_pct": 3.0,
+    "cumulative_days": 910,
+    "sigma_weeks": 182,
+    "FR_RISK_501_days": 915,
+    "drift_alert_counter": 1681
+  },
+  "phase35_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0322,
+    "CU_BEAR_IC": 0.0241,
+    "drift_pct": 2.8,
+    "cumulative_days": 945,
+    "sigma_weeks": 189,
+    "FR_RISK_501_days": 950,
+    "drift_alert_counter": 1764,
+    "F15_baseline": 0.0506,
+    "F16_baseline": 0.0501,
+    "F17_baseline": 0.0497,
+    "F18_baseline": 0.0493,
+    "drift_trend_pp": -0.2
+  },
+  "version_tag": "P35",
   "dataset_version": "1.10"
 }
