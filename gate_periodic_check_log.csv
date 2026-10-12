@@ -453,3 +453,4 @@ PG25-R1,PG25-NETWORK-REMOTE,github.com:443 remote reachable,WARN,FAIL,MITIGATED,
 2029-02-09,DSHD-P27,DEPLOY-P27-T1-PAT-STATUS,NA,工单要求轮换,不换(现有PAT正常),PAT ghp_TW0z...3wi9s3 admin/push/maintain全功能; Actions读+Contents API写+git ref增删均成功; 附带删除_probe_tmp和_p27_pat_probe,T1,42,7b7ab57f5e538db4e783996b365e4f1a
 2029-02-09,DSHD-P27,DEPLOY-P27-FINAL,PASS,T0-T5完成,验收通过,"6/6 ALL-VERIFIED; 等待DSHA-P32数据用于V32.0看板; 遗留: CU 6/14未达标(P1), 443不可达(P1), head领先(P2), P25 step名(P3)",T5,42,5e83483961bb00c43e5dce6e8d2f65e0
 2026-10-12T04:35:23Z,P31,DSHD_DEPLOY,PASS,"V35.0 P35 data, 16 tabs, 32/32 health, CI pass"
+2026-10-12T05:55:33Z,P32,DSHD_DEPLOY,PASS,"V36.0 P36 data, 17 tabs, 176/176 health, Euler panel, portfolio 151.4x"
