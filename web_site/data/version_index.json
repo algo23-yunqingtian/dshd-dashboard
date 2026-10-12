@@ -7,7 +7,7 @@
   "current_version": "P33",
   "total_data_version": "1.10",
   "phase_count": 33,
-  "total_versions": 16,
+  "total_versions": 17,
   "version_range": "P18-P33",
   "versions": [
     {
@@ -315,7 +315,7 @@
       "note": "P32: PB BEAR_IC=0.0319(14/14达标), CU BEAR_IC=0.0262(8/14改善), ZN/SN/NI/SI正式投产稳态"
     },
     {
-      "status": "ACTIVE",
+      "status": "ARCHIVED",
       "data_version": "1.10",
       "version": "P33",
       "phase": "Phase33",
@@ -333,7 +333,30 @@
         "SN",
         "ZN"
       ],
-      "note": "P33: PB BEAR_IC=0.0320(14/14达标), CU BEAR_IC=0.0395(8/14改善), ZN/SN/NI/SI正式投产稳态, PB双曲线切换控件上线"
+      "note": "P33: PB BEAR_IC=0.0320(14/14达标), CU BEAR_IC=0.0395(8/14改善), ZN/SN/NI/SI正式投产稳态, PB双曲线切换控件上线",
+      "archived_at": "2026-10-12T04:11:27Z"
+    },
+    {
+      "phase": "Phase35",
+      "dashboard_version": "V35.0",
+      "phase_label": "DSHD-P31",
+      "dataset_version": "1.10",
+      "version_tag": "P35",
+      "status": "ACTIVE",
+      "date_range": "2029-07-01 ~ 2029-08-15",
+      "trading_days": 35,
+      "weeks": "W120-W126",
+      "cumulative_days": 945,
+      "ic": 0.0586,
+      "bear_ic": 0.0393,
+      "ir": 47.9,
+      "pb_bear_ic": 0.0322,
+      "cu_bear_ic": 0.0241,
+      "frozen_phases": 10,
+      "fr_risk_501": 950,
+      "runtime": 1.338,
+      "parallel_speedup": 2.19,
+      "activated_at": "2026-10-12T04:11:27Z"
     }
   ],
   "versions_by_tag": {
@@ -622,5 +645,7 @@
     "source": "DSHA-P33 PHASE33_DATA_READY.flag",
     "supersedes": "P32 version_index.json",
     "fix": "P33: PB双曲线切换控件, version_tag升级至P33, dataset_version升级至1.10"
-  }
+  },
+  "active_version": "P35",
+  "last_updated": "2026-10-12T04:11:27Z"
 }
