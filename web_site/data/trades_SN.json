@@ -1,6 +1,6 @@
 {
-  "phase": "Phase39",
-  "engine": "V86.9-C-FINAL-DEBUG-P39",
+  "phase": "Phase41",
+  "engine": "V86.9-C-FINAL-DEBUG-P41",
   "asset": "SN",
   "total_trades": 6,
   "open_trades": 6,
@@ -9,88 +9,78 @@
   "trades": [
     {
       "trade_id": "TRD-SN-01",
-      "open_date": "2030-04-26",
-      "close_date": "2030-05-01",
+      "open_date": "2032-10-22",
+      "close_date": "2032-10-27",
       "direction": "SHORT",
       "position_size": 10,
       "entry_price": 2728.35,
       "exit_price": 2693.62,
       "pnl": 347.3,
       "pnl_pct": 1.27,
-      "week": "W162"
+      "week": "W302"
     },
     {
       "trade_id": "TRD-SN-02",
-      "open_date": "2030-05-03",
-      "close_date": "2030-05-08",
+      "open_date": "2032-10-29",
+      "close_date": "2032-11-03",
       "direction": "SHORT",
       "position_size": 10,
       "entry_price": 2426.84,
       "exit_price": 2452.56,
       "pnl": -257.2,
       "pnl_pct": -1.06,
-      "week": "W163"
+      "week": "W303"
     },
     {
       "trade_id": "TRD-SN-03",
-      "open_date": "2030-05-10",
-      "close_date": "2030-05-15",
+      "open_date": "2032-11-05",
+      "close_date": "2032-11-10",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1517.35,
       "exit_price": 1511.07,
       "pnl": -62.8,
       "pnl_pct": -0.41,
-      "week": "W164"
+      "week": "W304"
     },
     {
       "trade_id": "TRD-SN-04",
-      "open_date": "2030-05-17",
-      "close_date": "2030-05-22",
+      "open_date": "2032-11-12",
+      "close_date": "2032-11-17",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1871.21,
       "exit_price": 1894.54,
       "pnl": 233.3,
       "pnl_pct": 1.25,
-      "week": "W165"
+      "week": "W305"
     },
     {
       "trade_id": "TRD-SN-05",
-      "open_date": "2030-05-24",
-      "close_date": "2030-05-29",
+      "open_date": "2032-11-19",
+      "close_date": "2032-11-24",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2126.74,
       "exit_price": 2096.1,
       "pnl": -306.4,
       "pnl_pct": -1.44,
-      "week": "W166"
+      "week": "W306"
     },
     {
       "trade_id": "TRD-SN-06",
-      "open_date": "2030-05-31",
-      "close_date": "2030-06-05",
+      "open_date": "2032-11-26",
+      "close_date": "2032-12-01",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2492.04,
       "exit_price": 2445.89,
       "pnl": -461.5,
       "pnl_pct": -1.85,
-      "week": "W167"
+      "week": "W307"
     }
   ],
-  "version_tag": "P40",
-  "dataset_version": "1.15",
-  "_dsd_metadata": {
-    "dashboard_version": "V39.0",
-    "phase": "DSHD-P35",
-    "updated_at": "2026-10-12T16:00:00+08:00",
-    "source": "DSHA-P39",
-    "flags": [
-      "FR-RISK_RELEASED_CONFIRMED",
-      "FLOAT32_GATE_PASS",
-      "COST_MODEL_INTEGRATED"
-    ]
-  }
+  "version_tag": "P41",
+  "dataset_version": "1.16",
+  "dashboard_version": "V41.0"
 }
