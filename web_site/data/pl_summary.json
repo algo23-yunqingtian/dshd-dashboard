@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 per-variety performance summary / V31.0",
@@ -93,5 +93,10 @@
     "ic": 0.0586,
     "ic_floor": 0.0575,
     "note": "P26~P31 连续6阶段漂移率<4.8%%且IC>=0.0575, 阻断永久解除"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
