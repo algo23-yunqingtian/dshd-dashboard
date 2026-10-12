@@ -1,0 +1,13 @@
+timestamp,event_type,run_id,alarm_id,severity,sym,source,detail,record_md5
+2026-10-10T03:00:00+08:00,PASS,10550c7d39ad,,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-1-CONTRACT_SIZE PASS ref=mult25 size25 sample=2 bad=0,ffaf05f14fd929db1b29a07f0fe3e4cd
+2026-10-10T03:00:00+08:00,PASS,10550c7d39ad,,CRITICAL,ZN,position_verify_module.py (V87-04),"CHECK-2-LIMIT PASS A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=2 evt_bad=0 dual_track_ok=True",56e759cf18ecfa0d6d6b0af4ddedf4db
+2026-10-10T03:00:00+08:00,PASS,10550c7d39ad,,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-3-POSITION_PATH PASS REAL: pos_positive=2 roll_error=0,f2845088b3e5628b35604d6b8c00f52c
+2026-10-10T03:00:00+08:00,ALARM,fcd3bb5b5bf1,ALARM-R04-K11-CHECK-1-CONTRACT_SIZE,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-1-CONTRACT_SIZE FAIL ref=mult25 size25 sample=1 bad=1 mismatches=DIFF-00033:F39=5.0 F40=5.0,c3e57f414114583e6dfe9518a7c0d77a
+2026-10-10T03:00:00+08:00,PASS,fcd3bb5b5bf1,,CRITICAL,ZN,position_verify_module.py (V87-04),"CHECK-2-LIMIT PASS A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=1 evt_bad=0 dual_track_ok=True",0d8e9ac41bc515b14cf8567e426ba12f
+2026-10-10T03:00:00+08:00,PASS,fcd3bb5b5bf1,,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-3-POSITION_PATH PASS REAL: pos_positive=2 roll_error=0,f2845088b3e5628b35604d6b8c00f52c
+2026-10-10T03:00:00+08:00,PASS,53b8d5a4a9a3,,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-1-CONTRACT_SIZE PASS ref=mult25 size25 sample=2 bad=0,ffaf05f14fd929db1b29a07f0fe3e4cd
+2026-10-10T03:00:00+08:00,PASS,53b8d5a4a9a3,,CRITICAL,ZN,position_verify_module.py (V87-04),"CHECK-2-LIMIT PASS A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=2 evt_bad=0 dual_track_ok=True",56e759cf18ecfa0d6d6b0af4ddedf4db
+2026-10-10T03:00:00+08:00,ALARM,53b8d5a4a9a3,ALARM-POS-CHECK-3-POSITION_PATH,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-3-POSITION_PATH FAIL REAL: pos_positive=0 (L-05 投产硬门未过: 头寸>0 回放缺失); total=2 rejected=1 accepted=1 roll_error=0,1d2beba190c1510a287fdf83d7600ce5
+2026-10-10T03:00:00+08:00,PASS,e12c3ba28d8b,,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-1-CONTRACT_SIZE PASS ref=mult25 size25 sample=2 bad=0,ffaf05f14fd929db1b29a07f0fe3e4cd
+2026-10-10T03:00:00+08:00,PASS,e12c3ba28d8b,,CRITICAL,ZN,position_verify_module.py (V87-04),"CHECK-2-LIMIT PASS A normal/ext=4.0/6.0, C table=4.0/8.0 evt_sample=2 evt_bad=0 dual_track_ok=True",56e759cf18ecfa0d6d6b0af4ddedf4db
+2026-10-10T03:00:00+08:00,WARN,e12c3ba28d8b,,CRITICAL,ZN,position_verify_module.py (V87-04),CHECK-3-POSITION_PATH WARN OFFLINE: accepted_ratio=0.50 pos_positive=0,c60008375cc0dad88ab5e3622c853438
