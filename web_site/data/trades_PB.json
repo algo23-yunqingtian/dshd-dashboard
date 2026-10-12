@@ -1,6 +1,6 @@
 {
-  "phase": "Phase35",
-  "engine": "V86.9-C-FINAL-DEBUG-P35",
+  "phase": "Phase36",
+  "engine": "V86.9-C-FINAL-DEBUG-P36",
   "asset": "PB",
   "total_trades": 6,
   "open_trades": 6,
@@ -9,82 +9,77 @@
   "trades": [
     {
       "trade_id": "TRD-PB-01",
-      "open_date": "2029-07-03",
-      "close_date": "2029-07-08",
+      "open_date": "2029-08-19",
+      "close_date": "2029-08-24",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2495.25,
       "exit_price": 2462.19,
       "pnl": -330.6,
       "pnl_pct": -1.32,
-      "week": "W120"
+      "week": "W127"
     },
     {
       "trade_id": "TRD-PB-02",
-      "open_date": "2029-07-10",
-      "close_date": "2029-07-15",
+      "open_date": "2029-08-26",
+      "close_date": "2029-08-31",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1749.64,
       "exit_price": 1786.78,
       "pnl": 371.4,
       "pnl_pct": 2.12,
-      "week": "W121"
+      "week": "W128"
     },
     {
       "trade_id": "TRD-PB-03",
-      "open_date": "2029-07-17",
-      "close_date": "2029-07-22",
+      "open_date": "2029-09-02",
+      "close_date": "2029-09-07",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1920.62,
       "exit_price": 1956.16,
       "pnl": 355.4,
       "pnl_pct": 1.85,
-      "week": "W122"
+      "week": "W129"
     },
     {
       "trade_id": "TRD-PB-04",
-      "open_date": "2029-07-24",
-      "close_date": "2029-07-29",
+      "open_date": "2029-09-09",
+      "close_date": "2029-09-14",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2046.51,
       "exit_price": 2063.33,
       "pnl": 168.2,
       "pnl_pct": 0.82,
-      "week": "W123"
+      "week": "W130"
     },
     {
       "trade_id": "TRD-PB-05",
-      "open_date": "2029-07-31",
-      "close_date": "2029-08-05",
+      "open_date": "2029-09-16",
+      "close_date": "2029-09-21",
       "direction": "SHORT",
       "position_size": 10,
       "entry_price": 2248.01,
       "exit_price": 2257.46,
       "pnl": -94.5,
       "pnl_pct": -0.42,
-      "week": "W124"
+      "week": "W131"
     },
     {
       "trade_id": "TRD-PB-06",
-      "open_date": "2029-08-07",
-      "close_date": "2029-08-12",
+      "open_date": "2029-09-23",
+      "close_date": "2029-09-28",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1739.83,
       "exit_price": 1754.13,
       "pnl": 143.0,
       "pnl_pct": 0.82,
-      "week": "W125"
+      "week": "W132"
     }
   ],
-  "version_tag": "P35",
-  "dataset_version": "1.10",
-  "cross_agent": {
-    "DSHD_version": "V35.0",
-    "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
-  }
+  "version_tag": "P36",
+  "dataset_version": "1.11"
 }
