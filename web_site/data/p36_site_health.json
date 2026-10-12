@@ -1,0 +1,17 @@
+{
+  "version_tag": "P36",
+  "dataset_version": "1.11",
+  "phase": "P36",
+  "site_url": "https://algo23-yunqingtian.github.io/dshd-dashboard/",
+  "total_urls": 32,
+  "http_200": 0,
+  "http_404": 0,
+  "health_status": "PENDING",
+  "checked_at": "",
+  "latency_ms": {
+    "median": 0,
+    "p95": 0,
+    "max": 0
+  },
+  "total_bytes": 0
+}
