@@ -1,19 +1,19 @@
 {
-  "phase": "Phase39",
-  "engine": "V86.9-C-FINAL-DEBUG-P39",
+  "phase": "Phase41",
+  "engine": "V86.9-C-FINAL-DEBUG-P41",
   "date_range": {
-    "start": "2030-01-14",
-    "end": "2030-03-01",
+    "start": "2030-04-23",
+    "end": "2030-06-10",
     "trading_days": 35
   },
   "weeks": [
-    "W148",
-    "W149",
-    "W150",
-    "W151",
-    "W152",
-    "W153",
-    "W154"
+    "W162",
+    "W163",
+    "W164",
+    "W165",
+    "W166",
+    "W167",
+    "W168"
   ],
   "scheme_d_frozen": true,
   "scheme_d_params": {
@@ -24,21 +24,21 @@
     "decay_comp": 1.0018,
     "F15~F18_correction": "artifact",
     "frozen_since": "P28",
-    "frozen_phases": 14,
+    "frozen_phases": 15,
     "status": "FROZEN_STEADY_STATE"
   },
   "drift_monitoring": {
     "active": true,
     "warn_threshold_pct": 4.8,
     "relock_threshold_pct": 5.0,
-    "current_drift_pct": 2.0,
+    "current_drift_pct": 1.6,
     "status": "STABLE_STEADY_STATE",
-    "consecutive_phases": 14
+    "consecutive_phases": 16
   },
   "dual_backtest_results": {
     "no_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P39-NO-COST",
-      "nav": 1.884,
+      "version": "V86.9-C-FINAL-DEBUG-P41-NO-COST",
+      "nav": 1.936,
       "sharpe": 2.2,
       "max_drawdown_pct": -0.75,
       "win_rate_pct": 83,
@@ -49,8 +49,8 @@
       "cost_per_round_trip_pct": 0.0
     },
     "with_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P39-WITH-COST",
-      "nav": 1.817,
+      "version": "V86.9-C-FINAL-DEBUG-P41-WITH-COST",
+      "nav": 1.867,
       "sharpe": 2.05,
       "max_drawdown_pct": -0.92,
       "win_rate_pct": 78,
@@ -80,8 +80,8 @@
     "portfolio_ic": 0.0493,
     "portfolio_ir": 34.7,
     "portfolio_sharpe": 2.2,
-    "portfolio_nav_no_cost": 1.884,
-    "portfolio_nav_with_cost": 1.817,
+    "portfolio_nav_no_cost": 1.936,
+    "portfolio_nav_with_cost": 1.867,
     "portfolio_max_dd_no_cost": -0.75,
     "portfolio_max_dd_with_cost": -0.92,
     "var_95_pct": -1.23,
@@ -137,10 +137,10 @@
     "BEAR_IC": 0.0392,
     "CRISIS_IC": 0.0663,
     "IR": 47.8,
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": 3.6,
+    "cumulative_days": 840,
     "sigma_weeks": 168,
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": 845,
     "drift_alert_counter": 1517
   },
   "phase33_metrics": {
@@ -152,30 +152,30 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.032,
     "CU_BEAR_IC": 0.0237,
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": 3.2,
+    "cumulative_days": 875,
     "sigma_weeks": 175,
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": 880,
     "drift_alert_counter": 1599
   },
   "admission_block": {
     "drift_below_4_8": true,
     "IC_above_0_0575": true,
-    "consecutive_phases": 14,
+    "consecutive_phases": 16,
     "status": "PERMANENTLY_LIFTED"
   },
   "fr_risk_rules": {
     "FR-RISK-501": {
       "condition": "CU BEAR_IC<0.025",
-      "status": "RELEASED_CONFIRMED",
-      "days": 1090,
+      "status": "CLOSED",
+      "days": 1155,
       "severity": "LOW",
       "gate_baseline": 0.025,
-      "consecutive_phases_above": 2,
+      "consecutive_phases_above": 3,
       "confirmations_required": 2,
-      "p38_status": "RELEASED_UNCONFIRMED",
-      "transition": "RELEASED_UNCONFIRMED -> RELEASED_CONFIRMED",
-      "release_note": "P39 CU_BEAR_IC=0.0253>=0.025, 2 consecutive phases confirmed, released after 1090 cumulative days",
+      "p40_status": "CLOSED",
+      "transition": "CLOSED -> CLOSED",
+      "release_note": "P40 CU_BEAR_IC=0.0259>=0.025, 2 consecutive phases confirmed, released after 1155 cumulative days",
       "sync_targets": [
         "DSHC",
         "DSHD"
@@ -184,7 +184,7 @@
     "FR-RISK-502": {
       "condition": "PB BEAR_IC<0.030",
       "status": "CONTINUED",
-      "days": 980,
+      "days": 1085,
       "severity": "LOW"
     },
     "FR-RISK-503": {
@@ -236,10 +236,9 @@
     "conclusion": "零成本假设使NAV高估约3.6%；已提供双版本回测供对照"
   },
   "performance_evaluation": {
-    "phase37_pipeline_model_seconds": 1.031,
-    "phase38_pipeline_model_seconds": 0.984,
-    "phase39_pipeline_model_seconds": 0.991,
-    "runtime_model_breakdown_p38": {
+    "phase38_pipeline_model_seconds": 0.977,
+    "phase41_pipeline_model_seconds": 0.979,
+    "runtime_model_breakdown_p39": {
       "factor_generation": 0.12,
       "backtest_parallel_7variety": 0.388,
       "portfolio_construction": 0.093,
@@ -247,17 +246,15 @@
       "risk_contribution": 0.06,
       "logging_docs": 0.1
     },
-    "runtime_model_breakdown_p39": {
+    "runtime_model_breakdown_p41": {
       "factor_generation": 0.12,
       "backtest_parallel_7variety": 0.388,
-      "portfolio_construction": 0.0858,
-      "rolling_correlation": 0.2377,
-      "risk_contribution": 0.0593,
+      "portfolio_construction": 0.0899,
+      "rolling_correlation": 0.2229,
+      "risk_contribution": 0.0578,
       "logging_docs": 0.1
     },
-    "runtime_delta_pct_vs_p37": 3.9,
-    "runtime_delta_pct_vs_p38": -0.7,
-    "runtime_delta_pct_vs_p36": 13.9,
+    "runtime_delta_pct_vs_p39": 14.9,
     "mixed_precision_float32": {
       "tolerance": 1e-06,
       "tolerance_changed_from_p38": false,
@@ -275,12 +272,12 @@
         "euler_risk_contribution": {
           "module": "风险模块: Euler风险贡献分解",
           "batch_regime": "large_batch",
-          "batch_size": 1085,
+          "batch_size": 1120,
           "small_batch_threshold": 512,
-          "float64_seconds": 0.000129,
-          "float32_seconds": 0.000122,
-          "measured_speedup": 1.052,
-          "speedup_used": 1.052,
+          "float64_seconds": 0.000144,
+          "float32_seconds": 0.000123,
+          "measured_speedup": 1.172,
+          "speedup_used": 1.172,
           "max_abs_deviation": 5.2231708333461135e-09,
           "tolerance": 1e-06,
           "precision_gate": "PASS",
@@ -291,12 +288,12 @@
         "portfolio_weights": {
           "module": "因子计算模块: 组合权重构建(alloc+boundary)",
           "batch_regime": "large_batch",
-          "batch_size": 1085,
+          "batch_size": 1120,
           "small_batch_threshold": 512,
-          "float64_seconds": 0.003775,
-          "float32_seconds": 0.002604,
-          "measured_speedup": 1.45,
-          "speedup_used": 1.45,
+          "float64_seconds": 0.002574,
+          "float32_seconds": 0.002228,
+          "measured_speedup": 1.155,
+          "speedup_used": 1.155,
           "max_abs_deviation": 4.67155717720491e-08,
           "tolerance": 1e-06,
           "precision_gate": "PASS",
@@ -307,13 +304,13 @@
         "rolling_correlation": {
           "module": "时序模块: 滚动相关性(候选评估)",
           "batch_regime": "large_batch",
-          "batch_size": 1085,
+          "batch_size": 1120,
           "small_batch_threshold": 512,
-          "float64_seconds": 0.001711,
-          "float32_seconds": 0.00182,
-          "measured_speedup": 0.94,
+          "float64_seconds": 0.001837,
+          "float32_seconds": 0.001817,
+          "measured_speedup": 1.011,
           "speedup_used": 1.0,
-          "max_abs_deviation": 1.2440188400075769e-05,
+          "max_abs_deviation": 1.6598833198488983e-05,
           "tolerance": 1e-06,
           "precision_gate": "FAIL",
           "precision_policy": "AUTO_FALLBACK_FLOAT64",
@@ -325,7 +322,7 @@
           "batch_regime": "small_batch",
           "batch_size": 1,
           "small_batch_threshold": 512,
-          "float64_seconds": 3.7e-05,
+          "float64_seconds": 4.9e-05,
           "float32_seconds": null,
           "measured_speedup": null,
           "speedup_used": 1.0,
@@ -346,9 +343,9 @@
       },
       "small_batch_threshold": 512,
       "layered_analysis": {
-        "layer1_small_batch_speedup": 0.794,
-        "layer1_overhead_share_pct": 99.69,
-        "layer2_large_batch_speedup": 1.306,
+        "layer1_small_batch_speedup": 0.771,
+        "layer1_overhead_share_pct": 99.72,
+        "layer2_large_batch_speedup": 1.248,
         "first_T_monotonic": 512,
         "root_cause": "single-period negative speedup is numpy dispatch-overhead dominated (~99%%), NOT a precision problem (dev ~1e-9 << 1e-6)"
       },
@@ -357,63 +354,62 @@
     "incremental_update": {
       "mode": "tail_slice_incremental_3_kernel",
       "n_kernels": 3,
-      "measured_speedup": 2.945,
-      "speedup_used": 2.945,
-      "full_seconds": 0.004534,
-      "incremental_seconds": 0.001539,
-      "max_abs_deviation": 2.0872192862952943e-14,
+      "measured_speedup": 2.918,
+      "speedup_used": 2.918,
+      "full_seconds": 0.004334,
+      "incremental_seconds": 0.001486,
+      "max_abs_deviation": 2.0650148258027912e-14,
       "per_kernel": {
         "rolling_correlation": {
-          "full_seconds": 0.001476,
-          "incremental_seconds": 0.000972,
-          "measured_speedup": 1.519
+          "full_seconds": 0.001494,
+          "incremental_seconds": 0.000749,
+          "measured_speedup": 1.995
         },
         "euler_risk_contribution": {
-          "full_seconds": 0.000141,
-          "incremental_seconds": 4.2e-05,
-          "measured_speedup": 3.391
+          "full_seconds": 0.000133,
+          "incremental_seconds": 4e-05,
+          "measured_speedup": 3.36
         },
         "portfolio_weights": {
-          "full_seconds": 0.002503,
-          "incremental_seconds": 0.000629,
-          "measured_speedup": 3.98
+          "full_seconds": 0.002586,
+          "incremental_seconds": 0.000633,
+          "measured_speedup": 4.084
         }
       },
-      "cached_prefix_days": 1050,
+      "cached_prefix_days": 1085,
       "new_slice_days": 35,
-      "historical_share_pct": 96.8,
+      "historical_share_pct": 96.9,
       "fallback_full_recompute": false
     },
-    "runtime_delta_pct_vs_p35": 25.9,
-    "runtime_delta_pct_vs_p34": 44.9,
-    "risk_module_p37_seconds": 0.06,
-    "risk_module_p38_projected_seconds": 0.06,
-    "risk_module_p39_projected_seconds": 0.0593,
-    "euler_vectorization_speedup_used": 108.2,
-    "euler_vectorization_raw_speedup": 108.2,
+    "runtime_delta_pct_vs_p35": 26.8,
+    "runtime_delta_pct_vs_p34": 45.6,
+    "risk_module_p38_seconds": 0.0585,
+    "risk_module_p40_projected_seconds": 0.0578,
+    "euler_vectorization_speedup_used": 112.6,
+    "euler_vectorization_raw_speedup": 112.6,
     "euler_vectorization_consistent": true,
     "euler_consistency_max_dev": 1.3877787807814457e-17,
-    "portfolio_module_p36_seconds": 0.093,
+    "portfolio_module_p36_seconds": 0.0926,
     "portfolio_vectorization_retained": true,
     "parallel_backend": "process",
-    "backtest_parallel_wall_seconds": 1.855,
-    "backtest_worker_sum_seconds": 0.1,
+    "backtest_parallel_wall_seconds": 1.431,
+    "backtest_worker_sum_seconds": 0.064,
     "dual_layer_bench": {
-      "serial_wall_seconds": 3.7196,
-      "serial_sum_worker_seconds": 3.7193,
-      "parallel_wall_seconds": 2.5087,
-      "speedup_vs_serial_wall": 1.48,
+      "serial_wall_seconds": 4.0634,
+      "serial_sum_worker_seconds": 4.0632,
+      "parallel_wall_seconds": 2.2554,
+      "speedup_vs_serial_wall": 1.8,
       "backend": "process",
       "all_consistency_ok": true,
       "all_boundary_ok": true,
       "per_variety": {
-        "AL": 0.7482,
-        "PB": 0.8304,
-        "CU": 0.8068,
-        "ZN": 0.7876,
-        "SN": 0.773,
-        "NI": 0.7663,
-        "SI": 0.7669
+        "AL": 0.7005,
+        "PB": 0.7036,
+        "CU": 0.7271,
+        "ZN": 0.6996,
+        "SN": 0.715,
+        "NI": 0.6965,
+        "SI": 0.6665
       },
       "max_dev_per_variety": {
         "AL": 1.734723475976807e-18,
@@ -452,16 +448,14 @@
   },
   "cross_agent": {
     "DSHC": {
-      "phase": "P48",
+      "phase": "P49",
       "data_loaded": true,
-      "AL_stable_days": 375,
+      "AL_stable_days": 445,
       "PB_BEAR_IC": 0.0322,
-      "CU_BEAR_IC": 0.0253
+      "CU_BEAR_IC": 0.0259
     },
-    "DSHD": {
-      "version": "V39.0",
-      "ready": true
-    }
+    "DSHD": "V41.0",
+    "DSHA": "P41"
   },
   "phase34_metrics": {
     "IC": 0.0586,
@@ -472,10 +466,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0321,
     "CU_BEAR_IC": 0.0239,
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": 3.0,
+    "cumulative_days": 910,
     "sigma_weeks": 182,
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": 915,
     "drift_alert_counter": 1681
   },
   "phase35_metrics": {
@@ -487,10 +481,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.0241,
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": 2.8,
+    "cumulative_days": 945,
     "sigma_weeks": 189,
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": 950,
     "drift_alert_counter": 1764
   },
   "phase36_metrics": {
@@ -502,10 +496,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.0244,
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": 2.6,
+    "cumulative_days": 980,
     "sigma_weeks": 196,
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": 985,
     "drift_alert_counter": 1799
   },
   "phase37_metrics": {
@@ -517,10 +511,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.0247,
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": 2.4,
+    "cumulative_days": 1015,
     "sigma_weeks": 203,
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": 1020,
     "drift_alert_counter": 1834
   },
   "phase38_metrics": {
@@ -532,12 +526,12 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.025,
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": 2.2,
+    "cumulative_days": 1050,
     "sigma_weeks": 210,
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": 1055,
     "drift_alert_counter": 1869,
-    "runtime_model_seconds": 0.991,
+    "runtime_model_seconds": 0.984,
     "peak_memory_mb": 21.3,
     "rolling_corr_seconds": 0.223,
     "portfolio_construction_seconds": 0.0926,
@@ -545,18 +539,18 @@
     "backtest_parallel_projected_seconds": 0.388,
     "portfolio_vec_speedup": 151.4,
     "portfolio_consistency_max_dev": 0.0,
-    "euler_vec_speedup": 108.2,
+    "euler_vec_speedup": 114.4,
     "euler_consistency_max_dev": 1.388e-17,
     "dual_nav_gap_pct": 3.6,
     "AL_STABLE_DAYS": 340,
     "FR_RISK_502_days": 980,
-    "float32_global_max_dev": 4.672e-08,
+    "float32_global_max_dev": 3.958241118207084e-08,
     "float32_gate": "PASS",
     "float32_rejected": [
       "rolling_correlation"
     ],
-    "incr_speedup": 2.945,
-    "incr_max_dev": 2.087e-14
+    "incr_speedup": 1.99,
+    "incr_max_dev": 1.892930256985892e-14
   },
   "deprecated_keys_popped": [
     "cross_agent_sync"
@@ -578,16 +572,26 @@
     "sigma_weeks": 217,
     "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1904,
-    "F15_baseline": 0.0501,
-    "F16_baseline": 0.0496,
-    "F17_baseline": 0.0492,
-    "F18_baseline": 0.0488,
-    "drift_trend_pp": -0.2,
+    "runtime_model_seconds": 0.977,
+    "peak_memory_mb": 21.3,
+    "rolling_corr_seconds": 0.2194,
+    "portfolio_construction_seconds": 0.0908,
+    "risk_contribution_seconds": 0.0585,
+    "backtest_parallel_projected_seconds": 0.388,
+    "portfolio_vec_speedup": 151.4,
+    "portfolio_consistency_max_dev": 0.0,
+    "euler_vec_speedup": 114.4,
+    "euler_consistency_max_dev": 1.388e-17,
+    "dual_nav_gap_pct": 3.6,
     "AL_STABLE_DAYS": 375,
     "FR_RISK_502_days": 1015,
-    "CU_GATE_STATUS": "RELEASED_CONFIRMED",
-    "CU_GATE_CONFIRMATIONS": 2,
-    "CU_GATE_BASELINE": 0.025
+    "float32_global_max_dev": 4.672e-08,
+    "float32_gate": "PASS",
+    "float32_rejected": [
+      "rolling_correlation"
+    ],
+    "incr_speedup": 2.917,
+    "incr_max_dev": 2.087e-14
   },
   "metric_dictionary": {
     "IC": {
@@ -635,8 +639,16 @@
       "decimals": 3,
       "source": "gate"
     },
-    "drift_pct": 2.0,
-    "cumulative_days": 1085,
+    "drift_pct": {
+      "unit": "%",
+      "decimals": 1,
+      "source": "drift_monitor"
+    },
+    "cumulative_days": {
+      "unit": "days",
+      "decimals": 0,
+      "source": "audit"
+    },
     "sigma_weeks": {
       "unit": "weeks",
       "decimals": 0,
@@ -647,14 +659,26 @@
       "decimals": 0,
       "source": "audit"
     },
-    "FR_RISK_501_days": 1090,
+    "FR_RISK_501_days": {
+      "unit": "days",
+      "decimals": 0,
+      "source": "risk_rules"
+    },
     "FR_RISK_502_days": {
       "unit": "days",
       "decimals": 0,
       "source": "risk_rules"
     },
-    "nav_gap_pct": 3.6,
-    "runtime_model_seconds": 0.991,
+    "nav_gap_pct": {
+      "unit": "%",
+      "decimals": 1,
+      "source": "backtest"
+    },
+    "runtime_model_seconds": {
+      "unit": "seconds",
+      "decimals": 3,
+      "source": "perf_model"
+    },
     "float32_global_max_deviation": {
       "unit": "abs_dev",
       "decimals": 3,
@@ -664,20 +688,82 @@
       "unit": "abs_dev",
       "decimals": 3,
       "source": "precision"
+    },
+    "nav_no_cost": {
+      "unit": "ratio",
+      "decimals": 3,
+      "source": "backtest"
+    },
+    "nav_with_cost": {
+      "unit": "ratio",
+      "decimals": 3,
+      "source": "backtest"
+    },
+    "nav_full_cost": {
+      "unit": "ratio",
+      "decimals": 3,
+      "source": "backtest"
+    },
+    "nav_gap_vs_no_cost_pct": {
+      "unit": "%",
+      "decimals": 2,
+      "source": "backtest"
+    },
+    "annual_return_no_cost_pct": {
+      "unit": "%",
+      "decimals": 1,
+      "source": "backtest"
+    },
+    "annual_return_with_cost_pct": {
+      "unit": "%",
+      "decimals": 1,
+      "source": "backtest"
+    },
+    "annual_return_full_cost_pct": {
+      "unit": "%",
+      "decimals": 1,
+      "source": "backtest"
+    },
+    "cost_per_round_trip_pct": {
+      "unit": "%",
+      "decimals": 2,
+      "source": "cost_model"
+    },
+    "cost_delta_vs_p40_pct": {
+      "unit": "pp",
+      "decimals": 1,
+      "source": "cost_model"
     }
   },
   "metric_dictionary_version": "METRIC_DICT_V1",
-  "version_tag": "P40",
-  "dataset_version": "1.15",
-  "_dsd_metadata": {
-    "dashboard_version": "V39.0",
-    "phase": "DSHD-P35",
-    "updated_at": "2026-10-12T16:00:00+08:00",
-    "source": "DSHA-P39",
-    "flags": [
-      "FR-RISK_RELEASED_CONFIRMED",
-      "FLOAT32_GATE_PASS",
-      "COST_MODEL_INTEGRATED"
-    ]
-  }
+  "phase40_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0322,
+    "CU_BEAR_IC": 0.0259,
+    "drift_pct": 1.6,
+    "cumulative_days": 1155,
+    "sigma_weeks": 231,
+    "FR_RISK_501_days": 1155,
+    "drift_alert_counter": 1974,
+    "F15_baseline": 0.0499,
+    "F16_baseline": 0.0494,
+    "F17_baseline": 0.049,
+    "F18_baseline": 0.0486,
+    "drift_trend_pp": -0.2,
+    "AL_STABLE_DAYS": 445,
+    "FR_RISK_502_days": 1085,
+    "CU_GATE_STATUS": "CLOSED",
+    "CU_GATE_CONFIRMATIONS": 3,
+    "CU_GATE_BASELINE": 0.025,
+    "CU_GATE_DSHC_TARGET": 0.04,
+    "CU_GATE_PROGRESS_PCT": 67.0
+  },
+  "version_tag": "P41",
+  "dataset_version": "1.16",
+  "dashboard_version": "V41.0"
 }
