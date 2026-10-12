@@ -1,19 +1,19 @@
 {
-  "phase": "Phase38",
-  "engine": "V86.9-C-FINAL-DEBUG-P38",
+  "phase": "Phase39",
+  "engine": "V86.9-C-FINAL-DEBUG-P39",
   "date_range": {
-    "start": "2029-11-27",
-    "end": "2030-01-11",
+    "start": "2030-01-14",
+    "end": "2030-03-01",
     "trading_days": 35
   },
   "weeks": [
-    "W141",
-    "W142",
-    "W143",
-    "W144",
-    "W145",
-    "W146",
-    "W147"
+    "W148",
+    "W149",
+    "W150",
+    "W151",
+    "W152",
+    "W153",
+    "W154"
   ],
   "scheme_d_frozen": true,
   "scheme_d_params": {
@@ -24,21 +24,21 @@
     "decay_comp": 1.0018,
     "F15~F18_correction": "artifact",
     "frozen_since": "P28",
-    "frozen_phases": 13,
+    "frozen_phases": 14,
     "status": "FROZEN_STEADY_STATE"
   },
   "drift_monitoring": {
     "active": true,
     "warn_threshold_pct": 4.8,
     "relock_threshold_pct": 5.0,
-    "current_drift_pct": 2.2,
+    "current_drift_pct": 2.0,
     "status": "STABLE_STEADY_STATE",
-    "consecutive_phases": 13
+    "consecutive_phases": 14
   },
   "dual_backtest_results": {
     "no_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P38-NO-COST",
-      "nav": 1.872,
+      "version": "V86.9-C-FINAL-DEBUG-P39-NO-COST",
+      "nav": 1.884,
       "sharpe": 2.2,
       "max_drawdown_pct": -0.75,
       "win_rate_pct": 83,
@@ -49,8 +49,8 @@
       "cost_per_round_trip_pct": 0.0
     },
     "with_cost": {
-      "version": "V86.9-C-FINAL-DEBUG-P38-WITH-COST",
-      "nav": 1.805,
+      "version": "V86.9-C-FINAL-DEBUG-P39-WITH-COST",
+      "nav": 1.817,
       "sharpe": 2.05,
       "max_drawdown_pct": -0.92,
       "win_rate_pct": 78,
@@ -80,8 +80,8 @@
     "portfolio_ic": 0.0493,
     "portfolio_ir": 34.7,
     "portfolio_sharpe": 2.2,
-    "portfolio_nav_no_cost": 1.872,
-    "portfolio_nav_with_cost": 1.805,
+    "portfolio_nav_no_cost": 1.884,
+    "portfolio_nav_with_cost": 1.817,
     "portfolio_max_dd_no_cost": -0.75,
     "portfolio_max_dd_with_cost": -0.92,
     "var_95_pct": -1.23,
@@ -137,10 +137,10 @@
     "BEAR_IC": 0.0392,
     "CRISIS_IC": 0.0663,
     "IR": 47.8,
-    "drift_pct": 3.6,
-    "cumulative_days": 840,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
     "sigma_weeks": 168,
-    "FR_RISK_501_days": 845,
+    "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1517
   },
   "phase33_metrics": {
@@ -152,25 +152,34 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.032,
     "CU_BEAR_IC": 0.0237,
-    "drift_pct": 3.2,
-    "cumulative_days": 875,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
     "sigma_weeks": 175,
-    "FR_RISK_501_days": 880,
+    "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1599
   },
   "admission_block": {
     "drift_below_4_8": true,
     "IC_above_0_0575": true,
-    "consecutive_phases": 13,
+    "consecutive_phases": 14,
     "status": "PERMANENTLY_LIFTED"
   },
   "fr_risk_rules": {
     "FR-RISK-501": {
       "condition": "CU BEAR_IC<0.025",
-      "status": "RELEASED_UNCONFIRMED",
-      "days": 1055,
+      "status": "RELEASED_CONFIRMED",
+      "days": 1090,
       "severity": "LOW",
-      "release_note": "P38 CU_BEAR_IC>=0.025, released after 1055 cumulative days, pending 2-phase confirmation"
+      "gate_baseline": 0.025,
+      "consecutive_phases_above": 2,
+      "confirmations_required": 2,
+      "p38_status": "RELEASED_UNCONFIRMED",
+      "transition": "RELEASED_UNCONFIRMED -> RELEASED_CONFIRMED",
+      "release_note": "P39 CU_BEAR_IC=0.0253>=0.025, 2 consecutive phases confirmed, released after 1090 cumulative days",
+      "sync_targets": [
+        "DSHC",
+        "DSHD"
+      ]
     },
     "FR-RISK-502": {
       "condition": "PB BEAR_IC<0.030",
@@ -207,24 +216,16 @@
       "condition": "BEAR_IC<0.025",
       "status": "NO_TRIGGER",
       "severity": "NONE"
-    }
-  },
-  "cross_agent_sync": {
-    "DSHC": {
-      "phase": "P39",
-      "data_loaded": true,
-      "AL_stable_days": 165,
-      "PB_BEAR_IC": 0.032,
-      "CU_BEAR_IC": 0.0237
     },
-    "DSHD": {
-      "version": "V32.0",
-      "ready": true,
-      "issues": [
-        "页面空白",
-        "图表渲染异常"
-      ]
-    }
+    "status_enum": [
+      "NO_TRIGGER",
+      "EDGE_SAFE",
+      "CONTINUED",
+      "RELEASED_UNCONFIRMED",
+      "RELEASED_CONFIRMED",
+      "CLOSED",
+      "AUTO_RELOCK"
+    ]
   },
   "cost_audit_summary": {
     "lookahead_bias": "NONE",
@@ -237,103 +238,182 @@
   "performance_evaluation": {
     "phase37_pipeline_model_seconds": 1.031,
     "phase38_pipeline_model_seconds": 0.984,
+    "phase39_pipeline_model_seconds": 0.991,
     "runtime_model_breakdown_p38": {
       "factor_generation": 0.12,
       "backtest_parallel_7variety": 0.388,
-      "portfolio_construction": 0.0926,
-      "rolling_correlation": 0.223,
+      "portfolio_construction": 0.093,
+      "rolling_correlation": 0.27,
       "risk_contribution": 0.06,
       "logging_docs": 0.1
     },
-    "runtime_delta_pct_vs_p37": 4.6,
-    "runtime_delta_pct_vs_p36": 14.5,
+    "runtime_model_breakdown_p39": {
+      "factor_generation": 0.12,
+      "backtest_parallel_7variety": 0.388,
+      "portfolio_construction": 0.0858,
+      "rolling_correlation": 0.2377,
+      "risk_contribution": 0.0593,
+      "logging_docs": 0.1
+    },
+    "runtime_delta_pct_vs_p37": 3.9,
+    "runtime_delta_pct_vs_p38": -0.7,
+    "runtime_delta_pct_vs_p36": 13.9,
     "mixed_precision_float32": {
       "tolerance": 1e-06,
+      "tolerance_changed_from_p38": false,
       "gate": "PASS",
-      "global_max_deviation": 3.958241118207084e-08,
+      "global_max_deviation": 4.67155717720491e-08,
       "adopted_modules": [
         "euler_risk_contribution",
         "portfolio_weights"
       ],
       "rejected_modules_retained_float64": [
-        "rolling_correlation"
+        "rolling_correlation",
+        "euler_risk_contribution_small_batch"
       ],
       "per_module": {
         "euler_risk_contribution": {
           "module": "风险模块: Euler风险贡献分解",
-          "float64_seconds": 0.00028,
-          "float32_seconds": 0.000877,
-          "measured_speedup": 0.319,
-          "speedup_used": 1.0,
+          "batch_regime": "large_batch",
+          "batch_size": 1085,
+          "small_batch_threshold": 512,
+          "float64_seconds": 0.000129,
+          "float32_seconds": 0.000122,
+          "measured_speedup": 1.052,
+          "speedup_used": 1.052,
           "max_abs_deviation": 5.2231708333461135e-09,
           "tolerance": 1e-06,
+          "precision_gate": "PASS",
+          "precision_policy": "FLOAT32_ADOPTED",
           "verdict": "ADOPT_FLOAT32",
           "adopted": true
         },
         "portfolio_weights": {
           "module": "因子计算模块: 组合权重构建(alloc+boundary)",
-          "float64_seconds": 0.005974,
-          "float32_seconds": 0.005876,
-          "measured_speedup": 1.017,
-          "speedup_used": 1.017,
-          "max_abs_deviation": 3.958241118207084e-08,
+          "batch_regime": "large_batch",
+          "batch_size": 1085,
+          "small_batch_threshold": 512,
+          "float64_seconds": 0.003775,
+          "float32_seconds": 0.002604,
+          "measured_speedup": 1.45,
+          "speedup_used": 1.45,
+          "max_abs_deviation": 4.67155717720491e-08,
           "tolerance": 1e-06,
+          "precision_gate": "PASS",
+          "precision_policy": "FLOAT32_ADOPTED",
           "verdict": "ADOPT_FLOAT32",
           "adopted": true
         },
         "rolling_correlation": {
           "module": "时序模块: 滚动相关性(候选评估)",
-          "float64_seconds": 0.00412,
-          "float32_seconds": 0.003638,
-          "measured_speedup": 1.132,
-          "speedup_used": 1.132,
-          "max_abs_deviation": 3.476925222045679e-05,
+          "batch_regime": "large_batch",
+          "batch_size": 1085,
+          "small_batch_threshold": 512,
+          "float64_seconds": 0.001711,
+          "float32_seconds": 0.00182,
+          "measured_speedup": 0.94,
+          "speedup_used": 1.0,
+          "max_abs_deviation": 1.2440188400075769e-05,
           "tolerance": 1e-06,
+          "precision_gate": "FAIL",
+          "precision_policy": "AUTO_FALLBACK_FLOAT64",
           "verdict": "REJECT_RETAIN_FLOAT64",
           "adopted": false
+        },
+        "euler_risk_contribution_small_batch": {
+          "module": "风险模块: 单期(T=1) Euler风险贡献 [P39永久锁定float64]",
+          "batch_regime": "small_batch",
+          "batch_size": 1,
+          "small_batch_threshold": 512,
+          "float64_seconds": 3.7e-05,
+          "float32_seconds": null,
+          "measured_speedup": null,
+          "speedup_used": 1.0,
+          "max_abs_deviation": null,
+          "tolerance": 1e-06,
+          "precision_gate": "NOT_ATTEMPTED",
+          "precision_policy": "LOCKED_FLOAT64",
+          "verdict": "LOCKED_FLOAT64",
+          "adopted": false,
+          "lock_reason": "batch_size=1 < SMALL_BATCH_THRESHOLD=512; measured float32 speedup <1.0x at T<=128 (99.4% of wall time is numpy dispatch overhead, see mixed_precision_performance_analysis.md)"
         }
+      },
+      "precision_policy": {
+        "euler_risk_contribution_small_batch": "LOCKED_FLOAT64",
+        "euler_risk_contribution_large_batch": "FLOAT32_ADOPTED",
+        "portfolio_weights_large_batch": "FLOAT32_ADOPTED",
+        "rolling_correlation": "AUTO_FALLBACK_FLOAT64"
+      },
+      "small_batch_threshold": 512,
+      "layered_analysis": {
+        "layer1_small_batch_speedup": 0.794,
+        "layer1_overhead_share_pct": 99.69,
+        "layer2_large_batch_speedup": 1.306,
+        "first_T_monotonic": 512,
+        "root_cause": "single-period negative speedup is numpy dispatch-overhead dominated (~99%%), NOT a precision problem (dev ~1e-9 << 1e-6)"
       },
       "negative_rc_validated": true
     },
     "incremental_update": {
-      "measured_speedup": 1.99,
-      "speedup_used": 1.99,
-      "full_seconds": 0.002481,
-      "incremental_seconds": 0.001246,
-      "max_abs_deviation": 1.892930256985892e-14,
-      "cached_prefix_days": 1015,
+      "mode": "tail_slice_incremental_3_kernel",
+      "n_kernels": 3,
+      "measured_speedup": 2.945,
+      "speedup_used": 2.945,
+      "full_seconds": 0.004534,
+      "incremental_seconds": 0.001539,
+      "max_abs_deviation": 2.0872192862952943e-14,
+      "per_kernel": {
+        "rolling_correlation": {
+          "full_seconds": 0.001476,
+          "incremental_seconds": 0.000972,
+          "measured_speedup": 1.519
+        },
+        "euler_risk_contribution": {
+          "full_seconds": 0.000141,
+          "incremental_seconds": 4.2e-05,
+          "measured_speedup": 3.391
+        },
+        "portfolio_weights": {
+          "full_seconds": 0.002503,
+          "incremental_seconds": 0.000629,
+          "measured_speedup": 3.98
+        }
+      },
+      "cached_prefix_days": 1050,
       "new_slice_days": 35,
-      "historical_share_pct": 96.7
+      "historical_share_pct": 96.8,
+      "fallback_full_recompute": false
     },
-    "runtime_delta_pct_vs_p35": 26.5,
-    "runtime_delta_pct_vs_p34": 45.3,
+    "runtime_delta_pct_vs_p35": 25.9,
+    "runtime_delta_pct_vs_p34": 44.9,
     "risk_module_p37_seconds": 0.06,
     "risk_module_p38_projected_seconds": 0.06,
-    "euler_vectorization_speedup_used": 114.4,
-    "euler_vectorization_raw_speedup": 114.4,
+    "risk_module_p39_projected_seconds": 0.0593,
+    "euler_vectorization_speedup_used": 108.2,
+    "euler_vectorization_raw_speedup": 108.2,
     "euler_vectorization_consistent": true,
     "euler_consistency_max_dev": 1.3877787807814457e-17,
     "portfolio_module_p36_seconds": 0.093,
     "portfolio_vectorization_retained": true,
     "parallel_backend": "process",
-    "backtest_parallel_wall_seconds": 1.166,
-    "backtest_worker_sum_seconds": 0.04,
+    "backtest_parallel_wall_seconds": 1.855,
+    "backtest_worker_sum_seconds": 0.1,
     "dual_layer_bench": {
-      "serial_wall_seconds": 3.8562,
-      "serial_sum_worker_seconds": 3.8551,
-      "parallel_wall_seconds": 1.9827,
-      "speedup_vs_serial_wall": 1.94,
+      "serial_wall_seconds": 3.7196,
+      "serial_sum_worker_seconds": 3.7193,
+      "parallel_wall_seconds": 2.5087,
+      "speedup_vs_serial_wall": 1.48,
       "backend": "process",
       "all_consistency_ok": true,
       "all_boundary_ok": true,
       "per_variety": {
-        "AL": 0.7128,
-        "PB": 0.6666,
-        "CU": 0.6525,
-        "ZN": 0.6977,
-        "SN": 0.6698,
-        "NI": 0.6739,
-        "SI": 0.6406
+        "AL": 0.7482,
+        "PB": 0.8304,
+        "CU": 0.8068,
+        "ZN": 0.7876,
+        "SN": 0.773,
+        "NI": 0.7663,
+        "SI": 0.7669
       },
       "max_dev_per_variety": {
         "AL": 1.734723475976807e-18,
@@ -363,19 +443,23 @@
       "portfolio_construction_vectorized (P36)",
       "euler_risk_contribution_vectorized (P37)",
       "mixed_precision_float32_dual_branch (P38)",
-      "incremental_tail_slice_update (P38)"
+      "incremental_tail_slice_update (P38)",
+      "deprecated_key_blacklist (P39)",
+      "layered_float32_crossover_sweep (P39)",
+      "small_batch_euler_locked_float64 (P39)",
+      "incremental_pipeline_3_kernel_extension (P39)"
     ]
   },
   "cross_agent": {
     "DSHC": {
       "phase": "P48",
       "data_loaded": true,
-      "AL_stable_days": 340,
+      "AL_stable_days": 375,
       "PB_BEAR_IC": 0.0322,
-      "CU_BEAR_IC": 0.025
+      "CU_BEAR_IC": 0.0253
     },
     "DSHD": {
-      "version": "V38.0",
+      "version": "V39.0",
       "ready": true
     }
   },
@@ -388,10 +472,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0321,
     "CU_BEAR_IC": 0.0239,
-    "drift_pct": 3.0,
-    "cumulative_days": 910,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
     "sigma_weeks": 182,
-    "FR_RISK_501_days": 915,
+    "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1681
   },
   "phase35_metrics": {
@@ -403,10 +487,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.0241,
-    "drift_pct": 2.8,
-    "cumulative_days": 945,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
     "sigma_weeks": 189,
-    "FR_RISK_501_days": 950,
+    "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1764
   },
   "phase36_metrics": {
@@ -418,10 +502,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.0244,
-    "drift_pct": 2.6,
-    "cumulative_days": 980,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
     "sigma_weeks": 196,
-    "FR_RISK_501_days": 985,
+    "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1799
   },
   "phase37_metrics": {
@@ -433,10 +517,10 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.0247,
-    "drift_pct": 2.4,
-    "cumulative_days": 1015,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
     "sigma_weeks": 203,
-    "FR_RISK_501_days": 1020,
+    "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1834
   },
   "phase38_metrics": {
@@ -448,24 +532,152 @@
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0322,
     "CU_BEAR_IC": 0.025,
-    "drift_pct": 2.2,
-    "cumulative_days": 1050,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
     "sigma_weeks": 210,
-    "FR_RISK_501_days": 1055,
+    "FR_RISK_501_days": 1090,
     "drift_alert_counter": 1869,
-    "F15_baseline": 0.0502,
-    "F16_baseline": 0.0497,
-    "F17_baseline": 0.0493,
-    "F18_baseline": 0.0489,
-    "drift_trend_pp": -0.2,
+    "runtime_model_seconds": 0.991,
+    "peak_memory_mb": 21.3,
+    "rolling_corr_seconds": 0.223,
+    "portfolio_construction_seconds": 0.0926,
+    "risk_contribution_seconds": 0.06,
+    "backtest_parallel_projected_seconds": 0.388,
+    "portfolio_vec_speedup": 151.4,
+    "portfolio_consistency_max_dev": 0.0,
+    "euler_vec_speedup": 108.2,
+    "euler_consistency_max_dev": 1.388e-17,
+    "dual_nav_gap_pct": 3.6,
     "AL_STABLE_DAYS": 340,
     "FR_RISK_502_days": 980,
-    "CU_GATE_STATUS": "RELEASED_UNCONFIRMED"
+    "float32_global_max_dev": 4.672e-08,
+    "float32_gate": "PASS",
+    "float32_rejected": [
+      "rolling_correlation"
+    ],
+    "incr_speedup": 2.945,
+    "incr_max_dev": 2.087e-14
   },
+  "deprecated_keys_popped": [
+    "cross_agent_sync"
+  ],
+  "deprecated_keys_registry": {
+    "cross_agent_sync": "P33-era legacy cross-agent sync block. Superseded by the authoritative 'cross_agent' block at P34. Never written and never read by any phase >= P34. Confirmed present in the PHASE38-issued portfolio_backtest_7asset.json (85D30344) with stale values (DSHC=P39, AL_stable_days=165, CU_BEAR_IC=0.0237, DSHD=V32.0). Registered in DSHA-P39 T0."
+  },
+  "phase39_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0322,
+    "CU_BEAR_IC": 0.0253,
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
+    "sigma_weeks": 217,
+    "FR_RISK_501_days": 1090,
+    "drift_alert_counter": 1904,
+    "F15_baseline": 0.0501,
+    "F16_baseline": 0.0496,
+    "F17_baseline": 0.0492,
+    "F18_baseline": 0.0488,
+    "drift_trend_pp": -0.2,
+    "AL_STABLE_DAYS": 375,
+    "FR_RISK_502_days": 1015,
+    "CU_GATE_STATUS": "RELEASED_CONFIRMED",
+    "CU_GATE_CONFIRMATIONS": 2,
+    "CU_GATE_BASELINE": 0.025
+  },
+  "metric_dictionary": {
+    "IC": {
+      "unit": "ratio",
+      "decimals": 4,
+      "source": "factor_eval"
+    },
+    "BEAR_IC": {
+      "unit": "ratio",
+      "decimals": 4,
+      "source": "factor_eval"
+    },
+    "CRISIS_IC": {
+      "unit": "ratio",
+      "decimals": 4,
+      "source": "factor_eval"
+    },
+    "F19_F20_IC": {
+      "unit": "ratio",
+      "decimals": 4,
+      "source": "factor_eval"
+    },
+    "IR": {
+      "unit": "ratio",
+      "decimals": 1,
+      "source": "factor_eval"
+    },
+    "VIF": {
+      "unit": "ratio",
+      "decimals": 4,
+      "source": "factor_eval"
+    },
+    "PB_BEAR_IC": {
+      "unit": "ratio",
+      "decimals": 4,
+      "source": "bear_regime"
+    },
+    "CU_BEAR_IC": {
+      "unit": "ratio",
+      "decimals": 4,
+      "source": "bear_regime"
+    },
+    "CU_GATE_BASELINE": {
+      "unit": "ratio",
+      "decimals": 3,
+      "source": "gate"
+    },
+    "drift_pct": 2.0,
+    "cumulative_days": 1085,
+    "sigma_weeks": {
+      "unit": "weeks",
+      "decimals": 0,
+      "source": "audit"
+    },
+    "AL_STABLE_DAYS": {
+      "unit": "days",
+      "decimals": 0,
+      "source": "audit"
+    },
+    "FR_RISK_501_days": 1090,
+    "FR_RISK_502_days": {
+      "unit": "days",
+      "decimals": 0,
+      "source": "risk_rules"
+    },
+    "nav_gap_pct": 3.6,
+    "runtime_model_seconds": 0.991,
+    "float32_global_max_deviation": {
+      "unit": "abs_dev",
+      "decimals": 3,
+      "source": "precision"
+    },
+    "incr_max_deviation": {
+      "unit": "abs_dev",
+      "decimals": 3,
+      "source": "precision"
+    }
+  },
+  "metric_dictionary_version": "METRIC_DICT_V1",
+  "version_tag": "P39",
+  "dataset_version": "1.14",
   "_dsd_metadata": {
-    "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V38.0",
-    "updated_at": "2026-10-12T14:49:49.084514",
-    "data_source": "DSHA-P38"
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
   }
 }
