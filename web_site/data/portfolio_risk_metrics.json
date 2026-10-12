@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.8",
+  "dataset_version": "1.10",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 portfolio risk metrics / V31.0",
@@ -103,7 +103,7 @@
       "response_time_min": 5
     }
   ],
-  "version_tag": "P31",
+  "version_tag": "P35",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
@@ -114,5 +114,10 @@
     "block_active": false,
     "ic": 0.0586,
     "unblock_status": "PERMANENTLY_UNBLOCKED"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
