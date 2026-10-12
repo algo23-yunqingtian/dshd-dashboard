@@ -1,0 +1,29 @@
+{
+  "version_tag": "P39",
+  "dataset_version": "1.14",
+  "cost_model": {
+    "nav_gap_pct": 3.6,
+    "nav_zero_cost": 1.883,
+    "nav_cost_adjusted": 1.815,
+    "cost_assumption": "commission + slippage",
+    "annual_return_overestimation_pp": 6.7,
+    "audit_severity": "MEDIUM (YELLOW)",
+    "recommendation": "Integrate cost model before live trading"
+  },
+  "cost_breakdown": {
+    "commission_rate": 0.0002,
+    "slippage_bps": 2,
+    "total_cost_rate": 0.0022
+  },
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
+  }
+}
