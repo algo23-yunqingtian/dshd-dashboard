@@ -1,6 +1,6 @@
 {
-  "phase": "Phase37",
-  "engine": "V86.9-C-FINAL-DEBUG-P36",
+  "phase": "Phase38",
+  "engine": "V86.9-C-FINAL-DEBUG-P38",
   "asset": "ZN",
   "total_trades": 6,
   "open_trades": 6,
@@ -9,77 +9,81 @@
   "trades": [
     {
       "trade_id": "TRD-ZN-01",
-      "open_date": "2029-08-19",
-      "close_date": "2029-08-24",
+      "open_date": "2029-11-27",
+      "close_date": "2029-12-02",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2521.93,
       "exit_price": 2570.25,
       "pnl": 483.2,
       "pnl_pct": 1.92,
-      "week": "W127"
+      "week": "W141"
     },
     {
       "trade_id": "TRD-ZN-02",
-      "open_date": "2029-08-26",
-      "close_date": "2029-08-31",
+      "open_date": "2029-12-04",
+      "close_date": "2029-12-09",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1540.48,
       "exit_price": 1554.06,
       "pnl": 135.8,
       "pnl_pct": 0.88,
-      "week": "W128"
+      "week": "W142"
     },
     {
       "trade_id": "TRD-ZN-03",
-      "open_date": "2029-09-02",
-      "close_date": "2029-09-07",
+      "open_date": "2029-12-11",
+      "close_date": "2029-12-16",
       "direction": "SHORT",
       "position_size": 10,
       "entry_price": 1722.48,
       "exit_price": 1696.83,
       "pnl": 256.5,
       "pnl_pct": 1.49,
-      "week": "W129"
+      "week": "W143"
     },
     {
       "trade_id": "TRD-ZN-04",
-      "open_date": "2029-09-09",
-      "close_date": "2029-09-14",
+      "open_date": "2029-12-18",
+      "close_date": "2029-12-23",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2639.78,
       "exit_price": 2619.86,
       "pnl": -199.2,
       "pnl_pct": -0.75,
-      "week": "W130"
+      "week": "W144"
     },
     {
       "trade_id": "TRD-ZN-05",
-      "open_date": "2029-09-16",
-      "close_date": "2029-09-21",
+      "open_date": "2029-12-25",
+      "close_date": "2029-12-30",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2797.74,
       "exit_price": 2866.01,
       "pnl": 682.7,
       "pnl_pct": 2.44,
-      "week": "W131"
+      "week": "W145"
     },
     {
       "trade_id": "TRD-ZN-06",
-      "open_date": "2029-09-23",
-      "close_date": "2029-09-28",
+      "open_date": "2030-01-01",
+      "close_date": "2030-01-06",
       "direction": "SHORT",
       "position_size": 10,
       "entry_price": 1821.31,
       "exit_price": 1847.32,
       "pnl": -260.1,
       "pnl_pct": -1.43,
-      "week": "W132"
+      "week": "W146"
     }
   ],
-  "version_tag": "P37",
-  "dataset_version": "1.12"
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V38.0",
+    "updated_at": "2026-10-12T14:49:49.081515",
+    "data_source": "DSHA-P38"
+  }
 }
