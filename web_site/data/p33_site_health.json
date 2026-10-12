@@ -1,0 +1,25 @@
+{
+  "dshd_phase": "DSHD-P29",
+  "dsha_data_phase": "DSHA-P33",
+  "generated_at": "2026-10-12T10:37:04+08:00",
+  "verdict": {
+    "overall": "PENDING",
+    "http_ok_count": 0,
+    "total_files": 172,
+    "non_200_live_paths": 0,
+    "timeout_count": 0,
+    "js_parse_ok": true,
+    "all_datasets_p33": true,
+    "core_18_complete": true
+  },
+  "probe_method": "Contents API live probe",
+  "cdn_status": "fresh",
+  "warm_latency_ms": {
+    "median": 0,
+    "max": 0
+  },
+  "errors": [],
+  "note": "P33 health check pending — will be updated after remote probe",
+  "version_tag": "P33",
+  "dataset_version": "1.10"
+}
