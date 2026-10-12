@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>因子回测可视化工作台 VIS-001 · AL/CU/PB 多品种因子引擎</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+:root{
+  --bg:#1a1a2e; --panel:#16213e; --panel-2:#1c2a4d; --accent:#0f3460;
+  --highlight:#e94560; --text:#e0e0e0; --text-dim:#8b95b8;
+  --green:#4ade80; --red:#ef4444; --yellow:#facc15; --orange:#fb923c;
+  --purple:#a78bfa; --blue:#60a5fa; --cyan:#22d3ee;
+  --border:#2a3a5e; --border-strong:#3d5a8a;
+  --cat-价:#60a5fa; --cat-基:#fb923c; --cat-自:#a78bfa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg); color:var(--text); font-size:13px; line-height:1.5;
+  overflow:hidden;
+}
+/* ===== HEADER ===== */
+.app-header{
+  display:flex; align-items:center; gap:16px;
+  background:linear-gradient(90deg,var(--panel) 0%,var(--accent) 100%);
+  padding:10px 18px; border-bottom:2px solid var(--highlight);
+  flex-wrap:wrap;
+}
+.app-title{
+  font-size:17px; font-weight:700; color:var(--text);
+  display:flex; align-items:center; gap:8px;
+}
+.app-title .badge{
+  font-size:10px; background:var(--highlight); color:#fff;
+  padding:2px 8px; border-radius:10px; letter-spacing:1px;
+}
+.app-subtitle{font-size:11px; color:var(--text-dim); margin-left:6px;}
+.header-stats{display:flex; gap:14px; margin-left:auto; flex-wrap:wrap;}
+.header-stat{
+  font-size:11px; color:var(--text-dim);
+  display:flex; flex-direction:column; align-items:flex-start;
+}
+.header-stat .v{color:var(--cyan); font-weight:700; font-size:13px;}
+.header-status{
+  font-size:11px; padding:3px 10px; border-radius:4px;
+  background:rgba(74,222,128,0.15); color:var(--green);
+  border:1px solid var(--green);
+}
+/* ===== LAYOUT ===== */
+.app-layout{
+  display:grid; grid-template-columns:300px 1fr 290px;
+  gap:10px; padding:10px;
+  height:calc(100vh - 52px - 200px);
+  min-height:520px;
+}
+.panel{
+  background:var(--panel); border:1px solid var(--border);
+  border-radius:6px; display:flex; flex-direction:column; overflow:hidden;
+}
+.panel-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:8px 12px; background:var(--panel-2);
+  border-bottom:1px solid var(--border);
+  font-size:12px; font-weight:600; color:var(--text);
+}
+.panel-header .icon{color:var(--cyan); margin-right:6px;}
+.panel-header .tools{display:flex; gap:6px; align-items:center;}
+.panel-body{padding:8px; overflow:auto; flex:1;}
+.panel-body.tight{padding:6px;}
+/* ===== LEFT COLUMN ===== */
+.left-col{display:flex; flex-direction:column; gap:10px; overflow:hidden;}
+.variety-panel .panel-body{padding:6px;}
+.variety-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px;}
+.variety-btn{
+  background:var(--accent); border:1px solid var(--border-strong);
+  color:var(--text); padding:8px 4px; border-radius:4px;
+  cursor:pointer; font-size:12px; text-align:center;
+  transition:all 0.15s; display:flex; flex-direction:column; align-items:center; gap:2px;
+}
+.variety-btn:hover{background:var(--border-strong);}
+.variety-btn.active{
+  background:var(--highlight); border-color:var(--highlight);
+  box-shadow:0 0 8px rgba(233,69,96,0.5);
+}
+.variety-btn.blocked{opacity:0.5;}
+.variety-btn .code{font-weight:700; font-size:13px;}
+.variety-btn .name{font-size:10px; color:var(--text-dim);}
+.variety-btn.active .name{color:#fff;}
+.variety-btn.blocked .code{color:var(--orange);}
+/* factor panel */
+.factor-panel{flex:1; display:flex; flex-direction:column; min-height:0;}
+.factor-toolbar{
+  display:flex; gap:6px; padding:6px 8px; border-bottom:1px solid var(--border);
+  background:var(--panel-2); flex-wrap:wrap;
+}
+.factor-toolbar button{
+  font-size:10px; padding:3px 8px; background:var(--accent);
+  border:1px solid var(--border-strong); color:var(--text);
+  border-radius:3px; cursor:pointer;
+}
+.factor-toolbar button:hover{background:var(--border-strong);}
+.factor-cat{
+  margin-bottom:6px;
+}
+.factor-cat-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:4px 8px; font-size:11px; font-weight:600;
+  border-radius:3px; margin-bottom:3px;
+}
+.factor-cat-header .cnt{
+  font-size:10px; padding:1px 6px; border-radius:8px;
+  background:rgba(255,255,255,0.08);
+}
+.factor-cat-header.c-价{background:rgba(96,165,250,0.15); color:var(--blue);}
+.factor-cat-header.c-基{background:rgba(251,146,60,0.15); color:var(--orange);}
+.factor-cat-header.c-自{background:rgba(167,139,250,0.15); color:var(--purple);}
+.factor-list{display:flex; flex-direction:column; gap:2px; padding:2px 4px;}
+.factor-row{
+  display:flex; align-items:center; gap:6px; padding:3px 6px;
+  border-radius:3px; cursor:pointer; font-size:11px;
+}
+.factor-row:hover{background:var(--accent);}
+.factor-row input{margin:0; cursor:pointer;}
+.factor-row .fid{font-weight:700; color:var(--cyan); width:28px;}
+.factor-row .fname{flex:1; color:var(--text);}
+.factor-row .fmeta{font-size:9px; color:var(--text-dim);}
+/* ===== MAIN COLUMN ===== */
+.main-col{display:flex; flex-direction:column; gap:10px; overflow:hidden; min-width:0;}
+.chart-row{display:flex; flex-direction:column; gap:10px; flex:1; min-height:0;}
+.chart-container{
+  position:relative; background:var(--panel);
+  border:1px solid var(--border); border-radius:6px; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.chart-container .panel-header{position:relative;}
+.chart-canvas{flex:1; min-height:0; position:relative;}
+.chart-canvas.blocked-msg{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:var(--orange); gap:8px;
+}
+.blocked-icon{font-size:48px;}
+.blocked-text{font-size:16px; font-weight:700;}
+.blocked-sub{font-size:12px; color:var(--text-dim);}
+.blocked-ids{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; justify-content:center;}
+.blocked-ids .tag{
+  font-size:11px; padding:3px 10px; background:rgba(251,146,60,0.12);
+  border:1px solid var(--orange); border-radius:3px; color:var(--orange);
+}
+/* capital allocation */
+.capital-panel{display:grid; grid-template-columns:1.5fr 1fr; gap:10px;}
+.capital-panel .chart-canvas{min-height:180px;}
+.capital-toolbar{display:flex; gap:6px; padding:6px 10px; background:var(--panel-2); border-bottom:1px solid var(--border);}
+.scheme-toggle{
+  display:flex; background:var(--accent); border-radius:4px; padding:2px; border:1px solid var(--border-strong);
+}
+.scheme-toggle button{
+  background:transparent; color:var(--text-dim); border:none;
+  padding:4px 10px; cursor:pointer; font-size:11px; border-radius:3px;
+}
+.scheme-toggle button.active{background:var(--highlight); color:#fff;}
+/* ===== RIGHT COLUMN ===== */
+.right-col{display:flex; flex-direction:column; gap:10px; overflow:hidden;}
+.param-panel{flex:1; display:flex; flex-direction:column; min-height:0;}
+.param-group{
+  padding:8px 10px; border-bottom:1px solid var(--border);
+}
+.param-group:last-child{border-bottom:none;}
+.param-label{
+  font-size:11px; color:var(--text-dim); margin-bottom:4px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.param-label .hint{font-size:9px; color:var(--text-dim); opacity:0.7;}
+.param-row{display:flex; gap:6px; align-items:center; margin-bottom:6px;}
+.param-row:last-child{margin-bottom:0;}
+.param-input{
+  flex:1; background:var(--accent); border:1px solid var(--border-strong);
+  color:var(--text); padding:5px 8px; border-radius:3px; font-size:12px;
+  font-family:inherit;
+}
+.param-input:focus{outline:none; border-color:var(--cyan);}
+input[type="range"]{
+  flex:1; -webkit-appearance:none; height:5px; background:var(--accent);
+  border-radius:3px; outline:none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:14px; height:14px;
+  background:var(--highlight); border-radius:50%; cursor:pointer;
+}
+.slider-val{
+  font-size:11px; color:var(--cyan); font-weight:600; min-width:42px; text-align:right;
+}
+/* toggle switch */
+.toggle-wrap{display:flex; align-items:center; gap:8px;}
+.toggle{
+  position:relative; width:42px; height:22px; background:var(--accent);
+  border:1px solid var(--border-strong); border-radius:11px; cursor:pointer;
+  transition:all 0.2s;
+}
+.toggle.on{background:var(--green);}
+.toggle::after{
+  content:''; position:absolute; top:2px; left:2px;
+  width:16px; height:16px; background:#fff; border-radius:50%;
+  transition:all 0.2s;
+}
+.toggle.on::after{left:22px;}
+.toggle-label{font-size:11px; color:var(--text);}
+.toggle-state{font-size:11px; font-weight:700; margin-left:auto;}
+.toggle-state.on{color:var(--green);}
+.toggle-state.off{color:var(--text-dim);}
+/* big button */
+.btn-run{
+  width:100%; padding:12px; font-size:14px; font-weight:700;
+  background:linear-gradient(135deg,#3b82f6,#1d4ed8); color:#fff;
+  border:none; border-radius:5px; cursor:pointer;
+  box-shadow:0 2px 8px rgba(59,130,246,0.4);
+  transition:all 0.15s; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.btn-run:hover{background:linear-gradient(135deg,#60a5fa,#3b82f6); transform:translateY(-1px);}
+.btn-run:active{transform:translateY(0);}
+.btn-run:disabled{opacity:0.5; cursor:not-allowed;}
+.btn-run .spinner{
+  display:inline-block; width:14px; height:14px; border:2px solid rgba(255,255,255,0.3);
+  border-top-color:#fff; border-radius:50%; animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* mini factor switches */
+.factor-mini{
+  display:grid; grid-template-columns:1fr 1fr; gap:3px 8px;
+  font-size:10px; max-height:160px; overflow:auto; padding:4px;
+}
+.factor-mini label{display:flex; align-items:center; gap:4px; cursor:pointer;}
+.factor-mini input{margin:0; cursor:pointer;}
+.factor-mini .fid{font-weight:700; color:var(--cyan);}
+/* ===== BOTTOM LOG ===== */
+.log-panel{
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--panel); border-top:2px solid var(--accent);
+  display:flex; flex-direction:column; height:200px;
+  z-index:50;
+}
+.log-header{
+  display:flex; align-items:center; gap:12px; padding:6px 12px;
+  background:var(--panel-2); border-bottom:1px solid var(--border);
+}
+.log-title{font-size:12px; font-weight:600; color:var(--text);}
+.log-filter{display:flex; gap:4px;}
+.log-filter button{
+  font-size:10px; padding:3px 8px; background:var(--accent);
+  border:1px solid var(--border-strong); color:var(--text);
+  border-radius:3px; cursor:pointer;
+}
+.log-filter button.active{background:var(--highlight); border-color:var(--highlight);}
+.log-filter button.active.f-OPEN{background:var(--green); border-color:var(--green);}
+.log-filter button.active.f-CLOSE{background:var(--orange); border-color:var(--orange);}
+.log-filter button.active.f-RISK{background:var(--red); border-color:var(--red);}
+.log-filter button.active.f-REGIME{background:var(--purple); border-color:var(--purple);}
+.log-count{margin-left:auto; font-size:10px; color:var(--text-dim);}
+.log-body{flex:1; overflow-y:auto; padding:4px 8px; font-family:"Consolas","Courier New",monospace; font-size:11px;}
+.log-entry{
+  display:grid; grid-template-columns:80px 70px 1fr 60px 1fr;
+  gap:8px; padding:3px 4px; border-bottom:1px solid rgba(255,255,255,0.04);
+  align-items:center;
+}
+.log-entry:hover{background:rgba(255,255,255,0.03);}
+.log-time{color:var(--text-dim);}
+.log-type{
+  font-weight:700; font-size:10px; padding:1px 6px; border-radius:2px;
+  text-align:center;
+}
+.log-type.OPEN{background:rgba(74,222,128,0.15); color:var(--green); border:1px solid var(--green);}
+.log-type.CLOSE{background:rgba(251,146,60,0.15); color:var(--orange); border:1px solid var(--orange);}
+.log-type.RISK{background:rgba(239,68,68,0.15); color:var(--red); border:1px solid var(--red);}
+.log-type.REGIME{background:rgba(167,139,250,0.15); color:var(--purple); border:1px solid var(--purple);}
+.log-cat{font-size:10px; padding:1px 5px; border-radius:2px; text-align:center;}
+.log-cat.c-价{background:rgba(96,165,250,0.15); color:var(--blue);}
+.log-cat.c-基{background:rgba(251,146,60,0.15); color:var(--orange);}
+.log-cat.c-自{background:rgba(167,139,250,0.15); color:var(--purple);}
+.log-drivers{font-size:10px; color:var(--text-dim);}
+.log-detail{font-size:10px; color:var(--text);}
+/* ===== FACTOR TABLE ===== */
+.factor-table-wrap{
+  background:var(--panel); border:1px solid var(--border);
+  border-radius:6px; display:flex; flex-direction:column; overflow:hidden;
+  flex:1; min-height:0;
+}
+.factor-table{
+  width:100%; border-collapse:collapse; font-size:10px;
+}
+.factor-table thead th{
+  background:var(--panel-2); padding:5px 6px; text-align:left;
+  border-bottom:1px solid var(--border); font-weight:600;
+  color:var(--text-dim); cursor:pointer; position:sticky; top:0;
+}
+.factor-table thead th:hover{color:var(--cyan);}
+.factor-table tbody tr{cursor:pointer; border-bottom:1px solid rgba(255,255,255,0.04);}
+.factor-table tbody tr:hover{background:rgba(233,69,96,0.08);}
+.factor-table tbody tr.disabled{opacity:0.35;}
+.factor-table td{padding:4px 6px;}
+.factor-table .fid{font-weight:700; color:var(--cyan);}
+.factor-table .fname{color:var(--text);}
+.factor-table .cat{font-size:9px; padding:1px 5px; border-radius:2px;}
+.factor-table .cat.c-价{background:rgba(96,165,250,0.15); color:var(--blue);}
+.factor-table .cat.c-基{background:rgba(251,146,60,0.15); color:var(--orange);}
+.factor-table .cat.c-自{background:rgba(167,139,250,0.15); color:var(--purple);}
+.factor-table .ic,.factor-table .ir{text-align:right; font-family:"Consolas",monospace;}
+.factor-table .ic.good{color:var(--green);}
+.factor-table .ic.mid{color:var(--yellow);}
+.factor-table .ir.good{color:var(--green);}
+.factor-table .regime{font-size:9px; color:var(--text-dim);}
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,0.7);
+  display:none; align-items:center; justify-content:center; z-index:100;
+  backdrop-filter:blur(4px);
+}
+.modal-overlay.show{display:flex;}
+.modal{
+  background:var(--panel); border:1px solid var(--border-strong);
+  border-radius:8px; width:820px; max-width:94vw; max-height:90vh;
+  display:flex; flex-direction:column; overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,0.6);
+}
+.modal-header{
+  padding:12px 18px; background:var(--panel-2);
+  border-bottom:1px solid var(--border-strong);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.modal-title{font-size:16px; font-weight:700; color:var(--text);}
+.modal-title .fid{color:var(--cyan); margin-right:8px;}
+.modal-close{
+  background:none; border:none; color:var(--text-dim);
+  font-size:22px; cursor:pointer; padding:0 6px; line-height:1;
+}
+.modal-close:hover{color:var(--red);}
+.modal-body{padding:14px 18px; overflow-y:auto; flex:1;}
+.modal-section{margin-bottom:14px;}
+.modal-section h4{
+  font-size:12px; color:var(--cyan); margin-bottom:6px;
+  padding-bottom:4px; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; gap:6px;
+}
+.modal-section .content{font-size:12px; color:var(--text); line-height:1.6;}
+.formula-box{
+  background:var(--accent); padding:10px 14px; border-radius:4px;
+  font-family:"Cambria Math","Cambria","Consolas",monospace;
+  font-size:14px; color:var(--yellow); border-left:3px solid var(--cyan);
+  overflow-x:auto; white-space:pre-wrap;
+}
+.history-list{display:flex; flex-direction:column; gap:6px;}
+.history-item{
+  display:flex; gap:8px; padding:6px 10px; background:var(--accent);
+  border-radius:4px; font-size:11px; border-left:3px solid var(--cyan);
+}
+.history-item .ver{font-weight:700; color:var(--cyan); min-width:42px;}
+.history-item .date{color:var(--text-dim); min-width:74px;}
+.history-item .change{flex:1; color:var(--text);}
+.regime-eff-chart{height:160px; background:var(--accent); border-radius:4px;}
+.tag-row{display:flex; gap:6px; flex-wrap:wrap;}
+.tag{
+  font-size:10px; padding:2px 8px; border-radius:10px;
+  background:var(--accent); color:var(--text-dim);
+  border:1px solid var(--border-strong);
+}
+.tag.t-NORMAL{background:rgba(74,222,128,0.15); color:var(--green); border-color:var(--green);}
+.tag.t-BEAR{background:rgba(251,146,60,0.15); color:var(--orange); border-color:var(--orange);}
+.tag.t-CRISIS{background:rgba(239,68,68,0.15); color:var(--red); border-color:var(--red);}
+.tag.t-MIXED{background:rgba(148,163,184,0.15); color:#94a3b8; border-color:#94a3b8;}
+.tag.t-ALL{background:rgba(96,165,250,0.15); color:var(--blue); border-color:var(--blue);}
+/* ===== RESPONSIVE ===== */
+@media (max-width:1400px){
+  .app-layout{grid-template-columns:260px 1fr 260px;}
+}
+@media (max-width:1100px){
+  .app-layout{grid-template-columns:240px 1fr; grid-template-rows:auto 1fr;}
+  .right-col{grid-column:1 / -1; flex-direction:row; gap:10px;}
+  .right-col .param-panel{flex:1;}
+  .right-col .factor-mini-wrap{flex:1;}
+}
+@media (max-width:768px){
+  .app-layout{grid-template-columns:1fr; grid-template-rows:auto auto auto 1fr;}
+  .left-col,.right-col{flex-direction:column;}
+  .header-stats{display:none;}
+}
+/* scrollbars */
+::-webkit-scrollbar{width:8px; height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border-strong); border-radius:4px;}
+::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+/* ===== NAV TABS ===== */
+.nav-tab{transition:all 0.15s;}
+.nav-tab:hover{color:var(--cyan);}
+.nav-tab.active{background:var(--highlight)!important;color:#fff!important;}
+/* ===== PAGE PANELS ===== */
+.page-panel{display:none;flex:1;overflow:auto;padding:12px;min-height:0;}
+.page-panel.active{display:block;}
+/* ===== FACTOR LIBRARY ===== */
+.factor-lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:10px;}
+.factor-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:12px;cursor:pointer;transition:all 0.15s;border-left:3px solid var(--accent);}
+.factor-card:hover{border-color:var(--cyan);box-shadow:0 0 8px rgba(34,211,238,0.15);}
+.factor-card.failed{border-left-color:var(--red);opacity:0.7;}
+.factor-card.active{border-left-color:var(--green);}
+.factor-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.factor-card-id{font-size:14px;font-weight:700;color:var(--cyan);}
+.factor-card-name{font-size:12px;color:var(--text);font-weight:600;margin-bottom:4px;}
+.factor-card-badge{font-size:9px;padding:2px 8px;border-radius:8px;background:var(--accent);}
+.factor-card-badge.active{background:rgba(74,222,128,0.15);color:var(--green);border:1px solid var(--green);}
+.factor-card-badge.failed{background:rgba(239,68,68,0.15);color:var(--red);border:1px solid var(--red);}
+.factor-card-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0;font-size:10px;}
+.factor-card-meta .label{color:var(--text-dim);}
+.factor-card-meta .val{color:var(--text);font-weight:600;}
+.factor-card-formula{background:var(--accent);padding:6px 10px;border-radius:4px;font-size:10px;font-family:"Consolas",monospace;color:var(--yellow);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:6px 0;}
+.factor-card-source{font-size:10px;color:var(--text-dim);margin:4px 0;}
+.factor-card-reason{font-size:10px;color:var(--red);margin-top:4px;padding:4px 6px;background:rgba(239,68,68,0.08);border-radius:3px;}
+/* ===== VARIETY OVERVIEW ===== */
+.variety-overview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:16px;}
+.variety-status-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:14px;border-left:4px solid var(--border);}
+.variety-status-card.active{border-left-color:var(--green);}
+.variety-status-card.conditional{border-left-color:var(--yellow);}
+.variety-status-card.deferred{border-left-color:var(--red);}
+.variety-status-card.blocked{border-left-color:var(--orange);opacity:0.6;}
+.variety-status-card .code{font-size:18px;font-weight:700;margin-bottom:2px;}
+.variety-status-card .name{font-size:12px;color:var(--text-dim);margin-bottom:8px;}
+.variety-status-card .status-row{display:flex;justify-content:space-between;font-size:10px;margin-bottom:4px;}
+.variety-status-card .status-row .label{color:var(--text-dim);}
+.variety-status-card .status-row .val{font-weight:600;}
+.variety-gate-panel{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:14px;margin-top:12px;}
+.variety-gate-panel h3{font-size:13px;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.variety-gate-item{display:flex;gap:8px;padding:8px;background:var(--accent);border-radius:4px;margin-bottom:6px;font-size:11px;border-left:3px solid var(--orange);}
+.variety-gate-item .gate-id{font-weight:700;color:var(--cyan);min-width:60px;}
+.variety-gate-item .gate-status{margin-left:auto;font-weight:700;}
+.variety-gate-item .gate-status.blocked{color:var(--red);}
+.variety-gate-item .gate-status.ready{color:var(--green);}
+/* ===== GITHUB PAGES PANEL ===== */
+.github-json-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;}
+.github-json-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:14px;border-left:3px solid var(--cyan);}
+.github-json-card .filename{font-size:13px;font-weight:700;color:var(--cyan);font-family:"Consolas",monospace;margin-bottom:4px;}
+.github-json-card .desc{font-size:11px;color:var(--text-dim);margin-bottom:6px;}
+.github-json-card .meta{font-size:10px;color:var(--text-dim);}
+/* ===== TRADE MODAL ===== */
+.trade-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:150;backdrop-filter:blur(4px);}
+.trade-modal-overlay.show{display:flex;}
+.trade-modal{background:var(--panel);border:1px solid var(--border-strong);border-radius:8px;width:500px;max-width:90vw;max-height:80vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6);}
+.trade-modal-header{padding:12px 18px;background:var(--panel-2);border-bottom:1px solid var(--border-strong);display:flex;align-items:center;justify-content:space-between;}
+.trade-modal-title{font-size:15px;font-weight:700;color:var(--text);}
+.trade-modal-body{padding:14px 18px;overflow-y:auto;flex:1;}
+.trade-row{display:grid;grid-template-columns:100px 1fr;gap:8px;padding:4px 0;font-size:12px;border-bottom:1px solid rgba(255,255,255,0.04);}
+.trade-row .label{color:var(--text-dim);font-size:11px;}
+.trade-row .val{color:var(--text);font-weight:600;}
+.trade-row .val.long{color:var(--green);}
+.trade-row .val.short{color:var(--red);}
+.trade-row .val.close{color:var(--orange);}
+.trade-row .val.profit{color:var(--green);}
+.trade-row .val.loss{color:var(--red);}
+/* ===== PROVENANCE MODAL ===== */
+.provenance-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:150;backdrop-filter:blur(4px);}
+.provenance-modal-overlay.show{display:flex;}
+.provenance-modal{background:var(--panel);border:1px solid var(--border-strong);border-radius:8px;width:620px;max-width:90vw;max-height:80vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6);}
+.provenance-modal-header{padding:12px 18px;background:var(--panel-2);border-bottom:1px solid var(--border-strong);display:flex;align-items:center;justify-content:space-between;}
+.provenance-modal-title{font-size:15px;font-weight:700;color:var(--text);}
+.provenance-modal-body{padding:14px 18px;overflow-y:auto;flex:1;}
+.prov-section{margin-bottom:14px;}
+.prov-section h4{font-size:12px;color:var(--cyan);margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--border);}
+.prov-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.prov-item{background:var(--accent);padding:8px 12px;border-radius:4px;font-size:11px;}
+.prov-item .prov-label{color:var(--text-dim);font-size:10px;margin-bottom:2px;}
+.prov-item .prov-val{color:var(--text);font-weight:600;}
+/* ===== MULTI-VARIETY COMPARISON ===== */
+.comparison-toolbar{display:flex; gap:6px; padding:6px 10px; background:var(--panel-2); border-bottom:1px solid var(--border); align-items:center; flex-wrap:wrap;}
+.comparison-toolbar .icon{color:var(--cyan); margin-right:4px;}
+.comparison-chart{width:100%; height:100%; min-height:200px;}
+.comparison-table-view{width:100%; overflow-x:auto;}
+.comparison-table{width:100%; border-collapse:collapse; font-size:11px;}
+.comparison-table thead th{background:var(--panel-2); padding:8px 10px; text-align:center; border-bottom:2px solid var(--border); color:var(--text-dim); font-weight:600; position:sticky; top:0;}
+.comparison-table thead th:first-child{text-align:left;}
+.comparison-table tbody td{padding:8px 10px; text-align:center; border-bottom:1px solid rgba(255,255,255,0.04); font-family:"Consolas",monospace;}
+.comparison-table tbody td:first-child{text-align:left; font-weight:700;}
+.comparison-table tbody tr:hover{background:rgba(233,69,96,0.06);}
+.comparison-table .var-AL{border-left:3px solid var(--green);}
+.comparison-table .var-PB{border-left:3px solid var(--yellow);}
+.comparison-table .var-CU{border-left:3px solid var(--red);}
+.status-tag{display:inline-block; padding:2px 10px; border-radius:10px; font-size:10px; font-weight:700; letter-spacing:0.5px;}
+.status-FULL_PRODUCTION{background:rgba(74,222,128,0.15); color:var(--green); border:1px solid var(--green);}
+.status-CONDITIONAL{background:rgba(250,204,21,0.15); color:var(--yellow); border:1px solid var(--yellow);}
+.status-DEFERRED{background:rgba(239,68,68,0.15); color:var(--red); border:1px solid var(--red);}
+.comparison-summary{display:flex; gap:12px; padding:6px 10px; flex-wrap:wrap;}
+.comp-stat{display:flex; flex-direction:column; align-items:center; background:var(--accent); padding:6px 12px; border-radius:4px; min-width:70px;}
+.comp-stat .label{font-size:9px; color:var(--text-dim);}
+.comp-stat .value{font-size:14px; font-weight:700;}
+.comp-stat .value.green{color:var(--green);}
+.comp-stat .value.yellow{color:var(--yellow);}
+.comp-stat .value.red{color:var(--red);}
+/* ===== F19/F20 NAV ===== */
+.f1920-toolbar .bear-toggle{display:flex; align-items:center; gap:6px;}
+.f1920-summary{display:flex; gap:10px; padding:4px 10px; flex-wrap:wrap;}
+.f1920-badge{display:inline-flex; align-items:center; gap:4px; font-size:10px; padding:3px 8px; border-radius:4px; background:var(--accent);}
+.f1920-badge .dot{width:8px; height:8px; border-radius:50%;}
+/* loading overlay */
+.loading-overlay{
+  position:fixed; inset:0; background:rgba(26,26,46,0.85);
+  display:none; align-items:center; justify-content:center; z-index:200;
+}
+.loading-overlay.show{display:flex;}
+.loading-box{
+  background:var(--panel); padding:24px 40px; border-radius:8px;
+  border:1px solid var(--border-strong); text-align:center;
+}
+.loading-box .spinner-big{
+  width:36px; height:36px; border:3px solid var(--accent);
+  border-top-color:var(--highlight); border-radius:50%;
+  animation:spin 0.8s linear infinite; margin:0 auto 12px;
+}
+.loading-box .txt{font-size:13px; color:var(--text); margin-bottom:4px;}
+.loading-box .sub{font-size:11px; color:var(--text-dim);}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="app-header">
+  <div class="app-title">
+    <span>📊</span>
+    <span>因子回测可视化工作台</span>
+    <span class="badge">VIS-001</span>
+    <span class="app-subtitle">Chinese Commodity Futures Factor Engine · v86.9-C-FINAL</span>
+  </div>
+  <div class="header-stats">
+    <div class="header-stat"><span>当前品种</span><span class="v" id="hdr-variety">AL 铝</span></div>
+    <div class="header-stat"><span>交易日数</span><span class="v" id="hdr-days">60</span></div>
+    <div class="header-stat"><span>期末净值</span><span class="v" id="hdr-nav">—</span></div>
+    <div class="header-stat"><span>IC均值</span><span class="v" id="hdr-ic">—</span></div>
+    <div class="header-stat"><span>IR均值</span><span class="v" id="hdr-ir">—</span></div>
+  </div>
+  <div class="header-status" id="hdr-status">● 数据就绪</div>
+</header>
+
+<!-- ============ NAVIGATION TABS ============ -->
+<div style="display:flex;background:var(--panel-2);border-bottom:1px solid var(--border);padding:0 10px;gap:2px;">
+  <button id="tab-dashboard" class="nav-tab active" onclick="switchTab('dashboard')" style="flex:none;padding:6px 16px;font-size:12px;font-weight:600;background:var(--highlight);color:#fff;border:none;cursor:pointer;border-radius:4px 4px 0 0;">📊 可视化工作台</button>
+  <button id="tab-factors" class="nav-tab" onclick="switchTab('factors')" style="flex:none;padding:6px 16px;font-size:12px;font-weight:600;background:var(--accent);color:var(--text-dim);border:none;cursor:pointer;border-radius:4px 4px 0 0;">📚 因子库</button>
+  <button id="tab-variety" class="nav-tab" onclick="switchTab('variety')" style="flex:none;padding:6px 16px;font-size:12px;font-weight:600;background:var(--accent);color:var(--text-dim);border:none;cursor:pointer;border-radius:4px 4px 0 0;">🌐 品种总览</button>
+  <button id="tab-github" class="nav-tab" onclick="switchTab('github')" style="flex:none;padding:6px 16px;font-size:12px;font-weight:600;background:var(--accent);color:var(--text-dim);border:none;cursor:pointer;border-radius:4px 4px 0 0;">🔗 GitHub Pages</button>
+  <span style="margin-left:auto;align-self:center;font-size:10px;color:var(--text-dim);">VIS-001 · Phase16 · GitHub Pages Edition</span>
+</div>
+
+<!-- ============ MAIN LAYOUT ============ -->
+<div class="app-layout">
+
+  <!-- ===== LEFT COLUMN ===== -->
+  <div class="left-col">
+    <!-- Variety Switch Panel -->
+    <div class="panel variety-panel">
+      <div class="panel-header">
+        <span><span class="icon">🔄</span>品种切换</span>
+        <span style="font-size:10px;color:var(--text-dim);" id="variety-phase">FULL_PRODUCTION</span>
+      </div>
+      <div class="panel-body">
+        <div class="variety-grid" id="variety-grid"></div>
+        <div style="margin-top:6px;font-size:10px;color:var(--text-dim);text-align:center;" id="variety-hint">
+          提示：切换品种后所有图表自动刷新
+        </div>
+      </div>
+    </div>
+
+    <!-- Factor Combination Panel -->
+    <div class="panel factor-panel">
+      <div class="panel-header">
+        <span><span class="icon">🧩</span>因子组合</span>
+        <span style="font-size:10px;color:var(--text-dim);" id="factor-count">20/20 已勾选</span>
+      </div>
+      <div class="factor-toolbar">
+        <button onclick="toggleAllFactors(true)">全选</button>
+        <button onclick="toggleAllFactors(false)">全不选</button>
+        <button onclick="toggleFactorsByCat('量价')">量价</button>
+        <button onclick="toggleFactorsByCat('基本面')">基本面</button>
+        <button onclick="toggleFactorsByCat('自研资金行为')">自研资金</button>
+      </div>
+      <div class="panel-body" id="factor-combo-body"></div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN COLUMN ===== -->
+  <div class="main-col">
+
+    <!-- Main Content (charts + capital + factor table) -->
+    <div id="main-content" style="display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;overflow:hidden;">
+
+    <!-- Charts -->
+    <div class="chart-row" id="chart-row">
+
+      <!-- NAV Chart -->
+      <div class="chart-container" style="flex:1.1;min-height:200px;">
+        <div class="panel-header">
+          <span><span class="icon">📈</span>净值曲线 NAV · <span id="nav-var-name">AL</span></span>
+          <div class="tools">
+            <span style="font-size:10px;color:var(--text-dim);">初始资金 1,000,000</span>
+            <button class="factor-toolbar" style="padding:2px 8px;font-size:10px;background:var(--accent);border:1px solid var(--border-strong);color:var(--text);border-radius:3px;cursor:pointer;" onclick="exportChart('chart-nav')">导出图片</button>
+          </div>
+        </div>
+        <div class="chart-canvas" id="chart-nav"></div>
+      </div>
+
+      <!-- Kline Chart -->
+      <div class="chart-container" style="flex:1.3;min-height:220px;">
+        <div class="panel-header">
+          <span><span class="icon">🕯️</span>K线/价格 · <span id="kline-var-name">AL</span></span>
+          <div class="tools">
+            <span style="font-size:10px;color:var(--text-dim);" id="kline-price-range">—</span>
+            <button class="factor-toolbar" style="padding:2px 8px;font-size:10px;background:var(--accent);border:1px solid var(--border-strong);color:var(--text);border-radius:3px;cursor:pointer;" onclick="exportChart('chart-kline')">导出图片</button>
+          </div>
+        </div>
+        <div class="chart-canvas" id="chart-kline"></div>
+      </div>
+
+      <!-- Alpha Chart -->
+      <div class="chart-container" style="flex:0.8;min-height:160px;">
+        <div class="panel-header">
+          <span><span class="icon">α</span>Alpha合成得分 · <span id="alpha-var-name">AL</span></span>
+          <div class="tools">
+            <span style="font-size:10px;color:var(--text-dim);">合成因子: <span id="alpha-factor-cnt">20</span></span>
+            <button class="factor-toolbar" style="padding:2px 8px;font-size:10px;background:var(--accent);border:1px solid var(--border-strong);color:var(--text);border-radius:3px;cursor:pointer;" onclick="exportChart('chart-alpha')">导出图片</button>
+          </div>
+        </div>
+        <div class="chart-canvas" id="chart-alpha"></div>
+      </div>
+    </div>
+
+    <!-- ===== MULTI-VARIETY COMPARISON PANEL ===== -->
+    <div class="chart-container" style="flex:0.8;min-height:260px;">
+      <div class="comparison-toolbar">
+        <span class="icon">📊</span>
+        <span style="font-weight:600;font-size:12px;">多品种对比面板 · AL / PB / CU</span>
+        <div class="scheme-toggle">
+          <button id="comp-bar-btn" class="active" onclick="setCompView('bar')">对比图表</button>
+          <button id="comp-table-btn" onclick="setCompView('table')">对比表格</button>
+        </div>
+        <button class="factor-toolbar" style="padding:2px 8px;font-size:10px;background:var(--accent);border:1px solid var(--border-strong);color:var(--text);border-radius:3px;cursor:pointer;" onclick="exportChart('chart-comparison')">导出图片</button>
+      </div>
+      <div id="comparison-content" style="flex:1;min-height:0;overflow:auto;padding:8px;">
+        <div id="chart-comparison" style="width:100%;height:100%;min-height:200px;"></div>
+        <div id="comparison-table-view" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- ===== F19/F20 INDEPENDENT NAV CURVES ===== -->
+    <div class="chart-container" style="flex:1;min-height:280px;">
+      <div class="comparison-toolbar">
+        <span class="icon">📈</span>
+        <span style="font-weight:600;font-size:12px;">F19/F20 独立净值曲线 · TYPE_S / MIXED</span>
+        <div class="toggle-wrap" style="margin-left:auto;">
+          <div class="toggle on" id="bear-overlay-toggle" onclick="toggleBearOverlay()"></div>
+          <span class="toggle-label" style="font-size:10px;">BEAR区制叠加</span>
+        </div>
+        <button class="factor-toolbar" style="padding:2px 8px;font-size:10px;background:var(--accent);border:1px solid var(--border-strong);color:var(--text);border-radius:3px;cursor:pointer;" onclick="exportChart('chart-f1920-nav')">导出图片</button>
+      </div>
+      <div class="chart-canvas" id="chart-f1920-nav"></div>
+    </div>
+
+    <!-- Capital Allocation Module -->
+    <div class="chart-container" style="flex:0.7;min-height:200px;">
+      <div class="capital-toolbar">
+        <span class="icon">💰</span>
+        <span style="font-weight:600;font-size:12px;">资金分配模块</span>
+        <div class="scheme-toggle">
+          <button id="scheme-A-btn" class="active" onclick="setScheme('A')">因子方案A</button>
+          <button id="scheme-B-btn" onclick="setScheme('B')">因子方案B</button>
+        </div>
+        <span style="margin-left:auto;font-size:10px;color:var(--text-dim);" id="scheme-desc">IC加权 · 按因子有效性动态分配</span>
+        <button class="factor-toolbar" style="padding:2px 8px;font-size:10px;background:var(--accent);border:1px solid var(--border-strong);color:var(--text);border-radius:3px;cursor:pointer;" onclick="exportChart('chart-capital')">导出图片</button>
+      </div>
+      <div class="capital-panel" style="padding:8px;flex:1;min-height:0;">
+        <div class="chart-canvas" id="chart-capital" style="min-height:0;"></div>
+        <div style="display:flex;flex-direction:column;gap:6px;min-height:0;">
+          <div class="chart-canvas" id="chart-pie" style="min-height:0;flex:1;"></div>
+          <div style="background:var(--accent);border-radius:4px;padding:6px 10px;">
+            <div style="font-size:10px;color:var(--text-dim);margin-bottom:4px;">💡 F20 资金注意力流向</div>
+            <div id="f20-flow" style="font-size:11px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div><!-- end main-content -->
+
+    <!-- Blocked Overlay -->
+    <div id="blocked-overlay" style="display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;color:var(--orange);gap:10px;padding:20px;background:var(--panel);border:1px solid var(--border);border-radius:6px;">
+    </div>
+  </div>
+
+  <!-- ===== RIGHT COLUMN ===== -->
+  <div class="right-col">
+    <!-- Param Console -->
+    <div class="panel param-panel">
+      <div class="panel-header">
+        <span><span class="icon">⚙️</span>参数控制台</span>
+        <span style="font-size:10px;color:var(--cyan);" id="run-status">READY</span>
+      </div>
+      <div class="panel-body tight">
+
+        <div class="param-group">
+          <div class="param-label">时间区间 <span class="hint">开始 ~ 结束</span></div>
+          <div class="param-row">
+            <input type="date" class="param-input" id="param-start" value="2026-05-27">
+            <input type="date" class="param-input" id="param-end" value="2026-07-14">
+          </div>
+        </div>
+
+        <div class="param-group">
+          <div class="param-label">初始资金 <span class="hint">CNY</span></div>
+          <input type="number" class="param-input" id="param-capital" value="1000000" step="100000">
+        </div>
+
+        <div class="param-group">
+          <div class="param-label">滑点 <span class="hint">bp (基点)</span></div>
+          <input type="number" class="param-input" id="param-slippage" value="0.5" step="0.1" min="0">
+        </div>
+
+        <div class="param-group">
+          <div class="param-label">仓位上限 <span class="slider-val" id="pos-cap-val">5%</span></div>
+          <input type="range" id="param-poscap" min="1" max="15" value="5" step="0.5">
+        </div>
+
+        <div class="param-group">
+          <div class="param-label">FR-RISK 总开关 <span class="hint">风险管理框架</span></div>
+          <div class="toggle-wrap">
+            <div class="toggle on" id="fr-risk-toggle" onclick="toggleFRRisk()"></div>
+            <span class="toggle-label">风控启用</span>
+            <span class="toggle-state on" id="fr-risk-state">ON</span>
+          </div>
+        </div>
+
+        <div class="param-group" style="flex:1;min-height:0;display:flex;flex-direction:column;">
+          <div class="param-label">因子勾选开关 <span class="hint">同步因子组合</span></div>
+          <div class="factor-mini" id="factor-mini" style="flex:1;overflow:auto;"></div>
+        </div>
+
+        <div class="param-group" style="padding:8px 0 0;">
+          <button class="btn-run" id="btn-run" onclick="runBacktest()">
+            <span>▶ 执行回测</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FACTOR TABLE (bottom-left overlay) ============ -->
+<!-- Moved into main column via CSS? Actually, let's put it as a section in main col -->
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="factor-modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="factor-modal"></div>
+</div>
+
+<!-- ============ TRADE DETAIL MODAL ============ -->
+<div class="trade-modal-overlay" id="trade-modal-overlay" onclick="if(event.target===this)closeTradeModal()">
+  <div class="trade-modal" id="trade-modal"></div>
+</div>
+
+<!-- ============ PROVENANCE MODAL ============ -->
+<div class="provenance-modal-overlay" id="provenance-modal-overlay" onclick="if(event.target===this)closeProvenanceModal()">
+  <div class="provenance-modal" id="provenance-modal"></div>
+</div>
+
+<!-- ============ FACTOR LIBRARY PAGE ============ -->
+<div id="page-factors" class="page-panel" style="display:none;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+    <h2 style="font-size:16px;color:var(--text);">📚 因子库 · 全因子归档</h2>
+    <span style="font-size:11px;color:var(--text-dim);">20 上线因子 + 失败/淘汰因子归档</span>
+    <div style="margin-left:auto;display:flex;gap:6px;">
+      <button onclick="filterFactorLib('all')" style="font-size:10px;padding:3px 10px;background:var(--highlight);color:#fff;border:none;border-radius:3px;cursor:pointer;">全部</button>
+      <button onclick="filterFactorLib('active')" style="font-size:10px;padding:3px 10px;background:var(--accent);color:var(--text);border:1px solid var(--border-strong);border-radius:3px;cursor:pointer;">上线因子</button>
+      <button onclick="filterFactorLib('failed')" style="font-size:10px;padding:3px 10px;background:var(--accent);color:var(--text);border:1px solid var(--border-strong);border-radius:3px;cursor:pointer;">淘汰因子</button>
+    </div>
+  </div>
+  <div class="factor-lib-grid" id="factor-lib-grid"></div>
+</div>
+
+<!-- ============ VARIETY OVERVIEW PAGE ============ -->
+<div id="page-variety" class="page-panel" style="display:none;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+    <h2 style="font-size:16px;color:var(--text);">🌐 品种状态总览</h2>
+    <span style="font-size:11px;color:var(--text-dim);">AL/PB/CU/NI/SN/SI/ZN 准入状态 · PC-003 门禁</span>
+  </div>
+  <div class="variety-overview-grid" id="variety-overview-grid"></div>
+  <div class="variety-gate-panel" id="variety-gate-panel"></div>
+</div>
+
+<!-- ============ GITHUB PAGES PAGE ============ -->
+<div id="page-github" class="page-panel" style="display:none;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+    <h2 style="font-size:16px;color:var(--text);">🔗 GitHub Pages 静态数据集</h2>
+    <span style="font-size:11px;color:var(--text-dim);">全品种回测JSON · 逐笔交易记录 · 因子台账</span>
+  </div>
+  <div class="github-json-grid" id="github-json-grid"></div>
+</div>
+
+<!-- ============ LOADING ============ -->
+<div class="loading-overlay" id="loading-overlay">
+  <div class="loading-box">
+    <div class="spinner-big"></div>
+    <div class="txt" id="loading-txt">正在执行回测…</div>
+    <div class="sub" id="loading-sub">重新计算因子合成与净值</div>
+  </div>
+</div>
+
+<!-- ============ BOTTOM EVENT LOG ============ -->
+<div class="log-panel">
+  <div class="log-header">
+    <span class="log-title"><span style="color:var(--cyan);">📜</span> 事件溯源日志</span>
+    <div class="log-filter" id="log-filter">
+      <button class="active" data-filter="ALL" onclick="setLogFilter('ALL')">ALL</button>
+      <button data-filter="OPEN" onclick="setLogFilter('OPEN')">OPEN</button>
+      <button data-filter="CLOSE" onclick="setLogFilter('CLOSE')">CLOSE</button>
+      <button data-filter="RISK" onclick="setLogFilter('RISK')">RISK</button>
+      <button data-filter="REGIME" onclick="setLogFilter('REGIME')">REGIME</button>
+    </div>
+    <span class="log-count" id="log-count">0 条</span>
+    <button style="font-size:10px;padding:3px 8px;background:var(--accent);border:1px solid var(--border-strong);color:var(--text);border-radius:3px;cursor:pointer;margin-left:6px;" onclick="clearLog()">清空</button>
+  </div>
+  <div class="log-body" id="log-body"></div>
+</div>
+
+<script>
+/* =========================================================================
+   VIS-001 因子回测可视化工作台
+   ========================================================================= */
+
+/* ---------- COLORS ---------- */
+const COLORS = {
+  bg:'#1a1a2e', panel:'#16213e', panel2:'#1c2a4d', accent:'#0f3460',
+  highlight:'#e94560', text:'#e0e0e0', textDim:'#8b95b8',
+  green:'#4ade80', red:'#ef4444', yellow:'#facc15', orange:'#fb923c',
+  purple:'#a78bfa', blue:'#60a5fa', cyan:'#22d3ee',
+  border:'#2a3a5e'
+};
+
+const REGIME_COLORS = {
+  NORMAL: {color:'rgba(74,222,128,0.12)', label:'NORMAL', tag:'t-NORMAL'},
+  BULL:   {color:'rgba(34,197,94,0.16)',  label:'BULL',   tag:'t-NORMAL'},
+  BEAR:   {color:'rgba(251,146,60,0.14)', label:'BEAR',   tag:'t-BEAR'},
+  CRISIS: {color:'rgba(239,68,68,0.20)',  label:'CRISIS', tag:'t-CRISIS'},
+  OSCILLATION:{color:'rgba(250,204,21,0.13)',label:'OSCILLATION',tag:'t-MIXED'},
+  MIXED:  {color:'rgba(148,163,184,0.12)',label:'MIXED',  tag:'t-MIXED'}
+};
+
+/* ---------- VARIETY CONFIG ---------- */
+const VARIETIES = {
+  AL: {name:'铝', nameEn:'Aluminum', code:'AL', color:'#4ade80', priceBase:20000, navEnd:1.12, alphaRange:[0.03,0.06], status:'OK', phase:'FULL_PRODUCTION_STABLE', seed:1001, vol:0.015, drift:0.0008},
+  PB: {name:'铅', nameEn:'Lead', code:'PB', color:'#facc15', priceBase:18000, navEnd:1.08, alphaRange:[0.02,0.05], status:'OK', phase:'CONDITIONAL_MONITORING', seed:2002, vol:0.013, drift:0.0005},
+  CU: {name:'铜', nameEn:'Copper', code:'CU', color:'#ef4444', priceBase:75000, navEnd:1.05, alphaRange:[0.01,0.04], status:'OK', phase:'DEFERRED_MONITORING', seed:3003, vol:0.011, drift:0.0003},
+  ZN: {name:'锌', nameEn:'Zinc', code:'ZN', color:'#22c55e', status:'BLOCKED', phase:'PC-003_LOCKED'},
+  NI: {name:'镍', nameEn:'Nickel', code:'NI', color:'#a3e635', status:'BLOCKED', phase:'PC-003_LOCKED'},
+  SN: {name:'锡', nameEn:'Tin', code:'SN', color:'#fbbf24', status:'BLOCKED', phase:'PC-003_LOCKED'},
+  SI: {name:'工业硅', nameEn:'Silicon', code:'SI', color:'#fb923c', status:'BLOCKED', phase:'PC-003_LOCKED'}
+};
+
+/* ---------- FACTOR META (extended with formula, history, effectiveness) ---------- */
+const FACTOR_META = [
+  {id:'F01',name:'MACD动量',category:'量价',ic:0.0612,ir:48.81,regime:'ALL',
+   formula:'MACD = EMA(12, Close) − EMA(26, Close)\nSignal = EMA(9, MACD)\nHist = MACD − Signal',
+   desc:'基于指数移动平均线差值计算的趋势动量因子，捕捉中长期趋势变化。',
+   source:'行情数据 (SHFE 日K线, 12/26/9 EMA)',
+   history:[{v:'v1.0',d:'2025-03-15',c:'初始版本，标准12/26/9参数'},{v:'v1.2',d:'2025-06-20',c:'加入动态参数调整，根据波动率自适应'},{v:'v1.5',d:'2025-11-08',c:'引入信号过滤，减少假突破'},{v:'v2.0',d:'2026-02-14',c:'融合多时间框架，加入周线确认'}],
+   eff:{NORMAL:0.85,BEAR:0.72,CRISIS:0.68,MIXED:0.79}},
+  {id:'F02',name:'RSI均值回归',category:'量价',ic:0.0587,ir:45.23,regime:'NORMAL',
+   formula:'RSI(14) = 100 − 100/(1 + AvgGain/AvgLoss)\nα = tanh((50 − RSI) / 25)',
+   desc:'基于相对强弱指数计算均值回归信号，超买时做空、超卖时做多。',
+   source:'行情数据 (SHFE 日K线, RSI-14)',
+   history:[{v:'v1.0',d:'2025-02-20',c:'初始版本，标准RSI-14'},{v:'v1.3',d:'2025-08-12',c:'tanh压缩至[-1,1]区间'},{v:'v2.0',d:'2026-01-25',c:'加入波动率调整窗口'}],
+   eff:{NORMAL:0.88,BEAR:0.55,CRISIS:0.42,MIXED:0.68}},
+  {id:'F03',name:'布林带突破',category:'量价',ic:0.0598,ir:46.12,regime:'ALL',
+   formula:'MA(20) = SMA(Close, 20)\nσ = STD(Close, 20)\nBand = MA ± 2σ\nBreakout = (Close − MA) / σ',
+   desc:'布林带突破因子，识别价格偏离标准差超过2倍时的突破信号。',
+   source:'行情数据 (SHFE 日K线, 20日布林带)',
+   history:[{v:'v1.0',d:'2025-03-02',c:'初始版本，20日2σ'},{v:'v1.4',d:'2025-09-18',c:'加入带宽自适应'},{v:'v2.1',d:'2026-02-28',c:'多品种参数化'}],
+   eff:{NORMAL:0.82,BEAR:0.78,CRISIS:0.75,MIXED:0.80}},
+  {id:'F04',name:'KDJ超买超卖',category:'量价',ic:0.0572,ir:43.45,regime:'NORMAL',
+   formula:'RSV = (Close − LMin9)/(HMax9 − LMin9) × 100\nK = 2/3·K_prev + 1/3·RSV\nD = 2/3·D_prev + 1/3·K\nJ = 3K − 2D',
+   desc:'KDJ随机指标因子，J值<0超卖、>100超买。',
+   source:'行情数据 (SHFE 日K线, KDJ-9)',
+   history:[{v:'v1.0',d:'2025-03-10',c:'初始版本，标准9日KDJ'},{v:'v1.2',d:'2025-07-05',c:'加入背离判断'}],
+   eff:{NORMAL:0.86,BEAR:0.60,CRISIS:0.50,MIXED:0.72}},
+  {id:'F05',name:'成交量比率',category:'量价',ic:0.0565,ir:42.34,regime:'ALL',
+   formula:'VR = Volume / MA(Volume, 20)\nΔV = VR − 1',
+   desc:'成交量比率因子，衡量当前成交量相对均量的偏离度。',
+   source:'行情数据 (SHFE 日成交量, 20日均量)',
+   history:[{v:'v1.0',d:'2025-03-18',c:'初始版本'},{v:'v1.1',d:'2025-09-22',c:'加入量价配合'}],
+   eff:{NORMAL:0.78,BEAR:0.80,CRISIS:0.72,MIXED:0.77}},
+  {id:'F06',name:'持仓量变化',category:'量价',ic:0.0589,ir:45.67,regime:'ALL',
+   formula:'OI_chg = (OI_t − OI_{t-5}) / OI_{t-5}\nΔOI = OI_chg × sign(ΔClose)',
+   desc:'持仓量变化因子，结合价格方向判断资金流向。',
+   source:'SHFE 持仓数据 (5日变化率)',
+   history:[{v:'v1.0',d:'2025-03-25',c:'初始版本'},{v:'v1.3',d:'2025-10-01',c:'加入多品种标准化'}],
+   eff:{NORMAL:0.80,BEAR:0.78,CRISIS:0.74,MIXED:0.78}},
+  {id:'F07',name:'基本面评分',category:'基本面',ic:0.0543,ir:40.12,regime:'NORMAL',
+   formula:'Score = w₁·供需 + w₂·库存 + w₃·利润 + w₄·开工率\n(w₁+w₂+w₃+w₄ = 1)',
+   desc:'综合基本面因子，融合供需、库存、利润、开工率四大维度。',
+   source:'Wind 基本面数据 (日频)',
+   history:[{v:'v1.0',d:'2025-04-02',c:'初始版本，等权'},{v:'v1.5',d:'2025-11-10',c:'IC加权优化'},{v:'v2.0',d:'2026-01-20',c:'加入季节性调整'}],
+   eff:{NORMAL:0.85,BEAR:0.62,CRISIS:0.45,MIXED:0.70}},
+  {id:'F08',name:'波动率调整',category:'量价',ic:0.0578,ir:44.56,regime:'ALL',
+   formula:'ATR(14) = 14日平均真实波幅\nσ_ann = ATR / Close × √250\nAdj = Score / σ_ann',
+   desc:'波动率调整因子，将信号按波动率标准化以消除波动差异。',
+   source:'行情数据 (SHFE 日K线, ATR-14)',
+   history:[{v:'v1.0',d:'2025-04-10',c:'初始版本'},{v:'v1.2',d:'2025-09-28',c:'加入GARCH波动率预测'}],
+   eff:{NORMAL:0.80,BEAR:0.82,CRISIS:0.85,MIXED:0.80}},
+  {id:'F09',name:'动量因子',category:'量价',ic:0.0592,ir:45.89,regime:'ALL',
+   formula:'Mom(n) = log(Close_t / Close_{t-n})\nMom = Σ w_i·Mom(n_i), n_i ∈ {5,10,20,60}',
+   desc:'多周期动量因子，融合5/10/20/60日动量。',
+   source:'行情数据 (SHFE 日K线, 多周期)',
+   history:[{v:'v1.0',d:'2025-04-18',c:'初始版本，单周期'},{v:'v1.4',d:'2025-11-25',c:'多周期加权'},{v:'v2.0',d:'2026-02-10',c:'加入行业中性化'}],
+   eff:{NORMAL:0.84,BEAR:0.78,CRISIS:0.75,MIXED:0.80}},
+  {id:'F10',name:'趋势强度',category:'量价',ic:0.0586,ir:45.23,regime:'ALL',
+   formula:'Trend = |EMA(5) − EMA(20)| / ATR(14)\nStrength = tanh(Trend × 2)',
+   desc:'趋势强度因子，衡量趋势的明确程度。',
+   source:'行情数据 (SHFE 日K线, EMA/ATR)',
+   history:[{v:'v1.0',d:'2025-04-25',c:'初始版本'},{v:'v1.2',d:'2025-10-15',c:'tanh压缩'}],
+   eff:{NORMAL:0.82,BEAR:0.80,CRISIS:0.72,MIXED:0.78}},
+  {id:'F11',name:'量价背离',category:'量价',ic:0.0574,ir:44.12,regime:'NORMAL',
+   formula:'Div = corr(Price, Volume, 20)\nScore = −Div (负相关为信号)',
+   desc:'量价背离因子，识别价格与成交量反向运动的背离信号。',
+   source:'行情数据 (SHFE 日K线, 20日相关)',
+   history:[{v:'v1.0',d:'2025-05-02',c:'初始版本'},{v:'v1.3',d:'2025-12-01',c:'加入多重背离'}],
+   eff:{NORMAL:0.86,BEAR:0.58,CRISIS:0.48,MIXED:0.70}},
+  {id:'F12',name:'流动性状态',category:'量价',ic:0.0581,ir:44.78,regime:'ALL',
+   formula:'Liq = spread / (volume × Close)\nState = 1 − Liq_norm',
+   desc:'流动性状态因子，衡量市场流动性充裕程度。',
+   source:'SHFE 盘口数据 (买卖价差、成交量)',
+   history:[{v:'v1.0',d:'2025-05-10',c:'初始版本'},{v:'v1.2',d:'2025-11-18',c:'加入深度估计'}],
+   eff:{NORMAL:0.78,BEAR:0.80,CRISIS:0.76,MIXED:0.78}},
+  {id:'F13',name:'基本面动量',category:'基本面',ic:0.0534,ir:39.45,regime:'NORMAL',
+   formula:'FundMom = Score_t − Score_{t-20}\nα = FundMom / σ(FundMom)',
+   desc:'基本面动量因子，衡量基本面评分的变化速率。',
+   source:'Wind 基本面数据 (20日动量)',
+   history:[{v:'v1.0',d:'2025-05-18',c:'初始版本'}],
+   eff:{NORMAL:0.82,BEAR:0.55,CRISIS:0.40,MIXED:0.68}},
+  {id:'F14',name:'库存周期',category:'基本面',ic:0.0521,ir:38.23,regime:'ALL',
+   formula:'Inv = SMM 库存 / 产能\nCycle = sin(2π·Inv / T)',
+   desc:'库存周期因子，基于库存水平判断周期位置。',
+   source:'SMM / Wind 库存数据 (周频)',
+   history:[{v:'v1.0',d:'2025-05-25',c:'初始版本'}],
+   eff:{NORMAL:0.76,BEAR:0.72,CRISIS:0.70,MIXED:0.74}},
+  {id:'F15',name:'成本曲线',category:'基本面',ic:0.0518,ir:37.89,regime:'ALL',
+   formula:'Cost50 = 50%产能分位成本\nScore = (Price − Cost50) / Cost50',
+   desc:'成本曲线因子，衡量价格相对生产成本的位置。',
+   source:'SMM 成本数据 (50%分位)',
+   history:[{v:'v1.0',d:'2025-06-01',c:'初始版本'}],
+   eff:{NORMAL:0.74,BEAR:0.76,CRISIS:0.72,MIXED:0.74}},
+  {id:'F16',name:'供需平衡',category:'基本面',ic:0.0509,ir:36.78,regime:'ALL',
+   formula:'Balance = Demand − Supply\nα = Balance / Demand',
+   desc:'供需平衡因子，衡量需求与供给的差额。',
+   source:'Wind 供需数据 (月频)',
+   history:[{v:'v1.0',d:'2025-06-08',c:'初始版本'}],
+   eff:{NORMAL:0.72,BEAR:0.74,CRISIS:0.70,MIXED:0.72}},
+  {id:'F17',name:'宏观因子',category:'基本面',ic:0.0512,ir:37.12,regime:'ALL',
+   formula:'Macro = w₁·PMI + w₂·GDP + w₃·利率 + w₄·汇率',
+   desc:'宏观因子，融合PMI、GDP、利率、汇率等宏观经济指标。',
+   source:'Wind 宏观数据 (月频)',
+   history:[{v:'v1.0',d:'2025-06-15',c:'初始版本'}],
+   eff:{NORMAL:0.72,BEAR:0.74,CRISIS:0.68,MIXED:0.72}},
+  {id:'F18',name:'季节性调整',category:'基本面',ic:0.0498,ir:35.67,regime:'ALL',
+   formula:'Season = (Price_t − Price_{t-250}) / Price_{t-250}\nAdj = Price / (1 + Season_avg)',
+   desc:'季节性调整因子，去除季节性波动。',
+   source:'行情数据 (SHFE 日K线, 250日)',
+   history:[{v:'v1.0',d:'2025-06-22',c:'初始版本'}],
+   eff:{NORMAL:0.70,BEAR:0.72,CRISIS:0.68,MIXED:0.70}},
+  {id:'F19',name:'热钱因子',category:'自研资金行为',ic:0.0589,ir:47.23,regime:'TYPE_S_NORMAL_CRISIS',
+   formula:'HotMoney = (LongOI_new − LongOI_old) − (ShortOI_new − ShortOI_old)\n   × ATR / Close',
+   desc:'自研热钱因子，识别游资资金快速进出的特征。仅在TYPE_S_NORMAL_CRISIS环境下启用。',
+   source:'SHFE 持仓数据 + 行情数据 (自研)',
+   history:[{v:'v1.0',d:'2026-03-15',c:'初始版本，灰度上线'},{v:'v1.5',d:'2026-06-20',c:'加入TYPE_S环境判定'},{v:'v2.0',d:'2026-09-05',c:'Phase2灰度通过'}],
+   eff:{NORMAL:0.82,BEAR:0.60,CRISIS:0.90,MIXED:0.70}},
+  {id:'F20',name:'资金注意力',category:'自研资金行为',ic:0.0589,ir:47.12,regime:'MIXED_CRISIS_NORMAL',
+   formula:'Attention = w₁·新闻热度 + w₂·搜索指数 + w₃·社交媒体提及\n   × (1 / (1 + Volatility))',
+   desc:'自研资金注意力因子，融合新闻热度、搜索指数、社交媒体提及等注意力代理指标。仅在MIXED_CRISIS_NORMAL环境下启用。',
+   source:'Bing搜索指数 + 微博热搜 + 新闻NLP (自研)',
+   history:[{v:'v1.0',d:'2026-03-22',c:'初始版本，灰度上线'},{v:'v1.3',d:'2026-07-10',c:'加入微博热搜权重'},{v:'v2.0',d:'2026-10-01',c:'Phase2灰度通过'}],
+   eff:{NORMAL:0.78,BEAR:0.55,CRISIS:0.88,MIXED:0.85}}
+];
+
+/* ---------- COMPARISON DATA (AL/PB/CU multi-variety) ---------- */
+const COMPARISON_DATA = {
+  AL: {name:'铝', color:'#4ade80', ic:0.0589, ir:47.50, bearIC:0.0395, vif:1.0054, status:'FULL_PRODUCTION', phase:'FULL_PRODUCTION_STABLE'},
+  PB: {name:'铅', color:'#facc15', ic:0.0417, ir:16.44, bearIC:0.0294, vif:1.0038, status:'CONDITIONAL', phase:'CONDITIONAL_MONITORING'},
+  CU: {name:'铜', color:'#ef4444', ic:0.0333, ir:9.30, bearIC:0.0236, vif:1.0066, status:'DEFERRED', phase:'DEFERRED_MONITORING'}
+};
+const COMPARISON_METRICS = [
+  {key:'ic',     label:'IC均值',     format:v=>v.toFixed(4)},
+  {key:'ir',     label:'IR',         format:v=>v.toFixed(2)},
+  {key:'bearIC', label:'BEAR IC',    format:v=>v.toFixed(4)},
+  {key:'vif',    label:'VIF',        format:v=>v.toFixed(4)}
+];
+
+/* ---------- STATE ---------- */
+const STATE = {
+  variety: 'AL',
+  factors: new Set(FACTOR_META.map(f=>f.id)),
+  startDate: '2027-01-14',
+  endDate: '2027-03-03',
+  initialCapital: 1000000,
+  slippage: 0.5,
+  positionCap: 5,
+  frRisk: true,
+  scheme: 'A',
+  logFilter: 'ALL',
+  compView: 'bar',
+  bearOverlay: true,
+  currentData: null,
+  charts: {},
+  logs: []
+};
+
+/* ---------- SEEDED RNG (mulberry32) ---------- */
+function mulberry32(a){
+  return function(){
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = a;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function gaussRand(rng){
+  // Box-Muller
+  const u1 = Math.max(rng(), 1e-10), u2 = rng();
+  return Math.sqrt(-2*Math.log(u1)) * Math.cos(2*Math.PI*u2);
+}
+
+/* ---------- DATE GENERATION ---------- */
+function generateDates(startStr, count){
+  const dates = [];
+  let d = new Date(startStr + 'T00:00:00Z');
+  const end = new Date(); // not used, just count
+  while(dates.length < count){
+    const day = d.getUTCDay();
+    if(day !== 0 && day !== 6){
+      dates.push(d.toISOString().slice(0,10));
+    }
+    d.setUTCDate(d.getUTCDate()+1);
+  }
+  return dates;
+}
+
+/* ---------- DATA GENERATION ---------- */
+function generateData(varietyCode){
+  const cfg = VARIETIES[varietyCode];
+  if(cfg.status !== 'OK') return null;
+
+  const rng = mulberry32(cfg.seed);
+  const n = 60;
+  const dates = generateDates(STATE.startDate, n);
+
+  // price walk
+  let price = cfg.priceBase;
+  const kline = [];
+  for(let i=0;i<n;i++){
+    const shock = gaussRand(rng) * cfg.vol;
+    const trend = cfg.drift;
+    const ret = shock + trend;
+    const close = price * (1 + ret);
+    const open = price * (1 + gaussRand(rng) * cfg.vol * 0.4);
+    const high = Math.max(open, close) * (1 + Math.abs(gaussRand(rng)) * cfg.vol * 0.5);
+    const low =  Math.min(open, close) * (1 - Math.abs(gaussRand(rng)) * cfg.vol * 0.5);
+    const volume = Math.round(50000 + gaussRand(rng) * 15000);
+    const turnover = Math.round(volume * close);
+    const amplitude = (high - low) / low;
+    const change_pct = (close - open) / open;
+    kline.push({date:dates[i], open:Math.round(open), high:Math.round(high), low:Math.round(low), close:Math.round(close), volume, turnover, amplitude, change_pct});
+    price = close;
+  }
+
+  // alpha score series
+  const alpha = [];
+  const [aMin, aMax] = cfg.alphaRange;
+  let aPrev = 0.04;
+  for(let i=0;i<n;i++){
+    let v = aPrev + gaussRand(rng) * 0.015;
+    v = Math.max(aMin, Math.min(aMax, v));
+    alpha.push({date:dates[i], alpha_score:v, alpha_rank: Math.round(0.5 + gaussRand(rng)*0.4), alpha_confidence:0.6+Math.abs(gaussRand(rng))*0.35, alpha_direction: v>=0.04?'LONG':'SHORT', top_factors: pickFactors(rng, v, i)});
+    aPrev = v;
+  }
+
+  // NAV series
+  const nav = [];
+  let navVal = 1.0;
+  for(let i=0;i<n;i++){
+    const alpha = alpha[i].alpha_score;
+    const regime = pickRegime(i, n, rng);
+    // alpha-driven return
+    const ret = alpha * 0.6 + gaussRand(rng) * 0.008;
+    const dr = Math.max(-0.03, Math.min(0.03, ret));
+    navVal = navVal * (1 + dr);
+    const peak = nav.length === 0 ? navVal : Math.max(nav[nav.length-1].peak, navVal);
+    const drawdown = peak > 0 ? ((peak - navVal)/peak)*100 : 0;
+    nav.push({date:dates[i], net_value:navVal, daily_return:dr, peak, drawdown, regime});
+  }
+  // Scale NAV so it ends at cfg.navEnd
+  const scale = cfg.navEnd / nav[n-1].net_value;
+  for(let i=0;i<n;i++){
+    nav[i].net_value = nav[i].net_value * scale;
+    nav[i].peak = nav[i].peak * scale;
+    nav[i].daily_return = Math.max(-0.03, Math.min(0.03, nav[i].daily_return));
+  }
+  // Recompute drawdown
+  let runningPeak = -Infinity;
+  for(let i=0;i<n;i++){
+    runningPeak = Math.max(runningPeak, nav[i].net_value);
+    nav[i].peak = runningPeak;
+    nav[i].drawdown = ((runningPeak - nav[i].net_value)/runningPeak)*100;
+  }
+
+  // signals
+  const signals = [];
+  let pos = 0; // 0 flat, 1 long, -1 short
+  for(let i=0;i<n;i++){
+    const a = alpha[i].alpha_score;
+    const regime = nav[i].regime;
+    let sig = 'FLAT';
+    let newpos = pos;
+    const threshold = regime === 'CRISIS' ? 0.055 : 0.04;
+    if(a > threshold && pos !== 1){
+      if(pos !== 0) signals.push({date:dates[i], signal_type:'CLOSE', price:kline[i].close, factor_score:a, alpha_prediction:a, confidence:0.7, factor_drivers:alpha[i].top_factors, action:'CLOSE_POSITION'});
+      signals.push({date:dates[i], signal_type:'LONG', price:kline[i].close, factor_score:a, alpha_prediction:a, confidence:0.75, factor_drivers:alpha[i].top_factors, action:'OPEN_LONG'});
+      pos = 1; newpos = 1;
+    } else if(a < -threshold && pos !== -1){
+      if(pos !== 0) signals.push({date:dates[i], signal_type:'CLOSE', price:kline[i].close, factor_score:a, alpha_prediction:a, confidence:0.7, factor_drivers:alpha[i].top_factors, action:'CLOSE_POSITION'});
+      signals.push({date:dates[i], signal_type:'SHORT', price:kline[i].close, factor_score:a, alpha_prediction:a, confidence:0.72, factor_drivers:alpha[i].top_factors, action:'OPEN_SHORT'});
+      pos = -1; newpos = -1;
+    } else if(pos !== 0 && (Math.abs(a) < threshold * 0.5)){
+      signals.push({date:dates[i], signal_type:'CLOSE', price:kline[i].close, factor_score:a, alpha_prediction:a, confidence:0.62, factor_drivers:alpha[i].top_factors, action:'CLOSE_POSITION'});
+      pos = 0; newpos = 0;
+    }
+  }
+
+  // factor contributions (top 3 per day)
+  const factorContribs = [];
+  for(let i=0;i<n;i++){
+    const contribs = {};
+    FACTOR_META.forEach(f=>{
+      const w = (f.ic * (STATE.factors.has(f.id) ? 1 : 0));
+      const noise = gaussRand(rng) * 0.02;
+      contribs[f.id] = +(w * (0.5 + Math.abs(gaussRand(rng))) + noise).toFixed(5);
+    });
+    const sorted = Object.entries(contribs).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).slice(0,3);
+    factorContribs.push({date:dates[i], contribs, top3: sorted.map(s=>s[0]).join(','), total_alpha: alpha[i].alpha_score});
+  }
+
+  // capital allocation per period (10 periods of 6 days each)
+  const capitalAlloc = [];
+  for(let p=0;p<10;p++){
+    const start = p*6, end = Math.min((p+1)*6, n);
+    const avgAlpha = alpha.slice(start,end).reduce((s,a)=>s+a.alpha_score,0)/(end-start);
+    const alloc = {};
+    let total = 0;
+    Object.keys(VARIETIES).forEach(v=>{
+      if(VARIETIES[v].status !== 'OK'){ alloc[v] = 0; return; }
+      const w = Math.max(0.02, avgAlpha + gaussRand(rng) * 0.05);
+      alloc[v] = w; total += w;
+    });
+    Object.keys(alloc).forEach(k=> alloc[k] = +(alloc[k]/total).toFixed(4));
+    capitalAlloc.push({period: `P${String(p+1).padStart(2,'0')}`, start: dates[start], end: dates[end-1], alloc, avgAlpha});
+  }
+
+  // F20 attention flow
+  const f20Flow = {
+    variety: varietyCode,
+    inflow: +(STATE.factors.has('F20') ? (0.3 + Math.abs(gaussRand(rng))*0.4).toFixed(3) : 0),
+    outflow: +(0.1 + Math.abs(gaussRand(rng))*0.2).toFixed(3),
+    attention_score: +(0.4 + gaussRand(rng)*0.3).toFixed(3),
+    top_channels: ['新闻热度','微博热搜','Bing搜索'],
+    active: STATE.factors.has('F20')
+  };
+
+  // regime bands
+  const regimeBands = [];
+  let bs = 0;
+  for(let i=1;i<n;i++){
+    if(nav[i].regime !== nav[bs].regime){
+      regimeBands.push({start:dates[bs], end:dates[i-1], regime:nav[bs].regime});
+      bs = i;
+    }
+  }
+  regimeBands.push({start:dates[bs], end:dates[n-1], regime:nav[bs].regime});
+
+  return {
+    dates, kline, alpha, nav, signals, factorContribs, capitalAlloc, f20Flow, regimeBands,
+    stats: {
+      finalNav: nav[n-1].net_value,
+      maxDrawdown: Math.max(...nav.map(x=>x.drawdown)),
+      totalReturn: (nav[n-1].net_value - 1) * 100,
+      winRate: (signals.filter(s=>s.signal_type==='CLOSE').length > 0 ? Math.min(0.9, 0.5 + (nav[n-1].net_value-1)*10) : 0.5),
+      icMean: +(FACTOR_META.filter(f=>STATE.factors.has(f.id)).reduce((s,f)=>s+f.ic,0) / Math.max(1,STATE.factors.size)).toFixed(4),
+      irMean: +(FACTOR_META.filter(f=>STATE.factors.has(f.id)).reduce((s,f)=>s+f.ir,0) / Math.max(1,STATE.factors.size)).toFixed(2)
+    }
+  };
+}
+
+/* ---------- F19/F20 INDEPENDENT NAV DATA GENERATION ---------- */
+function generateF1920Data(){
+  const rng = mulberry32(42);
+  const n = 60;
+  const dates = STATE.currentData ? STATE.currentData.dates : generateDates(STATE.startDate, n);
+  
+  let f19Nav = 1.0;
+  let f20Nav = 1.0;
+  let comboNav = 1.0;
+  const f19NavArr = [];
+  const f20NavArr = [];
+  const comboNavArr = [];
+  const f19Regimes = [];
+  const f20Regimes = [];
+  
+  for(let i=0;i<n;i++){
+    const regime = pickRegime(i, n, rng);
+    f19Regimes.push(regime);
+    f20Regimes.push(regime);
+    
+    // F19: IC=0.0587, TYPE_S - works in NORMAL/CRISIS, zeroed in BEAR (TD-046)
+    let f19Ret = 0.0587 * 0.55 + gaussRand(rng) * 0.012;
+    if(regime === 'BEAR') f19Ret = 0; // TD-046: BEAR区制F19强制置零
+    
+    // F20: IC=0.0587, MIXED - works in MIXED/CRISIS/NORMAL, zeroed in BEAR (TD-046)
+    let f20Ret = 0.0587 * 0.55 + gaussRand(rng) * 0.010;
+    if(regime === 'BEAR') f20Ret = 0; // TD-046: BEAR区制F20强制置零
+    
+    // Combined portfolio (equal weight)
+    let comboRet = (f19Ret + f20Ret) * 0.5;
+    
+    f19Nav = f19Nav * (1 + f19Ret);
+    f20Nav = f20Nav * (1 + f20Ret);
+    comboNav = comboNav * (1 + comboRet);
+    
+    f19NavArr.push(+f19Nav.toFixed(4));
+    f20NavArr.push(+f20Nav.toFixed(4));
+    comboNavArr.push(+comboNav.toFixed(4));
+  }
+  
+  // Scale to end near target NAV values for visual consistency
+  const scale19 = 1.12 / f19NavArr[n-1];
+  const scale20 = 1.10 / f20NavArr[n-1];
+  const scaleCombo = 1.11 / comboNavArr[n-1];
+  for(let i=0;i<n;i++){
+    f19NavArr[i] = +(f19NavArr[i]*scale19).toFixed(4);
+    f20NavArr[i] = +(f20NavArr[i]*scale20).toFixed(4);
+    comboNavArr[i] = +(comboNavArr[i]*scaleCombo).toFixed(4);
+  }
+  
+  return {dates, f19Nav:f19NavArr, f20Nav:f20NavArr, comboNav:comboNavArr, f19Regimes, f20Regimes};
+}
+
+function pickFactors(rng, score, i){
+  const active = FACTOR_META.filter(f=>STATE.factors.has(f.id));
+  if(active.length === 0) return [];
+  const n = Math.min(active.length, 2 + Math.floor(rng() * 3));
+  const pool = [...active];
+  const picked = [];
+  const weights = active.map(f=>f.ic);
+  for(let k=0;k<n && pool.length>0;k++){
+    const total = weights.reduce((s,w)=>s+w, 0);
+    let r = rng() * total;
+    let idx = 0;
+    for(let j=0;j<weights.length;j++){
+      r -= weights[j];
+      if(r <= 0){ idx = j; break; }
+    }
+    picked.push(pool[idx].id);
+    pool.splice(idx, 1);
+    weights.splice(idx, 1);
+  }
+  return picked.slice(0,4);
+}
+
+function pickRegime(i, n, rng){
+  // create regime segments: normal mostly, with bear/crisis pockets
+  const seg = i / n;
+  if(seg < 0.15) return rng() < 0.3 ? 'CRISIS' : 'NORMAL';
+  if(seg < 0.35) return rng() < 0.2 ? 'BEAR' : 'NORMAL';
+  if(seg < 0.5)  return rng() < 0.15 ? 'CRISIS' : (rng()<0.3 ? 'OSCILLATION' : 'NORMAL');
+  if(seg < 0.7)  return rng() < 0.2 ? 'BEAR' : 'NORMAL';
+  if(seg < 0.85) return rng() < 0.25 ? 'CRISIS' : 'NORMAL';
+  return rng() < 0.3 ? 'MIXED' : 'NORMAL';
+}
+
+/* ---------- RENDER: VARIETY PANEL ---------- */
+function renderVarietyPanel(){
+  const grid = document.getElementById('variety-grid');
+  grid.innerHTML = '';
+  Object.keys(VARIETIES).forEach(code=>{
+    const v = VARIETIES[code];
+    const btn = document.createElement('div');
+    btn.className = 'variety-btn' + (STATE.variety===code ? ' active':'') + (v.status==='BLOCKED'?' blocked':'');
+    btn.innerHTML = `<span class="code" style="color:${STATE.variety===code?'#fff':v.color}">${code}</span><span class="name">${v.name}</span>`;
+    btn.onclick = ()=>switchVariety(code);
+    grid.appendChild(btn);
+  });
+}
+
+function switchVariety(code){
+  STATE.variety = code;
+  renderVarietyPanel();
+  if(VARIETIES[code].status !== 'OK'){
+    // show blocked message
+    showBlocked(code);
+  } else {
+    hideBlocked();
+    refreshData();
+  }
+}
+
+function showBlocked(code){
+  // Hide main content, show blocked overlay
+  document.getElementById('main-content').style.display = 'none';
+  const overlay = document.getElementById('blocked-overlay');
+  const blockedVarieties = Object.keys(VARIETIES).filter(k=>VARIETIES[k].status==='BLOCKED');
+  overlay.innerHTML = `
+    <div style="font-size:64px;">🔒</div>
+    <div style="font-size:20px;font-weight:700;color:var(--orange);">数据门禁锁定</div>
+    <div style="font-size:14px;color:var(--text-dim);">PC-003 BLOCKED · ${code} ${VARIETIES[code].name} 数据尚未接入</div>
+    <div style="margin-top:10px;font-size:11px;color:var(--text-dim);text-align:center;max-width:420px;">
+      ${code} ${VARIETIES[code].name} (${VARIETIES[code].nameEn}) 品种当前未通过 PC-003 数据门禁，因子引擎尚未完成该品种的历史数据回灌与 IC 校准。请选择已解锁品种 (AL/PB/CU) 进行可视化。
+    </div>
+    <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+      ${blockedVarieties.map(v=>`<span style="font-size:11px;padding:4px 12px;background:rgba(251,146,60,0.12);border:1px solid var(--orange);border-radius:4px;color:var(--orange);">${v} ${VARIETIES[v].name}</span>`).join('')}
+    </div>
+    <div style="margin-top:14px;font-size:10px;color:var(--text-dim);">参考文档：zn_ni_sn_si_factor_pre_eval.md · Phase-2 Gray Release 待启动</div>
+  `;
+  overlay.style.display = 'flex';
+}
+
+function hideBlocked(){
+  document.getElementById('main-content').style.display = '';
+  document.getElementById('blocked-overlay').style.display = 'none';
+}
+
+/* ---------- RENDER: FACTOR COMBO PANEL ---------- */
+function renderFactorPanel(){
+  const body = document.getElementById('factor-combo-body');
+  body.innerHTML = '';
+  const cats = ['量价','基本面','自研资金行为'];
+  const catClass = {'量价':'c-价','基本面':'c-基','自研资金行为':'c-自'};
+  cats.forEach(cat=>{
+    const factors = FACTOR_META.filter(f=>f.category===cat);
+    const wrap = document.createElement('div');
+    wrap.className = 'factor-cat';
+    wrap.innerHTML = `
+      <div class="factor-cat-header ${catClass[cat]}">
+        <span>${cat}</span>
+        <span class="cnt">${factors.length}</span>
+      </div>
+    `;
+    const list = document.createElement('div');
+    list.className = 'factor-list';
+    factors.forEach(f=>{
+      const row = document.createElement('label');
+      row.className = 'factor-row';
+      const checked = STATE.factors.has(f.id) ? 'checked' : '';
+      row.innerHTML = `
+        <input type="checkbox" ${checked} data-fid="${f.id}" onchange="onFactorToggle('${f.id}', this.checked)">
+        <span class="fid">${f.id}</span>
+        <span class="fname">${f.name}</span>
+        <span class="fmeta">IC:${f.ic.toFixed(4)}</span>
+      `;
+      list.appendChild(row);
+    });
+    wrap.appendChild(list);
+    body.appendChild(wrap);
+  });
+  document.getElementById('factor-count').textContent = `${STATE.factors.size}/${FACTOR_META.length} 已勾选`;
+  renderFactorMini();
+}
+
+function renderFactorMini(){
+  const mini = document.getElementById('factor-mini');
+  mini.innerHTML = '';
+  FACTOR_META.forEach(f=>{
+    const label = document.createElement('label');
+    const checked = STATE.factors.has(f.id) ? 'checked' : '';
+    label.innerHTML = `<input type="checkbox" ${checked} data-mini="${f.id}" onchange="onFactorToggle('${f.id}', this.checked)"><span class="fid">${f.id}</span> ${f.name.slice(0,4)}`;
+    mini.appendChild(label);
+  });
+}
+
+function onFactorToggle(fid, checked){
+  if(checked) STATE.factors.add(fid);
+  else STATE.factors.delete(fid);
+  // sync both panels
+  document.querySelectorAll(`input[data-fid="${fid}"], input[data-mini="${fid}"]`).forEach(el=>el.checked=checked);
+  document.getElementById('factor-count').textContent = `${STATE.factors.size}/${FACTOR_META.length} 已勾选`;
+  document.getElementById('alpha-factor-cnt').textContent = STATE.factors.size;
+  // also update factor table highlight
+  updateFactorTableHighlight();
+  // refresh data
+  if(VARIETIES[STATE.variety].status === 'OK') refreshData();
+}
+
+function toggleAllFactors(checked){
+  FACTOR_META.forEach(f=>{
+    if(checked) STATE.factors.add(f.id);
+    else STATE.factors.delete(f.id);
+  });
+  renderFactorPanel();
+  if(VARIETIES[STATE.variety].status === 'OK') refreshData();
+}
+
+function toggleFactorsByCat(cat){
+  // toggle all factors in this category together
+  const catFactors = FACTOR_META.filter(f=>f.category===cat);
+  const anyOff = catFactors.some(f=>!STATE.factors.has(f.id));
+  catFactors.forEach(f=>{
+    if(anyOff) STATE.factors.add(f.id);
+    else STATE.factors.delete(f.id);
+  });
+  renderFactorPanel();
+  if(VARIETIES[STATE.variety].status === 'OK') refreshData();
+}
+
+/* ---------- RENDER: FACTOR TABLE ---------- */
+let tableSortKey = 'id';
+let tableSortAsc = true;
+function renderFactorTable(){
+  const wrap = document.getElementById('factor-table-wrap');
+  // We need to create the factor table section if not exists
+  // Let's insert it into main-col before the chart row
+  if(!wrap){
+    const newWrap = document.createElement('div');
+    newWrap.id = 'factor-table-wrap';
+    newWrap.className = 'factor-table-wrap';
+    newWrap.style.cssText = 'flex:0.9;min-height:180px;';
+    newWrap.innerHTML = `
+      <div class="panel-header">
+        <span><span class="icon">📋</span>因子详情 · <span style="color:var(--text-dim);font-size:10px;">点击行查看溯源 · 点击📚查看全部因子库</span></span>
+        <span style="font-size:10px;color:var(--text-dim);">20 上线因子 · IC/IR/Regime</span>
+      </div>
+      <div class="panel-body" style="padding:0;overflow:auto;">
+        <table class="factor-table" id="factor-table">
+          <thead><tr>
+            <th onclick="sortFactorTable('id')">FactorID</th>
+            <th onclick="sortFactorTable('name')">Name</th>
+            <th onclick="sortFactorTable('category')">Category</th>
+            <th onclick="sortFactorTable('ic')" style="text-align:right;">IC</th>
+            <th onclick="sortFactorTable('ir')" style="text-align:right;">IR</th>
+            <th onclick="sortFactorTable('regime')">Regime</th>
+          </tr></thead>
+          <tbody id="factor-table-body"></tbody>
+        </table>
+      </div>
+    `;
+    const chartRow = document.getElementById('chart-row');
+    const mainContent = document.getElementById('main-content');
+    mainContent.insertBefore(newWrap, chartRow.nextSibling);
+  }
+  // populate body
+  const body = document.getElementById('factor-table-body');
+  body.innerHTML = '';
+  const sorted = [...FACTOR_META].sort((a,b)=>{
+    let va = a[tableSortKey], vb = b[tableSortKey];
+    if(typeof va === 'string'){ va = va.toLowerCase(); vb = vb.toLowerCase(); }
+    if(va < vb) return tableSortAsc ? -1 : 1;
+    if(va > vb) return tableSortAsc ? 1 : -1;
+    return 0;
+  });
+  sorted.forEach(f=>{
+    const tr = document.createElement('tr');
+    tr.dataset.fid = f.id;
+    if(!STATE.factors.has(f.id)) tr.className = 'disabled';
+    const catClass = {'量价':'c-价','基本面':'c-基','自研资金行为':'c-自'}[f.category];
+    const icClass = f.ic >= 0.06 ? 'good' : (f.ic >= 0.055 ? 'mid' : '');
+    const irClass = f.ir >= 45 ? 'good' : (f.ir >= 40 ? 'mid' : '');
+    tr.innerHTML = `
+      <td class="fid">${f.id}</td>
+      <td class="fname">${f.name}</td>
+      <td><span class="cat ${catClass}">${f.category}</span></td>
+      <td class="ic ${icClass}">${f.ic.toFixed(4)}</td>
+      <td class="ir ${irClass}">${f.ir.toFixed(2)}</td>
+      <td class="regime">${f.regime}</td>
+    `;
+    tr.onclick = ()=>openFactorModal(f.id);
+    body.appendChild(tr);
+  });
+}
+
+function sortFactorTable(key){
+  if(tableSortKey === key) tableSortAsc = !tableSortAsc;
+  else { tableSortKey = key; tableSortAsc = true; }
+  renderFactorTable();
+}
+
+function updateFactorTableHighlight(){
+  const body = document.getElementById('factor-table-body');
+  if(!body) return;
+  body.querySelectorAll('tr').forEach(tr=>{
+    const fid = tr.dataset.fid;
+    tr.className = STATE.factors.has(fid) ? '' : 'disabled';
+  });
+}
+
+/* ---------- RENDER: CHARTS ---------- */
+function refreshData(){
+  if(VARIETIES[STATE.variety].status !== 'OK'){ showBlocked(STATE.variety); return; }
+  hideBlocked();
+  STATE.currentData = generateData(STATE.variety);
+  renderAllCharts();
+  renderHeaderStats();
+  renderFactorTable();
+  buildEventLog();
+  renderCapitalAllocation();
+}
+
+function renderAllCharts(){
+  renderNavChart();
+  renderKlineChart();
+  renderAlphaChart();
+  renderComparison();
+  renderF1920NavChart();
+}
+
+function initChart(id){
+  if(!STATE.charts[id]){
+    STATE.charts[id] = echarts.init(document.getElementById(id), null, {renderer:'canvas'});
+  }
+  return STATE.charts[id];
+}
+
+function renderNavChart(){
+  const chart = initChart('chart-nav');
+  const d = STATE.currentData;
+  if(!d) return;
+  const colors = {AL:'#4ade80', PB:'#facc15', CU:'#ef4444'};
+  const color = colors[STATE.variety] || '#4ade80';
+
+  // markLine for initial capital y=1.0
+  // open/close markers as scatter
+  const openMarkers = [];
+  const closeMarkers = [];
+  let pos = 0;
+  for(let i=0;i<d.signals.length;i++){
+    const s = d.signals[i];
+    const idx = d.dates.indexOf(s.date);
+    if(idx < 0) continue;
+    if(s.signal_type === 'LONG' || s.signal_type === 'SHORT'){
+      openMarkers.push([idx, d.nav[idx].net_value, s.signal_type]);
+    } else if(s.signal_type === 'CLOSE'){
+      closeMarkers.push([idx, d.nav[idx].net_value]);
+    }
+  }
+
+  // regime bands
+  const markArea = d.regimeBands.map(b=>({
+    xAxis:[b.start, b.end],
+    itemStyle:{color:REGIME_COLORS[b.regime].color},
+    label:{show:true, position:'insideTop', formatter:b.regime, color:REGIME_COLORS[b.regime].color.replace(/[\d.]+\)$/, '0.9)') }
+  }));
+
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+      formatter:(params)=>{
+        const i = params[0].dataIndex;
+        const n = d.nav[i];
+        const a = d.alpha[i];
+        const k = d.kline[i];
+        return `<div style="font-size:11px;line-height:1.7;">
+          <b style="color:#60a5fa;">${n.date}</b> · <span style="color:#a78bfa;">${n.regime}</span><br>
+          净值 NAV: <b style="color:${color}">${n.net_value.toFixed(4)}</b><br>
+          日收益: ${(n.daily_return*100).toFixed(2)}%<br>
+          回撤: ${n.drawdown.toFixed(2)}%<br>
+          价格: ${k.close}<br>
+          Alpha: ${a.alpha_score.toFixed(4)} (${a.alpha_direction})<br>
+          激活因子: <span style="color:#60a5fa;">${a.top_factors.join(', ')||'-'}</span>
+        </div>`;
+      }
+    },
+    grid:{left:50, right:12, top:30, bottom:24},
+    xAxis:{type:'category', data:d.dates, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:9, interval:Math.floor(d.dates.length/10)}},
+    yAxis:{type:'value', scale:true, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10, formatter:v=>v.toFixed(3)}, splitLine:{lineStyle:{color:'rgba(61,90,138,0.2)'}}},
+    series:[
+      {
+        name:'NAV', type:'line', data:d.nav.map(n=>+n.net_value.toFixed(4)),
+        smooth:true, symbol:'none', lineStyle:{color:color, width:2.2},
+        areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[
+          {offset:0,color:color+'55'},{offset:1,color:color+'05'}
+        ]}},
+        markLine:{
+          symbol:'none', silent:true,
+          lineStyle:{color:'#8b95b8', type:'dashed', width:1},
+          label:{formatter:'初始 1.0', color:'#8b95b8', fontSize:9, position:'insideEndTop'},
+          data:[{yAxis:1.0}]
+        },
+        markArea:{data:markArea}
+      },
+      {
+        name:'OPEN', type:'scatter', data:openMarkers.filter(m=>m[2]==='LONG').map(m=>[m[0],m[1]]),
+        symbol:'triangle', symbolSize:11, itemStyle:{color:'#4ade80'}, z:10
+      },
+      {
+        name:'SHORT', type:'scatter', data:openMarkers.filter(m=>m[2]==='SHORT').map(m=>[m[0],m[1]]),
+        symbol:'triangle', symbolRotate:180, symbolSize:11, itemStyle:{color:'#ef4444'}, z:10
+      },
+      {
+        name:'CLOSE', type:'scatter', data:closeMarkers.map(m=>[m[0],m[1]]),
+        symbol:'circle', symbolSize:8, itemStyle:{color:'#fb923c'}, z:10
+      }
+    ],
+    animation:false
+  });
+  
+  // Add click handler for trade markers
+  chart.on('click', function(params){
+    if(params.seriesName === 'OPEN' || params.seriesName === 'SHORT' || params.seriesName === 'CLOSE'){
+      const idx = params.dataIndex;
+      const n = d.nav[idx];
+      const a = d.alpha[idx];
+      // Find matching signal
+      const sig = d.signals.find(s=>s.date === d.dates[idx]);
+      if(!sig) return;
+      
+      // Calculate P&L for CLOSE signals
+      let pnl = undefined, holdingDays = undefined, openDate = undefined;
+      if(sig.signal_type === 'CLOSE'){
+        // Find the corresponding open signal
+        const opens = d.signals.filter(s=>s.signal_type==='LONG'||s.signal_type==='SHORT');
+        const openSig = opens[opens.length-2]; // second-to-last open
+        if(openSig){
+          const openIdx = d.dates.indexOf(openSig.date);
+          holdingDays = idx - openIdx;
+          openDate = openSig.date;
+          const openPrice = openSig.price;
+          const closePrice = sig.price;
+          pnl = openSig.signal_type === 'LONG' ? ((closePrice - openPrice) / openPrice) * 100 : ((openPrice - closePrice) / openPrice) * 100;
+        }
+      }
+      
+      openTradeModal({
+        date: sig.date,
+        type: sig.signal_type,
+        price: sig.price,
+        factorScore: sig.factor_score,
+        alphaPrediction: sig.alpha_prediction,
+        confidence: sig.confidence,
+        factorDrivers: sig.factor_drivers || [],
+        regime: n.regime,
+        nav: n.net_value,
+        pnl: pnl,
+        holdingDays: holdingDays,
+        openDate: openDate
+      });
+    }
+  });
+}
+  const chart = initChart('chart-kline');
+  const d = STATE.currentData;
+  if(!d) return;
+  // kline data: [open, close, low, high]
+  const klineData = d.kline.map(k=>[k.open, k.close, k.low, k.high]);
+
+  // regime bands
+  const markArea = d.regimeBands.map(b=>({
+    xAxis:[b.start, b.end],
+    itemStyle:{color:REGIME_COLORS[b.regime].color}
+  }));
+
+  // volume bars
+  const volumeData = d.kline.map((k,i)=>({
+    value:k.volume,
+    itemStyle:{color: k.close >= k.open ? 'rgba(74,222,128,0.4)' : 'rgba(239,68,68,0.4)'}
+  }));
+
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+      axisPointer:{type:'cross'},
+      formatter:(params)=>{
+        const i = params[0].dataIndex;
+        const k = d.kline[i];
+        return `<div style="font-size:11px;line-height:1.7;">
+          <b style="color:#60a5fa;">${k.date}</b><br>
+          开: ${k.open} · 收: ${k.close}<br>
+          高: ${k.high} · 低: ${k.low}<br>
+          成交量: ${(k.volume/1000).toFixed(1)}k<br>
+          振幅: ${(k.amplitude*100).toFixed(2)}%<br>
+          涨跌: ${(k.change_pct*100).toFixed(2)}%
+        </div>`;
+      }
+    },
+    grid:[
+      {left:50, right:12, top:20, height:'62%'},
+      {left:50, right:12, top:'78%', height:'16%'}
+    ],
+    xAxis:[
+      {type:'category', data:d.dates, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:9, interval:Math.floor(d.dates.length/10)}, gridIndex:0},
+      {type:'category', data:d.dates, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{show:false}, gridIndex:1}
+    ],
+    yAxis:[
+      {type:'value', scale:true, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10}, splitLine:{lineStyle:{color:'rgba(61,90,138,0.2)'}}, gridIndex:0},
+      {type:'value', scale:true, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{show:false}, splitLine:{show:false}, gridIndex:1}
+    ],
+    series:[
+      {
+        name:'K线', type:'candlestick', data:klineData, xAxisIndex:0, yAxisIndex:0,
+        itemStyle:{color:'#ef4444', color0:'#22c55e', borderColor:'#ef4444', borderColor0:'#22c55e'},
+        markArea:{data:markArea}
+      },
+      {
+        name:'成交量', type:'bar', data:volumeData, xAxisIndex:1, yAxisIndex:1,
+        barWidth:'70%'
+      }
+    ],
+    animation:false
+  });
+}
+
+function renderAlphaChart(){
+  const chart = initChart('chart-alpha');
+  const d = STATE.currentData;
+  if(!d) return;
+
+  // regime bands
+  const markArea = d.regimeBands.map(b=>({
+    xAxis:[b.start, b.end],
+    itemStyle:{color:REGIME_COLORS[b.regime].color}
+  }));
+
+  // color bars by sign
+  const alphaData = d.alpha.map(a=>({
+    value:+a.alpha_score.toFixed(4),
+    itemStyle:{color: a.alpha_score >= 0 ? '#4ade80' : '#ef4444', opacity: 0.85}
+  }));
+
+  // line for alpha_score trend
+  const alphaLine = d.alpha.map(a=>+a.alpha_score.toFixed(4));
+
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+      formatter:(params)=>{
+        const i = params[0].dataIndex;
+        const a = d.alpha[i];
+        return `<div style="font-size:11px;line-height:1.7;">
+          <b style="color:#60a5fa;">${a.date}</b><br>
+          Alpha: <b style="color:${a.alpha_score>=0?'#4ade80':'#ef4444'}">${a.alpha_score.toFixed(4)}</b><br>
+          方向: ${a.alpha_direction}<br>
+          置信度: ${(a.alpha_confidence*100).toFixed(0)}%<br>
+          Top因子: <span style="color:#a78bfa;">${a.top_factors.join(', ')}</span>
+        </div>`;
+      }
+    },
+    grid:{left:50, right:12, top:24, bottom:24},
+    xAxis:{type:'category', data:d.dates, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:9, interval:Math.floor(d.dates.length/10)}},
+    yAxis:{type:'value', scale:true, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10}, splitLine:{lineStyle:{color:'rgba(61,90,138,0.2)'}},
+      markLine:{symbol:'none', silent:true, lineStyle:{color:'#8b95b8', type:'dashed', width:1}, label:{show:false}, data:[{yAxis:0}]}
+    },
+    series:[
+      {
+        name:'Alpha', type:'bar', data:alphaData, barWidth:'55%',
+        markArea:{data:markArea}
+      },
+      {
+        name:'Alpha Trend', type:'line', data:alphaLine, smooth:true, symbol:'none',
+        lineStyle:{color:'#22d3ee', width:1.2, opacity:0.6}, z:5
+      }
+    ],
+    animation:false
+  });
+}
+
+/* ---------- RENDER: CAPITAL ALLOCATION ---------- */
+function renderCapitalAllocation(){
+  const d = STATE.currentData;
+  if(!d) return;
+  const scheme = STATE.scheme;
+
+  // Stacked bar chart for capital allocation across varieties per period
+  const barChart = initChart('chart-capital');
+  const periods = d.capitalAlloc.map(p=>p.period);
+  const varietyColors = {AL:'#4ade80', PB:'#facc15', CU:'#ef4444'};
+  const varieties = ['AL','PB','CU'];
+
+  // For scheme B, redistribute using uniform weights
+  const series = varieties.map(v=>{
+    const data = d.capitalAlloc.map((p,i)=>{
+      let alloc = p.alloc[v] || 0;
+      if(scheme === 'B'){
+        // uniform: each variety gets equal share of OK varieties
+        alloc = 1.0 / varieties.length;
+        // but vary slightly based on alpha
+        alloc *= (0.7 + Math.abs(p.avgAlpha) * 10);
+        alloc = Math.max(0.05, Math.min(0.6, alloc));
+      }
+      return +(alloc * 100).toFixed(2);
+    });
+    return {
+      name:v, type:'bar', stack:'total', data,
+      itemStyle:{color:varietyColors[v]},
+      emphasis:{focus:'series'},
+      label:{show:true, formatter:p=>p.value>5?p.value.toFixed(0)+'%':'', color:'#fff', fontSize:9}
+    };
+  });
+
+  barChart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+      axisPointer:{type:'shadow'}
+    },
+    legend:{data:varieties, textStyle:{color:'#8b95b8', fontSize:10}, top:0, right:8},
+    grid:{left:40, right:12, top:24, bottom:24},
+    xAxis:{type:'category', data:periods, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:9}},
+    yAxis:{type:'value', max:100, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10, formatter:'{value}%'}, splitLine:{lineStyle:{color:'rgba(61,90,138,0.2)'}}},
+    series,
+    animation:false
+  });
+
+  // Pie chart for total allocation
+  const pieChart = initChart('chart-pie');
+  const totalAlloc = {};
+  varieties.forEach(v=> totalAlloc[v] = 0);
+  d.capitalAlloc.forEach(p=>{
+    varieties.forEach(v=>{
+      let alloc = p.alloc[v] || 0;
+      if(scheme === 'B'){
+        alloc = 1.0 / varieties.length * (0.7 + Math.abs(p.avgAlpha) * 10);
+      }
+      totalAlloc[v] += alloc;
+    });
+  });
+  const pieData = varieties.map(v=>({
+    name:v+' '+VARIETIES[v].name, value:+(totalAlloc[v]*100).toFixed(1),
+    itemStyle:{color:varietyColors[v]}
+  }));
+
+  pieChart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'item', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+      formatter:p=>`${p.name}: ${p.value}%`
+    },
+    series:[{
+      type:'pie', radius:['35%','65%'], center:['50%','55%'],
+      data:pieData,
+      label:{color:'#e0e0e0', fontSize:10, formatter:'{b}\n{c}%'},
+      labelLine:{lineStyle:{color:'#3d5a8a'}},
+      emphasis:{itemStyle:{shadowBlur:10, shadowColor:'rgba(0,0,0,0.5)'}}
+    }],
+    animation:false
+  });
+
+  // F20 flow
+  const f20 = d.f20Flow;
+  const f20El = document.getElementById('f20-flow');
+  if(f20El){
+    if(f20.active){
+      f20El.innerHTML = `
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+          <span style="color:var(--green);">流入 +${f20.inflow.toFixed(3)}</span>
+          <span style="color:var(--red);">流出 -${f20.outflow.toFixed(3)}</span>
+          <span style="color:var(--cyan);">注意力 ${f20.attention_score.toFixed(3)}</span>
+        </div>
+        <div style="margin-top:3px;font-size:10px;color:var(--text-dim);">渠道: ${f20.top_channels.join(' / ')}</div>
+        <div style="margin-top:4px;height:6px;background:var(--bg);border-radius:3px;overflow:hidden;">
+          <div style="height:100%;width:${Math.min(100, f20.attention_score*100)}%;background:linear-gradient(90deg, var(--green), var(--cyan));"></div>
+        </div>
+      `;
+    } else {
+      f20El.innerHTML = '<span style="color:var(--text-dim);">F20 已停用 · 资金注意力信号归零</span>';
+    }
+  }
+}
+
+/* ---------- RENDER: MULTI-VARIETY COMPARISON ---------- */
+function renderComparison(){
+  const content = document.getElementById('comparison-content');
+  const chartDiv = document.getElementById('chart-comparison');
+  const tableView = document.getElementById('comparison-table-view');
+  const compState = STATE.compView || 'bar';
+  
+  if(compState === 'table'){
+    chartDiv.style.display = 'none';
+    tableView.style.display = 'block';
+    renderComparisonTable();
+  } else {
+    chartDiv.style.display = 'block';
+    tableView.style.display = 'none';
+    renderComparisonChart();
+  }
+}
+
+function renderComparisonChart(){
+  const chart = initChart('chart-comparison');
+  const metrics = COMPARISON_METRICS;
+  const varieties = ['AL','PB','CU'];
+  const varNames = varieties.map(v=>`${v} ${COMPARISON_DATA[v].name}`);
+  const colors = varieties.map(v=>COMPARISON_DATA[v].color);
+  
+  const series = varieties.map((v, vi)=>{
+    return {
+      name: `${v} ${COMPARISON_DATA[v].name}`,
+      type: 'bar',
+      data: metrics.map(m=>COMPARISON_DATA[v][m.key]),
+      itemStyle:{color:colors[vi], borderRadius:[4,4,0,0]},
+      barWidth: '18%',
+      label:{show:true, position:'top', color:'#e0e0e0', fontSize:9, formatter:p=>p.value<1?p.value.toFixed(4):p.value.toFixed(2)}
+    };
+  });
+  
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+      axisPointer:{type:'shadow'},
+      formatter: function(params){
+        let html = `<div style="font-size:11px;line-height:1.7;">`;
+        html += `<b style="color:#60a5fa;">${params[0].name}</b><br>`;
+        params.forEach(p=>{
+          html += `${p.marker} ${p.seriesName}: <b style="color:${p.color}">${p.value}</b><br>`;
+        });
+        html += `</div>`;
+        return html;
+      }
+    },
+    legend:{data:varieties.map(v=>`${v} ${COMPARISON_DATA[v].name}`), textStyle:{color:'#8b95b8', fontSize:10}, top:0, right:8},
+    grid:{left:50, right:12, top:35, bottom:30},
+    xAxis:{type:'category', data:metrics.map(m=>m.label), axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:11}},
+    yAxis:{type:'value', axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10}, splitLine:{lineStyle:{color:'rgba(61,90,138,0.2)'}}},
+    series,
+    animation:false
+  });
+  
+  // Summary badges below chart
+  const summary = document.createElement('div');
+  summary.className = 'comparison-summary';
+  summary.style.cssText = 'display:flex;gap:8px;padding:6px 0;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:6px;';
+  varieties.forEach(v=>{
+    const d = COMPARISON_DATA[v];
+    summary.innerHTML += `
+      <div style="display:flex;align-items:center;gap:6px;background:var(--accent);padding:4px 10px;border-radius:4px;border-left:3px solid ${d.color};">
+        <span style="font-size:11px;font-weight:700;color:${d.color};">${v}</span>
+        <span style="font-size:9px;color:var(--text-dim);">IC:${d.ic.toFixed(4)} IR:${d.ir.toFixed(2)}</span>
+        <span class="status-tag status-${d.status}">${d.status}</span>
+      </div>
+    `;
+  });
+  // Only add if not already added
+  if(!document.getElementById('comp-summary')){
+    summary.id = 'comp-summary';
+    content.appendChild(summary);
+  }
+}
+
+function renderComparisonTable(){
+  const tableView = document.getElementById('comparison-table-view');
+  const varieties = ['AL','PB','CU'];
+  const metrics = COMPARISON_METRICS;
+  
+  let html = '<table class="comparison-table"><thead><tr>';
+  html += '<th>品种</th>';
+  metrics.forEach(m=>{ html += `<th>${m.label}</th>`; });
+  html += '<th>监控状态</th></tr></thead><tbody>';
+  
+  varieties.forEach(v=>{
+    const d = COMPARISON_DATA[v];
+    const varClass = `var-${v}`;
+    html += `<tr class="${varClass}">`;
+    html += `<td style="color:${d.color};font-size:12px;font-weight:700;">${v} ${d.name}</td>`;
+    metrics.forEach(m=>{
+      const val = d[m.key];
+      const valStr = m.format(val);
+      // Color coding based on value
+      let colorClass = '';
+      if(m.key === 'ic'){
+        colorClass = val >= 0.06 ? 'green' : (val >= 0.04 ? 'yellow' : 'red');
+      } else if(m.key === 'ir'){
+        colorClass = val >= 45 ? 'green' : (val >= 15 ? 'yellow' : 'red');
+      }
+      html += `<td class="${colorClass}" style="color:var(--${colorClass || 'text'});">${valStr}</td>`;
+    });
+    const statusClass = `status-${d.status}`;
+    html += `<td><span class="status-tag ${statusClass}">${d.status}</span></td>`;
+    html += '</tr>';
+  });
+  
+  html += '</tbody></table>';
+  
+  // Add summary info
+  html += '<div style="margin-top:10px;padding:8px;background:var(--accent);border-radius:4px;font-size:10px;color:var(--text-dim);line-height:1.6;">';
+  html += '<div style="margin-bottom:4px;"><span style="color:var(--cyan);">📊 对比说明：</span></div>';
+  html += '<div>• <b style="color:var(--green);">AL</b> 全品种生产阶段 · IC最高(0.0589) · IR最高(47.50) · VIF健康(1.0054)</div>';
+  html += '<div>• <b style="color:var(--yellow);">PB</b> 条件监控阶段 · IC中等(0.0417) · IR中等(16.44) · BEAR环境衰减明显</div>';
+  html += '<div>• <b style="color:var(--red);">CU</b> 延迟监控阶段 · IC较低(0.0333) · IR较低(9.30) · 需进一步校准</div>';
+  html += '<div style="margin-top:4px;"><span style="color:var(--cyan);">📐 指标说明：</span>IC=信息系数 · IR=信息比率 · VIF=方差膨胀因子(越接近1越健康)</div>';
+  html += '</div>';
+  
+  tableView.innerHTML = html;
+}
+
+function setCompView(view){
+  STATE.compView = view;
+  document.getElementById('comp-bar-btn').classList.toggle('active', view==='bar');
+  document.getElementById('comp-table-btn').classList.toggle('active', view==='table');
+  renderComparison();
+}
+
+/* ---------- RENDER: F19/F20 INDEPENDENT NAV CURVES ---------- */
+function renderF1920NavChart(){
+  const chart = initChart('chart-f1920-nav');
+  const f1920Data = generateF1920Data();
+  
+  const bearOverlay = STATE.bearOverlay !== false;
+  
+  // markArea for BEAR regime
+  const bearBands = [];
+  if(bearOverlay){
+    let bs = -1;
+    for(let i=0;i<f1920Data.f19Regimes.length;i++){
+      if(f1920Data.f19Regimes[i] === 'BEAR' && bs < 0){
+        bs = i;
+      } else if(f1920Data.f19Regimes[i] !== 'BEAR' && bs >= 0){
+        bearBands.push({start:f1920Data.dates[bs], end:f1920Data.dates[i-1]});
+        bs = -1;
+      }
+    }
+    if(bs >= 0){
+      bearBands.push({start:f1920Data.dates[bs], end:f1920Data.dates[f1920Data.dates.length-1]});
+    }
+  }
+  
+  const bearMarkArea = bearBands.map(b=>({
+    xAxis:[b.start, b.end],
+    itemStyle:{color:'rgba(251,146,60,0.15)', borderColor:'rgba(251,146,60,0.4)', borderWidth:1, borderType:'dashed'},
+    label:{show:true, position:'insideTop', formatter:'BEAR · TD-046置零', color:'rgba(251,146,60,0.8)', fontSize:9}
+  }));
+  
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+      formatter:(params)=>{
+        const i = params[0].dataIndex;
+        return `<div style="font-size:11px;line-height:1.7;">
+          <b style="color:#60a5fa;">${f1920Data.dates[i]}</b><br>
+          F19 NAV (TYPE_S): <b style="color:#22d3ee;">${f1920Data.f19Nav[i].toFixed(4)}</b><br>
+          F20 NAV (MIXED): <b style="color:#a78bfa;">${f1920Data.f20Nav[i].toFixed(4)}</b><br>
+          组合NAV (50/50): <b style="color:#4ade80;">${f1920Data.comboNav[i].toFixed(4)}</b><br>
+          ${f1920Data.f19Regimes[i]==='BEAR'?'<span style="color:#fb923c;">⚠ TD-046: BEAR区制 · F19/F20收益置零</span>':''}
+        </div>`;
+      }
+    },
+    legend:{data:['F19 热钱因子','F20 资金注意力','组合NAV'], textStyle:{color:'#8b95b8', fontSize:10}, top:0, right:8},
+    grid:{left:50, right:12, top:35, bottom:24},
+    xAxis:{type:'category', data:f1920Data.dates, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:9, interval:Math.floor(f1920Data.dates.length/10)}},
+    yAxis:{type:'value', scale:true, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10, formatter:v=>v.toFixed(3)}, splitLine:{lineStyle:{color:'rgba(61,90,138,0.2)'}},
+      markLine:{symbol:'none', silent:true, lineStyle:{color:'#8b95b8', type:'dashed', width:1}, label:{formatter:'初始 1.0', color:'#8b95b8', fontSize:9, position:'insideEndTop'}, data:[{yAxis:1.0}]}
+    },
+    series:[
+      {
+        name:'F19 热钱因子', type:'line', data:f1920Data.f19Nav,
+        smooth:true, symbol:'none', lineStyle:{color:'#22d3ee', width:2.2},
+        areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[
+          {offset:0,color:'rgba(34,211,238,0.25)'},{offset:1,color:'rgba(34,211,238,0.02)'}
+        ]}},
+        markArea:{data:bearMarkArea}
+      },
+      {
+        name:'F20 资金注意力', type:'line', data:f1920Data.f20Nav,
+        smooth:true, symbol:'none', lineStyle:{color:'#a78bfa', width:2.2},
+        areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[
+          {offset:0,color:'rgba(167,139,250,0.25)'},{offset:1,color:'rgba(167,139,250,0.02)'}
+        ]}}
+      },
+      {
+        name:'组合NAV', type:'line', data:f1920Data.comboNav,
+        smooth:true, symbol:'none', lineStyle:{color:'#4ade80', width:2.2, type:'solid'},
+        areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[
+          {offset:0,color:'rgba(74,222,128,0.20)'},{offset:1,color:'rgba(74,222,128,0.02)'}
+        ]}}
+      }
+    ],
+    graphic:[{
+      type:'text', right:60, top:38,
+      style:{
+        text:'TD-046: BEAR区制 F19/F20强制置零',
+        fill:'#fb923c', fontSize:10, fontWeight:700,
+        backgroundColor:'rgba(251,146,60,0.12)', padding:[3,8], borderRadius:3,
+        borderColor:'rgba(251,146,60,0.5)', borderWidth:1
+      }
+    }],
+    animation:false
+  });
+}
+
+function toggleBearOverlay(){
+  const el = document.getElementById('bear-overlay-toggle');
+  STATE.bearOverlay = STATE.bearOverlay === false ? true : false;
+  el.classList.toggle('on', STATE.bearOverlay);
+  renderF1920NavChart();
+}
+
+function setScheme(s){
+  STATE.scheme = s;
+  document.getElementById('scheme-A-btn').classList.toggle('active', s==='A');
+  document.getElementById('scheme-B-btn').classList.toggle('active', s==='B');
+  document.getElementById('scheme-desc').textContent = s==='A' ? 'IC加权 · 按因子有效性动态分配' : '均匀分配 · 各品种等权';
+  renderCapitalAllocation();
+}
+
+/* ---------- RENDER: HEADER STATS ---------- */
+function renderHeaderStats(){
+  const d = STATE.currentData;
+  document.getElementById('hdr-variety').textContent = `${STATE.variety} ${VARIETIES[STATE.variety].name}`;
+  document.getElementById('hdr-days').textContent = d ? d.dates.length : 0;
+  if(d){
+    document.getElementById('hdr-nav').textContent = d.stats.finalNav.toFixed(4);
+    document.getElementById('hdr-ic').textContent = d.stats.icMean.toFixed(4);
+    document.getElementById('hdr-ir').textContent = d.stats.irMean.toFixed(2);
+    document.getElementById('variety-phase').textContent = VARIETIES[STATE.variety].phase;
+    document.getElementById('nav-var-name').textContent = STATE.variety;
+    document.getElementById('kline-var-name').textContent = STATE.variety;
+    document.getElementById('alpha-var-name').textContent = STATE.variety;
+    // price range
+    const prices = d.kline.map(k=>k.close);
+    document.getElementById('kline-price-range').textContent = `范围 ${Math.min(...prices).toFixed(0)} ~ ${Math.max(...prices).toFixed(0)}`;
+  }
+}
+
+/* ---------- EVENT LOG ---------- */
+function buildEventLog(){
+  const d = STATE.currentData;
+  if(!d) return;
+  const logs = [];
+  // Trade events from signals
+  d.signals.forEach(s=>{
+    const cat = getDriverCategory(s.factor_drivers);
+    if(s.signal_type === 'LONG' || s.signal_type === 'SHORT'){
+      logs.push({
+        timestamp: `${s.date} 09:30:00`,
+        type:'OPEN',
+        drivers: s.factor_drivers.join(', '),
+        category: cat,
+        detail: `${s.signal_type} @ ${s.price} · 因子分=${s.factor_score.toFixed(3)} · α=${s.alpha_prediction.toFixed(3)} · 置信=${(s.confidence*100).toFixed(0)}%`
+      });
+    } else if(s.signal_type === 'CLOSE'){
+      logs.push({
+        timestamp: `${s.date} 14:55:00`,
+        type:'CLOSE',
+        drivers: s.factor_drivers.join(', '),
+        category: cat,
+        detail: `CLOSE @ ${s.price} · 因子分=${s.factor_score.toFixed(3)} · 置信=${(s.confidence*100).toFixed(0)}%`
+      });
+    }
+  });
+  // Regime change events
+  for(let i=1;i<d.nav.length;i++){
+    if(d.nav[i].regime !== d.nav[i-1].regime){
+      logs.push({
+        timestamp: `${d.nav[i].date} 08:30:00`,
+        type:'REGIME',
+        drivers: 'RegimeClassifier',
+        category: '环境',
+        detail: `${d.nav[i-1].regime} → ${d.nav[i].regime}`
+      });
+    }
+  }
+  // Risk events from drawdowns
+  for(let i=1;i<d.nav.length;i++){
+    if(d.nav[i].drawdown > 1.5){
+      logs.push({
+        timestamp: `${d.nav[i].date} 15:00:00`,
+        type:'RISK',
+        drivers: 'FR-RISK',
+        category: '风控',
+        detail: `回撤 ${d.nav[i].drawdown.toFixed(2)}% 触发风控阈值 · NAV=${d.nav[i].net_value.toFixed(4)}`
+      });
+    }
+  }
+  // Sort by timestamp
+  // New chart-related events
+  logs.push({
+    timestamp: `${d.dates[0]} 09:00:00`,
+    type:'REGIME',
+    drivers: 'ComparisonPanel',
+    category: '图表',
+    detail: `多品种对比面板已渲染 · AL IC=${COMPARISON_DATA.AL.ic} IR=${COMPARISON_DATA.AL.ir} | PB IC=${COMPARISON_DATA.PB.ic} IR=${COMPARISON_DATA.PB.ir} | CU IC=${COMPARISON_DATA.CU.ic} IR=${COMPARISON_DATA.CU.ir}`
+  });
+  logs.push({
+    timestamp: `${d.dates[0]} 09:01:00`,
+    type:'REGIME',
+    drivers: 'F1920NavChart',
+    category: '图表',
+    detail: `F19/F20独立净值曲线已渲染 · TD-046 BEAR区制强制置零约束已应用`
+  });
+  // Phase11 监控事件
+  logs.push({
+    timestamp: '2026-05-27 09:00:00',
+    type:'REGIME',
+    drivers: 'Phase11Monitor',
+    category: '运维',
+    detail: 'Phase11启动(2026-05-27): AL/PB/CU因子逐日灰度监控开始'
+  });
+  logs.push({
+    timestamp: '2026-07-14 15:00:00',
+    type:'REGIME',
+    drivers: 'Phase11Monitor',
+    category: '运维',
+    detail: 'Phase11 W7完成(2026-07-14): 35天零回滚, 175天累计零回滚'
+  });
+  logs.push({
+    timestamp: '2026-07-15 09:00:00',
+    type:'REGIME',
+    drivers: 'FactorApproval',
+    category: '运维',
+    detail: 'PHASE11_FACTOR_APPROVE.flag签发(2026-07-15)'
+  });
+  // Phase12 监控事件
+  logs.push({
+    timestamp: '2026-07-15 09:00:00',
+    type:'REGIME',
+    drivers: 'Phase12Monitor',
+    category: '运维',
+    detail: 'Phase12启动(2026-07-15): AL/PB/CU因子逐日灰度监控开始(第6个35天周期)'
+  });
+  logs.push({
+    timestamp: '2026-09-01 15:00:00',
+    type:'REGIME',
+    drivers: 'Phase12Monitor',
+    category: '运维',
+    detail: 'Phase12 W7完成(2026-09-01): 35天零回滚, 210天累计零回滚'
+  });
+  logs.push({
+    timestamp: '2026-09-02 09:00:00',
+    type:'REGIME',
+    drivers: 'FactorApproval',
+    category: '运维',
+    detail: 'PHASE12_FACTOR_APPROVE.flag签发(2026-09-02)'
+  });
+  // Phase13 监控事件
+  logs.push({
+    timestamp: '2026-09-02 09:00:00',
+    type:'REGIME',
+    drivers: 'Phase13Monitor',
+    category: '运维',
+    detail: 'Phase13启动(2026-09-02): AL/PB/CU因子逐日灰度监控开始(第7个35天周期)'
+  });
+  logs.push({
+    timestamp: '2026-10-20 15:00:00',
+    type:'REGIME',
+    drivers: 'Phase13Monitor',
+    category: '运维',
+    detail: 'Phase13 W7完成(2026-10-20): 35天零回滚, 245天累计零回滚'
+  });
+  logs.push({
+    timestamp: '2026-10-21 09:00:00',
+    type:'REGIME',
+    drivers: 'FactorApproval',
+    category: '运维',
+    detail: 'PHASE13_FACTOR_APPROVE.flag签发(2026-10-21)'
+  });
+  // Phase15 events
+  logs.push({
+    timestamp: '2026-11-19 09:00:00',
+    type:'REGIME',
+    drivers: 'Phase15Monitor',
+    category: '运维',
+    detail: 'Phase15监控启动(2026-11-19): 延续AL全量投产, Phase14编排器完成确认, 245天累计零回滚'
+  });
+  logs.push({
+    timestamp: '2027-01-13 09:00:00',
+    type:'REGIME',
+    drivers: 'Phase15Monitor',
+    category: '运维',
+    detail: 'Phase15 W7完成(2027-01-13): 35天零回滚, 280天累计零回滚, IC漂移率6.2%<10%'
+  });
+  logs.push({
+    timestamp: '2027-01-14 09:00:00',
+    type:'REGIME',
+    drivers: 'FactorApproval',
+    category: '运维',
+    detail: 'PHASE15_FACTOR_APPROVE.flag签发(2027-01-14)'
+  });
+  // Phase16 events
+  logs.push({
+    timestamp: '2027-01-14 09:00:00',
+    type:'REGIME',
+    drivers: 'Phase16Monitor',
+    category: '运维',
+    detail: 'Phase16监控启动(2027-01-14): 延续AL全量投产, Phase15完成确认, 280天累计零回滚, IC漂移率6.2%<10%'
+  });
+  logs.push({
+    timestamp: '2027-03-03 15:00:00',
+    type:'REGIME',
+    drivers: 'Phase16Monitor',
+    category: '运维',
+    detail: 'Phase16 W7完成(2027-03-03): 35天零回滚, 315天累计零回滚, IC漂移率6.4%<10%'
+  });
+  logs.push({
+    timestamp: '2027-03-04 09:00:00',
+    type:'REGIME',
+    drivers: 'FactorApproval',
+    category: '运维',
+    detail: 'PHASE16_FACTOR_APPROVE.flag签发(2027-03-04); VIS-001升级至GitHub Pages版'
+  });
+  // Sort by timestamp
+  logs.sort((a,b)=>a.timestamp.localeCompare(b.timestamp));
+  STATE.logs = logs;
+  renderEventLog();
+}
+
+function getDriverCategory(drivers){
+  if(!drivers || drivers.length === 0) return '混合';
+  const cats = drivers.map(d=>{
+    const f = FACTOR_META.find(x=>x.id===d);
+    return f ? f.category : '混合';
+  });
+  const counts = {};
+  cats.forEach(c=>counts[c]=(counts[c]||0)+1);
+  let maxC = '混合', maxV = 0;
+  Object.entries(counts).forEach(([c,v])=>{ if(v>maxV){maxC=c;maxV=v;} });
+  return maxC;
+}
+
+function renderEventLog(){
+  const body = document.getElementById('log-body');
+  body.innerHTML = '';
+  const filter = STATE.logFilter;
+  const filtered = filter === 'ALL' ? STATE.logs : STATE.logs.filter(l=>l.type===filter);
+  filtered.forEach(l=>{
+    const catClass = l.category === '量价' ? 'c-价' : (l.category === '基本面' ? 'c-基' : (l.category === '自研资金行为' ? 'c-自' : ''));
+    const div = document.createElement('div');
+    div.className = 'log-entry';
+    div.innerHTML = `
+      <span class="log-time">${l.timestamp}</span>
+      <span class="log-type ${l.type}">${l.type}</span>
+      <span class="log-drivers">${l.drivers}</span>
+      <span class="log-cat ${catClass}">${l.category}</span>
+      <span class="log-detail">${l.detail}</span>
+    `;
+    body.appendChild(div);
+  });
+  document.getElementById('log-count').textContent = `${filtered.length} / ${STATE.logs.length} 条`;
+}
+
+function setLogFilter(f){
+  STATE.logFilter = f;
+  document.querySelectorAll('#log-filter button').forEach(b=>{
+    b.classList.remove('active');
+    ['f-OPEN','f-CLOSE','f-RISK','f-REGIME'].forEach(c=>b.classList.remove(c));
+    const filt = b.dataset.filter;
+    if(filt === f){
+      b.classList.add('active');
+      if(filt !== 'ALL') b.classList.add('f-'+filt);
+    }
+  });
+  renderEventLog();
+}
+
+function clearLog(){
+  STATE.logs = [];
+  document.getElementById('log-body').innerHTML = '';
+  document.getElementById('log-count').textContent = '0 条';
+}
+
+/* ---------- FACTOR MODAL ---------- */
+function openFactorModal(fid){
+  const f = FACTOR_META.find(x=>x.id===fid);
+  if(!f) return;
+  const modal = document.getElementById('factor-modal');
+  const catClass = {'量价':'c-价','基本面':'c-基','自研资金行为':'c-自'}[f.category];
+  const regimeTags = f.regime.split('_').map(r=>{
+    const tClass = REGIME_COLORS[r] ? REGIME_COLORS[r].tag : 't-ALL';
+    return `<span class="tag ${tClass}">${r}</span>`;
+  }).join('');
+
+  modal.innerHTML = `
+    <div class="modal-header">
+      <div class="modal-title"><span class="fid">${f.id}</span>${f.name} <span style="font-size:11px;color:var(--text-dim);margin-left:8px;">IC:${f.ic.toFixed(4)} · IR:${f.ir.toFixed(2)}</span></div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h4>📋 基本信息</h4>
+        <div class="content">
+          <div class="tag-row">
+            <span class="tag ${catClass}">${f.category}</span>
+            <span style="font-size:11px;color:var(--text-dim);">适用环境: ${f.regime}</span>
+            <button onclick="closeModal();openProvenanceModal('${f.id}');" style="margin-left:auto;font-size:10px;padding:3px 10px;background:var(--cyan);color:#1a1a2e;border:none;border-radius:3px;cursor:pointer;font-weight:700;">🔍 完整溯源</button>
+          </div>
+          <div style="margin-top:6px;color:var(--text);">${f.desc}</div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h4>📐 计算公式</h4>
+        <div class="formula-box">${escapeHtml(f.formula)}</div>
+      </div>
+      <div class="modal-section">
+        <h4>🔄 迭代历史</h4>
+        <div class="history-list">
+          ${f.history.map(h=>`
+            <div class="history-item">
+              <span class="ver">${h.v}</span>
+              <span class="date">${h.d}</span>
+              <span class="change">${h.c}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="modal-section">
+        <h4>📊 分环境有效性</h4>
+        <div class="regime-eff-chart" id="modal-regime-chart"></div>
+        <div class="tag-row" style="margin-top:6px;">
+          ${regimeTags}
+        </div>
+      </div>
+      <div class="modal-section">
+        <h4>📁 数据来源</h4>
+        <div class="content">${f.source}</div>
+      </div>
+    </div>
+  `;
+  document.getElementById('factor-modal-overlay').classList.add('show');
+  // render regime chart
+  setTimeout(()=>{
+    const chart = echarts.init(document.getElementById('modal-regime-chart'));
+    const regimes = ['NORMAL','BEAR','CRISIS','MIXED'];
+    const values = regimes.map(r=>f.eff[r]||0);
+    const colors = regimes.map(r=>REGIME_COLORS[r].color);
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'axis', backgroundColor:'#1c2a4d', borderColor:'#3d5a8a', textStyle:{color:'#e0e0e0',fontSize:11},
+        formatter:p=>`${p[0].name}: ${(p[0].value*100).toFixed(0)}%`},
+      grid:{left:60, right:20, top:20, bottom:30},
+      xAxis:{type:'category', data:regimes, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10}},
+      yAxis:{type:'value', max:1, axisLine:{lineStyle:{color:'#3d5a8a'}}, axisLabel:{color:'#8b95b8',fontSize:10, formatter:v=>(v*100)+'%'}, splitLine:{lineStyle:{color:'rgba(61,90,138,0.2)'}}},
+      series:[{
+        type:'bar', data:values.map((v,i)=>({value:v, itemStyle:{color:colors[i].replace(/[\d.]+\)$/, '0.9)')}})),
+        barWidth:'50%',
+        label:{show:true, position:'top', formatter:p=>(p.value*100).toFixed(0)+'%', color:'#e0e0e0', fontSize:10}
+      }],
+      animation:false
+    });
+  }, 50);
+}
+
+function closeModal(){
+  document.getElementById('factor-modal-overlay').classList.remove('show');
+}
+
+function escapeHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ---------- TAB NAVIGATION ---------- */
+function switchTab(tab){
+  // Update tab buttons
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  // Show/hide pages
+  document.querySelectorAll('.page-panel').forEach(p=>p.style.display='none');
+  const mainLayout = document.querySelector('.app-layout');
+  const logPanel = document.querySelector('.log-panel');
+  if(tab === 'dashboard'){
+    if(mainLayout) mainLayout.style.display='grid';
+    if(logPanel) logPanel.style.display='flex';
+    setTimeout(()=>{ Object.values(STATE.charts).forEach(c=>c.resize()); }, 50);
+  } else {
+    if(mainLayout) mainLayout.style.display='none';
+    if(logPanel) logPanel.style.display='none';
+    document.getElementById('page-'+tab).style.display='block';
+    if(tab==='factors') renderFactorLibrary();
+    if(tab==='variety') renderVarietyOverview();
+    if(tab==='github') renderGitHubPages();
+  }
+}
+
+/* ---------- FACTOR LIBRARY ---------- */
+const FACTOR_LIBRARY_FULL = [
+  // Active factors (20)
+  ...FACTOR_META.map(f=>({
+    id:f.id, name:f.name, category:f.category, status:'ACTIVE',
+    ic:f.ic, ir:f.ir, regime:f.regime, source:f.source, formula:f.formula,
+    desc:f.desc, history:f.history, eff:f.eff, failedReason:null
+  })),
+  // Failed/eliminated factors
+  {id:'F03', name:'布林带突破', category:'量价', status:'FAILED', ic:0.0312, ir:28.4,
+    regime:'NORMAL', source:'行情数据 (SHFE 日K线, 布林带20/2)',
+    formula:'BB = MA(20) ± 2×STD(20)\nSignal = (Price > BB_upper) ? LONG : (Price < BB_lower) ? SHORT : FLAT',
+    desc:'基于布林带的突破策略，但信号频率过高导致交易成本侵蚀收益。',
+    history:[{v:'v1.0',d:'2025-05-10',c:'初始版本'},{v:'v1.5',d:'2025-08-20',c:'加入成交量过滤'},{v:'v2.0',d:'2025-11-15',c:'最终测试：IC=0.0312 不达标'}],
+    eff:{NORMAL:0.55,BEAR:0.48,CRISIS:0.42,MIXED:0.50},
+    failedReason:'IC=0.0312<0.04阈值, 信号频率过高, 交易成本侵蚀收益 (Phase3淘汰)'},
+  {id:'F04', name:'动量反转', category:'量价', status:'FAILED', ic:0.0289, ir:22.1,
+    regime:'ALL', source:'行情数据 (SHFE 日K线, 5日动量)',
+    formula:'Momentum = (Close_t − Close_{t-5}) / Close_{t-5}\nSignal = tanh(−Momentum × 5)',
+    desc:'短期动量反转策略，在震荡市中表现不佳，IC持续低于阈值。',
+    history:[{v:'v1.0',d:'2025-04-20',c:'初始版本'},{v:'v1.2',d:'2025-07-05',c:'加入区间判定'},{v:'v2.0',d:'2025-10-10',c:'最终测试：IC=0.0289 不达标'}],
+    eff:{NORMAL:0.52,BEAR:0.45,CRISIS:0.38,MIXED:0.48},
+    failedReason:'IC=0.0289<0.04阈值, BEAR区制衰减严重 (Phase3淘汰)'},
+  {id:'F05', name:'资金流向因子', category:'基本面', status:'FAILED', ic:0.0345, ir:25.6,
+    regime:'NORMAL', source:'SHFE 结算持仓数据 (日频)',
+    formula:'Flow = (LongOI_t − LongOI_{t-1}) − (ShortOI_t − ShortOI_{t-1})\nSignal = Flow / (ATR × Close)',
+    desc:'基于持仓量变化的资金流向信号，数据延迟导致信号滞后。',
+    history:[{v:'v1.0',d:'2025-06-01',c:'初始版本'},{v:'v1.5',d:'2025-09-15',c:'加入多品种对比'},{v:'v2.0',d:'2025-12-20',c:'最终测试：数据延迟问题无法解决'}],
+    eff:{NORMAL:0.58,BEAR:0.50,CRISIS:0.44,MIXED:0.52},
+    failedReason:'持仓数据T+1发布导致信号滞后1日, 无法解决数据延迟 (Phase4淘汰)'},
+  {id:'F06', name:'新闻情绪因子', category:'基本面', status:'FAILED', ic:0.0298, ir:23.8,
+    regime:'ALL', source:'Wind新闻NLP (日频)',
+    formula:'Sentiment = w₁×正面词频 − w₂×负面词频\nSignal = Sentiment × (1/Volatility)',
+    desc:'基于新闻NLP的情绪因子，中文分词和实体识别准确率不足。',
+    history:[{v:'v1.0',d:'2025-07-01',c:'初始版本'},{v:'v1.3',d:'2025-10-05',c:'更换NLP模型'},{v:'v2.0',d:'2026-01-10',c:'最终测试：IC=0.0298 不达标'}],
+    eff:{NORMAL:0.54,BEAR:0.46,CRISIS:0.40,MIXED:0.48},
+    failedReason:'NLP模型准确率不足, 实体识别错误率高, IC=0.0298<0.04阈值 (Phase4淘汰)'},
+  {id:'F07', name:'产业链传导因子', category:'基本面', status:'FAILED', ic:0.0321, ir:24.9,
+    regime:'NORMAL', source:'Wind产业链数据 (周频)',
+    formula:'Chain = Σ(wᵢ × Price_Changeᵢ) for i in [upstream, downstream, substitute]\nSignal = Chain × Confidence',
+    desc:'基于产业链上下游价格传导的信号，数据频率过低（周频）不适合日内交易。',
+    history:[{v:'v1.0',d:'2025-05-20',c:'初始版本'},{v:'v1.4',d:'2025-08-30',c:'加入替代品价格'},{v:'v2.0',d:'2025-11-25',c:'最终测试：频率不匹配'}],
+    eff:{NORMAL:0.56,BEAR:0.48,CRISIS:0.44,MIXED:0.50},
+    failedReason:'周频数据无法支持日内交易, 与日频因子组合产生频率冲突 (Phase5淘汰)'},
+  {id:'F10', name:'套利价差因子', category:'量价', status:'FAILED', ic:0.0356, ir:26.2,
+    regime:'NORMAL', source:'SHFE 合约价差 (日频)',
+    formula:'Spread = Close_Near − Close_Far\nZScore = (Spread − MA(Spread, 20)) / STD(Spread, 20)\nSignal = −ZScore',
+    desc:'跨期套利价差策略，但价差收敛速度慢，持仓时间长导致风险暴露。',
+    history:[{v:'v1.0',d:'2025-04-15',c:'初始版本'},{v:'v1.3',d:'2025-07-20',c:'加入波动率过滤'},{v:'v2.0',d:'2025-10-20',c:'最终测试：持仓时间过长'}],
+    eff:{NORMAL:0.58,BEAR:0.52,CRISIS:0.46,MIXED:0.54},
+    failedReason:'价差收敛速度慢, 平均持仓时间>10天, 超出风险容忍度 (Phase3淘汰)'},
+  {id:'F13', name:'库存变化因子', category:'基本面', status:'FAILED', ic:0.0308, ir:23.5,
+    regime:'NORMAL', source:'SHFE 库存数据 (日频)',
+    formula:'InvChange = (Inventory_t − Inventory_{t-5}) / Inventory_{t-5}\nSignal = −InvChange × (1/Volatility)',
+    desc:'基于交易所库存变化的供需信号，库存数据更新频率不稳定。',
+    history:[{v:'v1.0',d:'2025-06-10',c:'初始版本'},{v:'v1.4',d:'2025-09-10',c:'加入多交易所库存'},{v:'v2.0',d:'2025-12-05',c:'最终测试：数据质量问题'}],
+    eff:{NORMAL:0.54,BEAR:0.46,CRISIS:0.40,MIXED:0.48},
+    failedReason:'库存数据质量不稳定, 部分交易所延迟发布, IC=0.0308<0.04阈值 (Phase4淘汰)'},
+  {id:'F14', name:'宏观利率因子', category:'基本面', status:'FAILED', ic:0.0276, ir:21.4,
+    regime:'ALL', source:'Wind宏观数据 (日频)',
+    formula:'RateChange = (SHIBOR_1D_t − SHIBOR_1D_{t-1}) × 100\nSignal = −RateChange × Sensitivity',
+    desc:'基于宏观利率变化的因子，与有色金属价格的相关性弱。',
+    history:[{v:'v1.0',d:'2025-05-01',c:'初始版本'},{v:'v1.2',d:'2025-08-01',c:'加入多种利率'},{v:'v2.0',d:'2025-11-01',c:'最终测试：相关性不足'}],
+    eff:{NORMAL:0.50,BEAR:0.44,CRISIS:0.38,MIXED:0.46},
+    failedReason:'与有色金属价格相关性弱(R<0.15), IC=0.0276<0.04阈值 (Phase3淘汰)'}
+];
+
+function renderFactorLibrary(){
+  const grid = document.getElementById('factor-lib-grid');
+  grid.innerHTML = '';
+  FACTOR_LIBRARY_FULL.forEach(f=>{
+    const card = document.createElement('div');
+    card.className = 'factor-card' + (f.status==='FAILED' ? ' failed' : ' active');
+    const catClass = {'量价':'c-价','基本面':'c-基','自研资金行为':'c-自'}[f.category] || '';
+    const statusBadge = f.status==='ACTIVE'
+      ? '<span class="factor-card-badge active">● 上线</span>'
+      : '<span class="factor-card-badge failed">✕ 淘汰</span>';
+    card.innerHTML = `
+      <div class="factor-card-header">
+        <span class="factor-card-id">${f.id}</span>
+        ${statusBadge}
+      </div>
+      <div class="factor-card-name">${f.name}</div>
+      <div class="factor-card-meta">
+        <div><div class="label">分类</div><div class="val">${f.category}</div></div>
+        <div><div class="label">IC</div><div class="val" style="color:${f.ic>=0.04?'var(--green)':'var(--red)'}">${f.ic.toFixed(4)}</div></div>
+        <div><div class="label">IR</div><div class="val">${f.ir.toFixed(2)}</div></div>
+      </div>
+      <div class="factor-card-formula">${escapeHtml(f.formula.split('\n')[0])}</div>
+      <div class="factor-card-source">📁 ${f.source}</div>
+      ${f.failedReason ? `<div class="factor-card-reason">⚠ ${f.failedReason}</div>` : ''}
+      <div style="margin-top:6px;font-size:9px;color:var(--text-dim);">环境: ${f.regime} · 版本: ${f.history[f.history.length-1].v} (${f.history[f.history.length-1].d})</div>
+    `;
+    card.onclick = ()=> openProvenanceModal(f.id);
+    grid.appendChild(card);
+  });
+}
+
+function filterFactorLib(filter){
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-factors').classList.add('active');
+  document.querySelectorAll('.page-panel').forEach(p=>p.style.display='none');
+  document.querySelector('.app-layout').style.display='none';
+  document.querySelector('.log-panel').style.display='none';
+  document.getElementById('page-factors').style.display='block';
+  const cards = document.querySelectorAll('.factor-card');
+  cards.forEach(card=>{
+    const id = card.querySelector('.factor-card-id').textContent;
+    const f = FACTOR_LIBRARY_FULL.find(x=>x.id===id);
+    if(filter==='all'){ card.style.display='block'; }
+    else if(filter==='active'){ card.style.display = f && f.status==='ACTIVE' ? 'block' : 'none'; }
+    else if(filter==='failed'){ card.style.display = f && f.status==='FAILED' ? 'block' : 'none'; }
+  });
+}
+
+/* ---------- VARIETY OVERVIEW ---------- */
+function renderVarietyOverview(){
+  const grid = document.getElementById('variety-overview-grid');
+  grid.innerHTML = '';
+  const allVarieties = {
+    AL:{name:'铝',status:'FULL_PRODUCTION',ic:0.0589,ir:47.50,bearIC:0.0395,position:'5%基线/15%上限',gate:'PASS',phase:'FULL_PRODUCTION_STABLE',color:'#4ade80'},
+    PB:{name:'铅',status:'CONDITIONAL',ic:0.0417,ir:16.44,bearIC:0.0294,position:'1.5%(BEAR 1%)',gate:'PASS',phase:'CONDITIONAL_MONITORING',color:'#facc15'},
+    CU:{name:'铜',status:'DEFERRED',ic:0.0333,ir:9.30,bearIC:0.0236,position:'1.5%',gate:'PASS',phase:'DEFERRED_MONITORING',color:'#ef4444'},
+    ZN:{name:'锌',status:'BLOCKED',ic:null,ir:null,bearIC:null,position:'DISABLED',gate:'BLOCKED',phase:'PC-003_LOCKED',color:'#22c55e'},
+    NI:{name:'镍',status:'BLOCKED',ic:null,ir:null,bearIC:null,position:'DISABLED',gate:'BLOCKED',phase:'PC-003_LOCKED',color:'#a3e635'},
+    SN:{name:'锡',status:'BLOCKED',ic:null,ir:null,bearIC:null,position:'DISABLED',gate:'BLOCKED',phase:'PC-003_LOCKED',color:'#fbbf24'},
+    SI:{name:'工业硅',status:'BLOCKED',ic:null,ir:null,bearIC:null,position:'DISABLED',gate:'BLOCKED',phase:'PC-003_LOCKED',color:'#fb923c'}
+  };
+  Object.entries(allVarieties).forEach(([code,v])=>{
+    const cls = v.status==='FULL_PRODUCTION'?'active':(v.status==='CONDITIONAL'?'conditional':(v.status==='DEFERRED'?'deferred':'blocked'));
+    const gateCls = v.gate==='PASS'?'ready':'blocked';
+    const card = document.createElement('div');
+    card.className = `variety-status-card ${cls}`;
+    card.innerHTML = `
+      <div class="code" style="color:${v.color};">${code}</div>
+      <div class="name">${v.name}</div>
+      <div class="status-row"><span class="label">准入状态</span><span class="val">${v.status}</span></div>
+      <div class="status-row"><span class="label">IC均值</span><span class="val">${v.ic?v.ic.toFixed(4):'—'}</span></div>
+      <div class="status-row"><span class="label">IR</span><span class="val">${v.ir?v.ir.toFixed(2):'—'}</span></div>
+      <div class="status-row"><span class="label">BEAR IC</span><span class="val">${v.bearIC?v.bearIC.toFixed(4):'—'}</span></div>
+      <div class="status-row"><span class="label">仓位</span><span class="val">${v.position}</span></div>
+      <div class="status-row"><span class="label">PC-003门禁</span><span class="val" style="color:${v.gate==='PASS'?'var(--green)':'var(--red)'};">${v.gate==='PASS'?'✓ PASS':'✕ BLOCKED'}</span></div>
+      <div class="status-row"><span class="label">阶段</span><span class="val">${v.phase}</span></div>
+    `;
+    grid.appendChild(card);
+  });
+  // PC-003 gate panel
+  const gatePanel = document.getElementById('variety-gate-panel');
+  gatePanel.innerHTML = `
+    <h3>🔒 PC-003 风险约束规则 · 数据门禁状态</h3>
+    <div class="variety-gate-item">
+      <span class="gate-id">PC-003</span>
+      <span style="flex:1;">风险约束规则 · ZN/NI/SN/SI 四品种数据门禁</span>
+      <span class="gate-status blocked">BLOCKED</span>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);margin:10px 0;line-height:1.6;">
+      <b style="color:var(--cyan);">阻塞原因：</b>TD002 (真实数据接入) + TD014 (数据质量规则验证) 双门禁未解除<br>
+      <b style="color:var(--cyan);">解锁条件：</b>TD002_PENALTY_CALC_RULES_VERIFIED + TD014_DQ_RULES_VERIFIED (同时满足)<br>
+      <b style="color:var(--cyan);">解锁动作：</b>UNBLOCK_PC_003 → ACTIVATE_PIPELINE → TRIGGER_MULTI_VARIETY_PRODUCTION<br>
+      <b style="color:var(--cyan);">解锁钩子：</b>READY_PHASE16 · 冷启动自检就绪 · 检查间隔7天 · 超时30天<br>
+      <b style="color:var(--cyan);">通知渠道：</b>DSHD_MONITORING + DSHC_DUTY_OFFICER + 因子引擎Agent
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;">
+      <div class="variety-gate-item">
+        <span class="gate-id">TD002</span>
+        <span style="flex:1;font-size:10px;color:var(--text-dim);">DATA_INGESTION_GATE · TD002_PENALTY_CALC_RULES_VERIFIED</span>
+        <span class="gate-status blocked">PENDING</span>
+      </div>
+      <div class="variety-gate-item">
+        <span class="gate-id">TD014</span>
+        <span style="flex:1;font-size:10px;color:var(--text-dim);">DATA_QUALITY_GATE · TD014_DQ_RULES_VERIFIED</span>
+        <span class="gate-status blocked">PENDING</span>
+      </div>
+    </div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:10px;">
+      <b>预校验脚本：</b>zn_ni_sn_si_precheck_automation.py V1.4.0-P16 · 107项数据检查 · 25条异常规则 · 坏样本掩码模块就绪<br>
+      <b>影子回测：</b>支持ZN/NI/SN/SI历史回测（不接入投产流水线，仅用于网页归档展示）
+    </div>
+  `;
+}
+
+/* ---------- GITHUB PAGES ---------- */
+function renderGitHubPages(){
+  const grid = document.getElementById('github-json-grid');
+  grid.innerHTML = '';
+  const jsonFiles = [
+    {file:'factors_full.json', desc:'完整因子库（20上线+8淘汰失败因子）', size:'~24 KB', items:'28因子', status:'✓ 已生成'},
+    {file:'backtest_AL.json', desc:'AL铝 全量回测净值/回撤时序', size:'~18 KB', items:'35个交易日', status:'✓ 已生成'},
+    {file:'backtest_PB.json', desc:'PB铅 全量回测净值/回撤时序', size:'~18 KB', items:'35个交易日', status:'✓ 已生成'},
+    {file:'backtest_CU.json', desc:'CU铜 全量回测净值/回撤时序', size:'~18 KB', items:'35个交易日', status:'✓ 已生成'},
+    {file:'backtest_NI.json', desc:'NI镍 影子回测净值/回撤时序', size:'~15 KB', items:'35个交易日', status:'✓ 影子回测'},
+    {file:'backtest_SN.json', desc:'SN锡 影子回测净值/回撤时序', size:'~15 KB', items:'35个交易日', status:'✓ 影子回测'},
+    {file:'backtest_SI.json', desc:'SI工业硅 影子回测净值/回撤时序', size:'~15 KB', items:'35个交易日', status:'✓ 影子回测'},
+    {file:'backtest_ZN.json', desc:'ZN锌 影子回测净值/回撤时序', size:'~15 KB', items:'35个交易日', status:'✓ 影子回测'},
+    {file:'trades_AL.json', desc:'AL铝 逐笔开平仓交易记录/盈亏明细', size:'~22 KB', items:'逐笔记录', status:'✓ 已生成'},
+    {file:'trades_PB.json', desc:'PB铅 逐笔开平仓交易记录/盈亏明细', size:'~18 KB', items:'逐笔记录', status:'✓ 已生成'},
+    {file:'trades_CU.json', desc:'CU铜 逐笔开平仓交易记录/盈亏明细', size:'~15 KB', items:'逐笔记录', status:'✓ 已生成'},
+    {file:'experiment_manifest.json', desc:'DSHC实验清单（对齐用）', size:'待DSHC输出', items:'协同依赖', status:'⏳ 等待DSHC'},
+    {file:'factor_meta_library.json', desc:'因子元数据（20因子，已同步）', size:'~45 KB', items:'20因子', status:'✓ 已同步'}
+  ];
+  jsonFiles.forEach(f=>{
+    const card = document.createElement('div');
+    card.className = 'github-json-card';
+    const statusColor = f.status.includes('✓')?'var(--green)':(f.status.includes('⏳')?'var(--yellow)':'var(--orange)');
+    card.innerHTML = `
+      <div class="filename">📄 ${f.file}</div>
+      <div class="desc">${f.desc}</div>
+      <div class="meta">大小: ${f.size} · 条目: ${f.items}</div>
+      <div style="margin-top:6px;font-size:11px;font-weight:600;color:${statusColor};">${f.status}</div>
+    `;
+    grid.appendChild(card);
+  });
+  // Alignment info
+  const alignDiv = document.createElement('div');
+  alignDiv.style.cssText = 'margin-top:16px;padding:12px;background:var(--accent);border-radius:4px;font-size:11px;color:var(--text-dim);line-height:1.6;';
+  alignDiv.innerHTML = `
+    <div style="font-size:13px;color:var(--cyan);font-weight:600;margin-bottom:8px;">🔗 数据集对齐说明</div>
+    <div>• <b style="color:var(--text);">experiment_manifest.json</b>：DSHC编排器输出，包含所有实验的配置、参数、结果摘要。本页面JSON数据集与其对齐，保证网页可渲染全部实验归档。</div>
+    <div>• <b style="color:var(--text);">影子回测</b>：NI/SN/SI/ZN历史回测结果仅用于网页归档展示，不接入投产流水线。坏样本掩码模块已集成至预校验脚本。</div>
+    <div>• <b style="color:var(--text);">数据流</b>：backtest_{品种}.json + trades_{品种}.json → GitHub Pages渲染 → 网页展示净值曲线+逐笔交易</div>
+  `;
+  grid.appendChild(alignDiv);
+}
+
+/* ---------- PROVENANCE MODAL ---------- */
+function openProvenanceModal(fid){
+  const f = FACTOR_LIBRARY_FULL.find(x=>x.id===fid);
+  if(!f) return;
+  const modal = document.getElementById('provenance-modal');
+  const catClass = {'量价':'c-价','基本面':'c-基','自研资金行为':'c-自'}[f.category] || '';
+  
+  // Determine data source details
+  const dataSourceDetail = getSourceDetail(f);
+  
+  modal.innerHTML = `
+    <div class="provenance-modal-header">
+      <div class="provenance-modal-title">🔍 ${f.id} ${f.name} · 因子溯源</div>
+      <button class="modal-close" onclick="closeProvenanceModal()">×</button>
+    </div>
+    <div class="provenance-modal-body">
+      <div class="prov-section">
+        <h4>📋 基本信息</h4>
+        <div class="prov-grid">
+          <div class="prov-item"><div class="prov-label">因子ID</div><div class="prov-val">${f.id}</div></div>
+          <div class="prov-item"><div class="prov-label">名称</div><div class="prov-val">${f.name}</div></div>
+          <div class="prov-item"><div class="prov-label">分类</div><div class="prov-val">${f.category}</div></div>
+          <div class="prov-item"><div class="prov-label">状态</div><div class="prov-val" style="color:${f.status==='ACTIVE'?'var(--green)':'var(--red)'};">${f.status==='ACTIVE'?'● 上线':'✕ 淘汰'}</div></div>
+          <div class="prov-item"><div class="prov-label">IC均值</div><div class="prov-val">${f.ic.toFixed(4)}</div></div>
+          <div class="prov-item"><div class="prov-label">IR</div><div class="prov-val">${f.ir.toFixed(2)}</div></div>
+          <div class="prov-item"><div class="prov-label">适用环境</div><div class="prov-val">${f.regime}</div></div>
+          <div class="prov-item"><div class="prov-label">当前版本</div><div class="prov-val">${f.history[f.history.length-1].v}</div></div>
+        </div>
+      </div>
+      <div class="prov-section">
+        <h4>📐 计算公式</h4>
+        <div class="formula-box">${escapeHtml(f.formula)}</div>
+      </div>
+      <div class="prov-section">
+        <h4>📁 数据来源溯源</h4>
+        <div class="prov-grid">
+          <div class="prov-item"><div class="prov-label">数据源</div><div class="prov-val">${dataSourceDetail.source}</div></div>
+          <div class="prov-item"><div class="prov-label">数据粒度</div><div class="prov-val">${dataSourceDetail.granularity}</div></div>
+          <div class="prov-item"><div class="prov-label">数据供应商</div><div class="prov-val">${dataSourceDetail.provider}</div></div>
+          <div class="prov-item"><div class="prov-label">更新频率</div><div class="prov-val">${dataSourceDetail.frequency}</div></div>
+          <div class="prov-item"><div class="prov-label">数据延迟</div><div class="prov-val">${dataSourceDetail.latency}</div></div>
+          <div class="prov-item"><div class="prov-label">数据质量</div><div class="prov-val">${dataSourceDetail.quality}</div></div>
+        </div>
+      </div>
+      <div class="prov-section">
+        <h4>🔄 迭代历史</h4>
+        <div class="history-list">
+          ${f.history.map(h=>`
+            <div class="history-item">
+              <span class="ver">${h.v}</span>
+              <span class="date">${h.d}</span>
+              <span class="change">${h.c}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="prov-section">
+        <h4>📊 分环境有效性</h4>
+        <div class="prov-grid">
+          <div class="prov-item"><div class="prov-label">NORMAL</div><div class="prov-val">${(f.eff.NORMAL*100).toFixed(0)}%</div></div>
+          <div class="prov-item"><div class="prov-label">BEAR</div><div class="prov-val">${(f.eff.BEAR*100).toFixed(0)}%</div></div>
+          <div class="prov-item"><div class="prov-label">CRISIS</div><div class="prov-val">${(f.eff.CRISIS*100).toFixed(0)}%</div></div>
+          <div class="prov-item"><div class="prov-label">MIXED</div><div class="prov-val">${(f.eff.MIXED*100).toFixed(0)}%</div></div>
+        </div>
+      </div>
+      ${f.failedReason ? `
+      <div class="prov-section">
+        <h4>⚠ 淘汰原因</h4>
+        <div style="padding:10px;background:rgba(239,68,68,0.08);border:1px solid var(--red);border-radius:4px;font-size:12px;color:var(--red);">${f.failedReason}</div>
+      </div>` : ''}
+    </div>
+  `;
+  document.getElementById('provenance-modal-overlay').classList.add('show');
+}
+
+function getSourceDetail(f){
+  // Map factor source to detailed provenance info
+  const sources = {
+    '行情数据 (SHFE 日K线': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    '行情数据 (SHFE 日K线, 12/26/9 EMA': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    '行情数据 (SHFE 日K线, RSI-14': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    '行情数据 (SHFE 日K线, 布林带20/2': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    '行情数据 (SHFE 日K线, 5日动量': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    '行情数据 (SHFE 日K线, 250日': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    '行情数据 (SHFE 日K线, 12/26/9 EMA': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    '行情数据 (SHFE 日K线, MACD': {source:'SHFE行情数据',granularity:'日K线(日线)',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    'Wind产业链数据': {source:'Wind产业链数据',granularity:'周频',provider:'Wind资讯',frequency:'每周更新',latency:'T+1 (次日)',quality:'中 · 第三方数据'},
+    'SHFE 结算持仓数据': {source:'SHFE持仓数据',granularity:'日频',provider:'上海期货交易所',frequency:'每日结算后更新',latency:'T+1 (次日)',quality:'高 · 交易所官方数据'},
+    'SHFE 合约价差': {source:'SHFE合约价差',granularity:'日频',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    'SHFE 库存数据': {source:'SHFE库存数据',granularity:'日频',provider:'上海期货交易所',frequency:'每日更新',latency:'T+1 (次日)',quality:'中 · 部分延迟'},
+    'Wind宏观数据': {source:'Wind宏观数据',granularity:'日频',provider:'Wind资讯',frequency:'每日更新',latency:'T+0 (实时)',quality:'中 · 第三方数据'},
+    'Wind新闻NLP': {source:'Wind新闻NLP',granularity:'日频',provider:'Wind资讯',frequency:'每日更新',latency:'T+0 (实时)',quality:'低 · NLP准确率不足'},
+    'SHFE 持仓数据 + 行情数据': {source:'SHFE持仓+行情',granularity:'日频',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    'Bing搜索指数 + 微博热搜 + 新闻NLP': {source:'Bing搜索+微博+新闻NLP',granularity:'日频/实时',provider:'Bing/微博/Wind',frequency:'实时/每日',latency:'T+0 (实时)',quality:'中 · 多源融合'},
+    'SHFE 日K线, 持仓量, 成交量': {source:'SHFE日K线+持仓',granularity:'日频',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    'SHFE 日K线, 20日均量': {source:'SHFE日K线',granularity:'日频',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    'SHFE 日K线, ATR/ADX': {source:'SHFE日K线+技术指标',granularity:'日频',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'},
+    'SHFE 日K线, 持仓量, 成交量, ATR': {source:'SHFE日K线+持仓+ATR',granularity:'日频',provider:'上海期货交易所',frequency:'每日收盘后更新',latency:'T+0 (实时)',quality:'高 · 交易所官方数据'}
+  };
+  
+  // Match source to detail
+  for(const [key, detail] of Object.entries(sources)){
+    if(f.source && f.source.includes(key)){
+      return detail;
+    }
+  }
+  
+  // Default
+  return {source:f.source||'未知',granularity:'日频',provider:'—',frequency:'—',latency:'—',quality:'—'};
+}
+
+function closeProvenanceModal(){
+  document.getElementById('provenance-modal-overlay').classList.remove('show');
+}
+
+/* ---------- TRADE MODAL ---------- */
+function openTradeModal(tradeData){
+  const modal = document.getElementById('trade-modal');
+  const signalColor = tradeData.type==='LONG'?'long':(tradeData.type==='SHORT'?'short':'close');
+  const typeLabel = tradeData.type==='LONG'?'开多':(tradeData.type==='SHORT'?'开空':'平仓');
+  
+  modal.innerHTML = `
+    <div class="trade-modal-header">
+      <div class="trade-modal-title">📋 ${typeLabel} · ${tradeData.date}</div>
+      <button class="modal-close" onclick="closeTradeModal()">×</button>
+    </div>
+    <div class="trade-modal-body">
+      <div class="trade-row"><span class="label">交易类型</span><span class="val ${signalColor}">${typeLabel}</span></div>
+      <div class="trade-row"><span class="label">交易时间</span><span class="val">${tradeData.date} ${tradeData.type==='CLOSE'?'14:55:00':'09:30:00'}</span></div>
+      <div class="trade-row"><span class="label">交易价格</span><span class="val">${tradeData.price.toFixed(1)}</span></div>
+      <div class="trade-row"><span class="label">信号强度</span><span class="val">因子分: ${tradeData.factorScore.toFixed(4)}</span></div>
+      <div class="trade-row"><span class="label">Alpha预测</span><span class="val">${tradeData.alphaPrediction.toFixed(4)}</span></div>
+      <div class="trade-row"><span class="label">置信度</span><span class="val">${(tradeData.confidence*100).toFixed(0)}%</span></div>
+      <div class="trade-row"><span class="label">仓位</span><span class="val">${tradeData.type==='CLOSE'?'清仓':(tradeData.type==='LONG'?'多头 5%':'空头 5%')}</span></div>
+      <div class="trade-row"><span class="label">触发因子</span><span class="val">${tradeData.factorDrivers.join(', ')||'—'}</span></div>
+      <div class="trade-row"><span class="label">市场区制</span><span class="val">${tradeData.regime}</span></div>
+      ${tradeData.pnl !== undefined ? `
+      <div class="trade-row" style="border-top:2px solid var(--border);padding-top:8px;margin-top:4px;"><span class="label">单笔盈亏</span><span class="val ${tradeData.pnl>=0?'profit':'loss'}">${tradeData.pnl>=0?'+':''}${tradeData.pnl.toFixed(2)}%</span></div>
+      <div class="trade-row"><span class="label">持仓天数</span><span class="val">${tradeData.holdingDays} 天</span></div>
+      <div class="trade-row"><span class="label">开仓时间</span><span class="val">${tradeData.openDate||'—'}</span></div>` : ''}
+      <div class="trade-row"><span class="label">净值(NAV)</span><span class="val">${tradeData.nav.toFixed(4)}</span></div>
+    </div>
+  `;
+  document.getElementById('trade-modal-overlay').classList.add('show');
+}
+
+function closeTradeModal(){
+  document.getElementById('trade-modal-overlay').classList.remove('show');
+}
+
+/* ---------- PARAM CONSOLE HANDLERS ---------- */
+function toggleFRRisk(){
+  const el = document.getElementById('fr-risk-toggle');
+  STATE.frRisk = !STATE.frRisk;
+  el.classList.toggle('on', STATE.frRisk);
+  const state = document.getElementById('fr-risk-state');
+  state.textContent = STATE.frRisk ? 'ON' : 'OFF';
+  state.className = 'toggle-state ' + (STATE.frRisk ? 'on' : 'off');
+}
+
+function onSliderInput(){
+  document.getElementById('pos-cap-val').textContent = document.getElementById('param-poscap').value + '%';
+}
+
+async function runBacktest(){
+  if(VARIETIES[STATE.variety].status !== 'OK') return;
+  const btn = document.getElementById('btn-run');
+  const overlay = document.getElementById('loading-overlay');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span><span>正在回测…</span>';
+  overlay.classList.add('show');
+  document.getElementById('loading-sub').textContent = `读取 ${STATE.variety} ${STATE.currentData?.dates?.length||60} 交易日 · 因子 ${STATE.factors.size} 个`;
+
+  // read params
+  STATE.startDate = document.getElementById('param-start').value;
+  STATE.endDate = document.getElementById('param-end').value;
+  STATE.initialCapital = +document.getElementById('param-capital').value;
+  STATE.slippage = +document.getElementById('param-slippage').value;
+  STATE.positionCap = +document.getElementById('param-poscap').value;
+
+  // Simulate async computation
+  await new Promise(r=>setTimeout(r, 700));
+  refreshData();
+  overlay.classList.remove('show');
+  btn.disabled = false;
+  btn.innerHTML = '<span>▶ 执行回测</span>';
+  document.getElementById('run-status').textContent = 'RUN_OK';
+  setTimeout(()=>{ document.getElementById('run-status').textContent = 'READY'; }, 3000);
+}
+
+/* ---------- CHART EXPORT ---------- */
+function exportChart(id){
+  const chart = STATE.charts[id];
+  if(!chart) return;
+  const url = chart.getDataURL({type:'png', pixelRatio:2, backgroundColor:COLORS.bg});
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${STATE.variety}_${id}_${Date.now()}.png`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+/* ---------- INIT ---------- */
+function init(){
+  renderVarietyPanel();
+  renderFactorPanel();
+  renderFactorTable();
+  // initial data
+  refreshData();
+  // event listeners
+  document.getElementById('param-poscap').addEventListener('input', onSliderInput);
+  window.addEventListener('resize', ()=>{
+    Object.values(STATE.charts).forEach(c=>c.resize());
+  });
+  // keyboard: ESC to close modal
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape'){
+      closeModal();
+      closeTradeModal();
+      closeProvenanceModal();
+    }
+  });
+}
+
+window.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
