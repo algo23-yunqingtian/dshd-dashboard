@@ -1,0 +1,18 @@
+{
+  "counters": {
+    "FR-RISK-501": {
+      "count": 0,
+      "last_event_id": "I-501-002-B"
+    },
+    "FR-RISK-504": {
+      "count": 0,
+      "last_event_id": "I-504-002-B"
+    },
+    "FR-RISK-508": {
+      "count": 1,
+      "last_event_id": "I-508-001-B"
+    }
+  },
+  "last_updated": "2026-11-16T14:30:00+08:00",
+  "service": "V87-03"
+}
