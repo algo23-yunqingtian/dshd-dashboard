@@ -875,6 +875,18 @@ strong{color:var(--text);}
 }
 .data-error-msg .icon { font-size: 16px; margin-right: 4px; }
 
+
+@media (max-width: 768px) {
+  #euler-bar-chart { height: 220px !important; }
+  #euler-ts-chart { height: 260px !important; }
+  #euler-summary-cards .stat-card { padding: 4px 6px !important; }
+  #euler-summary-cards .stat-card .value { font-size: 13px !important; }
+  #ic-drift-cu-progress .stat-card { min-width: 60px !important; padding: 2px 6px !important; }
+}
+@media (max-width: 480px) {
+  #euler-bar-chart { height: 180px !important; }
+  #euler-ts-chart { height: 200px !important; }
+}
 </style>
 </head>
 <body>
@@ -4606,10 +4618,13 @@ function renderEulerRiskContribution() {
     
     chart.setOption({
       tooltip: { trigger: 'axis', formatter: params => {
-        let s = params[0].axisValue + '<br/>';
+        let s = '<b>' + params[0].axisValue + '</b><br/>';
         params.forEach(p => { s += p.marker + p.seriesName + ': <b>' + p.value.toFixed(2) + '%</b><br/>'; });
+        const excess = (params[1]?.value - params[0]?.value).toFixed(2);
+        s += '<span style="color:' + (excess > 2 ? '#ef4444' : '#4ade80') + '">超额: ' + (excess > 0 ? '+' : '') + excess + '%</span>';
         return s;
       }},
+      markLine: { data: [{ yAxis: 14.3, label: { formatter: '等权基准 14.3%', color: '#60a5fa', fontSize: 9 }, lineStyle: { color: '#60a5fa', type: 'dashed' } }] },
       legend: { data: ['配置权重', '风险贡献'], textStyle: { color: '#8b95b8', fontSize: 10 }, top: 4 },
       grid: { left: 50, right: 20, top: 40, bottom: 30 },
       xAxis: { type: 'category', data: varieties, axisLabel: { color: '#8b95b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#8b95b8' } } },
@@ -4670,6 +4685,7 @@ function renderEulerRiskContribution() {
   if (tableEl) {
     const varieties = ['AL','PB','CU','ZN','SN','NI','SI'];
     tableEl.innerHTML = `
+      <div style="font-size:10px;color:var(--text-dim);margin-bottom:4px;">💡 悬停查看品种详情 · 超额风险 = 风险贡献 - 配置权重</div>
       <table class="data-table" style="font-size:11px;">
         <tr><th>品种</th><th>配置权重</th><th>风险贡献</th><th>超额风险</th><th>状态</th></tr>
         ${varieties.map(v => {
