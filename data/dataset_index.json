@@ -1,0 +1,432 @@
+{
+  "dataset_version": "1.10",
+  "version_tag": "P34",
+  "generated_at": "2029-02-02T09:00:00+08:00",
+  "seed": 42,
+  "description": "P31 dataset index - 60 数据集全量清单 / V31.0",
+  "total_files": 60,
+  "total_size_kb": 676.37,
+  "files": {
+    "MD5_BASELINE.json": {
+      "size_bytes": 22442,
+      "md5": "828a56b406e7d072cd120e4d326287b2"
+    },
+    "backtest_AL.json": {
+      "size_bytes": 2516,
+      "md5": "e2eaf42ee99075eb566aaa6c5aa81337"
+    },
+    "backtest_CU.json": {
+      "size_bytes": 2510,
+      "md5": "0715f1e750d9de66c0ed6b8a2c6edf1d"
+    },
+    "backtest_NI.json": {
+      "size_bytes": 2516,
+      "md5": "0de1971c78d7eb0af85b8d3908be40e3"
+    },
+    "backtest_PB.json": {
+      "size_bytes": 2507,
+      "md5": "6374977d508598e4c4f27211e063a14b"
+    },
+    "backtest_SI.json": {
+      "size_bytes": 2513,
+      "md5": "b9242a5391b823ec190742586c2c0a8d"
+    },
+    "backtest_SN.json": {
+      "size_bytes": 2514,
+      "md5": "baa575ae6c237bc439943a73b72f7e3d"
+    },
+    "backtest_ZN.json": {
+      "size_bytes": 2513,
+      "md5": "df95b0ed713a1eed8e5ead5ae9a7b3d0"
+    },
+    "cross_variety_comparison.json": {
+      "size_bytes": 4340,
+      "md5": "6b50309f460d921524c1a437b04207e8"
+    },
+    "data_completion_status.json": {
+      "size_bytes": 2424,
+      "md5": "dc5dd39c8510fd4e33f64098258172a5"
+    },
+    "data_defect_alerts.json": {
+      "size_bytes": 2235,
+      "md5": "0b6cbba07882a1984983b7f4d52ec9ba"
+    },
+    "dataset_index.json": {
+      "size_bytes": 11804,
+      "md5": "07a3422c297c7e14168556b8b69aafbe"
+    },
+    "drift_root_cause.json": {
+      "size_bytes": 10388,
+      "md5": "1618db9c839c9305f21d3b39b4f11679"
+    },
+    "experiment_index.json": {
+      "size_bytes": 2353,
+      "md5": "41198c1fa0c0d1f74c2a1f57628561d3"
+    },
+    "experiment_manifest.json": {
+      "size_bytes": 12414,
+      "md5": "82de9d9e1e164cc081419f371841d8ec"
+    },
+    "factor_drift_alerts.json": {
+      "size_bytes": 3618,
+      "md5": "ec249e7452f0a3d109a3d1f8f71ec093"
+    },
+    "factors_full.json": {
+      "size_bytes": 60845,
+      "md5": "1919e8c6ec241ffe66e69166e449046a"
+    },
+    "fr_risk_alerts.json": {
+      "size_bytes": 7797,
+      "md5": "6f162849cebf3b0145438956bced0388"
+    },
+    "ic_drift_timeseries.json": {
+      "size_bytes": 22190,
+      "md5": "8f26d483bd46ae5723e2a5c26e01ed19"
+    },
+    "ni_si_panels.json": {
+      "size_bytes": 1949,
+      "md5": "ac08bd9a644928ec37f4a95759e88ab1"
+    },
+    "p31_site_health.json": {
+      "size_bytes": 2554,
+      "md5": "2329cb36dca9b5e500ac16a9c1db32ab"
+    },
+    "pb_cu_gray_admission_status.json": {
+      "size_bytes": 8785,
+      "md5": "2e76f80f3f1e4b2f4e1fdd4acfa9a859"
+    },
+    "pc003_status.json": {
+      "size_bytes": 2311,
+      "md5": "34fd876fc05911db0849abe3f23b1332"
+    },
+    "pc003_unlock_assessment.json": {
+      "size_bytes": 10996,
+      "md5": "4e22a81d3f0e9d30115490867ca3c75e"
+    },
+    "phase4_precheck.json": {
+      "size_bytes": 3826,
+      "md5": "d778c826f2369d3149444e28cc5bfa0c"
+    },
+    "pl_summary.json": {
+      "size_bytes": 2219,
+      "md5": "785db1a729f3b708333c95853cb0327d"
+    },
+    "portfolio_backtest.json": {
+      "size_bytes": 7204,
+      "md5": "925922f2fb515954975ffb7b65e3cdf4"
+    },
+    "portfolio_backtest_7asset.json": {
+      "size_bytes": 24779,
+      "md5": "ebab12ee86e5803b5e7b448b57a62aaf"
+    },
+    "portfolio_correlation.json": {
+      "size_bytes": 12169,
+      "md5": "8cfa29349e2fecd7884e511862fe1935"
+    },
+    "portfolio_daily_position.json": {
+      "size_bytes": 34807,
+      "md5": "7a477b3534c019aec3204b6c6859dcd5"
+    },
+    "portfolio_risk_contribution.json": {
+      "size_bytes": 28720,
+      "md5": "ead53e5eb580a8c324f0eac6a9138901"
+    },
+    "portfolio_risk_contribution_timeseries.json": {
+      "size_bytes": 118661,
+      "md5": "5ab7f08516c19eebd050aefe5715d78c"
+    },
+    "portfolio_risk_metrics.json": {
+      "size_bytes": 3088,
+      "md5": "692a35a67de4b47702fc00fafdf3b0ac"
+    },
+    "rollback_events.json": {
+      "size_bytes": 1371,
+      "md5": "27b0053bc13af0b208f0c4954da9b929"
+    },
+    "rolling_correlation_matrix.json": {
+      "size_bytes": 42865,
+      "md5": "c2afd0f716c7a6f08af258a012eaa375"
+    },
+    "trades_AL.json": {
+      "size_bytes": 4470,
+      "md5": "ce2c7e7c4d1fbffd73a20fea4a184f0d"
+    },
+    "trades_CU.json": {
+      "size_bytes": 4467,
+      "md5": "d3dfe04934686fed702e4b03e8efa907"
+    },
+    "trades_NI.json": {
+      "size_bytes": 4477,
+      "md5": "03aca13f66f0d3fed9e6ce0752651bb5"
+    },
+    "trades_PB.json": {
+      "size_bytes": 4469,
+      "md5": "3367dfb7fab4745a3b45bf1ada83387d"
+    },
+    "trades_SI.json": {
+      "size_bytes": 4471,
+      "md5": "0e4a89796f010061d1b843b272955ceb"
+    },
+    "trades_SN.json": {
+      "size_bytes": 4481,
+      "md5": "e507c96a73c3bbe0fac10c2e12acb462"
+    },
+    "trades_ZN.json": {
+      "size_bytes": 4467,
+      "md5": "5252b5e0c96fb3f284e477eded4d90a3"
+    },
+    "version_index.json": {
+      "size_bytes": 11327,
+      "md5": "c0aa9ca3a42085086e5d20adc6333af3"
+    },
+    "vis_dashboard_main.html": {
+      "size_bytes": 25124,
+      "md5": "6205e5b7d134ed6a83a1a7dea6dcb60b"
+    },
+    "vis_dataset_manifest.json": {
+      "size_bytes": 7361,
+      "md5": "2cc487f488a36f215301f03971a33965"
+    },
+    "vis_pre_calc_AL_F19_F20_comparison.csv": {
+      "size_bytes": 1844,
+      "md5": "2a2c80ae7064daa7d3420aace420660b"
+    },
+    "vis_pre_calc_AL_alpha.csv": {
+      "size_bytes": 9320,
+      "md5": "b80adf29974aaffbd33b3a1b4e05c0e8"
+    },
+    "vis_pre_calc_AL_factor_contributions.csv": {
+      "size_bytes": 8015,
+      "md5": "a4d4bdc65a902305ec0486fdfb7a0c3b"
+    },
+    "vis_pre_calc_AL_kline.csv": {
+      "size_bytes": 18227,
+      "md5": "78a59ef5eb4bb58bca066d21017e8b69"
+    },
+    "vis_pre_calc_AL_nav.csv": {
+      "size_bytes": 8574,
+      "md5": "a356dfda641c31b4b7f29252dc926d3b"
+    },
+    "vis_pre_calc_AL_signals.csv": {
+      "size_bytes": 3387,
+      "md5": "e76d188baecb61a0fe2dee5cc5773045"
+    },
+    "vis_pre_calc_CU_alpha.csv": {
+      "size_bytes": 9253,
+      "md5": "839d54b74741cebce77f2710e05099e0"
+    },
+    "vis_pre_calc_CU_kline.csv": {
+      "size_bytes": 18252,
+      "md5": "db8907956cd748bbe85179fe494c6430"
+    },
+    "vis_pre_calc_CU_nav.csv": {
+      "size_bytes": 9020,
+      "md5": "d78b850c0109143ed3c40a62a5f0e351"
+    },
+    "vis_pre_calc_CU_signals.csv": {
+      "size_bytes": 3089,
+      "md5": "7b26ac099ddef85d0cd74a83ac206a44"
+    },
+    "vis_pre_calc_PB_alpha.csv": {
+      "size_bytes": 9305,
+      "md5": "85f512e4cbefe631f91e72b608e62b7d"
+    },
+    "vis_pre_calc_PB_kline.csv": {
+      "size_bytes": 18037,
+      "md5": "ecc0d77894d5394209bab9325dedc6c2"
+    },
+    "vis_pre_calc_PB_nav.csv": {
+      "size_bytes": 8573,
+      "md5": "b2378580411b6b0955c46766ab2a1c40"
+    },
+    "vis_pre_calc_PB_signals.csv": {
+      "size_bytes": 3255,
+      "md5": "aed76d0059771eb71f4efa118fb3f529"
+    },
+    "vis_validation_report.md": {
+      "size_bytes": 2595,
+      "md5": "ad4f845d46c236fcf793a1e64974d97f"
+    }
+  },
+  "updated_files_p24": [
+    "version_index.json",
+    "experiment_index.json",
+    "dataset_index.json",
+    "data_completion_status.json",
+    "fr_risk_alerts.json",
+    "pc003_status.json",
+    "pc003_unlock_assessment.json",
+    "pl_summary.json",
+    "cross_variety_comparison.json",
+    "portfolio_backtest.json",
+    "portfolio_correlation.json",
+    "portfolio_risk_metrics.json",
+    "portfolio_risk_contribution.json"
+  ],
+  "new_files_p24": [
+    "portfolio_risk_contribution_timeseries.json"
+  ],
+  "p31_meta": {
+    "bumped_at": "2029-02-02T09:00:00+08:00"
+  },
+  "core_18_datasets": [
+    {
+      "name": "fr_risk_alerts",
+      "file": "fr_risk_alerts.json",
+      "present": true,
+      "size_bytes": 7797,
+      "md5": "6f162849cebf3b0145438956bced0388"
+    },
+    {
+      "name": "factor_drift_alerts",
+      "file": "factor_drift_alerts.json",
+      "present": true,
+      "size_bytes": 3618,
+      "md5": "ec249e7452f0a3d109a3d1f8f71ec093"
+    },
+    {
+      "name": "ic_drift_timeseries",
+      "file": "ic_drift_timeseries.json",
+      "present": true,
+      "size_bytes": 22190,
+      "md5": "8f26d483bd46ae5723e2a5c26e01ed19"
+    },
+    {
+      "name": "drift_root_cause",
+      "file": "drift_root_cause.json",
+      "present": true,
+      "size_bytes": 10388,
+      "md5": "1618db9c839c9305f21d3b39b4f11679"
+    },
+    {
+      "name": "pb_cu_gray_admission_status",
+      "file": "pb_cu_gray_admission_status.json",
+      "present": true,
+      "size_bytes": 8785,
+      "md5": "2e76f80f3f1e4b2f4e1fdd4acfa9a859"
+    },
+    {
+      "name": "pc003_status",
+      "file": "pc003_status.json",
+      "present": true,
+      "size_bytes": 2311,
+      "md5": "34fd876fc05911db0849abe3f23b1332"
+    },
+    {
+      "name": "pc003_unlock_assessment",
+      "file": "pc003_unlock_assessment.json",
+      "present": true,
+      "size_bytes": 10996,
+      "md5": "4e22a81d3f0e9d30115490867ca3c75e"
+    },
+    {
+      "name": "phase4_precheck",
+      "file": "phase4_precheck.json",
+      "present": true,
+      "size_bytes": 3826,
+      "md5": "d778c826f2369d3149444e28cc5bfa0c"
+    },
+    {
+      "name": "data_completion_status",
+      "file": "data_completion_status.json",
+      "present": true,
+      "size_bytes": 2424,
+      "md5": "dc5dd39c8510fd4e33f64098258172a5"
+    },
+    {
+      "name": "experiment_index",
+      "file": "experiment_index.json",
+      "present": true,
+      "size_bytes": 2353,
+      "md5": "41198c1fa0c0d1f74c2a1f57628561d3"
+    },
+    {
+      "name": "version_index",
+      "file": "version_index.json",
+      "present": true,
+      "size_bytes": 11327,
+      "md5": "c0aa9ca3a42085086e5d20adc6333af3"
+    },
+    {
+      "name": "pl_summary",
+      "file": "pl_summary.json",
+      "present": true,
+      "size_bytes": 2219,
+      "md5": "785db1a729f3b708333c95853cb0327d"
+    },
+    {
+      "name": "cross_variety_comparison",
+      "file": "cross_variety_comparison.json",
+      "present": true,
+      "size_bytes": 4340,
+      "md5": "6b50309f460d921524c1a437b04207e8"
+    },
+    {
+      "name": "portfolio_backtest",
+      "file": "portfolio_backtest.json",
+      "present": true,
+      "size_bytes": 7204,
+      "md5": "925922f2fb515954975ffb7b65e3cdf4"
+    },
+    {
+      "name": "portfolio_correlation",
+      "file": "portfolio_correlation.json",
+      "present": true,
+      "size_bytes": 12169,
+      "md5": "8cfa29349e2fecd7884e511862fe1935"
+    },
+    {
+      "name": "portfolio_risk_metrics",
+      "file": "portfolio_risk_metrics.json",
+      "present": true,
+      "size_bytes": 3088,
+      "md5": "692a35a67de4b47702fc00fafdf3b0ac"
+    },
+    {
+      "name": "portfolio_risk_contribution",
+      "file": "portfolio_risk_contribution.json",
+      "present": true,
+      "size_bytes": 28720,
+      "md5": "ead53e5eb580a8c324f0eac6a9138901"
+    },
+    {
+      "name": "rolling_correlation_matrix",
+      "file": "rolling_correlation_matrix.json",
+      "present": true,
+      "size_bytes": 42865,
+      "md5": "c2afd0f716c7a6f08af258a012eaa375"
+    }
+  ],
+  "core_18_count": 18,
+  "core_18_total_size_bytes": 186620,
+  "new_in_p25": [
+    "ic_drift_timeseries.json (P25 重写: Phase6~P25 时序)",
+    "drift_root_cause.json (P25 NEW: 根因+4方案测算)",
+    "rolling_correlation_matrix.json (P25 重写: 多窗口6窗口)",
+    "p25_site_health.json (T1 稳定性巡检, P26 起改名 p31_site_health.json)"
+  ],
+  "p31_fr_risk_additions": [
+    "FR-RISK-PG31-ICDRIFT-021",
+    "FR-RISK-PG31-PBCU-022"
+  ],
+  "p31_factor_drift_additions": [
+    "DRIFT-BLOCK-001",
+    "DRIFT-PSYCH-001",
+    "DRIFT-PSYCH-002"
+  ],
+  "new_in_p31": [
+    "p31_site_health.json (T1 线上稳定性巡检)",
+    "ic_drift_timeseries.json (P6..P31 23阶段)",
+    "drift_root_cause.json (V2.5-P31)",
+    "MD5_BASELINE.json (相位无关, 取代 MD5_BASELINE_P25.json)"
+  ],
+  "p31_drift_monitor_alerts": [
+    "DRIFT-F19-001",
+    "DRIFT-F20-001",
+    "DRIFT-F07-001",
+    "DRIFT-F11-001"
+  ],
+  "p31_drift_alert_total": 7,
+  "previous_version_tag": "P33",
+  "previous_dataset_version": "1.10"
+}
