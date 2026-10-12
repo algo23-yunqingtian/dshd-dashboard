@@ -232,5 +232,7 @@
     "dual_version_provided": true,
     "cost_adjusted_portfolio_provided": true,
     "conclusion": "零成本假设使NAV高估3.6%；已提供双版本回测供对照；实盘需集成成本模型"
-  }
+  },
+  "version_tag": "P32",
+  "dataset_version": "1.9"
 }
