@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.13",
+  "dataset_version": "1.14",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "source": "DSHD DEFECT-P9-001/P9-002 回归 + 数据质量检查",
@@ -55,7 +55,7 @@
     "open": 2,
     "pending": 1
   },
-  "version_tag": "P38",
+  "version_tag": "P39",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
@@ -70,7 +70,7 @@
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V38.0",
+    "dashboard_version": "V39.0",
     "updated_at": "2026-10-12T14:49:49.116515",
     "data_source": "DSHA-P38"
   }
