@@ -1,0 +1,24 @@
+{
+  "version_tag": "P34",
+  "dataset_version": "1.10",
+  "phase": "Phase34",
+  "generated_at": "2026-10-12T11:15:09.770522",
+  "generated_by": "DSHD-P30",
+  "deployment_version": "V34.0",
+  "total_files": 174,
+  "total_size_kb": 0,
+  "http_200_count": 0,
+  "http_200_pct": 0,
+  "latency": {
+    "median_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0
+  },
+  "health_check_rounds": 0,
+  "last_health_check": null,
+  "pb_dual_curve_status": "FUNCTIONAL",
+  "null_safety_status": "ACTIVE",
+  "fr_risk_status": "ALL_PASS",
+  "gray_admission": "PB_ADMITTED_CU_IMPROVING",
+  "status": "PRE_DEPLOYMENT"
+}
