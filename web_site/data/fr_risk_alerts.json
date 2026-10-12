@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P35",
+  "dataset_version": "1.11",
+  "version_tag": "P36",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 FR-RISK alerts - P31 漂移解除 + PB/CU 灰度持续 / V31.0",
