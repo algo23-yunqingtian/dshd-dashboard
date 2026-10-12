@@ -1,7 +1,7 @@
 {
-  "manifest_version": "EXPERIMENT_MANIFEST_V2",
-  "generated_at": "2026-10-12 15:49:01",
-  "engine_current": "V86.9-C-FINAL-DEBUG-P39",
+  "manifest_version": "EXPERIMENT_MANIFEST_V3",
+  "generated_at": "2026-10-12 18:40:44",
+  "engine_current": "V86.9-C-FINAL-DEBUG-P41",
   "metric_dictionary_version": "METRIC_DICT_V1",
   "fr_risk_status_enum": [
     "NO_TRIGGER",
@@ -28,9 +28,9 @@
       "phase": "P34",
       "engine": "V86.9-C-FINAL-DEBUG-P34",
       "flag_sha8": "64A539EB",
-      "runtime_model_seconds": 0.991,
+      "runtime_model_seconds": 1.031,
       "ic": 0.0586,
-      "drift_pct": 2.0,
+      "drift_pct": 3.0,
       "module_features": [
         "rolling_correlation_vectorized"
       ],
@@ -41,9 +41,9 @@
       "phase": "P35",
       "engine": "V86.9-C-FINAL-DEBUG-P35",
       "flag_sha8": "CC07C536",
-      "runtime_model_seconds": 0.991,
+      "runtime_model_seconds": 1.338,
       "ic": 0.0586,
-      "drift_pct": 2.0,
+      "drift_pct": 2.8,
       "module_features": [
         "parallel_7variety_scheduler"
       ],
@@ -54,9 +54,9 @@
       "phase": "P36",
       "engine": "V86.9-C-FINAL-DEBUG-P36",
       "flag_sha8": "B922AD29",
-      "runtime_model_seconds": 0.991,
+      "runtime_model_seconds": 1.151,
       "ic": 0.0586,
-      "drift_pct": 2.0,
+      "drift_pct": 2.6,
       "module_features": [
         "portfolio_construction_vectorized"
       ],
@@ -64,12 +64,12 @@
       "status": "DELIVERED"
     },
     {
-      "phase": "P37",
-      "engine": "V86.9-C-FINAL-DEBUG-P37",
+      "phase": "P39",
+      "engine": "V86.9-C-FINAL-DEBUG-P39",
       "flag_sha8": "93F7223D",
-      "runtime_model_seconds": 0.991,
+      "runtime_model_seconds": 1.031,
       "ic": 0.0586,
-      "drift_pct": 2.0,
+      "drift_pct": 2.4,
       "module_features": [
         "euler_risk_contribution_vectorized"
       ],
@@ -77,10 +77,10 @@
       "status": "SUPERSEDED_BY_P38"
     },
     {
-      "phase": "P38",
-      "engine": "V86.9-C-FINAL-DEBUG-P38",
-      "flag_sha8": "6266E99F",
-      "runtime_model_seconds": 0.991,
+      "phase": "P39",
+      "engine": "V86.9-C-FINAL-DEBUG-P39",
+      "flag_sha8": "635D3518",
+      "runtime_model_seconds": 0.979,
       "ic": 0.0586,
       "drift_pct": 2.0,
       "module_features": [
@@ -95,11 +95,11 @@
     },
     {
       "phase": "P39",
-      "engine": "V86.9-C-FINAL-DEBUG-P39",
+      "engine": "V86.9-C-FINAL-DEBUG-P41",
       "flag_sha8": "PENDING_ISSUE",
-      "runtime_model_seconds": 0.991,
+      "runtime_model_seconds": 0.979,
       "ic": 0.0586,
-      "drift_pct": 2.0,
+      "drift_pct": 1.6,
       "module_features": [
         "deprecated_key_blacklist",
         "layered_float32_crossover_sweep",
@@ -113,32 +113,31 @@
     }
   ],
   "current": {
-    "phase": "Phase39",
-    "engine": "V86.9-C-FINAL-DEBUG-P39",
+    "phase": "Phase41",
+    "engine": "V86.9-C-FINAL-DEBUG-P41",
     "date_range": {
-      "start": "2030-01-14",
-      "end": "2030-03-01",
+      "start": "2030-04-23",
+      "end": "2030-06-10",
       "trading_days": 35
     },
     "weeks": [
-      "W148",
-      "W149",
-      "W150",
-      "W151",
-      "W152",
-      "W153",
-      "W154"
+      "W162",
+      "W163",
+      "W164",
+      "W165",
+      "W166",
+      "W167",
+      "W168"
     ],
     "seed": 42,
     "rng": "mulberry32",
-    "runtime_model_seconds": 0.991,
-    "runtime_reduction_vs_p38_pct": -0.7,
-    "runtime_reduction_vs_p37_pct": 3.9,
+    "runtime_model_seconds": 0.979,
+    "runtime_reduction_vs_p39_pct": -0.2,
     "ic": 0.0586,
-    "drift_pct": 2.0,
-    "cu_bear_ic": 0.0253,
+    "drift_pct": 1.6,
+    "cu_bear_ic": 0.0259,
     "cu_gate_baseline": 0.025,
-    "fr_risk_501_status": "RELEASED_CONFIRMED",
+    "fr_risk_501_status": "CLOSED",
     "float32_tolerance": 1e-06,
     "float32_global_max_deviation": 4.67155717720491e-08,
     "small_batch_threshold": 512,
@@ -149,7 +148,7 @@
       "rolling_correlation": "AUTO_FALLBACK_FLOAT64"
     },
     "incremental_n_kernels": 3,
-    "incremental_speedup": 2.945,
+    "incremental_speedup": 2.918,
     "deprecated_keys_blacklist": [
       "cross_agent_sync"
     ],
@@ -161,34 +160,48 @@
       "P38",
       "P39"
     ],
-    "runtime_model_seconds": 0.991,
-    "ic": 0.0586,
-    "drift_pct": 2.0,
-    "pb_bear_ic": 0.0322,
-    "cu_bear_ic": 0.0253,
+    "runtime_model_seconds": [
+      0.977,
+      0.979,
+      0.979
+    ],
+    "ic": [
+      0.0586,
+      0.0586,
+      0.0586
+    ],
+    "drift_pct": [
+      2.2,
+      2.0,
+      1.6
+    ],
+    "pb_bear_ic": [
+      0.0322,
+      0.0322,
+      0.0322
+    ],
+    "cu_bear_ic": [
+      0.025,
+      0.0253,
+      0.0259
+    ],
     "fr_risk_501_status": [
       "CONTINUED",
       "RELEASED_UNCONFIRMED",
-      "RELEASED_CONFIRMED"
+      "CLOSED"
     ],
-    "cumulative_days": 1085,
+    "cumulative_days": [
+      1050,
+      1085,
+      1155
+    ],
     "total_phases": [
       29,
       30,
-      31
+      33
     ]
   },
-  "version_tag": "P40",
-  "dataset_version": "1.15",
-  "_dsd_metadata": {
-    "dashboard_version": "V39.0",
-    "phase": "DSHD-P35",
-    "updated_at": "2026-10-12T16:00:00+08:00",
-    "source": "DSHA-P39",
-    "flags": [
-      "FR-RISK_RELEASED_CONFIRMED",
-      "FLOAT32_GATE_PASS",
-      "COST_MODEL_INTEGRATED"
-    ]
-  }
+  "version_tag": "P41",
+  "dataset_version": "1.16",
+  "dashboard_version": "V41.0"
 }
