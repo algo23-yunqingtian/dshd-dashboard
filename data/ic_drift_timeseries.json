@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.15",
-  "version_tag": "P40",
+  "dataset_version": "1.16",
+  "version_tag": "P41",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG-P31",
+  "engine": "V86.9-C-FINAL-DEBUG-P41",
   "description": "Phase6~P31 IC 漂移完整时序 / 5.0% 阈值 / 结构性慢衰减后方案D稳态回升 / V31.0",
   "source": "DSHA-P31 PHASE31_DATA_READY.flag (drift_rate_pct=3.6) + factor_drift_root_cause_report.md",
   "threshold_pct": 5.0,
@@ -26,9 +26,9 @@
   "monitoring": {
     "total_monitor_days": 595,
     "zero_rollback_days": 595,
-    "drift_alert_counter": 1015,
-    "sigma_weeks": "119/119",
-    "fr_risk_501_days": 600,
+    "drift_alert_counter": 1974,
+    "sigma_weeks": 231,
+    "fr_risk_501_days": 1155,
     "bad_sample_masker": "ALL_4_ENABLED",
     "td_046_enforced": true,
     "method": "BEAR regime IC 周度重算 + 30/60/120d 滚动稳定性检查"
@@ -617,6 +617,26 @@
       "ic_drift_direction": "stable",
       "over_threshold": false,
       "date_range": "2029-07-01 ~ 2029-08-15"
+    },
+    {
+      "phase": "Phase41",
+      "phase_index": 24,
+      "end_date": "2030-06-10",
+      "ic_baseline_p6": 0.061,
+      "ic_current": 0.0586,
+      "ic_delta_vs_p6": -0.0024,
+      "ic_drift_pct": 1.6,
+      "threshold_pct": 5.0,
+      "legacy_threshold_pct": 10.0,
+      "deviation_from_threshold_pp": -3.4,
+      "status": "NORMAL",
+      "color": "GREEN",
+      "block_active": false,
+      "monitor_days_in_phase": 35,
+      "cumulative_monitor_days": 1155,
+      "pb_bear_ic": 0.0322,
+      "cu_bear_ic": 0.0259,
+      "fr_risk_501_status": "CLOSED"
     }
   ],
   "summary": {
@@ -710,12 +730,22 @@
   "cross_agent": {
     "DSHD_version": "V35.0",
     "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
+    "DSHA_phase": "P35",
+    "DSHA": "P41",
+    "DSHD": "V41.0"
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V39.0",
+    "dashboard_version": "V41.0",
     "updated_at": "2026-10-12T14:49:49.135518",
-    "data_source": "DSHA-P38"
+    "data_source": "DSHA-P38",
+    "phase": "DSHD-P37",
+    "source": "DSHA-P41",
+    "flags": [
+      "FR-RISK_CLOSED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
+    ]
   }
 }
