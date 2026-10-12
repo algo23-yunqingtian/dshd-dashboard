@@ -1,1669 +1,1554 @@
 {
-  "portfolio_name": "7-ASSET EQUAL-WEIGHT PORTFOLIO",
-  "engine_version": "V86.9-C-FINAL-DEBUG-P31",
-  "phase": "Phase31",
-  "dates": [
-    "2028-12-18",
-    "2028-12-19",
-    "2028-12-20",
-    "2028-12-21",
-    "2028-12-22",
-    "2028-12-25",
-    "2028-12-26",
-    "2028-12-27",
-    "2028-12-28",
-    "2028-12-29",
-    "2029-01-01",
-    "2029-01-02",
-    "2029-01-03",
-    "2029-01-04",
-    "2029-01-05",
-    "2029-01-08",
-    "2029-01-09",
-    "2029-01-10",
-    "2029-01-11",
-    "2029-01-12",
-    "2029-01-15",
-    "2029-01-16",
-    "2029-01-17",
-    "2029-01-18",
-    "2029-01-19",
-    "2029-01-22",
-    "2029-01-23",
-    "2029-01-24",
-    "2029-01-25",
-    "2029-01-26",
-    "2029-01-29",
-    "2029-01-30",
-    "2029-01-31",
-    "2029-02-01",
-    "2029-02-02"
-  ],
-  "positions": [
-    {
-      "date": "2028-12-18",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.68
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 16.85
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.95
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.85
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.97
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.65
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.38
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-19",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.7
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.89
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.84
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.58
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.12
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.31
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.21
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-20",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 19.09
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.01
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.01
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.86
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.57
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.25
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.36
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-21",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.86
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.38
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.56
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.87
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.7
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.86
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.87
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-22",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.74
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.26
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.73
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.16
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.48
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.58
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.71
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-25",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.82
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.69
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.15
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.03
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.81
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.09
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.43
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-26",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.2
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.24
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.4
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.42
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.68
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.39
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 11.82
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-27",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 19.34
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.52
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.42
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.84
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.86
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.37
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.13
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-28",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.4
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.16
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.23
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 15.14
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.1
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.58
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.82
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2028-12-29",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.44
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.66
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.16
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 15.06
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.12
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.42
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.36
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-02",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.35
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.9
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.93
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 15.14
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.35
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.72
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.68
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-03",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.64
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.25
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.08
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.58
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.96
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.74
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 11.74
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-04",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.83
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.06
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.27
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.54
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.45
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.87
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.21
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-05",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 19.37
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.0
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.21
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.08
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.22
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.8
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 11.98
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-08",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.5
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 16.9
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.4
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 15.07
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.44
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.15
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.3
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-09",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.93
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.37
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.31
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.25
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.41
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.29
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.71
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-10",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.51
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.97
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.41
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 15.11
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.81
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.22
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 11.76
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-11",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.59
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.04
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.24
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.57
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.55
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.17
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.01
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-12",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.55
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.72
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.4
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 15.39
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.65
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.73
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.13
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-15",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.62
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.77
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.71
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.42
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.13
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.9
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.93
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-16",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.84
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.21
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.67
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.93
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.48
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.11
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.29
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-17",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.88
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.9
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.26
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.42
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.65
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.07
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.41
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-18",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.99
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.52
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.2
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.82
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.0
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.51
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.16
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-19",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 19.02
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.56
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.45
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.87
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.16
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.16
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.2
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-22",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.84
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.43
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.32
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.01
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.09
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.76
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 11.65
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-23",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 19.36
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.87
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.28
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.63
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.44
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.66
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.53
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-24",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.17
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.95
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.91
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.82
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.5
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 14.15
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.68
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-25",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.03
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.5
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.84
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.0
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.12
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.12
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.4
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-26",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.0
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.9
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.4
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.97
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.36
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.46
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.91
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-29",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.57
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.83
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.67
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.07
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.14
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.8
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.95
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-30",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.23
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.06
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.79
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.79
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.49
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.79
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.91
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-01-31",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.44
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 16.9
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 17.9
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 15.1
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.41
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.9
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.94
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-02-01",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 19.06
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.9
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.19
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.89
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.45
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.82
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.09
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-02-02",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 17.94
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 17.44
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 18.48
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.68
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 12.96
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.69
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 13.01
-        }
-      },
-      "total_weight": 1.0
-    },
-    {
-      "date": "2029-02-05",
-      "positions": {
-        "AL": {
-          "weight": 0.1429,
-          "risk_contribution": 18.57
-        },
-        "PB": {
-          "weight": 0.1429,
-          "risk_contribution": 18.19
-        },
-        "CU": {
-          "weight": 0.1429,
-          "risk_contribution": 19.11
-        },
-        "ZN": {
-          "weight": 0.1429,
-          "risk_contribution": 14.93
-        },
-        "SN": {
-          "weight": 0.1429,
-          "risk_contribution": 13.26
-        },
-        "NI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.31
-        },
-        "SI": {
-          "weight": 0.1429,
-          "risk_contribution": 12.3
-        }
-      },
-      "total_weight": 1.0
-    }
-  ],
-  "total_trades_open": 50,
-  "total_trades_close": 50,
-  "seed": 42,
-  "dataset_version": "1.10",
-  "version_tag": "P33",
-  "generated_at": "2026-10-12T01:30:00+08:00",
-  "p31_meta": {
-    "bumped_at": "2026-10-12T01:30:00+08:00",
-    "source": "DSHA-P31 portfolio_daily_position.json"
+  "phase": "Phase35",
+  "engine": "V86.9-C-FINAL-DEBUG-P35",
+  "date_range": {
+    "start": "2029-07-01",
+    "end": "2029-08-15",
+    "trading_days": 35
   },
-  "risk_contribution_timeseries": [
+  "daily_positions": [
     {
-      "date": "2028-12-18",
-      "contributions": {
-        "AL": 17.99,
-        "PB": 17.72,
-        "CU": 17.93,
-        "ZN": 14.12,
-        "SN": 13.51,
-        "NI": 12.83,
-        "SI": 12.3
+      "date": "2029-06-30",
+      "week": "W106",
+      "positions": {
+        "AL": 1,
+        "PB": 0,
+        "CU": -1,
+        "ZN": -1,
+        "SN": -1,
+        "NI": 0,
+        "SI": 1
+      },
+      "net_exposure": -1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-19",
-      "contributions": {
-        "AL": 18.6,
-        "PB": 17.64,
-        "CU": 18.06,
-        "ZN": 14.86,
-        "SN": 13.34,
-        "NI": 12.89,
-        "SI": 12.2
+      "date": "2029-07-01",
+      "week": "W106",
+      "positions": {
+        "AL": -1,
+        "PB": -1,
+        "CU": -1,
+        "ZN": 1,
+        "SN": 1,
+        "NI": 1,
+        "SI": -1
+      },
+      "net_exposure": -1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-20",
-      "contributions": {
-        "AL": 18.45,
-        "PB": 18.13,
-        "CU": 18.52,
-        "ZN": 14.76,
-        "SN": 13.58,
-        "NI": 13.5,
-        "SI": 12.15
+      "date": "2029-07-02",
+      "week": "W106",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": 1,
+        "SN": 1,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": 3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-21",
-      "contributions": {
-        "AL": 18.26,
-        "PB": 17.67,
-        "CU": 18.11,
-        "ZN": 14.17,
-        "SN": 13.94,
-        "NI": 13.45,
-        "SI": 12.71
+      "date": "2029-07-03",
+      "week": "W106",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": -1,
+        "ZN": 1,
+        "SN": 1,
+        "NI": -1,
+        "SI": 0
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-22",
-      "contributions": {
-        "AL": 18.58,
-        "PB": 18.14,
-        "CU": 18.68,
-        "ZN": 14.13,
-        "SN": 13.03,
-        "NI": 13.12,
-        "SI": 12.37
+      "date": "2029-07-04",
+      "week": "W106",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": -1,
+        "ZN": 0,
+        "SN": -1,
+        "NI": 1,
+        "SI": -1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-25",
-      "contributions": {
-        "AL": 18.36,
-        "PB": 17.56,
-        "CU": 18.15,
-        "ZN": 14.46,
-        "SN": 13.26,
-        "NI": 13.38,
-        "SI": 13.0
+      "date": "2029-07-07",
+      "week": "W107",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": 1,
+        "SN": -1,
+        "NI": 1,
+        "SI": -1
+      },
+      "net_exposure": 1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-26",
-      "contributions": {
-        "AL": 18.53,
-        "PB": 18.09,
-        "CU": 18.32,
-        "ZN": 13.96,
-        "SN": 13.38,
-        "NI": 13.8,
-        "SI": 12.63
+      "date": "2029-07-08",
+      "week": "W107",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": 1,
+        "SN": -1,
+        "NI": -1,
+        "SI": -1
+      },
+      "net_exposure": -1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-27",
-      "contributions": {
-        "AL": 18.54,
-        "PB": 17.41,
-        "CU": 18.33,
-        "ZN": 14.35,
-        "SN": 13.95,
-        "NI": 13.68,
-        "SI": 12.36
+      "date": "2029-07-09",
+      "week": "W107",
+      "positions": {
+        "AL": 0,
+        "PB": -1,
+        "CU": -1,
+        "ZN": -1,
+        "SN": -1,
+        "NI": 0,
+        "SI": -1
+      },
+      "net_exposure": -5,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-28",
-      "contributions": {
-        "AL": 18.05,
-        "PB": 18.06,
-        "CU": 18.44,
-        "ZN": 14.68,
-        "SN": 13.53,
-        "NI": 12.8,
-        "SI": 12.42
+      "date": "2029-07-10",
+      "week": "W107",
+      "positions": {
+        "AL": 1,
+        "PB": -1,
+        "CU": 1,
+        "ZN": -1,
+        "SN": 1,
+        "NI": 1,
+        "SI": 1
+      },
+      "net_exposure": 3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2028-12-29",
-      "contributions": {
-        "AL": 18.85,
-        "PB": 17.39,
-        "CU": 18.39,
-        "ZN": 13.97,
-        "SN": 13.76,
-        "NI": 13.57,
-        "SI": 12.23
+      "date": "2029-07-11",
+      "week": "W107",
+      "positions": {
+        "AL": 1,
+        "PB": -1,
+        "CU": -1,
+        "ZN": 1,
+        "SN": 1,
+        "NI": 1,
+        "SI": 1
+      },
+      "net_exposure": 3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-02",
-      "contributions": {
-        "AL": 18.63,
-        "PB": 17.5,
-        "CU": 18.21,
-        "ZN": 14.9,
-        "SN": 13.65,
-        "NI": 13.24,
-        "SI": 12.62
+      "date": "2029-07-14",
+      "week": "W108",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": -1,
+        "SN": 0,
+        "NI": -1,
+        "SI": -1
+      },
+      "net_exposure": -2,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-03",
-      "contributions": {
-        "AL": 18.53,
-        "PB": 17.53,
-        "CU": 18.81,
-        "ZN": 14.76,
-        "SN": 13.07,
-        "NI": 13.04,
-        "SI": 12.77
+      "date": "2029-07-15",
+      "week": "W108",
+      "positions": {
+        "AL": -1,
+        "PB": 0,
+        "CU": 1,
+        "ZN": 0,
+        "SN": -1,
+        "NI": -1,
+        "SI": 0
+      },
+      "net_exposure": -2,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-04",
-      "contributions": {
-        "AL": 18.09,
-        "PB": 17.4,
-        "CU": 18.33,
-        "ZN": 14.32,
-        "SN": 13.47,
-        "NI": 13.53,
-        "SI": 12.77
+      "date": "2029-07-16",
+      "week": "W108",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": -1,
+        "ZN": 0,
+        "SN": 1,
+        "NI": -1,
+        "SI": -1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-05",
-      "contributions": {
-        "AL": 18.35,
-        "PB": 17.72,
-        "CU": 18.18,
-        "ZN": 14.15,
-        "SN": 13.92,
-        "NI": 13.24,
-        "SI": 12.96
+      "date": "2029-07-17",
+      "week": "W108",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": 0,
+        "ZN": -1,
+        "SN": -1,
+        "NI": 1,
+        "SI": 1
+      },
+      "net_exposure": 2,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-08",
-      "contributions": {
-        "AL": 18.07,
-        "PB": 17.79,
-        "CU": 18.11,
-        "ZN": 14.3,
-        "SN": 13.06,
-        "NI": 13.18,
-        "SI": 13.09
+      "date": "2029-07-18",
+      "week": "W108",
+      "positions": {
+        "AL": 1,
+        "PB": -1,
+        "CU": -1,
+        "ZN": 1,
+        "SN": -1,
+        "NI": 1,
+        "SI": -1
+      },
+      "net_exposure": -1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-09",
-      "contributions": {
-        "AL": 18.62,
-        "PB": 17.45,
-        "CU": 18.2,
-        "ZN": 14.87,
-        "SN": 13.58,
-        "NI": 13.34,
-        "SI": 12.85
+      "date": "2029-07-21",
+      "week": "W109",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": 1,
+        "SN": -1,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": 3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-10",
-      "contributions": {
-        "AL": 18.09,
-        "PB": 17.9,
-        "CU": 18.58,
-        "ZN": 14.14,
-        "SN": 13.12,
-        "NI": 13.69,
-        "SI": 12.35
+      "date": "2029-07-22",
+      "week": "W109",
+      "positions": {
+        "AL": 0,
+        "PB": -1,
+        "CU": 1,
+        "ZN": 0,
+        "SN": 1,
+        "NI": -1,
+        "SI": 0
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-11",
-      "contributions": {
-        "AL": 18.62,
-        "PB": 17.54,
-        "CU": 18.3,
-        "ZN": 14.57,
-        "SN": 13.3,
-        "NI": 13.12,
-        "SI": 12.85
+      "date": "2029-07-23",
+      "week": "W109",
+      "positions": {
+        "AL": 0,
+        "PB": 1,
+        "CU": -1,
+        "ZN": -1,
+        "SN": -1,
+        "NI": 1,
+        "SI": 1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-12",
-      "contributions": {
-        "AL": 18.83,
-        "PB": 18.18,
-        "CU": 18.78,
-        "ZN": 14.27,
-        "SN": 13.16,
-        "NI": 13.63,
-        "SI": 12.8
+      "date": "2029-07-24",
+      "week": "W109",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": -1,
+        "ZN": 1,
+        "SN": -1,
+        "NI": -1,
+        "SI": -1
+      },
+      "net_exposure": -1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-15",
-      "contributions": {
-        "AL": 18.84,
-        "PB": 17.43,
-        "CU": 18.02,
-        "ZN": 14.01,
-        "SN": 13.55,
-        "NI": 13.07,
-        "SI": 12.7
+      "date": "2029-07-25",
+      "week": "W109",
+      "positions": {
+        "AL": -1,
+        "PB": -1,
+        "CU": 1,
+        "ZN": 1,
+        "SN": 0,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-16",
-      "contributions": {
-        "AL": 17.99,
-        "PB": 17.72,
-        "CU": 18.18,
-        "ZN": 13.9,
-        "SN": 13.77,
-        "NI": 13.44,
-        "SI": 12.36
+      "date": "2029-07-28",
+      "week": "W110",
+      "positions": {
+        "AL": 0,
+        "PB": -1,
+        "CU": 0,
+        "ZN": 0,
+        "SN": -1,
+        "NI": 1,
+        "SI": 1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-17",
-      "contributions": {
-        "AL": 18.45,
-        "PB": 18.13,
-        "CU": 18.48,
-        "ZN": 14.05,
-        "SN": 13.13,
-        "NI": 13.11,
-        "SI": 13.0
+      "date": "2029-07-29",
+      "week": "W110",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": -1,
+        "SN": 0,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-18",
-      "contributions": {
-        "AL": 18.78,
-        "PB": 17.71,
-        "CU": 18.52,
-        "ZN": 14.05,
-        "SN": 13.93,
-        "NI": 13.66,
-        "SI": 13.08
+      "date": "2029-07-30",
+      "week": "W110",
+      "positions": {
+        "AL": 1,
+        "PB": -1,
+        "CU": -1,
+        "ZN": -1,
+        "SN": 1,
+        "NI": -1,
+        "SI": -1
+      },
+      "net_exposure": -3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-19",
-      "contributions": {
-        "AL": 18.76,
-        "PB": 18.11,
-        "CU": 18.17,
-        "ZN": 14.69,
-        "SN": 13.11,
-        "NI": 13.67,
-        "SI": 12.96
+      "date": "2029-07-31",
+      "week": "W110",
+      "positions": {
+        "AL": -1,
+        "PB": -1,
+        "CU": 1,
+        "ZN": 1,
+        "SN": 1,
+        "NI": 0,
+        "SI": 1
+      },
+      "net_exposure": 2,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-22",
-      "contributions": {
-        "AL": 18.09,
-        "PB": 17.63,
-        "CU": 18.76,
-        "ZN": 14.87,
-        "SN": 13.28,
-        "NI": 13.44,
-        "SI": 12.5
+      "date": "2029-08-01",
+      "week": "W110",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": -1,
+        "ZN": -1,
+        "SN": 0,
+        "NI": 1,
+        "SI": 0
+      },
+      "net_exposure": 1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-23",
-      "contributions": {
-        "AL": 18.17,
-        "PB": 17.41,
-        "CU": 18.33,
-        "ZN": 14.63,
-        "SN": 13.31,
-        "NI": 13.41,
-        "SI": 12.61
+      "date": "2029-08-04",
+      "week": "W111",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": -1,
+        "ZN": -1,
+        "SN": 1,
+        "NI": 1,
+        "SI": 1
+      },
+      "net_exposure": 3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-24",
-      "contributions": {
-        "AL": 18.62,
-        "PB": 18.04,
-        "CU": 18.57,
-        "ZN": 14.26,
-        "SN": 13.07,
-        "NI": 13.46,
-        "SI": 12.43
+      "date": "2029-08-05",
+      "week": "W111",
+      "positions": {
+        "AL": 0,
+        "PB": 0,
+        "CU": 1,
+        "ZN": -1,
+        "SN": 1,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": 1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-25",
-      "contributions": {
-        "AL": 18.2,
-        "PB": 17.43,
-        "CU": 18.32,
-        "ZN": 14.84,
-        "SN": 13.68,
-        "NI": 13.7,
-        "SI": 12.72
+      "date": "2029-08-06",
+      "week": "W111",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": -1,
+        "SN": -1,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": -1,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-26",
-      "contributions": {
-        "AL": 18.36,
-        "PB": 17.74,
-        "CU": 18.11,
-        "ZN": 14.37,
-        "SN": 13.9,
-        "NI": 13.6,
-        "SI": 12.27
+      "date": "2029-08-07",
+      "week": "W111",
+      "positions": {
+        "AL": 0,
+        "PB": 0,
+        "CU": 1,
+        "ZN": -1,
+        "SN": 0,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-29",
-      "contributions": {
-        "AL": 18.12,
-        "PB": 17.5,
-        "CU": 17.92,
-        "ZN": 14.14,
-        "SN": 13.48,
-        "NI": 13.65,
-        "SI": 12.17
+      "date": "2029-08-08",
+      "week": "W111",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": -1,
+        "ZN": 0,
+        "SN": -1,
+        "NI": -1,
+        "SI": 1
+      },
+      "net_exposure": -2,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-30",
-      "contributions": {
-        "AL": 17.91,
-        "PB": 18.05,
-        "CU": 18.67,
-        "ZN": 14.01,
-        "SN": 13.43,
-        "NI": 12.98,
-        "SI": 13.06
+      "date": "2029-08-11",
+      "week": "W112",
+      "positions": {
+        "AL": -1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": 1,
+        "SN": 1,
+        "NI": 1,
+        "SI": -1
+      },
+      "net_exposure": 3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-01-31",
-      "contributions": {
-        "AL": 18.89,
-        "PB": 17.9,
-        "CU": 18.85,
-        "ZN": 14.79,
-        "SN": 13.61,
-        "NI": 13.52,
-        "SI": 12.6
+      "date": "2029-08-12",
+      "week": "W112",
+      "positions": {
+        "AL": -1,
+        "PB": -1,
+        "CU": -1,
+        "ZN": -1,
+        "SN": 1,
+        "NI": 1,
+        "SI": 0
+      },
+      "net_exposure": -2,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-02-01",
-      "contributions": {
-        "AL": 18.54,
-        "PB": 18.07,
-        "CU": 18.42,
-        "ZN": 14.53,
-        "SN": 13.27,
-        "NI": 12.88,
-        "SI": 12.39
+      "date": "2029-08-13",
+      "week": "W112",
+      "positions": {
+        "AL": 1,
+        "PB": -1,
+        "CU": 1,
+        "ZN": -1,
+        "SN": 0,
+        "NI": 1,
+        "SI": -1
+      },
+      "net_exposure": 0,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-02-02",
-      "contributions": {
-        "AL": 17.96,
-        "PB": 17.71,
-        "CU": 18.44,
-        "ZN": 14.32,
-        "SN": 13.21,
-        "NI": 13.22,
-        "SI": 13.0
+      "date": "2029-08-14",
+      "week": "W112",
+      "positions": {
+        "AL": 1,
+        "PB": 1,
+        "CU": 1,
+        "ZN": -1,
+        "SN": 1,
+        "NI": 1,
+        "SI": 1
+      },
+      "net_exposure": 5,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     },
     {
-      "date": "2029-02-05",
-      "contributions": {
-        "AL": 18.65,
-        "PB": 18.15,
-        "CU": 18.85,
-        "ZN": 14.32,
-        "SN": 13.75,
-        "NI": 13.35,
-        "SI": 12.7
+      "date": "2029-08-15",
+      "week": "W112",
+      "positions": {
+        "AL": -1,
+        "PB": -1,
+        "CU": 1,
+        "ZN": -1,
+        "SN": -1,
+        "NI": 1,
+        "SI": -1
+      },
+      "net_exposure": -3,
+      "risk_contribution": {
+        "AL": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "PB": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 17.8
+        },
+        "CU": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 18.4
+        },
+        "ZN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 14.4
+        },
+        "SN": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.5
+        },
+        "NI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 13.3
+        },
+        "SI": {
+          "weight_pct": 14.3,
+          "risk_contribution_pct": 12.6
+        }
       }
     }
   ],
-  "avg_risk_contribution": {
+  "risk_contribution_summary": {
     "AL": 18.4,
     "PB": 17.8,
     "CU": 18.4,
@@ -1671,5 +1556,13 @@
     "SN": 13.5,
     "NI": 13.3,
     "SI": 12.6
+  },
+  "scheme_d_frozen": true,
+  "version_tag": "P35",
+  "dataset_version": "1.10",
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
