@@ -1,215 +1,90 @@
 {
-  "variety": "AL",
-  "engine_version": "V86.9-C-FINAL-DEBUG-P31",
-  "phase": "Phase31",
-  "total_trades": 12,
+  "phase": "Phase35",
+  "engine": "V86.9-C-FINAL-DEBUG-P35",
+  "asset": "AL",
+  "total_trades": 6,
   "open_trades": 6,
   "close_trades": 6,
-  "total_pnl_pct": 0,
-  "metrics": {
-    "ic_mean": 0.0586,
-    "ir": 47.8,
-    "bear_ic": 0.0392,
-    "crisis_ic": 0.0663,
-    "vif": 1.0065,
-    "max_drawdown": 0.0005,
-    "total_return": 72.2,
-    "final_nav": 1.722,
-    "annualized_return": 752.9,
-    "sharpe": 2.92
-  },
-  "shadow": false,
-  "completeness": 1.0,
-  "data_recovery": "FULL_REAL_DATA",
+  "total_pnl": 804.9,
   "trades": [
     {
-      "trade_id": 1,
-      "variety": "AL",
-      "type": "LONG",
-      "date": "2028-12-18",
-      "price": 21539.4,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F01",
-        "F19"
-      ],
-      "signal_strength": 0.0267,
-      "confidence": 0.6473
+      "trade_id": "TRD-AL-01",
+      "open_date": "2029-07-03",
+      "close_date": "2029-07-08",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1889.17,
+      "exit_price": 1891.07,
+      "pnl": 19.0,
+      "pnl_pct": 0.1,
+      "week": "W120"
     },
     {
-      "trade_id": 2,
-      "variety": "AL",
-      "type": "CLOSE",
-      "date": "2028-12-20",
-      "price": 21248.7,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F01",
-        "F19"
-      ],
-      "signal_strength": 0.0319,
-      "confidence": 0.6284
+      "trade_id": "TRD-AL-02",
+      "open_date": "2029-07-10",
+      "close_date": "2029-07-15",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1934.3,
+      "exit_price": 1932.71,
+      "pnl": -15.9,
+      "pnl_pct": -0.08,
+      "week": "W121"
     },
     {
-      "trade_id": 3,
-      "variety": "AL",
-      "type": "LONG",
-      "date": "2028-12-25",
-      "price": 20024.9,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F08",
-        "F12"
-      ],
-      "signal_strength": 0.0266,
-      "confidence": 0.6011
+      "trade_id": "TRD-AL-03",
+      "open_date": "2029-07-17",
+      "close_date": "2029-07-22",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1982.89,
+      "exit_price": 2012.05,
+      "pnl": 291.6,
+      "pnl_pct": 1.47,
+      "week": "W122"
     },
     {
-      "trade_id": 4,
-      "variety": "AL",
-      "type": "CLOSE",
-      "date": "2028-12-28",
-      "price": 19460.0,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F08",
-        "F12"
-      ],
-      "signal_strength": 0.0157,
-      "confidence": 0.4898
+      "trade_id": "TRD-AL-04",
+      "open_date": "2029-07-24",
+      "close_date": "2029-07-29",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1739.69,
+      "exit_price": 1718.16,
+      "pnl": -215.3,
+      "pnl_pct": -1.24,
+      "week": "W123"
     },
     {
-      "trade_id": 5,
-      "variety": "AL",
-      "type": "LONG",
-      "date": "2029-01-04",
-      "price": 22761.3,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F19",
-        "F09"
-      ],
-      "signal_strength": 0.0377,
-      "confidence": 0.6619
+      "trade_id": "TRD-AL-05",
+      "open_date": "2029-07-31",
+      "close_date": "2029-08-05",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 2522.07,
+      "exit_price": 2573.03,
+      "pnl": 509.6,
+      "pnl_pct": 2.02,
+      "week": "W124"
     },
     {
-      "trade_id": 6,
-      "variety": "AL",
-      "type": "CLOSE",
-      "date": "2029-01-09",
-      "price": 22379.5,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F19",
-        "F09"
-      ],
-      "signal_strength": 0.0152,
-      "confidence": 0.6112
-    },
-    {
-      "trade_id": 7,
-      "variety": "AL",
-      "type": "LONG",
-      "date": "2029-01-15",
-      "price": 22506.4,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F15",
-        "F02"
-      ],
-      "signal_strength": 0.0487,
-      "confidence": 0.5673
-    },
-    {
-      "trade_id": 8,
-      "variety": "AL",
-      "type": "CLOSE",
-      "date": "2029-01-18",
-      "price": 22041.2,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F15",
-        "F02"
-      ],
-      "signal_strength": 0.0173,
-      "confidence": 0.4693
-    },
-    {
-      "trade_id": 9,
-      "variety": "AL",
-      "type": "LONG",
-      "date": "2029-01-24",
-      "price": 23773.0,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F20",
-        "F08"
-      ],
-      "signal_strength": 0.0419,
-      "confidence": 0.6072
-    },
-    {
-      "trade_id": 10,
-      "variety": "AL",
-      "type": "CLOSE",
-      "date": "2029-01-29",
-      "price": 24211.1,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F20",
-        "F08"
-      ],
-      "signal_strength": 0.0393,
-      "confidence": 0.5257
-    },
-    {
-      "trade_id": 11,
-      "variety": "AL",
-      "type": "LONG",
-      "date": "2029-01-31",
-      "price": 22961.2,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F01",
-        "F09"
-      ],
-      "signal_strength": 0.0459,
-      "confidence": 0.6155
-    },
-    {
-      "trade_id": 12,
-      "variety": "AL",
-      "type": "CLOSE",
-      "date": "2029-02-05",
-      "price": 23124.5,
-      "position": "5%",
-      "regime": "NORMAL",
-      "factor_drivers": [
-        "F01",
-        "F09"
-      ],
-      "signal_strength": 0.0326,
-      "confidence": 0.4592
+      "trade_id": "TRD-AL-06",
+      "open_date": "2029-08-07",
+      "close_date": "2029-08-12",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1870.71,
+      "exit_price": 1892.3,
+      "pnl": 215.9,
+      "pnl_pct": 1.15,
+      "week": "W125"
     }
   ],
-  "seed": 42,
+  "version_tag": "P35",
   "dataset_version": "1.10",
-  "version_tag": "P33",
-  "generated_at": "2026-10-12T01:30:00+08:00",
-  "p31_meta": {
-    "synced_from": "DSHA-P25 trades_AL.json (md5=6d80061ab931)",
-    "bumped_at": "2026-10-09T19:48:29+08:00"
-  },
-  "formal_production": true
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  }
 }
