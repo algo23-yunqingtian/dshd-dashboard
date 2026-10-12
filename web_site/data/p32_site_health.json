@@ -17,5 +17,7 @@
     "median": 72,
     "max": 618
   },
-  "note": "P32 site health - generated during DSHD-P28 deployment"
+  "note": "P32 site health - generated during DSHD-P28 deployment",
+  "version_tag": "P32",
+  "dataset_version": "1.9"
 }
