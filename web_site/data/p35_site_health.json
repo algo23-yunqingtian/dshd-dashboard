@@ -1,0 +1,28 @@
+{
+  "version_tag": "P35",
+  "dataset_version": "1.10",
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "generated_at": "2026-10-12T04:11:27Z",
+  "phase": "DSHD-P31",
+  "dashboard_version": "V35.0",
+  "metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "PB_BEAR_IC": 0.0322,
+    "CU_BEAR_IC": 0.0241,
+    "DRIFT_PCT": 2.8,
+    "CUMULATIVE_DAYS": 945,
+    "FROZEN_PHASES": 10,
+    "FR_RISK_501": 950,
+    "RUNTIME": 1.338,
+    "PARALLEL_SPEEDUP": 2.19
+  },
+  "health_status": "PRE_DEPLOYMENT",
+  "note": "Generated before deployment; will be updated post-deployment"
+}
