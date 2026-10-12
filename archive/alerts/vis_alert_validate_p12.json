@@ -1,0 +1,82 @@
+{
+  "validation": {
+    "schema_file": "event_schema.json",
+    "schema_version": "event_schema.json REV1",
+    "schema_md5": "09c7a4e8df53aca7dd1d861abaa10ccc",
+    "schema_doc_id": "DSHD-PHASE3-UNIFIED-EVENT-SCHEMA-1-REV1",
+    "required_fields": [
+      "alert_id",
+      "risk_id",
+      "severity",
+      "color",
+      "action",
+      "fixed_slot",
+      "bucket",
+      "source",
+      "evidence"
+    ],
+    "missing_fields": [],
+    "field_count": 27,
+    "field_stable": true,
+    "alert_count": 193,
+    "alert_id_pattern_ok": true,
+    "risk_id_domain_ok": true,
+    "risk_id_seen": [
+      "FR-RISK-501",
+      "FR-RISK-502",
+      "FR-RISK-503",
+      "FR-RISK-504",
+      "FR-RISK-505",
+      "FR-RISK-506",
+      "FR-RISK-507",
+      "FR-RISK-508",
+      "GATE-P2-01",
+      "GATE-P2-02",
+      "GATE-P2-03",
+      "GATE-P2-04",
+      "GATE-P2-05",
+      "GATE-P2-06",
+      "GATE-P2-07",
+      "GATE-P2-08",
+      "GATE-P2-09",
+      "GATE-P2-10",
+      "GATE-P2-11"
+    ],
+    "severity_domain_ok": true,
+    "severity_seen": [
+      "CRITICAL",
+      "HIGH",
+      "INFO",
+      "MEDIUM",
+      "WARN"
+    ],
+    "severity_out_of_domain": [],
+    "action_domain_ok": true,
+    "action_domain": [
+      "STOP_LINE",
+      "NOTIFY_1H",
+      "NOTIFY_2H",
+      "RECORD_4H",
+      "RECORD",
+      "PASS",
+      "HOLD",
+      "BLOCK"
+    ],
+    "action_seen": [
+      "HOLD",
+      "NOTIFY_1H",
+      "PASS",
+      "RECORD_4H",
+      "STOP_LINE"
+    ],
+    "action_out_of_domain": [],
+    "evidence_path_ok": true,
+    "evidence_md5_ok": true,
+    "color_action_align_ok": true,
+    "color_action_align": "32/32",
+    "verdict": "PASS"
+  },
+  "fixed_slot": "2026-11-16T16:30:00+08:00",
+  "seed": 42,
+  "schema_ref": "event_schema.json REV1"
+}
