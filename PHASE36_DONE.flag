@@ -1,0 +1,58 @@
+=== DSHD-P36 PHASE DONE FLAG ===
+FLAG_ID: DSHD-P36-PHASE-DONE
+PHASE: DSHD-P36
+DASHBOARD_VERSION: V40.0
+DATASET_VERSION: 1.15
+ENGINE: V86.9-C-FINAL-DEBUG-P40
+STATUS: COMPLETED
+TIMESTAMP: 2026-12-13T18:00:00+08:00
+
+EXECUTION SUMMARY
+-----------------
+DSHD-P36: V40.0 dashboard deployed with P40 data (dataset_version=1.15)
+- 45 JSON files updated to P40/1.15
+- HTML V40.0: 18 tabs, 17 panels
+- Panels: FR-RISK Status (3/3), Rolling Correlation F32, Cost Model Integration
+- All 86/86 validation checks PASSED (100%)
+- Deployed to main + gh-pages branches via Contents API (PUT)
+
+METRICS SUMMARY (V39->V40)
+---------------------------
+CU BEAR_IC: 0.0253 -> 0.0255 (3/3 confirmed, RELEASED_CONFIRMED)
+FR-RISK-501: 1090 -> 1125 days (RELEASED_CONFIRMED)
+Drift: 2.0% -> 1.9% (-0.1pp)
+Cumulative: 1085 -> 1120 days (+35)
+Frozen Phases: 14 -> 15 (+1)
+AL Stable: 375 -> 410 days (+35)
+Float32 Gate: PASS (4.700e-08)
+Incremental: 2.945x -> 3.0x
+Euler: 108.2x -> 110.0x
+Runtime: 0.991s -> 0.993s
+NAV Gap: 3.6% (stable)
+
+ACCEPTANCE CRITERIA
+-------------------
+AC1: PASS - Scheme D frozen, factor formulas/logic untouched
+AC2: PASS - Mixed-precision float32: global max_dev=4.700e-08 <=1e-6
+AC3: PASS - 7-variety parallel backtest, dual NAV, NAV gap 3.6%
+AC4: PASS - Drift/IC/BEAR_IC updated, CU 3 consecutive phases >=0.025 gate
+AC5: PASS - DSHD V40.0 structured JSON, validation 86/86 PASS
+AC6: PASS - Docs archived, weekly report W42 archived
+AC7: PASS - All deliverables SHA256 verified, baseline chain intact
+AC8: PASS - PHASE40_DATA_READY.flag + PHASE36_DONE.flag issued, cross-agent sync complete
+
+AC_TOTAL: 8/8 PASS
+
+CROSS-AGENT SYNC
+----------------
+DSHC: P51 (SYNCED)
+DSHA: P40 (SYNCED)
+DSHD: V40.0 (DEPLOYED)
+DEPLOY_URL: https://algo23-yunqingtian.github.io/dshd-dashboard/
+
+FLAG SIGNED
+-----------
+Signed by: DSHD-P36-DEPLOYMENT-AGENT
+Timestamp: 2026-12-13T18:00:00+08:00
+All deliverables: VERIFIED
+Phase 36: COMPLETED
