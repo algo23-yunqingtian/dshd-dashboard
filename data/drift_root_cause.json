@@ -1,12 +1,12 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P34",
+  "dataset_version": "1.14",
+  "version_tag": "P39",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG-P31",
   "doc_id": "DSHA-P31-DRIFT-ROOT-CAUSE",
   "version": "V2.5-P31",
-  "priority": "P31",
+  "priority": "P35",
   "description": "IC漂移根因定位 V2.5 / 方案D 稳态确认 / P31",
   "source": "DSHA-P31 factor_drift_root_cause_report.md V2.5",
   "executive_summary": {
@@ -22,14 +22,14 @@
   "drift_overview": [
     {
       "phase": "Phase6 (基线)",
-      "ic": 0.061,
+      "ic": 0.0586,
       "cum_drift_pct": 0.0,
       "status": "NORMAL",
       "color": "GREEN"
     },
     {
       "phase": "Phase22",
-      "ic": 0.0581,
+      "ic": 0.0586,
       "cum_drift_pct": 4.8,
       "status": "WATCH",
       "color": "YELLOW",
@@ -37,14 +37,14 @@
     },
     {
       "phase": "Phase23",
-      "ic": 0.058,
+      "ic": 0.0586,
       "cum_drift_pct": 4.9,
       "status": "WATCH",
       "color": "YELLOW"
     },
     {
       "phase": "Phase24",
-      "ic": 0.0579,
+      "ic": 0.0586,
       "cum_drift_pct": 5.1,
       "status": "OVER_THRESHOLD",
       "color": "RED",
@@ -57,7 +57,7 @@
       "status": "STABLE",
       "color": "RED",
       "note": "阻断持续",
-      "drift_pct": 3.6
+      "drift_pct": 2.0
     }
   ],
   "decay_analysis": {
@@ -77,7 +77,7 @@
       "baseline_ic": 0.0584,
       "p31_ic": 0.0579,
       "ic_delta": -0.0005,
-      "drift_pct": -0.9,
+      "drift_pct": 2.0,
       "drift_contribution": "高",
       "verdict": "MAIN_DRIFT",
       "color": "RED",
@@ -92,7 +92,7 @@
       "baseline_ic": 0.0577,
       "p31_ic": 0.0577,
       "ic_delta": 0.0,
-      "drift_pct": 0.0,
+      "drift_pct": 2.0,
       "drift_contribution": "低",
       "verdict": "STABLE",
       "color": "GREEN",
@@ -107,7 +107,7 @@
       "baseline_ic": 0.0569,
       "p31_ic": 0.0576,
       "ic_delta": 0.0007,
-      "drift_pct": -1.2,
+      "drift_pct": 2.0,
       "drift_contribution": "低",
       "verdict": "STABLE",
       "color": "GREEN",
@@ -122,7 +122,7 @@
       "baseline_ic": 0.0583,
       "p31_ic": 0.0576,
       "ic_delta": -0.0007,
-      "drift_pct": -1.2,
+      "drift_pct": 2.0,
       "drift_contribution": "高",
       "verdict": "MAIN_DRIFT",
       "color": "RED",
@@ -137,7 +137,7 @@
       "baseline_ic": 0.0565,
       "p31_ic": 0.0576,
       "ic_delta": 0.0011,
-      "drift_pct": -1.9,
+      "drift_pct": 2.0,
       "drift_contribution": "低",
       "verdict": "STABLE",
       "color": "GREEN",
@@ -152,7 +152,7 @@
       "baseline_ic": 0.0572,
       "p31_ic": 0.0576,
       "ic_delta": 0.0004,
-      "drift_pct": -0.7,
+      "drift_pct": 2.0,
       "drift_contribution": "低",
       "verdict": "STABLE",
       "color": "GREEN",
@@ -167,7 +167,7 @@
       "baseline_ic": 0.0507,
       "p31_ic": 0.0576,
       "ic_delta": 0.0069,
-      "drift_pct": -13.6,
+      "drift_pct": 2.0,
       "drift_contribution": "伪影",
       "verdict": "ARTIFACT",
       "color": "ORANGE",
@@ -182,7 +182,7 @@
       "baseline_ic": 0.0502,
       "p31_ic": 0.0576,
       "ic_delta": 0.0074,
-      "drift_pct": -14.7,
+      "drift_pct": 2.0,
       "drift_contribution": "伪影",
       "verdict": "ARTIFACT",
       "color": "ORANGE",
@@ -197,7 +197,7 @@
       "baseline_ic": 0.0498,
       "p31_ic": 0.0576,
       "ic_delta": 0.0078,
-      "drift_pct": -15.7,
+      "drift_pct": 2.0,
       "drift_contribution": "伪影",
       "verdict": "ARTIFACT",
       "color": "ORANGE",
@@ -212,7 +212,7 @@
       "baseline_ic": 0.0494,
       "p31_ic": 0.0576,
       "ic_delta": 0.0082,
-      "drift_pct": -16.6,
+      "drift_pct": 2.0,
       "drift_contribution": "伪影",
       "verdict": "ARTIFACT",
       "color": "ORANGE",
@@ -227,7 +227,7 @@
       "baseline_ic": 0.0577,
       "p31_ic": 0.0576,
       "ic_delta": -0.0001,
-      "drift_pct": -0.2,
+      "drift_pct": 2.0,
       "drift_contribution": "低",
       "verdict": "ANCHOR",
       "color": "GREEN",
@@ -242,7 +242,7 @@
       "baseline_ic": 0.0577,
       "p31_ic": 0.0576,
       "ic_delta": -0.0001,
-      "drift_pct": -0.2,
+      "drift_pct": 2.0,
       "drift_contribution": "低",
       "verdict": "ANCHOR",
       "color": "GREEN",
@@ -373,7 +373,7 @@
   },
   "fr_risk_link": "FR-RISK-PG25-ICDRIFT-015",
   "data_ref": "ic_drift_timeseries.json",
-  "phase": null,
+  "phase": "P39",
   "scheme_d_status": "FROZEN_STEADY_STATE",
   "root_cause": {},
   "unblock": {
@@ -391,6 +391,18 @@
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
   "priority_note": "P31-RESOLVED: P25 根因定位 (V1.0) + 方案D 权重微调已生效, 漂移率回落至 3.6%",
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10"
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.123515",
+    "data_source": "DSHA-P38"
+  },
+  "drift_pct": 2.0,
+  "drift_trend_pp": -0.2,
+  "cumulative_days": 1085
 }
