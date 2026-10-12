@@ -1,0 +1,65 @@
+{
+  "phase": "P35 Compatibility Precheck",
+  "generated_at": "2026-10-12T11:38:42.621084",
+  "generated_by": "DSHD-P30",
+  "target_data": "DSHA-P35",
+  "checks": [
+    {
+      "item": "CI regex phase-agnostic (^P\\\\d+$, ^1\\\\.\\\\d+$)",
+      "status": "PASS"
+    },
+    {
+      "item": "version_tag/dataset_version pattern stable",
+      "status": "PASS"
+    },
+    {
+      "item": "7-asset backtest schema compatible",
+      "status": "PASS"
+    },
+    {
+      "item": "portfolio_backtest_7asset dual_backtest_results present",
+      "status": "PASS"
+    },
+    {
+      "item": "fr_risk_rules schema compatible",
+      "status": "PASS"
+    },
+    {
+      "item": "null-safety helpers version-agnostic",
+      "status": "PASS"
+    },
+    {
+      "item": "PB dual-curve toggle version-agnostic",
+      "status": "PASS"
+    },
+    {
+      "item": "Performance panel updatable without restructuring",
+      "status": "PASS"
+    },
+    {
+      "item": "Data loading async fetch pattern stable",
+      "status": "PASS"
+    },
+    {
+      "item": "18 core datasets all present and schema-stable",
+      "status": "PASS"
+    },
+    {
+      "item": "Cross-agent sync format compatible",
+      "status": "PASS"
+    },
+    {
+      "item": "Archive structure compatible for P35",
+      "status": "PASS"
+    }
+  ],
+  "all_pass": true,
+  "ci_changes_needed": false,
+  "recommendations": [
+    "P35 data should follow same schema as P34",
+    "CU BEAR_IC expected to reach 14/14 in P35 — monitor closely",
+    "Cost model integration required before live trading",
+    "Performance optimization results should be reported for each phase",
+    "7-variety backtest parallelization is the next optimization target"
+  ]
+}
