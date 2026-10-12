@@ -1,12 +1,12 @@
 {
-  "dataset_version": "1.15",
-  "version_tag": "P40",
+  "dataset_version": "1.16",
+  "version_tag": "P41",
   "generated_at": "2026-10-12T14:49:49.191513",
   "seed": 42,
   "description": "P40 version index - P18~P40 二十三个阶段版本索引 / V40.0",
-  "current_version": "P40",
-  "total_data_version": "1.15",
-  "phase_count": 40,
+  "current_version": "P41",
+  "total_data_version": "1.16",
+  "phase_count": 41,
   "total_versions": 23,
   "version_range": "P18-P40",
   "versions": [
@@ -557,6 +557,25 @@
         "runtime_vs_p35": 1.338,
         "runtime_vs_p34": 1.801
       }
+    },
+    {
+      "version": "P41",
+      "version_tag": "P41",
+      "dataset_version": "1.16",
+      "dashboard_version": "V41.0",
+      "phase": "DSHD-P37",
+      "cumulative_days": 1155,
+      "frozen_phases": 16,
+      "fr_risk_501_days": 1155,
+      "fr_risk_501_status": "CLOSED",
+      "cu_bear_ic": 0.0259,
+      "cu_gate_status": "RELEASED_CONFIRMED",
+      "drift_pct": 1.6,
+      "runtime_seconds": 0.979,
+      "float32_global_max_dev": 4.672e-08,
+      "incr_speedup": 2.918,
+      "euler_speedup": 112.6,
+      "al_stable_days": 445
     }
   ],
   "versions_by_tag": {
@@ -578,9 +597,9 @@
       "note": "P38: Float32 mixed-precision, incremental update, CU 0.0250 gate reached"
     }
   },
-  "active_version": "P39",
+  "active_version": "P41",
   "last_updated": "2026-10-12T14:49:49.191513",
-  "dashboard_version": "V40.0",
+  "dashboard_version": "V41.0",
   "version_history": [
     {
       "version_tag": "P39",
@@ -602,30 +621,31 @@
     "dataset_version": "1.14",
     "dashboard_version": "V39.0",
     "status": "ACTIVE",
-    "cumulative_days": 1085,
-    "frozen_phases": 14,
-    "fr_risk_501_days": 1090,
-    "fr_risk_501_status": "RELEASED_CONFIRMED",
-    "cu_bear_ic": 0.0253,
+    "cumulative_days": 1155,
+    "frozen_phases": 16,
+    "fr_risk_501_days": 1155,
+    "fr_risk_501_status": "CLOSED",
+    "cu_bear_ic": 0.0259,
     "cu_gate_status": "RELEASED_CONFIRMED",
     "float32_gate": "PASS",
-    "runtime_seconds": 0.991
+    "runtime_seconds": 0.979
   },
   "_dsd_metadata": {
-    "dashboard_version": "V39.0",
-    "phase": "DSHD-P35",
+    "dashboard_version": "V41.0",
+    "phase": "DSHD-P37",
     "updated_at": "2026-10-12T16:00:00+08:00",
-    "source": "DSHA-P39",
+    "source": "DSHA-P41",
     "flags": [
-      "FR-RISK_RELEASED_CONFIRMED",
+      "FR-RISK_CLOSED",
       "FLOAT32_GATE_PASS",
-      "COST_MODEL_INTEGRATED"
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
     ]
   },
   "cross_agent_sync": {
-    "DSHC": "P51",
-    "DSHA": "P40",
-    "DSHD": "V40.0",
+    "DSHC": "P53",
+    "DSHA": "P41",
+    "DSHD": "V41.0",
     "sync_status": "SYNCED"
   }
 }
