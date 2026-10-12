@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2029-02-02T09:00:00+08:00",
   "seed": 42,
   "description": "P31 dataset index - 60 数据集全量清单 / V31.0",
@@ -426,5 +426,10 @@
     "DRIFT-F07-001",
     "DRIFT-F11-001"
   ],
-  "p31_drift_alert_total": 7
+  "p31_drift_alert_total": 7,
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  }
 }
