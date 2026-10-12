@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG-P31",
@@ -608,10 +608,19 @@
       "rolling_stability_60d": "COMPLETE",
       "rolling_stability_120d": "COMPLETE",
       "note": "Phase31 漂移 3.6% 正常"
+    },
+    {
+      "phase": "Phase35",
+      "phase_label": "DSHA-P35",
+      "ic_current": 0.0586,
+      "ic_drift_pct": 2.8,
+      "ic_drift_direction": "stable",
+      "over_threshold": false,
+      "date_range": "2029-07-01 ~ 2029-08-15"
     }
   ],
   "summary": {
-    "total_phases": 23,
+    "total_phases": 24,
     "over_threshold_phases": 2,
     "over_threshold_phase_names": [
       "Phase24",
@@ -631,7 +640,7 @@
     "last_over_threshold_phase": "Phase25",
     "consecutive_over_threshold": 2,
     "consecutive_over_threshold_ended_at": "Phase25",
-    "current_phase": "Phase31",
+    "current_phase": "Phase35",
     "current_ic": 0.0586,
     "current_drift_pct": 3.6,
     "current_status": "NORMAL",
@@ -697,5 +706,10 @@
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00",
     "source": "DSHA-P31 PHASE31_DATA_READY.flag"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
