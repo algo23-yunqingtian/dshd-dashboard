@@ -1,0 +1,41 @@
+{
+  "variety": "SN",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P16",
+  "phase": "Phase16",
+  "total_trades": 2,
+  "open_trades": 1,
+  "close_trades": 1,
+  "total_pnl_pct": 0.41,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "SN",
+      "type": "LONG",
+      "date": "2027-01-29",
+      "price": 19431.1,
+      "position": "5%",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F01"
+      ],
+      "signal_strength": 0.0503,
+      "confidence": 0.8
+    },
+    {
+      "trade_id": 2,
+      "variety": "SN",
+      "type": "CLOSE",
+      "date": "2027-02-26",
+      "price": 18695.2,
+      "pnl_pct": 0.41,
+      "holding_days": 20,
+      "open_date": "2027-01-29",
+      "regime": "CRISIS",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0154
+    }
+  ]
+}
