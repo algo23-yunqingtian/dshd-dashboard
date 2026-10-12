@@ -1,14 +1,14 @@
 {
-  "dataset_version": "1.9",
-  "version_tag": "P32",
-  "generated_at": "2029-03-23T09:00:00+08:00",
+  "dataset_version": "1.10",
+  "version_tag": "P33",
+  "generated_at": "2026-10-12T10:37:04+08:00",
   "seed": 42,
-  "description": "P32 version index - P18~P32 十五阶段版本索引 / V32.0",
-  "current_version": "P32",
-  "total_data_version": "1.9",
-  "phase_count": 32,
-  "total_versions": 15,
-  "version_range": "P18-P32",
+  "description": "P33 version index - P18~P33 十六阶段版本索引 / V33.0",
+  "current_version": "P33",
+  "total_data_version": "1.10",
+  "phase_count": 33,
+  "total_versions": 16,
+  "version_range": "P18-P33",
   "versions": [
     {
       "status": "ARCHIVED",
@@ -294,7 +294,7 @@
       "note": "P31 方案D 冻结稳态: 漂移率 3.6%, 阻断永久解除 6/6, 7品种正式投产"
     },
     {
-      "status": "ACTIVE",
+      "status": "ARCHIVED",
       "data_version": "1.9",
       "version": "P32",
       "phase": "Phase32",
@@ -313,6 +313,27 @@
         "ZN"
       ],
       "note": "P32: PB BEAR_IC=0.0319(14/14达标), CU BEAR_IC=0.0262(8/14改善), ZN/SN/NI/SI正式投产稳态"
+    },
+    {
+      "status": "ACTIVE",
+      "data_version": "1.10",
+      "version": "P33",
+      "phase": "Phase33",
+      "version_tag": "P33",
+      "ts": "2026-10-12T10:37:04+08:00",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB"
+      ],
+      "shadow": [
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "note": "P33: PB BEAR_IC=0.0320(14/14达标), CU BEAR_IC=0.0395(8/14改善), ZN/SN/NI/SI正式投产稳态, PB双曲线切换控件上线"
     }
   ],
   "versions_by_tag": {
@@ -541,7 +562,7 @@
       "note": "P30 稳态持续: 漂移率 3.8%, 首次降至警戒线 4.8% 以下"
     },
     "P31": {
-      "status": "CURRENT",
+      "status": "ARCHIVED",
       "data_version": "1.8",
       "phase": "Phase31",
       "factors": 20,
@@ -556,14 +577,50 @@
       ],
       "shadow": [],
       "note": "P31 方案D 冻结稳态: 漂移率 3.6%, 阻断永久解除 6/6, 7品种正式投产"
+    },
+    "P33": {
+      "status": "ACTIVE",
+      "data_version": "1.10",
+      "phase": "Phase33",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB"
+      ],
+      "shadow": [
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "note": "P33: PB BEAR_IC=0.0320(14/14达标), CU BEAR_IC=0.0395(8/14改善), PB双曲线切换控件上线"
+    },
+    "P32": {
+      "status": "ARCHIVED",
+      "data_version": "1.9",
+      "phase": "Phase32",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB"
+      ],
+      "shadow": [
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "note": "P32: PB BEAR_IC=0.0319(14/14达标), CU BEAR_IC=0.0262(8/14改善), ZN/SN/NI/SI正式投产稳态"
     }
   },
   "p18_p19_p20_p21_p22_p23_p24_p25_p26_p27_p28_p29_p30_p31_separation": true,
   "version_separation": "P18/P19/P20/P21/P22/P23/P24/P25/P26/P27/P28/P29/P30/P31",
-  "p31_meta": {
-    "bumped_at": "2026-10-12T01:30:00+08:00",
-    "source": "DSHA-P31 PHASE31_DATA_READY.flag",
-    "supersedes": "P25 version_index.json",
-    "fix": "versions 由 object 改为 array 以适配 renderVersions() forEach(); 补充 version/phase/ts/factors/varieties/shadow/status/note 字段"
+  "p33_meta": {
+    "bumped_at": "2026-10-12T10:37:04+08:00",
+    "source": "DSHA-P33 PHASE33_DATA_READY.flag",
+    "supersedes": "P32 version_index.json",
+    "fix": "P33: PB双曲线切换控件, version_tag升级至P33, dataset_version升级至1.10"
   }
 }
