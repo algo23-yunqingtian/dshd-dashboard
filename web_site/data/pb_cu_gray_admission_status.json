@@ -1,17 +1,17 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
-  "generated_at": "2026-10-12T10:37:04+08:00",
+  "version_tag": "P35",
+  "generated_at": "2026-10-12T04:11:27Z",
   "seed": 42,
   "description": "PB/CU灰度准入动态评估 / P33 PB 14/14 达标持续 / V33.0",
-  "phase": "P33",
+  "phase": "P35",
   "pb": {
     "variety": "PB",
     "name": "铅",
-    "bear_ic": 0.032,
+    "bear_ic": 0.0322,
     "bear_ic_threshold": 0.03,
     "gap_to_threshold": 0.0006,
-    "status": "THRESHOLD_MET_SUSTAINED",
+    "status": "GRAY_ADMITTED",
     "status_detail": "BEAR_IC 0.0320, 超出阈值0.030达0.0020 (DSHA-P33 读数), 14/14 阈值达标并持续",
     "bear_ic_time_series": [
       {
@@ -176,17 +176,19 @@
       "unblock_status": "PERMANENTLY_UNBLOCKED"
     },
     "bear_ic_latest": 0.032,
-    "progress": "14/14",
+    "progress": "16/16",
     "threshold_met": true,
-    "updated_at": "2026-10-12T10:37:04+08:00"
+    "updated_at": "2026-10-12T10:37:04+08:00",
+    "p35_bear_ic": 0.0322,
+    "p35_consecutive_days": 16
   },
   "cu": {
     "variety": "CU",
     "name": "铜",
-    "bear_ic": 0.0395,
+    "bear_ic": 0.0241,
     "bear_ic_threshold": 0.025,
     "gap_to_threshold": 0.0016,
-    "status": "ABOVE_THRESHOLD_IMPROVING",
+    "status": "IMPROVING",
     "status_detail": "BEAR_IC 0.0395, 超出阈值0.025达0.0145 (DSHA-P33 读数), 8/14 持续达标中",
     "bear_ic_time_series": [
       {
@@ -351,28 +353,13 @@
       "unblock_status": "PERMANENTLY_UNBLOCKED"
     },
     "bear_ic_latest": 0.0395,
-    "progress": "8/14",
+    "progress": "9/14",
     "threshold_met": false,
-    "updated_at": "2026-10-12T10:37:04+08:00"
+    "updated_at": "2026-10-12T10:37:04+08:00",
+    "p35_bear_ic": 0.0241,
+    "p35_consecutive_days": 9
   },
-  "overall": {
-    "status": "PB_ADMITTED_CU_IMPROVING",
-    "pb_admitted": true,
-    "cu_admitted": false,
-    "pb_conclusion": "阈值达标并持续 (14/14, BEAR_IC 0.0320 ≥ 0.030)",
-    "cu_conclusion": "改善中 (8/14, BEAR_IC 0.0395 ≥ 0.025, 预计6天达标)",
-    "summary": "PB 灰度准入阈值达标并持续 (14/14, BEAR_IC 0.0320 ≥ 0.030)；CU BEAR_IC 0.0395 已超阈值0.025, 8/14 持续达标中, 预计约6天升级；IC 漂移阻断已永久解除 (P31: 3.6% < 4.8%, 0.0586 ≥ 0.0575)",
-    "next_review": "W113 (2029-05-18)",
-    "drift_pct": 3.2,
-    "ic": 0.0588,
-    "ic_drift_block_active": false,
-    "unblock_status": "PERMANENTLY_UNBLOCKED",
-    "unblock_conditions_met": "6/6",
-    "production_readiness_pct": 100.0,
-    "dr_risk_501_days": 880,
-    "scheme_d_status": "FROZEN_STEADY_STATE",
-    "phase": "P33"
-  },
+  "overall": "PB_ADMITTED_CU_IMPROVING",
   "phase25_overlay": {
     "ic_drift_block_active": true,
     "ic_drift_pct": 5.2,
@@ -458,5 +445,27 @@
     "dr_risk_501_days": 880,
     "dshd_phase": "DSHD-P29",
     "dsha_data_phase": "DSHA-P33"
+  },
+  "p35_overlay": {
+    "pb": {
+      "bear_ic": 0.0322,
+      "consecutive_days": 16,
+      "threshold": 16,
+      "threshold_met": true,
+      "status": "GRAY_ADMITTED"
+    },
+    "cu": {
+      "bear_ic": 0.0241,
+      "consecutive_days": 9,
+      "threshold": 14,
+      "threshold_met": false,
+      "status": "IMPROVING"
+    },
+    "overall": "PB_ADMITTED_CU_IMPROVING"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
