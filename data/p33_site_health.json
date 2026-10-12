@@ -1,0 +1,25 @@
+{
+  "dshd_phase": "DSHD-P29",
+  "dsha_data_phase": "DSHA-P33",
+  "generated_at": "2026-10-12T10:57:28+08:00",
+  "verdict": {
+    "overall": "PASS",
+    "http_ok_count": 348,
+    "total_files": 348,
+    "non_200_live_paths": 0,
+    "timeout_count": 0,
+    "js_parse_ok": true,
+    "all_datasets_p33": true,
+    "core_18_complete": true
+  },
+  "probe_method": "Contents API live probe (2 rounds)",
+  "cdn_status": "fresh",
+  "warm_latency_ms": {
+    "median": 437,
+    "p95": 506,
+    "max": 1257
+  },
+  "errors": [],
+  "version_tag": "P33",
+  "dataset_version": "1.10"
+}
