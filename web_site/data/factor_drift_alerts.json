@@ -111,12 +111,17 @@
       "RED": 2
     }
   },
-  "version_tag": "P33",
+  "version_tag": "P35",
   "phase": "P31",
   "description": "P31 factor drift alerts - 结构性漂移方案D 稳态 / V31.0",
   "threshold_pct": 5.0,
   "legacy_threshold_pct": 10.0,
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
