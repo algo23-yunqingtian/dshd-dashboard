@@ -1,0 +1,132 @@
+{
+  "dataset_version": "1.10",
+  "version_tag": "P34",
+  "generated_at": "2026-10-12T01:30:00+08:00",
+  "seed": 42,
+  "description": "P31 experiment index - P2~P31 全阶段实验索引 / V31.0",
+  "experiments": [
+    {
+      "phase": "P2",
+      "status": "ARCHIVED",
+      "phase_num": 2
+    },
+    {
+      "phase": "P3",
+      "status": "ARCHIVED",
+      "phase_num": 3
+    },
+    {
+      "phase": "P4",
+      "status": "ARCHIVED",
+      "phase_num": 4
+    },
+    {
+      "phase": "P5",
+      "status": "ARCHIVED",
+      "phase_num": 5
+    },
+    {
+      "phase": "P6",
+      "status": "ARCHIVED",
+      "phase_num": 6
+    },
+    {
+      "phase": "P7",
+      "status": "ARCHIVED",
+      "phase_num": 7
+    },
+    {
+      "phase": "P8",
+      "status": "ARCHIVED",
+      "phase_num": 8
+    },
+    {
+      "phase": "P9",
+      "status": "ARCHIVED",
+      "phase_num": 9
+    },
+    {
+      "phase": "P10",
+      "status": "ARCHIVED",
+      "phase_num": 10
+    },
+    {
+      "phase": "P11",
+      "status": "ARCHIVED",
+      "phase_num": 11
+    },
+    {
+      "phase": "P12",
+      "status": "ARCHIVED",
+      "phase_num": 12
+    },
+    {
+      "phase": "P13",
+      "status": "ARCHIVED",
+      "phase_num": 13
+    },
+    {
+      "phase": "P14",
+      "status": "ARCHIVED",
+      "phase_num": 14
+    },
+    {
+      "phase": "P15",
+      "status": "ARCHIVED",
+      "phase_num": 15
+    },
+    {
+      "phase": "P16",
+      "status": "ARCHIVED",
+      "phase_num": 16
+    },
+    {
+      "phase": "P17",
+      "status": "ARCHIVED",
+      "phase_num": 17
+    },
+    {
+      "phase": "P18",
+      "status": "ARCHIVED",
+      "phase_num": 18
+    },
+    {
+      "phase": "P19",
+      "status": "ARCHIVED",
+      "phase_num": 19
+    },
+    {
+      "phase": "P20",
+      "status": "ARCHIVED",
+      "phase_num": 20
+    },
+    {
+      "phase": "P21",
+      "status": "ARCHIVED",
+      "phase_num": 21
+    },
+    {
+      "phase": "P22",
+      "status": "ARCHIVED",
+      "phase_num": 22
+    },
+    {
+      "phase": "P23",
+      "status": "ARCHIVED",
+      "phase_num": 23
+    },
+    {
+      "phase": "P24",
+      "status": "CURRENT",
+      "phase_num": 24
+    }
+  ],
+  "total_experiments": 31,
+  "current": "P31",
+  "version_separation": "P18/P19/P20/P21/P22/P23/P24/P25/P26/P27/P28/P29/P30/P31",
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "previous_version_tag": "P33",
+  "previous_dataset_version": "1.10"
+}
