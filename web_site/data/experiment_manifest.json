@@ -1,16 +1,16 @@
 {
   "manifest_id": "DSHC-EXPERIMENT-MANIFEST-P3-P18",
   "version": "18.0-P18-GH-PAGES-LAUNCH",
-  "generated_at": "2026-10-12T01:30:00+08:00",
+  "generated_at": "2026-11-20T11:00:00+08:00",
   "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG-P31",
-  "total_phases": 31,
-  "phase_range": "P3-P31",
-  "total_monitor_days": 805,
-  "total_zero_rollback_days": 805,
-  "cumulative_ic_drift_pct": 3.6,
-  "cumulative_drift_alert_counter": 1435,
-  "cumulative_audits": 868,
+  "engine": "V86.9-C-FINAL-DEBUG",
+  "total_phases": 16,
+  "phase_range": "P3-P18",
+  "total_monitor_days": 350,
+  "total_zero_rollback_days": 350,
+  "cumulative_ic_drift_pct": 4.1,
+  "cumulative_drift_alert_counter": 560,
+  "cumulative_audits": 728,
   "cumulative_sigma_weeks": 70,
   "cumulative_sigma_max": 70,
   "td_046_enforced": true,
@@ -515,14 +515,10 @@
       "conclusion": "DONE_GITHUB_PAGES_LIVE"
     }
   ],
-  "dataset_version": "1.12",
-  "version_tag": "P37",
-  "p31_meta": {
-    "bumped_at": "2026-10-12T01:30:00+08:00"
-  },
-  "cross_agent": {
-    "DSHD_version": "V35.0",
-    "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V38.0",
+    "updated_at": "2026-10-12T14:49:49.106514",
+    "data_source": "DSHA-P38"
   }
 }
