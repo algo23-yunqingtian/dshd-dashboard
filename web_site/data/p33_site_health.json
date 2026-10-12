@@ -19,5 +19,12 @@
     "p95": 506,
     "max": 1257
   },
-  "errors": []
+  "errors": [],
+  "version_tag": "P33",
+  "dataset_version": "1.10",
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P33"
+  }
 }
