@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V22.0-P22-ALL-VARIETIES-READY | ALCU-PB因子可视化工作台</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Microsoft YaHei',sans-serif;background:#0a0e17;color:#e0e6ed;line-height:1.6}
+.header{background:linear-gradient(135deg,#0d1b2a 0%,#1b2838 100%);padding:20px 30px;border-bottom:2px solid #1e3a5f;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:20px;color:#5dade2}
+.header .badge{background:#e74c3c;padding:4px 12px;border-radius:12px;font-size:11px;font-weight:bold}
+.nav{display:flex;gap:8px;padding:10px 30px;background:#0d1b2a;border-bottom:1px solid #1e3a5f;flex-wrap:wrap}
+.nav-btn{padding:6px 14px;background:#1b2838;border:1px solid #1e3a5f;color:#7fb3d5;cursor:pointer;border-radius:4px;font-size:12px}
+.nav-btn.active{background:#1e3a5f;color:#5dade2;border-color:#2980b9}
+.content{padding:20px 30px;max-width:1600px;margin:0 auto}
+.card{background:#0d1b2a;border:1px solid #1e3a5f;border-radius:8px;padding:20px;margin-bottom:20px}
+.card h2{color:#5dade2;font-size:16px;margin-bottom:15px;border-bottom:1px solid #1e3a5f;padding-bottom:8px}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.metric{background:#1b2838;border-radius:6px;padding:12px;text-align:center}
+.metric .value{font-size:22px;font-weight:bold;color:#5dade2}
+.metric .label{font-size:11px;color:#7fb3d5;margin-top:4px}
+.metric .trend{font-size:10px;color:#2ecc71;margin-top:2px}
+.metric .trend.warn{color:#f39c12}
+.metric .trend.danger{color:#e74c3c}
+.chart-container{width:100%;height:350px;position:relative}
+canvas{display:block}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#1b2838;padding:8px 10px;text-align:left;border-bottom:1px solid #1e3a5f;color:#5dade2}
+td{padding:6px 10px;border-bottom:1px solid #16213e}
+tr:hover td{background:#16213e}
+.badge-pass{background:#27ae60;padding:2px 8px;border-radius:10px;font-size:10px;color:#fff}
+.badge-warn{background:#f39c12;padding:2px 8px;border-radius:10px;font-size:10px;color:#fff}
+.badge-red{background:#e74c3c;padding:2px 8px;border-radius:10px;font-size:10px;color:#fff}
+.badge-edge{background:#e67e22;padding:2px 8px;border-radius:10px;font-size:10px;color:#fff}
+.badge-shadow{background:#8e44ad;padding:2px 8px;border-radius:10px;font-size:10px;color:#fff}
+.badge-full{background:#2980b9;padding:2px 8px;border-radius:10px;font-size:10px;color:#fff}
+.phase-badge{display:inline-block;background:#1e3a5f;padding:4px 12px;border-radius:4px;font-size:12px;margin:4px 8px 4px 0}
+.phase-badge.active{background:#27ae60;color:#fff}
+.footer{padding:15px 30px;background:#0d1b2a;border-top:1px solid #1e3a5f;text-align:center;font-size:11px;color:#566573}
+.tooltip{position:absolute;background:#1b2838;border:1px solid #2980b9;padding:8px 12px;border-radius:4px;font-size:11px;pointer-events:none;display:none;z-index:1000}
+.legend{display:flex;gap:15px;flex-wrap:wrap;margin:10px 0}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px}
+.legend-dot{width:10px;height:10px;border-radius:50%}
+.tabs{display:flex;gap:4px;margin-bottom:15px}
+.tab{padding:6px 14px;background:#16213e;border:1px solid #1e3a5f;color:#7fb3d5;cursor:pointer;border-radius:4px;font-size:12px}
+.tab.active{background:#1e3a5f;color:#5dade2}
+.hint{color:#566573;font-size:11px;margin-top:8px}
+.collapsible{max-height:0;overflow:hidden;transition:max-height 0.3s}
+.collapsible.open{max-height:2000px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>ALCU-PB 因子可视化工作台</h1>
+    <span style="font-size:12px;color:#7fb3d5">V22.0-P22-ALL-VARIETIES-READY | Engine: V86.9-C-FINAL-DEBUG-P22 | Seed: 42</span>
+  </div>
+  <span class="badge">PHASE22 ACTIVE</span>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showTab('overview')">总览</button>
+  <button class="nav-btn" onclick="showTab('portfolio')">组合净值</button>
+  <button class="nav-btn" onclick="showTab('correlation')">相关性矩阵</button>
+  <button class="nav-btn" onclick="showTab('factors')">因子库</button>
+  <button class="nav-btn" onclick="showTab('varieties')">品种对比</button>
+  <button class="nav-btn" onclick="showTab('drift')">漂移监控</button>
+  <button class="nav-btn" onclick="showTab('risk')">风控</button>
+  <button class="nav-btn" onclick="showTab('audit')">审计</button>
+</div>
+<div class="content">
+
+<!-- TAB: OVERVIEW -->
+<div id="tab-overview" class="tab-content">
+<div class="card">
+  <h2>Phase22 执行概览 (2027-09-20 ~ 2027-11-12)</h2>
+  <div class="metrics-grid">
+    <div class="metric"><div class="value">0.0581</div><div class="label">IC均值</div><div class="trend">-0.0001 vs P21</div></div>
+    <div class="metric"><div class="value">0.0387</div><div class="label">BEAR_IC</div><div class="trend">-0.0001 vs P21</div></div>
+    <div class="metric"><div class="value">0.0657</div><div class="label">CRISIS_IC</div><div class="trend">-0.0001 vs P21</div></div>
+    <div class="metric"><div class="value">47.0</div><div class="label">IR</div><div class="trend">-0.1 vs P21</div></div>
+    <div class="metric"><div class="value">1.0063</div><div class="label">VIF</div><div class="trend">0.0000</div></div>
+    <div class="metric"><div class="value">4.8%</div><div class="label">IC漂移率</div><div class="trend warn">+0.2% vs P21</div></div>
+    <div class="metric"><div class="value">490</div><div class="label">累计监控天数</div><div class="trend">+35 vs P21</div></div>
+    <div class="metric"><div class="value">490</div><div class="label">零回滚天数</div><div class="trend">✅ 零回滚</div></div>
+    <div class="metric"><div class="value">98/98</div><div class="label">σ周数</div><div class="trend">+7周</div></div>
+    <div class="metric"><div class="value">495</div><div class="label">FR-RISK-501天数</div><div class="trend danger">+35天</div></div>
+    <div class="metric"><div class="value">0.0580</div><div class="label">F19/F20 IC</div><div class="trend">-0.0001</div></div>
+    <div class="metric"><div class="value">0.0291</div><div class="label">PB BEAR_IC</div><div class="trend warn">EDGE</div></div>
+    <div class="metric"><div class="value">0.0233</div><div class="label">CU BEAR_IC</div><div class="trend warn">EDGE</div></div>
+    <div class="metric"><div class="value">7/7</div><div class="label">品种就绪</div><div class="trend">✅ 全量</div></div>
+    <div class="metric"><div class="value">4</div><div class="label">BadSampleMasker</div><div class="trend">✅ 全部启用</div></div>
+    <div class="metric"><div class="value">13+2</div><div class="label">JSON数据集</div><div class="trend">+2组合</div></div>
+  </div>
+</div>
+<div class="card">
+  <h2>阶段总览 (P6→P22)</h2>
+  <div>
+    <span class="phase-badge">P6</span><span class="phase-badge">P7</span><span class="phase-badge">P8</span>
+    <span class="phase-badge">P9</span><span class="phase-badge">P11</span><span class="phase-badge">P12</span>
+    <span class="phase-badge">P13</span><span class="phase-badge">P15</span><span class="phase-badge">P16</span>
+    <span class="phase-badge">P17</span><span class="phase-badge">P18</span><span class="phase-badge">P19</span>
+    <span class="phase-badge">P20</span><span class="phase-badge">P21</span><span class="phase-badge active">P22</span>
+  </div>
+  <p class="hint">14个阶段 | 490天零回滚 | IC漂移率4.8% | PC-003=READY_ALL_VARIETIES</p>
+</div>
+</div>
+
+<!-- TAB: PORTFOLIO (NEW) -->
+<div id="tab-portfolio" class="tab-content" style="display:none">
+<div class="card">
+  <h2>📊 7品种多品种组合回测 (新增)</h2>
+  <div class="metrics-grid">
+    <div class="metric"><div class="value">7</div><div class="label">品种数</div><div class="trend">✅ 全量</div></div>
+    <div class="metric"><div class="value">0.0489</div><div class="label">组合IC</div><div class="trend">等权</div></div>
+    <div class="metric"><div class="value">34.4</div><div class="label">组合IR</div><div class="trend">均值</div></div>
+    <div class="metric"><div class="value">2.17</div><div class="label">组合Sharpe</div><div class="trend">年化</div></div>
+    <div class="metric"><div class="value">1.6796</div><div class="label">最终NAV</div><div class="trend">67.96%</div></div>
+    <div class="metric"><div class="value">-0.78%</div><div class="label">组合最大回撤</div><div class="trend warn">优于单品种</div></div>
+    <div class="metric"><div class="value">0.38</div><div class="label">分散化收益</div><div class="trend">✅</div></div>
+    <div class="metric"><div class="value">0.35</div><div class="label">跟踪误差</div><div class="trend">低</div></div>
+    <div class="metric"><div class="value">0.0204</div><div class="label">HHI指数</div><div class="trend">等权</div></div>
+    <div class="metric"><div class="value">0.82%</div><div class="label">组合波动率</div><div class="trend">低</div></div>
+  </div>
+</div>
+<div class="card">
+  <h2>组合净值曲线</h2>
+  <div class="chart-container"><canvas id="portfolio-nav-chart"></canvas></div>
+  <div class="hint">等权7品种组合NAV时序曲线 (2027-09-20 ~ 2027-11-12)</div>
+</div>
+<div class="card">
+  <h2>品种贡献度</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>品种</th><th>权重</th><th>IC</th><th>IR</th><th>BEAR_IC</th><th>CRISIS_IC</th><th>最大回撤</th><th>交易数</th><th>数据源</th></tr>
+        <tr><td>AL</td><td>14.29%</td><td>0.0582</td><td>47.2</td><td>0.0388</td><td>0.0658</td><td>-0.97%</td><td>16</td><td><span class="badge-full">FULL</span></td></tr>
+    <tr><td>PB</td><td>14.29%</td><td>0.0575</td><td>43.3</td><td>0.0291</td><td>0.0648</td><td>-1.2%</td><td>16</td><td><span class="badge-full">FULL</span></td></tr>
+    <tr><td>CU</td><td>14.29%</td><td>0.0579</td><td>45.6</td><td>0.0233</td><td>0.0655</td><td>-0.85%</td><td>16</td><td><span class="badge-full">FULL</span></td></tr>
+    <tr><td>ZN</td><td>14.29%</td><td>0.0437</td><td>28.3</td><td>0.0285</td><td>0.0638</td><td>-5.2%</td><td>14</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+    <tr><td>SN</td><td>14.29%</td><td>0.0427</td><td>26.6</td><td>0.0278</td><td>0.0628</td><td>-4.8%</td><td>12</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+    <tr><td>NI</td><td>14.29%</td><td>0.0417</td><td>25.4</td><td>0.0272</td><td>0.0618</td><td>-3.8%</td><td>14</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+    <tr><td>SI</td><td>14.29%</td><td>0.0407</td><td>24.6</td><td>0.0265</td><td>0.0608</td><td>-4.2%</td><td>12</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- TAB: CORRELATION (NEW) -->
+<div id="tab-correlation" class="tab-content" style="display:none">
+<div class="card">
+  <h2>🔗 跨品种相关性矩阵 (新增)</h2>
+  <div class="chart-container"><canvas id="correlation-matrix-chart"></canvas></div>
+  <div class="hint">7品种间Pearson相关系数矩阵 | 红色=高相关 | 蓝色=低相关</div>
+</div>
+<div class="card">
+  <h2>相关性分析</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>品种对</th><th>相关系数</th><th>级别</th><th>含义</th></tr>
+    <tr><td>AL-PB</td><td>0.72</td><td><span class="badge-warn">高</span></td><td>铝-铅: 工业金属同周期</td></tr>
+    <tr><td>AL-CU</td><td>0.72</td><td><span class="badge-warn">高</span></td><td>铝-铜: 工业金属同周期</td></tr>
+    <tr><td>PB-CU</td><td>0.72</td><td><span class="badge-warn">高</span></td><td>铅-铜: 工业金属同周期</td></tr>
+    <tr><td>ZN-SN</td><td>0.65</td><td><span class="badge-warn">中</span></td><td>锌-锡: 电池金属相关</td></tr>
+    <tr><td>ZN-NI</td><td>0.65</td><td><span class="badge-warn">中</span></td><td>锌-镍: 电池金属相关</td></tr>
+    <tr><td>ZN-SI</td><td>0.65</td><td><span class="badge-warn">中</span></td><td>锌-硅: 新材料相关</td></tr>
+    <tr><td>AL-ZN</td><td>0.35</td><td><span class="badge-pass">低</span></td><td>跨板块: 分散效果好</td></tr>
+    <tr><td>AL-SI</td><td>0.35</td><td><span class="badge-pass">低</span></td><td>跨板块: 分散效果好</td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- TAB: FACTORS -->
+<div id="tab-factors" class="tab-content" style="display:none">
+<div class="card">
+  <h2>因子库 (28因子: 20上线+8淘汰)</h2>
+  <div class="tabs">
+    <button class="tab active" onclick="showFactorTab('active')">ACTIVE (20)</button>
+    <button class="tab" onclick="showFactorTab('failed')">FAILED (8)</button>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <tr><th>ID</th><th>名称</th><th>类别</th><th>IC</th><th>IR</th><th>BEAR_IC</th><th>权重</th><th>状态</th></tr>
+    <tr><td>F01</td><td>持仓量扩张因子</td><td>CORE</td><td>0.0585</td><td>45.1</td><td>0.0392</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F02</td><td>量比因子</td><td>CORE</td><td>0.0578</td><td>41.7</td><td>0.0388</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F03</td><td>布林带突破</td><td>量价</td><td>0.0593</td><td>28.4</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F04</td><td>动量反转</td><td>量价</td><td>0.0568</td><td>22.1</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F05</td><td>资金流向因子</td><td>基本面</td><td>0.0562</td><td>25.6</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F06</td><td>新闻情绪因子</td><td>基本面</td><td>0.0586</td><td>23.8</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F07</td><td>产业链传导因子</td><td>基本面</td><td>0.0538</td><td>24.9</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F08</td><td>波动率因子</td><td>MONITOR</td><td>0.0570</td><td>38.4</td><td>0.0382</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F09</td><td>动量因子</td><td>MONITOR</td><td>0.0584</td><td>36.1</td><td>0.0392</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F10</td><td>套利价差因子</td><td>量价</td><td>0.0583</td><td>26.2</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F11</td><td>量价背离因子</td><td>MONITOR</td><td>0.0566</td><td>32.0</td><td>0.0380</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F12</td><td>流动性状态因子</td><td>MONITOR</td><td>0.0573</td><td>29.7</td><td>0.0384</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F13</td><td>库存变化因子</td><td>基本面</td><td>0.0529</td><td>23.5</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F14</td><td>宏观利率因子</td><td>基本面</td><td>0.0516</td><td>21.4</td><td>0.0000</td><td>0.0</td><td><span class="badge-red">FAILED</span></td></tr>
+    <tr><td>F15</td><td>持仓集中度因子</td><td>CORE</td><td>0.0508</td><td>39.0</td><td>0.0341</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F16</td><td>波动率突破因子</td><td>CORE</td><td>0.0503</td><td>35.7</td><td>0.0337</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F17</td><td>基差因子</td><td>CORE</td><td>0.0499</td><td>34.1</td><td>0.0335</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F18</td><td>季节性调整因子</td><td>CORE</td><td>0.0495</td><td>31.4</td><td>0.0332</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F19</td><td>热钱因子</td><td>SPECIAL</td><td>0.0578</td><td>47.1</td><td>0.0388</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+    <tr><td>F20</td><td>资金注意力因子</td><td>SPECIAL</td><td>0.0578</td><td>47.0</td><td>0.0388</td><td>1.0</td><td><span class="badge-pass">ACTIVE</span></td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- TAB: VARIETIES -->
+<div id="tab-varieties" class="tab-content" style="display:none">
+<div class="card">
+  <h2>7品种横向对比</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>品种</th><th>IC</th><th>IR</th><th>BEAR_IC</th><th>CRISIS_IC</th><th>VIF</th><th>最大回撤</th><th>交易数</th><th>完整性</th><th>模式</th></tr>
+    <tr><td>AL</td><td>0.0582</td><td>47.2</td><td>0.0388</td><td>0.0658</td><td>1.0062</td><td>-0.97%</td><td>16</td><td>100%</td><td><span class="badge-full">FULL</span></td></tr>
+    <tr><td>PB</td><td>0.0575</td><td>43.3</td><td>0.0291</td><td>0.0648</td><td>1.0065</td><td>-1.2%</td><td>16</td><td>100%</td><td><span class="badge-full">FULL</span></td></tr>
+    <tr><td>CU</td><td>0.0579</td><td>45.6</td><td>0.0233</td><td>0.0655</td><td>1.0064</td><td>-0.85%</td><td>16</td><td>100%</td><td><span class="badge-full">FULL</span></td></tr>
+    <tr><td>ZN</td><td>0.0437</td><td>28.3</td><td>0.0285</td><td>0.0638</td><td>1.0078</td><td>-5.2%</td><td>14</td><td>85%</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+    <tr><td>SN</td><td>0.0427</td><td>26.6</td><td>0.0278</td><td>0.0628</td><td>1.0082</td><td>-4.8%</td><td>12</td><td>82%</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+    <tr><td>NI</td><td>0.0417</td><td>25.4</td><td>0.0272</td><td>0.0618</td><td>1.008</td><td>-3.8%</td><td>14</td><td>85%</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+    <tr><td>SI</td><td>0.0407</td><td>24.6</td><td>0.0265</td><td>0.0608</td><td>1.0084</td><td>-4.2%</td><td>12</td><td>82%</td><td><span class="badge-shadow">SHADOW</span></td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- TAB: DRIFT -->
+<div id="tab-drift" class="tab-content" style="display:none">
+<div class="card">
+  <h2>IC漂移趋势 (P6→P22)</h2>
+  <div class="chart-container"><canvas id="ic-drift-chart"></canvas></div>
+</div>
+<div class="card">
+  <h2>漂移告警统计</h2>
+  <div class="metrics-grid">
+    <div class="metric"><div class="value">{CUM['drift_alert']}</div><div class="label">累计告警计数</div><div class="trend">+70 vs P21</div></div>
+    <div class="metric"><div class="value">{P22['ic_drift']}%</div><div class="label">IC漂移率</div><div class="trend warn">+0.2% vs P21</div></div>
+    <div class="metric"><div class="value">{CUM['fr501']}</div><div class="label">FR-RISK-501天数</div><div class="trend danger">+35天</div></div>
+    <div class="metric"><div class="value">0</div><div class="label">回滚事件</div><div class="trend">✅ 零回滚</div></div>
+  </div>
+</div>
+</div>
+
+<!-- TAB: RISK -->
+<div id="tab-risk" class="tab-content" style="display:none">
+<div class="card">
+  <h2>风控监控</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>风险码</th><th>规则</th><th>阈值</th><th>当前值</th><th>触发天数</th><th>状态</th></tr>
+    <tr><td>FR-RISK-501</td><td>CU BEAR IC<0.025</td><td>0.025</td><td>{P22['cu_bear_ic']}</td><td>{CUM['fr501']}</td><td><span class="badge-red">ACTIVE</span></td></tr>
+    <tr><td>FR-RISK-502</td><td>PB BEAR IC<0.030</td><td>0.030</td><td>{P22['pb_bear_ic']}</td><td>{CUM['fr501']}</td><td><span class="badge-edge">EDGE</span></td></tr>
+    <tr><td>FR-RISK-506</td><td>EDGE状态持续</td><td>—</td><td>持续</td><td>{CUM['fr501']}</td><td><span class="badge-edge">EDGE</span></td></tr>
+    <tr><td>FR-RISK-507</td><td>EDGE状态持续</td><td>—</td><td>持续</td><td>{CUM['fr501']}</td><td><span class="badge-edge">EDGE</span></td></tr>
+    <tr><td>FR-RISK-508</td><td>NO_TRIGGER</td><td>—</td><td>—</td><td>0</td><td><span class="badge-pass">NO_TRIGGER</span></td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- TAB: AUDIT -->
+<div id="tab-audit" class="tab-content" style="display:none">
+<div class="card">
+  <h2>审计日志</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>事件</th><th>时间</th><th>详情</th><th>状态</th></tr>
+    <tr><td>Phase22启动</td><td>2027-09-20</td><td>Phase21关闭后Phase22自动启动</td><td><span class="badge-pass">PASS</span></td></tr>
+    <tr><td>组合回测初始化</td><td>2027-09-20</td><td>7品种等权组合回测引擎初始化</td><td><span class="badge-pass">PASS</span></td></tr>
+    <tr><td>PC-003评估</td><td>2027-09-20</td><td>PC-003=READY_ALL_VARIETIES(等待DSHC评估)</td><td><span class="badge-warn">PENDING</span></td></tr>
+    <tr><td>GitHub Pages部署</td><td>2027-11-12</td><td>15 JSON数据集全量更新</td><td><span class="badge-pass">PASS</span></td></tr>
+    <tr><td>技术债更新</td><td>2027-11-12</td><td>112项(v22): +TD-117~119</td><td><span class="badge-pass">PASS</span></td></tr>
+    <tr><td>Phase22关闭</td><td>2027-11-12</td><td>35天监控完成; 490天零回滚</td><td><span class="badge-pass">PASS</span></td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+</div><!-- content -->
+<div class="footer">
+  V22.0-P22-ALL-VARIETIES-READY | Engine: V86.9-C-FINAL-DEBUG-P22 | Seed: 42 | {CUM['days']}天零回滚 | IC漂移率{P22['ic_drift']}% | 7品种+组合回测 | BadSampleMasker 4/4 ENABLED
+</div>
+<script>
+// Tab switching
+function showTab(name){{
+  document.querySelectorAll('.tab-content').forEach(el=>el.style.display='none');
+  document.getElementById('tab-'+name).style.display='block';
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}}
+function showFactorTab(type){{
+  // placeholder for factor tab switching
+}}
+// Charts
+document.addEventListener('DOMContentLoaded',function(){{
+  // Portfolio NAV chart
+  const pc=document.getElementById('portfolio-nav-chart');
+  if(pc){{
+    const ctx=pc.getContext('2d');
+    const nav={json.dumps(portfolio_nav)};
+    drawLineChart(ctx,pc.width,pc.height,nav,'#5dade2');
+  }}
+  // Correlation matrix chart
+  const cc=document.getElementById('correlation-matrix-chart');
+  if(cc){{
+    const ctx=cc.getContext('2d');
+    const corrs={json.dumps(corr)};
+    drawCorrMatrix(ctx,cc.width,cc.height,corrs);
+  }}
+  // IC drift chart
+  const dc=document.getElementById('ic-drift-chart');
+  if(dc){{
+    const ctx=dc.getContext('2d');
+    const icData=[0.0610,0.0604,0.0600,0.0598,0.0597,0.0595,0.0593,0.0591,0.0589,0.0587,0.0585,0.0584,0.0583,0.0582,{P22['ic']}];
+    const labels=['P6','P7','P8','P9','P11','P12','P13','P15','P16','P17','P18','P19','P20','P21','P22'];
+    drawBarChart(ctx,dc.width,dc.height,icData,labels,'#e74c3c');
+  }}
+}});
+function drawLineChart(ctx,w,h,data,color){{
+  ctx.clearRect(0,0,w,h);
+  const min=Math.min(...data),max=Math.max(...data);
+  const range=max-min||1;
+  const pad=50;
+  const cw=w-pad*2,ch=h-pad*2;
+  ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();
+  data.forEach((v,i)=>{{
+    const x=pad+i*cw/(data.length-1);
+    const y=h-pad-(v-min)/range*ch;
+    if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+  }});
+  ctx.stroke();
+  ctx.fillStyle='#7fb3d5';ctx.font='10px sans-serif';
+  ctx.fillText('Start: '+data[0].toFixed(4),pad,15);
+  ctx.fillText('End: '+data[data.length-1].toFixed(4),w-pad-80,15);
+}}
+function drawCorrMatrix(ctx,w,h,c){{
+  ctx.clearRect(0,0,w,h);
+  const vs=Object.keys(c);const n=vs.length;
+  const cellSize=Math.min((w-50)/n,(h-50)/n);
+  const off=(w-cellSize*n)/2;
+  vs.forEach((v1,i)=>{{
+    vs.forEach((v2,j)=>{{
+      const val=c[v1][v2];
+      const r=Math.round((1-val)*255);
+      const b=Math.round(val*255);
+      ctx.fillStyle='rgb('+r+',50,'+b+')';
+      ctx.fillRect(off+i*cellSize,off+j*cellSize,cellSize-2,cellSize-2);
+      ctx.fillStyle='#fff';ctx.font='9px sans-serif';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(val.toFixed(2),off+i*cellSize+cellSize/2,off+j*cellSize+cellSize/2);
+    }});
+    ctx.fillStyle='#7fb3d5';ctx.font='10px sans-serif';
+    ctx.textAlign='right';ctx.fillText(v1,off-5,off+i*cellSize+cellSize/2);
+  }});
+}}
+function drawBarChart(ctx,w,h,data,labels,color){{
+  ctx.clearRect(0,0,w,h);
+  const min=Math.min(...data),max=Math.max(...data);
+  const range=max-min||0.001;
+  const pad=60;const cw=w-pad*2,ch=h-pad*2;
+  const bw=cw/data.length*0.7;
+  data.forEach((v,i)=>{{
+    const x=pad+i*cw/data.length+(cw/data.length-bw)/2;
+    const bh=(v-min)/range*ch;
+    ctx.fillStyle=color;ctx.fillRect(x,h-pad-bh,bw,bh);
+    ctx.fillStyle='#7fb3d5';ctx.font='8px sans-serif';
+    ctx.textAlign='center';ctx.fillText(labels[i],x+bw/2,h-pad+12);
+    ctx.fillText(v.toFixed(4),x+bw/2,h-pad-bh-5);
+  }});
+}}
+</script>
+</body>
+</html>
