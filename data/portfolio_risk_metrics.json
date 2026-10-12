@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.14",
+  "dataset_version": "1.15",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 portfolio risk metrics / V31.0",
@@ -103,7 +103,7 @@
       "response_time_min": 5
     }
   ],
-  "version_tag": "P39",
+  "version_tag": "P40",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
