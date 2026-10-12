@@ -373,7 +373,7 @@
   },
   "fr_risk_link": "FR-RISK-PG25-ICDRIFT-015",
   "data_ref": "ic_drift_timeseries.json",
-  "phase": null,
+  "phase": "P39",
   "scheme_d_status": "FROZEN_STEADY_STATE",
   "root_cause": {},
   "unblock": {
