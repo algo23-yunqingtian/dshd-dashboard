@@ -1,20 +1,20 @@
 {
-  "phase": "Phase33",
-  "engine": "V86.9-C-FINAL-DEBUG-P33",
+  "phase": "Phase35",
+  "engine": "V86.9-C-FINAL-DEBUG-P35",
   "asset": "CU",
   "date_range": {
-    "start": "2029-03-26",
-    "end": "2029-05-11",
+    "start": "2029-07-01",
+    "end": "2029-08-15",
     "trading_days": 35
   },
   "weeks": [
-    "W106",
-    "W107",
-    "W108",
-    "W109",
-    "W110",
-    "W111",
-    "W112"
+    "W120",
+    "W121",
+    "W122",
+    "W123",
+    "W124",
+    "W125",
+    "W126"
   ],
   "scheme_d_frozen": true,
   "production_status": "gray_production",
@@ -22,19 +22,19 @@
   "bad_samples": 0,
   "data_quality": "EXCELLENT",
   "metrics": {
-    "IC": 0.0585,
-    "BEAR_IC": 0.0389,
-    "CRISIS_IC": 0.0656,
-    "IR": 46.6,
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
     "VIF": 1.0064,
     "F19_F20_IC": 0.0583,
-    "PB_BEAR_IC": 0.0389,
-    "CU_BEAR_IC": 0.0237,
-    "drift_pct": 3.2
+    "PB_BEAR_IC": 0.0393,
+    "CU_BEAR_IC": 0.0241,
+    "drift_pct": 2.8
   },
   "backtest_results": {
     "no_cost": {
-      "nav": 1.863,
+      "nav": 1.868,
       "sharpe": 2.2,
       "max_drawdown_pct": -0.75,
       "total_trades": 12,
@@ -44,7 +44,7 @@
       "profit_factor": 3.45
     },
     "with_cost": {
-      "nav": 1.796,
+      "nav": 1.801,
       "sharpe": 2.05,
       "max_drawdown_pct": -0.92,
       "total_trades": 12,
@@ -56,7 +56,7 @@
       "total_cost_pct": 0.16
     },
     "comparison": {
-      "nav_gap_pct": 3.6,
+      "nav_gap_pct": 3.59,
       "sharpe_gap": 0.15,
       "max_dd_gap_pp": 0.17,
       "conclusion": "零成本模型NAV高估约3.6%，含成本版本NAV更为保守"
@@ -71,7 +71,7 @@
     "active": true,
     "warn_threshold_pct": 4.8,
     "relock_threshold_pct": 5.0,
-    "current_drift_pct": 3.2,
+    "current_drift_pct": 2.8,
     "status": "STABLE_STEADY_STATE"
   },
   "cost_parameters": {
@@ -91,9 +91,9 @@
     }
   },
   "cross_agent": {
-    "DSHC_phase": "P40",
-    "DSHD_version": "V33.0",
-    "DSHA_phase": "Phase33"
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   },
   "scheme_d_params": {
     "F01_weight": 0.85,
@@ -103,9 +103,9 @@
     "decay_comp": 1.0018,
     "F15~F18_correction": "artifact",
     "frozen_since": "P28",
-    "frozen_phases": 8,
+    "frozen_phases": 10,
     "status": "FROZEN_STEADY_STATE"
   },
-  "version_tag": "P33",
+  "version_tag": "P35",
   "dataset_version": "1.10"
 }
