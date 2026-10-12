@@ -1,21 +1,21 @@
 {
-  "phase": "Phase35",
-  "engine": "V86.9-C-FINAL-DEBUG-P35",
+  "phase": "Phase36",
+  "engine": "V86.9-C-FINAL-DEBUG-P36",
   "seed": 42,
   "rng": "mulberry32",
   "date_range": {
-    "start": "2029-07-01",
-    "end": "2029-08-15",
+    "start": "2029-08-19",
+    "end": "2029-10-03",
     "trading_days": 35
   },
   "weeks": [
-    "W120",
-    "W121",
-    "W122",
-    "W123",
-    "W124",
-    "W125",
-    "W126"
+    "W127",
+    "W128",
+    "W129",
+    "W130",
+    "W131",
+    "W132",
+    "W133"
   ],
   "scheme_d": {
     "F01_weight": 0.85,
@@ -25,7 +25,7 @@
     "decay_comp": 1.0018,
     "F15~F18_correction": "artifact",
     "frozen_since": "P28",
-    "frozen_phases": 10,
+    "frozen_phases": 11,
     "status": "FROZEN_STEADY_STATE"
   },
   "scheme_d_frozen": true,
@@ -33,21 +33,6 @@
   "drift_thresholds": {
     "warn_pct": 4.8,
     "relock_pct": 5.0
-  },
-  "phase34_metrics": {
-    "IC": 0.0586,
-    "BEAR_IC": 0.0393,
-    "CRISIS_IC": 0.0664,
-    "IR": 47.9,
-    "VIF": 1.0065,
-    "F19_F20_IC": 0.0583,
-    "PB_BEAR_IC": 0.0321,
-    "CU_BEAR_IC": 0.0239,
-    "drift_pct": 3.0,
-    "cumulative_days": 910,
-    "sigma_weeks": 182,
-    "FR_RISK_501_days": 915,
-    "drift_alert_counter": 1681
   },
   "phase35_metrics": {
     "IC": 0.0586,
@@ -62,7 +47,22 @@
     "cumulative_days": 945,
     "sigma_weeks": 189,
     "FR_RISK_501_days": 950,
-    "drift_alert_counter": 1764,
+    "drift_alert_counter": 1764
+  },
+  "phase36_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0322,
+    "CU_BEAR_IC": 0.0244,
+    "drift_pct": 2.6,
+    "cumulative_days": 980,
+    "sigma_weeks": 196,
+    "FR_RISK_501_days": 985,
+    "drift_alert_counter": 1799,
     "F15_baseline": 0.0506,
     "F16_baseline": 0.0501,
     "F17_baseline": 0.0497,
@@ -177,6 +177,10 @@
     {
       "phase": "P35",
       "IC": 0.0586
+    },
+    {
+      "phase": "P36",
+      "IC": 0.0586
     }
   ],
   "drift_rate_trend": [
@@ -227,81 +231,88 @@
     {
       "phase": "P35",
       "drift_pct": 2.8
+    },
+    {
+      "phase": "P36",
+      "drift_pct": 2.6
     }
   ],
   "drift_source_breakdown": {
-    "technical": 46.5,
+    "technical": 46.0,
     "fundamental": 26.5,
-    "capital": 27.0,
-    "P34_comparison": {
-      "technical": 47.0,
+    "capital": 27.5,
+    "P35_comparison": {
+      "technical": 46.5,
       "fundamental": 26.5,
-      "capital": 26.5
+      "capital": 27.0
     }
   },
   "drift_source_trend": {
     "technical": [
       47.0,
-      46.5
+      46.5,
+      46.0
     ],
     "fundamental": [
+      26.5,
       26.5,
       26.5
     ],
     "capital": [
       26.5,
-      27.0
+      27.0,
+      27.5
     ]
   },
   "admission_block": {
     "drift_below_4_8": true,
     "IC_above_0_0575": true,
-    "consecutive_phases": 10,
+    "consecutive_phases": 11,
     "status": "PERMANENTLY_LIFTED",
-    "note": "连续10阶段满足准入条件，阻断已永久解除"
+    "note": "连续11阶段满足准入条件，阻断已永久解除"
   },
   "f19_f20_anchoring": {
     "F19_IC": 0.0583,
     "F20_IC": 0.0583,
     "stability": "EXTREMELY_STABLE",
-    "P34_value": 0.0583,
+    "P35_value": 0.0583,
     "change": 0.0,
     "conclusion": "F19/F20锚因子维持超稳定状态"
   },
   "pb_bear_ic_progression": {
-    "P30": 0.03,
     "P31": 0.0318,
     "P32": 0.0319,
     "P33": 0.032,
     "P34": 0.0321,
     "P35": 0.0322,
+    "P36": 0.0322,
     "DSHC_threshold_0_032": "ABOVE",
-    "threshold_met_phases": "16/16",
-    "conclusion": "PB BEAR_IC持续达标DSHC阈值，连续16阶段≥0.030"
+    "threshold_met_phases": "17/17",
+    "conclusion": "PB BEAR_IC持续达标DSHC阈值，连续17阶段≥0.030"
   },
   "cu_bear_ic_progression": {
-    "P30": 0.025,
     "P31": 0.026,
     "P32": 0.0262,
     "P33": 0.0237,
     "P34": 0.0239,
     "P35": 0.0241,
+    "P36": 0.0244,
     "threshold_0_025": "BELOW",
     "DSHC_threshold_0_040": "BELOW",
     "improvement_rate": "continuing",
-    "conclusion": "CU BEAR_IC持续改善中，距DSHC阈值0.040仍有差距"
+    "conclusion": "CU BEAR_IC持续改善中(0.0239→0.0244)，距DSHC阈值0.040仍有差距"
   },
   "fr_risk_rules": {
     "FR-RISK-501": {
       "condition": "CU BEAR_IC<0.025",
       "status": "CONTINUED",
-      "days": 950,
+      "days": 985,
       "severity": "LOW"
     },
     "FR-RISK-502": {
       "condition": "PB BEAR_IC<0.030",
       "status": "CONTINUED",
-      "days": 875,
+      "days": 910,
       "severity": "LOW"
     },
     "FR-RISK-503": {
@@ -351,15 +362,15 @@
   },
   "ic_drift_trend": {
     "P6_IC": 0.061,
-    "P35_IC": 0.0586,
-    "total_drift_pct": 2.8,
+    "P36_IC": 0.0586,
+    "total_drift_pct": 2.6,
     "threshold_10pct": true,
     "below_threshold": true,
-    "scheme_d_effect": "P25→P35 IC从0.0580升至0.0586，成功逆转下行趋势并维持稳态"
+    "scheme_d_effect": "P25→P36 IC从0.0580升至0.0586并维持稳态，方案D持续有效"
   },
   "cumulative_audit": {
-    "total_phases": 27,
-    "total_days": 945,
+    "total_phases": 28,
+    "total_days": 980,
     "phases_list": [
       "P6",
       "P7",
@@ -387,17 +398,13 @@
       "P32",
       "P33",
       "P34",
-      "P35"
+      "P35",
+      "P36"
     ],
     "zero_rollback": true,
     "rollback_count": 0,
-    "note": "27阶段×35天=945天零回滚，方案D冻结后连续10阶段稳态"
+    "note": "28阶段×35天=980天零回滚，方案D冻结后连续11阶段稳态"
   },
-  "version_tag": "P35",
-  "dataset_version": "1.10",
-  "cross_agent": {
-    "DSHD_version": "V35.0",
-    "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
-  }
+  "version_tag": "P36",
+  "dataset_version": "1.11"
 }
