@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.14",
-  "version_tag": "P39",
+  "dataset_version": "1.15",
+  "version_tag": "P40",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 FR-RISK alerts - P31 漂移解除 + PB/CU 灰度持续 / V31.0",
@@ -261,6 +261,8 @@
       "DSHD"
     ],
     "sync_version": "FR_RISK_STATUS_ENUM_V1",
-    "status_states": 7
+    "status_states": 7,
+    "DSHC": "P51",
+    "sync_status": "SYNCED"
   }
 }
