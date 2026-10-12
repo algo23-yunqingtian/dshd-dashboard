@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P34",
+  "dataset_version": "1.15",
+  "version_tag": "P40",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 cross-variety correlation matrix / V31.0",
@@ -589,6 +589,15 @@
     "fix_plan": "SCHEME_D_RECOMMENDED",
     "recovery_condition": "连续2阶段漂移率<4.8%且IC≥0.0575"
   },
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10"
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.158515",
+    "data_source": "DSHA-P38"
+  }
 }
