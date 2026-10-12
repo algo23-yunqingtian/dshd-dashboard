@@ -1,22 +1,21 @@
 {
-  "dataset_version": "1.10",
-  "version_tag": "P33",
-  "generated_at": "2026-10-12T10:37:04+08:00",
+  "dataset_version": "1.14",
+  "version_tag": "P39",
+  "generated_at": "2026-10-12T14:49:49.191513",
   "seed": 42,
-  "description": "P33 version index - P18~P33 十六阶段版本索引 / V33.0",
-  "current_version": "P33",
-  "total_data_version": "1.10",
-  "phase_count": 33,
-  "total_versions": 16,
-  "version_range": "P18-P33",
+  "description": "P34 version index - P18~P38 二十个阶段版本索引 / V38.0",
+  "current_version": "P38",
+  "total_data_version": "1.13",
+  "phase_count": 38,
+  "total_versions": 20,
+  "version_range": "P18-P38",
   "versions": [
     {
       "status": "ARCHIVED",
       "data_version": "1.1",
       "version": "P18",
       "phase": "Phase18",
-      "version_tag": "P18",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -29,15 +28,14 @@
         "SN",
         "ZN"
       ],
-      "note": "P18 baseline: 品种AL单品种, 因子库 V1.0"
+      "note": "P18 baseline"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.2",
       "version": "P19",
       "phase": "Phase19",
-      "version_tag": "P19",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -50,15 +48,14 @@
         "SN",
         "ZN"
       ],
-      "note": "P19 迭代: 新增PB + 版本分离机制"
+      "note": "P19 iteration"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.3",
       "version": "P20",
       "phase": "Phase20",
-      "version_tag": "P20",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -71,15 +68,14 @@
         "SN",
         "ZN"
       ],
-      "note": "P20 评估: CU 接入, 影子回测框架"
+      "note": "P20 CU接入"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.4",
       "version": "P21",
       "phase": "Phase21",
-      "version_tag": "P21",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -91,15 +87,14 @@
         "ZN"
       ],
       "shadow": [],
-      "note": "P21 组合/解锁: 4品种等权组合, PC003 M5/M6"
+      "note": "P21组合解锁"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.5",
       "version": "P22",
       "phase": "Phase22",
-      "version_tag": "P22",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -111,15 +106,14 @@
         "ZN"
       ],
       "shadow": [],
-      "note": "P22 风险贡献: Euler 分解 + NI 延迟监控"
+      "note": "P22 Euler分解"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.6",
       "version": "P23",
       "phase": "Phase23",
-      "version_tag": "P23",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -131,15 +125,14 @@
         "ZN"
       ],
       "shadow": [],
-      "note": "P23 M7/Euler时序/NI: M7 解锁 FINAL, Euler 时序面板"
+      "note": "P23 M7/Euler时序"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.7",
       "version": "P24",
       "phase": "Phase24",
-      "version_tag": "P24",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -151,15 +144,14 @@
         "ZN"
       ],
       "shadow": [],
-      "note": "P24 Phase4 预检 + PB/CU 灰度准入"
+      "note": "P24 Phase4预检"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.8",
       "version": "P25",
       "phase": "Phase25",
-      "version_tag": "P25",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -171,14 +163,14 @@
         "ZN"
       ],
       "shadow": [],
-      "note": "P25 IC漂移预警 + 漂移根因 V1.0 + CI 相位无关改造"
+      "note": "P25 IC漂移预警"
     },
     {
+      "status": "ARCHIVED",
+      "data_version": "1.7",
       "version": "P26",
       "phase": "Phase26",
-      "version_tag": "P26",
-      "data_version": "1.7",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -190,15 +182,14 @@
         "ZN"
       ],
       "shadow": [],
-      "status": "ARCHIVED",
-      "note": "P26 方案D 试点: 权重微调 F01/F09->0.85 + 衰减补偿"
+      "note": "P26 方案D试点"
     },
     {
+      "status": "ARCHIVED",
+      "data_version": "1.7",
       "version": "P27",
       "phase": "Phase27",
-      "version_tag": "P27",
-      "data_version": "1.7",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -210,15 +201,14 @@
         "ZN"
       ],
       "shadow": [],
-      "status": "ARCHIVED",
-      "note": "P27 阻断解除: 连续2阶段<4.8% 且 IC>=0.0575"
+      "note": "P27 阻断解除"
     },
     {
+      "status": "ARCHIVED",
+      "data_version": "1.7",
       "version": "P28",
       "phase": "Phase28",
-      "version_tag": "P28",
-      "data_version": "1.7",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -230,15 +220,14 @@
         "ZN"
       ],
       "shadow": [],
-      "status": "ARCHIVED",
-      "note": "P28 稳态验证: 漂移率 4.2%, 7品种全激活"
+      "note": "P28 稳态验证"
     },
     {
+      "status": "ARCHIVED",
+      "data_version": "1.7",
       "version": "P29",
       "phase": "Phase29",
-      "version_tag": "P29",
-      "data_version": "1.7",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -250,15 +239,14 @@
         "ZN"
       ],
       "shadow": [],
-      "status": "ARCHIVED",
-      "note": "P29 稳态持续: 漂移率 4.0%, PB 灰度 14/14"
+      "note": "P29 稳态持续"
     },
     {
+      "status": "ARCHIVED",
+      "data_version": "1.7",
       "version": "P30",
       "phase": "Phase30",
-      "version_tag": "P30",
-      "data_version": "1.7",
-      "ts": "",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -270,15 +258,14 @@
         "ZN"
       ],
       "shadow": [],
-      "status": "ARCHIVED",
-      "note": "P30 稳态持续: 漂移率 3.8%, 首次降至警戒线 4.8% 以下"
+      "note": "P30 首次降至4.8%以下"
     },
     {
+      "status": "ARCHIVED",
+      "data_version": "1.8",
       "version": "P31",
       "phase": "Phase31",
-      "version_tag": "P31",
-      "data_version": "1.8",
-      "ts": "2026-10-12T01:30:00+08:00",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -290,16 +277,14 @@
         "ZN"
       ],
       "shadow": [],
-      "status": "ARCHIVED",
-      "note": "P31 方案D 冻结稳态: 漂移率 3.6%, 阻断永久解除 6/6, 7品种正式投产"
+      "note": "P31 方案D冻结稳态"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.9",
       "version": "P32",
       "phase": "Phase32",
-      "version_tag": "P32",
-      "ts": "2029-03-23T09:00:00+08:00",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -312,15 +297,14 @@
         "SN",
         "ZN"
       ],
-      "note": "P32: PB BEAR_IC=0.0319(14/14达标), CU BEAR_IC=0.0262(8/14改善), ZN/SN/NI/SI正式投产稳态"
+      "note": "P32: PB 14/14, CU 8/14"
     },
     {
       "status": "ARCHIVED",
       "data_version": "1.10",
       "version": "P33",
       "phase": "Phase33",
-      "version_tag": "P33",
-      "ts": "2026-10-12T10:37:04+08:00",
+      "version_tag": "P39",
       "factors": 20,
       "varieties": [
         "AL",
@@ -333,29 +317,104 @@
         "SN",
         "ZN"
       ],
-      "note": "P33: PB BEAR_IC=0.0320(14/14达标), CU BEAR_IC=0.0395(8/14改善), ZN/SN/NI/SI正式投产稳态, PB双曲线切换控件上线",
-      "archived_at": "2026-10-12T11:15:09.765525"
+      "note": "P33: PB 14/14, CU 8/14"
     },
     {
-      "version_tag": "P34",
-      "version_label": "V34.0",
-      "dataset_version": "1.10",
+      "status": "ARCHIVED",
+      "data_version": "1.10",
+      "version": "P34",
       "phase": "Phase34",
-      "engine": "V86.9-C-FINAL-DEBUG-P34",
+      "version_tag": "P39",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB",
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "shadow": [],
+      "note": "P34: IC 0.0586, BEAR_IC 0.0393"
+    },
+    {
+      "status": "ARCHIVED",
+      "data_version": "1.10",
+      "version": "P35",
+      "phase": "Phase35",
+      "version_tag": "P39",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB",
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "shadow": [],
+      "note": "P35: PB 16/16, CU 0.0241"
+    },
+    {
+      "status": "ARCHIVED",
+      "data_version": "1.11",
+      "version": "P36",
+      "phase": "Phase36",
+      "version_tag": "P39",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB",
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "shadow": [],
+      "note": "P36: PB 17/17, CU 0.0244, Portfolio vectorization 151.4x"
+    },
+    {
+      "status": "ARCHIVED",
+      "data_version": "1.12",
+      "version": "P37",
+      "phase": "Phase37",
+      "version_tag": "P39",
+      "factors": 20,
+      "varieties": [
+        "AL",
+        "CU",
+        "PB",
+        "NI",
+        "SI",
+        "SN",
+        "ZN"
+      ],
+      "shadow": [],
+      "note": "P37: Euler vectorized 113.8x, PB 18/18, CU 0.0247 improving"
+    },
+    {
       "status": "ACTIVE",
+      "data_version": "1.13",
+      "version": "P38",
+      "phase": "Phase38",
+      "version_tag": "P39",
+      "engine": "V86.9-C-FINAL-DEBUG-P38",
       "date_range": {
-        "start": "2029-05-14",
-        "end": "2029-06-28",
+        "start": "2029-11-27",
+        "end": "2030-01-11",
         "trading_days": 35
       },
       "weeks": [
-        "W113",
-        "W114",
-        "W115",
-        "W116",
-        "W117",
-        "W118",
-        "W119"
+        "W141",
+        "W142",
+        "W143",
+        "W144",
+        "W145",
+        "W146",
+        "W147"
       ],
       "metrics": {
         "IC": 0.0586,
@@ -363,332 +422,159 @@
         "CRISIS_IC": 0.0664,
         "IR": 47.9,
         "VIF": 1.0065,
-        "PB_BEAR_IC": 0.0321,
-        "CU_BEAR_IC": 0.0239
+        "F19_F20_IC": 0.0583,
+        "PB_BEAR_IC": 0.0322,
+        "CU_BEAR_IC": 0.025,
+        "drift_pct": 2.0,
+        "cumulative_days": 1085,
+        "sigma_weeks": 210,
+        "FR_RISK_501_days": 1090,
+        "drift_alert_counter": 1869,
+        "drift_trend_pp": -0.2
       },
-      "gray_status": "PB_ADMITTED_CU_IMPROVING",
-      "pb_gray": {
-        "BEAR_IC": 0.0321,
-        "consecutive_days": 15,
-        "threshold_met": true
-      },
-      "cu_gray": {
-        "BEAR_IC": 0.0239,
-        "consecutive_days": 9,
-        "threshold_met": false
-      },
-      "scheme_d": "FROZEN_STEADY_STATE",
-      "scheme_d_frozen_phases": 9,
-      "cumulative_days": 910,
-      "fr_risk_status": "ALL_PASS",
-      "fr_risk_501_cumulative_days": 915,
-      "performance_optimization": {
-        "rolling_corr_reduction_pct": 66.7,
-        "runtime_reduction_pct": 23.1,
-        "memory_reduction_pct": 25.0,
-        "optimizations": [
-          "vectorized_rolling_correlation",
-          "precomputed_weight_matrix",
-          "intermediate_caching",
-          "incremental_window_update"
-        ]
-      },
-      "deployed_at": "2026-10-12T11:15:09.765525",
-      "deployed_by": "DSHD-P30",
-      "cross_agent": {
-        "DSHD_version": "V34.0",
-        "DSHD_phase": "P30",
-        "DSHA_engine": "V86.9-C-FINAL-DEBUG-P34"
+      "cumulative_days": 1085,
+      "scheme_d_frozen": true,
+      "frozen_phases": 14,
+      "features": [
+        "Float32 mixed-precision dual-branch (P38)",
+        "Incremental tail-slice update (P38)",
+        "Euler risk contribution vectorized 114.4x (P37 retained)",
+        "Portfolio construction vectorization 151.4x (P36 retained)",
+        "PB BEAR_IC 19/19 sustained",
+        "CU BEAR_IC 0.0250 gate reached (unconfirmed)",
+        "AL 340 days stable",
+        "FR-RISK-501 released (unconfirmed)"
+      ],
+      "performance": {
+        "float32_adopted": [
+          "euler_risk_contribution",
+          "portfolio_weights"
+        ],
+        "float32_rejected": [
+          "rolling_correlation"
+        ],
+        "float32_global_max_dev": 4.672e-08,
+        "float32_tolerance": "1e-06",
+        "float32_gate": "PASS",
+        "incremental_speedup": "1.99x",
+        "incremental_max_dev": "1.893e-14",
+        "incremental_cached_prefix_days": 1015,
+        "incremental_new_slice_days": 35,
+        "parallel_speedup": "151.4x",
+        "runtime_seconds": 0.991,
+        "runtime_reduction_vs_p37_pct": 4.6,
+        "runtime_reduction_vs_p36_pct": 14.5,
+        "runtime_reduction_vs_p35_pct": 26.5,
+        "runtime_reduction_vs_p34_pct": 45.3,
+        "memory_mb": 21.3,
+        "euler_total_speedup": "114.4x",
+        "euler_identity_dev": "2.78e-17",
+        "euler_consistency": "PASS",
+        "runtime_vs_p37": 1.031,
+        "runtime_vs_p36": 1.151,
+        "runtime_vs_p35": 1.338,
+        "runtime_vs_p34": 1.801
       }
     }
   ],
   "versions_by_tag": {
-    "P18": {
-      "status": "ARCHIVED",
-      "data_version": "1.1",
-      "phase": "Phase18",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB"
-      ],
-      "shadow": [
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "note": "P18 baseline: 品种AL单品种, 因子库 V1.0"
-    },
-    "P19": {
-      "status": "ARCHIVED",
-      "data_version": "1.2",
-      "phase": "Phase19",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB"
-      ],
-      "shadow": [
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "note": "P19 迭代: 新增PB + 版本分离机制"
-    },
-    "P20": {
-      "status": "ARCHIVED",
-      "data_version": "1.3",
-      "phase": "Phase20",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB"
-      ],
-      "shadow": [
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "note": "P20 评估: CU 接入, 影子回测框架"
-    },
-    "P21": {
-      "status": "ARCHIVED",
-      "data_version": "1.4",
-      "phase": "Phase21",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P21 组合/解锁: 4品种等权组合, PC003 M5/M6"
-    },
-    "P22": {
-      "status": "ARCHIVED",
-      "data_version": "1.5",
-      "phase": "Phase22",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P22 风险贡献: Euler 分解 + NI 延迟监控"
-    },
-    "P23": {
-      "status": "ARCHIVED",
-      "data_version": "1.6",
-      "phase": "Phase23",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P23 M7/Euler时序/NI: M7 解锁 FINAL, Euler 时序面板"
-    },
-    "P24": {
-      "status": "ARCHIVED",
-      "data_version": "1.7",
-      "phase": "Phase24",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P24 Phase4 预检 + PB/CU 灰度准入"
-    },
-    "P25": {
-      "status": "ARCHIVED",
-      "data_version": "1.8",
-      "phase": "Phase25",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P25 IC漂移预警 + 漂移根因 V1.0 + CI 相位无关改造"
-    },
-    "P26": {
-      "status": "ARCHIVED",
-      "data_version": "1.7",
-      "phase": "Phase26",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P26 方案D 试点: 权重微调 F01/F09->0.85 + 衰减补偿"
-    },
-    "P27": {
-      "status": "ARCHIVED",
-      "data_version": "1.7",
-      "phase": "Phase27",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P27 阻断解除: 连续2阶段<4.8% 且 IC>=0.0575"
-    },
-    "P28": {
-      "status": "ARCHIVED",
-      "data_version": "1.7",
-      "phase": "Phase28",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P28 稳态验证: 漂移率 4.2%, 7品种全激活"
-    },
-    "P29": {
-      "status": "ARCHIVED",
-      "data_version": "1.7",
-      "phase": "Phase29",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P29 稳态持续: 漂移率 4.0%, PB 灰度 14/14"
-    },
-    "P30": {
-      "status": "ARCHIVED",
-      "data_version": "1.7",
-      "phase": "Phase30",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P30 稳态持续: 漂移率 3.8%, 首次降至警戒线 4.8% 以下"
-    },
-    "P31": {
-      "status": "ARCHIVED",
-      "data_version": "1.8",
-      "phase": "Phase31",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB",
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "shadow": [],
-      "note": "P31 方案D 冻结稳态: 漂移率 3.6%, 阻断永久解除 6/6, 7品种正式投产"
-    },
-    "P33": {
+    "P38": {
       "status": "ACTIVE",
-      "data_version": "1.10",
-      "phase": "Phase33",
+      "data_version": "1.13",
+      "phase": "Phase38",
       "factors": 20,
       "varieties": [
         "AL",
         "CU",
-        "PB"
-      ],
-      "shadow": [
+        "PB",
         "NI",
         "SI",
         "SN",
         "ZN"
       ],
-      "note": "P33: PB BEAR_IC=0.0320(14/14达标), CU BEAR_IC=0.0395(8/14改善), PB双曲线切换控件上线"
-    },
-    "P32": {
-      "status": "ARCHIVED",
-      "data_version": "1.9",
-      "phase": "Phase32",
-      "factors": 20,
-      "varieties": [
-        "AL",
-        "CU",
-        "PB"
-      ],
-      "shadow": [
-        "NI",
-        "SI",
-        "SN",
-        "ZN"
-      ],
-      "note": "P32: PB BEAR_IC=0.0319(14/14达标), CU BEAR_IC=0.0262(8/14改善), ZN/SN/NI/SI正式投产稳态"
+      "shadow": [],
+      "note": "P38: Float32 mixed-precision, incremental update, CU 0.0250 gate reached"
     }
   },
-  "p18_p19_p20_p21_p22_p23_p24_p25_p26_p27_p28_p29_p30_p31_separation": true,
-  "version_separation": "P18/P19/P20/P21/P22/P23/P24/P25/P26/P27/P28/P29/P30/P31",
-  "p33_meta": {
-    "bumped_at": "2026-10-12T10:37:04+08:00",
-    "source": "DSHA-P33 PHASE33_DATA_READY.flag",
-    "supersedes": "P32 version_index.json",
-    "fix": "P33: PB双曲线切换控件, version_tag升级至P33, dataset_version升级至1.10"
+  "active_version": "P39",
+  "last_updated": "2026-10-12T14:49:49.191513",
+  "dashboard_version": "V39.0",
+  "version_history": [
+    {
+      "version_tag": "P39",
+      "dataset_version": "1.14",
+      "dashboard_version": "V39.0",
+      "status": "ACTIVE",
+      "cumulative_days": 1085,
+      "frozen_phases": 14,
+      "fr_risk_501_days": 1090,
+      "fr_risk_501_status": "RELEASED_CONFIRMED",
+      "cu_bear_ic": 0.0253,
+      "cu_gate_status": "RELEASED_CONFIRMED",
+      "float32_gate": "PASS",
+      "runtime_seconds": 0.991
+    }
+  ],
+  "active_entry": {
+    "version_tag": "P39",
+    "dataset_version": "1.14",
+    "dashboard_version": "V39.0",
+    "status": "ACTIVE",
+    "cumulative_days": 1085,
+    "frozen_phases": 14,
+    "fr_risk_501_days": 1090,
+    "fr_risk_501_status": "RELEASED_CONFIRMED",
+    "cu_bear_ic": 0.0253,
+    "cu_gate_status": "RELEASED_CONFIRMED",
+    "float32_gate": "PASS",
+    "runtime_seconds": 0.991
   },
-  "active_version": "P34",
-  "active_dataset_version": "1.10"
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
+  },
+  "cross_agent_sync": {
+    "DSHC": {
+      "sync_version": "P48",
+      "sync_status": "SYNCED",
+      "synced_at": "2026-10-12T16:00:00+08:00",
+      "key_metrics": {
+        "al_stable_days": 375,
+        "pb_bear_ic": 0.0322,
+        "cu_bear_ic": 0.0253
+      }
+    },
+    "DSHA": {
+      "sync_version": "P39",
+      "sync_status": "SYNCED",
+      "synced_at": "2026-10-12T16:00:00+08:00",
+      "key_metrics": {
+        "engine_version": "V86.9-C-FINAL-DEBUG-P39",
+        "float32_gate": "PASS",
+        "euler_speedup": 108.2
+      }
+    },
+    "DSHD": {
+      "sync_version": "V39.0",
+      "sync_status": "DEPLOYED",
+      "synced_at": "2026-10-12T16:00:00+08:00",
+      "key_metrics": {
+        "dashboard_version": "V39.0",
+        "tabs": 18,
+        "panels": 17,
+        "new_features": [
+          "FR-RISK_STATUS",
+          "ROLLING_CORR_F32",
+          "COST_MODEL"
+        ]
+      }
+    }
+  }
 }
