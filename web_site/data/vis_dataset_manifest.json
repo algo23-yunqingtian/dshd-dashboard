@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0",
-  "generated_at": "2026-10-12T01:30:00+08:00",
+  "generated_at": "2026-01-08T17:00:00+08:00",
   "generator": "DSHA-P7-FACTOR-MONITOR-VIS-PREP",
   "dataset_name": "VIS_PRE_CALC_DATASET",
   "description": "Pre-calculated backtest datasets for AL/CU/PB visualization workbench (VIS-001)",
@@ -279,15 +279,10 @@
     "trade_signals": "Synthetic (derived from alpha + regime)"
   },
   "notes": "All data is synthetic/simulated for visualization workbench pre-development (VIS-001). F19/F20 contributions are zero in BEAR regime per TD-046 constraint.",
-  "dataset_version": "1.12",
-  "version_tag": "P37",
-  "p31_meta": {
-    "bumped_at": "2026-10-12T01:30:00+08:00"
-  },
-  "seed": 42,
-  "cross_agent": {
-    "DSHD_version": "V35.0",
-    "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V38.0",
+    "updated_at": "2026-10-12T14:49:49.109515",
+    "data_source": "DSHA-P38"
   }
 }
