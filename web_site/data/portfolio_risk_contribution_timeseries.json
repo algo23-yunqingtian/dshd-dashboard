@@ -1,6 +1,6 @@
 {
-  "phase": "Phase39",
-  "engine": "V86.9-C-FINAL-DEBUG-P39",
+  "phase": "Phase41",
+  "engine": "V86.9-C-FINAL-DEBUG-P41",
   "methodology": "Euler decomposition",
   "scheme_d_frozen": true,
   "daily_risk_contribution": [
@@ -501,7 +501,7 @@
   },
   "euler_decomposition_vectorized": true,
   "euler_consistency_max_dev": 1.3877787807814457e-17,
-  "euler_speedup_used": 108.2,
+  "euler_speedup_used": 112.6,
   "float32_mixed_precision": {
     "tolerance": 1e-06,
     "tolerance_changed_from_p38": false,
@@ -523,187 +523,144 @@
   "incremental_update": {
     "mode": "tail_slice_incremental_3_kernel",
     "n_kernels": 3,
-    "speedup_used": 2.945,
-    "measured_speedup": 2.945,
-    "max_abs_deviation": 2.0872192862952943e-14,
+    "speedup_used": 2.918,
+    "measured_speedup": 2.918,
+    "max_abs_deviation": 2.0650148258027912e-14,
     "per_kernel": {
       "rolling_correlation": {
-        "full_seconds": 0.001476,
-        "incremental_seconds": 0.000972,
-        "measured_speedup": 1.519
+        "full_seconds": 0.001494,
+        "incremental_seconds": 0.000749,
+        "measured_speedup": 1.995
       },
       "euler_risk_contribution": {
-        "full_seconds": 0.000141,
-        "incremental_seconds": 4.2e-05,
-        "measured_speedup": 3.391
+        "full_seconds": 0.000133,
+        "incremental_seconds": 4e-05,
+        "measured_speedup": 3.36
       },
       "portfolio_weights": {
-        "full_seconds": 0.002503,
-        "incremental_seconds": 0.000629,
-        "measured_speedup": 3.98
+        "full_seconds": 0.002586,
+        "incremental_seconds": 0.000633,
+        "measured_speedup": 4.084
       }
     },
-    "cached_prefix_days": 1050,
+    "cached_prefix_days": 1085,
     "fallback_full_recompute": false
   },
-  "version_tag": "P40",
-  "dataset_version": "1.15",
-  "_dsd_metadata": {
-    "dashboard_version": "V39.0",
-    "phase": "DSHD-P35",
-    "updated_at": "2026-10-12T16:00:00+08:00",
-    "source": "DSHA-P39",
-    "flags": [
-      "FR-RISK_RELEASED_CONFIRMED",
-      "FLOAT32_GATE_PASS",
-      "COST_MODEL_INTEGRATED"
-    ]
-  },
+  "version_tag": "P41",
+  "dataset_version": "1.16",
+  "dashboard_version": "V41.0",
   "variety_time_series": [
     {
       "variety": "AL",
-      "version_tag": "P39",
+      "version_tag": "P41",
       "avg_risk_contribution": 14.65,
-      "avg_risk_contribution_pct": 1465.0,
-      "max_rc": 19.045,
-      "min_rc": 10.255,
-      "rc_volatility": 0.02,
-      "data_points": 1085,
-      "cumulative_days": 1085,
-      "fr_risk_501_days": 1090,
+      "avg_risk_contribution_pct": 18.4,
+      "data_points": 1155,
+      "cumulative_days": 1155,
+      "fr_risk_501_days": 1155,
       "status": "ACTIVE",
       "euler_decomposition": {
         "max_dev": 1.388e-17,
         "float32_identity_dev": 1.49e-08,
         "float64_identity_dev": 2.776e-17,
-        "speedup": 108.2
+        "speedup": 112.6
       }
     },
     {
       "variety": "PB",
-      "version_tag": "P39",
+      "version_tag": "P41",
       "avg_risk_contribution": 14.46,
-      "avg_risk_contribution_pct": 1446.0,
-      "max_rc": 18.798,
-      "min_rc": 10.122,
-      "rc_volatility": 0.025,
-      "data_points": 1085,
-      "cumulative_days": 1085,
-      "fr_risk_501_days": 1090,
+      "avg_risk_contribution_pct": 17.8,
+      "data_points": 1155,
+      "cumulative_days": 1155,
+      "fr_risk_501_days": 1155,
       "status": "ACTIVE",
       "euler_decomposition": {
         "max_dev": 1.388e-17,
         "float32_identity_dev": 1.49e-08,
         "float64_identity_dev": 2.776e-17,
-        "speedup": 108.2
+        "speedup": 112.6
       }
     },
     {
       "variety": "CU",
-      "version_tag": "P39",
+      "version_tag": "P41",
       "avg_risk_contribution": 14.77,
-      "avg_risk_contribution_pct": 1477.0,
-      "max_rc": 19.201,
-      "min_rc": 10.339,
-      "rc_volatility": 0.03,
-      "data_points": 1085,
-      "cumulative_days": 1085,
-      "fr_risk_501_days": 1090,
+      "avg_risk_contribution_pct": 18.4,
+      "data_points": 1155,
+      "cumulative_days": 1155,
+      "fr_risk_501_days": 1155,
       "status": "ACTIVE",
       "euler_decomposition": {
         "max_dev": 1.388e-17,
         "float32_identity_dev": 1.49e-08,
         "float64_identity_dev": 2.776e-17,
-        "speedup": 108.2
+        "speedup": 112.6
       }
     },
     {
       "variety": "ZN",
-      "version_tag": "P39",
+      "version_tag": "P41",
       "avg_risk_contribution": 14.94,
-      "avg_risk_contribution_pct": 1494.0,
-      "max_rc": 19.422,
-      "min_rc": 10.458,
-      "rc_volatility": 0.035,
-      "data_points": 1085,
-      "cumulative_days": 1085,
-      "fr_risk_501_days": 1090,
+      "avg_risk_contribution_pct": 14.4,
+      "data_points": 1155,
+      "cumulative_days": 1155,
+      "fr_risk_501_days": 1155,
       "status": "ACTIVE",
       "euler_decomposition": {
         "max_dev": 1.388e-17,
         "float32_identity_dev": 1.49e-08,
         "float64_identity_dev": 2.776e-17,
-        "speedup": 108.2
+        "speedup": 112.6
       }
     },
     {
       "variety": "SN",
-      "version_tag": "P39",
+      "version_tag": "P41",
       "avg_risk_contribution": 13.46,
-      "avg_risk_contribution_pct": 1346.0,
-      "max_rc": 17.498,
-      "min_rc": 9.422,
-      "rc_volatility": 0.04,
-      "data_points": 1085,
-      "cumulative_days": 1085,
-      "fr_risk_501_days": 1090,
+      "avg_risk_contribution_pct": 13.5,
+      "data_points": 1155,
+      "cumulative_days": 1155,
+      "fr_risk_501_days": 1155,
       "status": "ACTIVE",
       "euler_decomposition": {
         "max_dev": 1.388e-17,
         "float32_identity_dev": 1.49e-08,
         "float64_identity_dev": 2.776e-17,
-        "speedup": 108.2
+        "speedup": 112.6
       }
     },
     {
       "variety": "NI",
-      "version_tag": "P39",
+      "version_tag": "P41",
       "avg_risk_contribution": 13.71,
-      "avg_risk_contribution_pct": 1371.0,
-      "max_rc": 17.823,
-      "min_rc": 9.597,
-      "rc_volatility": 0.045,
-      "data_points": 1085,
-      "cumulative_days": 1085,
-      "fr_risk_501_days": 1090,
+      "avg_risk_contribution_pct": 13.3,
+      "data_points": 1155,
+      "cumulative_days": 1155,
+      "fr_risk_501_days": 1155,
       "status": "ACTIVE",
       "euler_decomposition": {
         "max_dev": 1.388e-17,
         "float32_identity_dev": 1.49e-08,
         "float64_identity_dev": 2.776e-17,
-        "speedup": 108.2
+        "speedup": 112.6
       }
     },
     {
       "variety": "SI",
-      "version_tag": "P39",
+      "version_tag": "P41",
       "avg_risk_contribution": 14.01,
-      "avg_risk_contribution_pct": 1401.0,
-      "max_rc": 18.213,
-      "min_rc": 9.807,
-      "rc_volatility": 0.05,
-      "data_points": 1085,
-      "cumulative_days": 1085,
-      "fr_risk_501_days": 1090,
+      "avg_risk_contribution_pct": 12.6,
+      "data_points": 1155,
+      "cumulative_days": 1155,
+      "fr_risk_501_days": 1155,
       "status": "ACTIVE",
       "euler_decomposition": {
         "max_dev": 1.388e-17,
         "float32_identity_dev": 1.49e-08,
         "float64_identity_dev": 2.776e-17,
-        "speedup": 108.2
+        "speedup": 112.6
       }
-    },
-    {
-      "variety": "_metadata",
-      "version_tag": "P39",
-      "dataset_version": "1.14",
-      "phase": "DSHD-P35",
-      "generated_at": "2026-10-12T16:00:00+08:00",
-      "total_varieties": 7,
-      "cumulative_days": 1085,
-      "fr_risk_501_status": "RELEASED_CONFIRMED",
-      "fr_risk_501_days": 1090,
-      "nav_gap_pct": 3.6
     }
   ]
 }
