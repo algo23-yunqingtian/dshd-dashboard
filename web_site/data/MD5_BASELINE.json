@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG-P31",
@@ -720,5 +720,10 @@
     ],
     "dsha_source": "PHASE31_DATA_READY.flag, 29/29 SHA256 verified",
     "index_html_md5": "cfac3b0ebc4d8c79ca4b2e50c399cd15"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
   }
 }
