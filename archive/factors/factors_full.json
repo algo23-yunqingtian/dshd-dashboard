@@ -1,0 +1,918 @@
+{
+  "engine_version": "V86.9-C-FINAL-DEBUG",
+  "factor_library_version": "V86.9-C-FINAL-DEBUG-P16",
+  "phase": "Phase16",
+  "phase_dates": {
+    "start": "2027-01-14",
+    "end": "2027-03-03"
+  },
+  "total_factors": 28,
+  "active_factors": 20,
+  "failed_factors": 8,
+  "seed": 42,
+  "factors": [
+    {
+      "id": "F01",
+      "name": "持仓量扩张因子",
+      "name_en": "OI Expansion Factor",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "5日持仓量扩张率,衡量资金入场强度",
+      "weight": 1.0,
+      "ic_mean": 0.042,
+      "ir": 45.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-06-15",
+          "change": "Baseline factor introduction"
+        },
+        {
+          "version": "V86.8",
+          "date": "2025-09-28",
+          "change": "V868 enhancement - IC recalibration"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+行情数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F02",
+      "name": "量比因子",
+      "name_en": "Volume Ratio Factor",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "5日均量/20日均量比率",
+      "weight": 1.0,
+      "ic_mean": 0.038,
+      "ir": 41.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "BULL",
+          "OSCILLATION",
+          "BEAR",
+          "CRISIS",
+          "MIXED",
+          "NORMAL",
+          "TYPE_S"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true,
+          "baseline_position": 0.05,
+          "position_cap": 0.15
+        },
+        "CU": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        },
+        "PB": {
+          "included": true,
+          "baseline_position": 0.015,
+          "position_cap": 0.15
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-06-20",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F03",
+      "name": "布林带突破",
+      "name_en": "Bollinger Band Breakout",
+      "category": "量价",
+      "status": "FAILED",
+      "data_source": "TECHNICAL",
+      "description": "基于布林带的突破策略",
+      "weight": 0.0,
+      "ic_mean": 0.0312,
+      "ir": 28.4,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": [
+          "BEAR",
+          "CRISIS",
+          "MIXED"
+        ]
+      },
+      "failure_reason": "IC=0.0312<0.04阈值, 信号频率过高, 交易成本侵蚀收益 (Phase3淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-15",
+          "change": "最终测试: IC不达标"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F04",
+      "name": "动量反转",
+      "name_en": "Momentum Reversal",
+      "category": "量价",
+      "status": "FAILED",
+      "data_source": "TECHNICAL",
+      "description": "短期动量反转策略",
+      "weight": 0.0,
+      "ic_mean": 0.0289,
+      "ir": 22.1,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "IC=0.0289<0.04阈值, BEAR区制衰减严重 (Phase3淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-04-20",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-10-10",
+          "change": "最终测试: IC不达标"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F05",
+      "name": "资金流向因子",
+      "name_en": "Capital Flow Factor",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于持仓量变化的资金流向信号",
+      "weight": 0.0,
+      "ic_mean": 0.0345,
+      "ir": 25.6,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "持仓数据T+1发布导致信号滞后1日, 无法解决数据延迟 (Phase4淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-06-01",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-12-20",
+          "change": "最终测试: 数据延迟问题"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日结算后更新",
+        "latency": "T+1",
+        "quality": "中"
+      }
+    },
+    {
+      "id": "F06",
+      "name": "新闻情绪因子",
+      "name_en": "News Sentiment Factor",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "NLP",
+      "description": "基于新闻NLP的情绪因子",
+      "weight": 0.0,
+      "ic_mean": 0.0298,
+      "ir": 23.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "NLP模型准确率不足, 实体识别错误率高, IC=0.0298<0.04阈值 (Phase4淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-07-01",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2026-01-10",
+          "change": "最终测试: IC不达标"
+        }
+      ],
+      "data_provenance": {
+        "source": "Wind新闻NLP",
+        "granularity": "日频",
+        "provider": "Wind资讯",
+        "frequency": "每日更新",
+        "latency": "T+0",
+        "quality": "低"
+      }
+    },
+    {
+      "id": "F07",
+      "name": "产业链传导因子",
+      "name_en": "Supply Chain Factor",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于产业链上下游价格传导的信号",
+      "weight": 0.0,
+      "ic_mean": 0.0321,
+      "ir": 24.9,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "周频数据无法支持日内交易, 与日频因子组合产生频率冲突 (Phase5淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-20",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-25",
+          "change": "最终测试: 频率不匹配"
+        }
+      ],
+      "data_provenance": {
+        "source": "Wind产业链数据",
+        "granularity": "周频",
+        "provider": "Wind资讯",
+        "frequency": "每周更新",
+        "latency": "T+1",
+        "quality": "中"
+      }
+    },
+    {
+      "id": "F08",
+      "name": "波动率因子",
+      "name_en": "Volatility Factor",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "ATR标准化波动率, 衡量市场波动程度",
+      "weight": 1.0,
+      "ic_mean": 0.051,
+      "ir": 38.5,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-01",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F09",
+      "name": "动量因子",
+      "name_en": "Momentum Factor",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "多周期动量加权合成",
+      "weight": 1.0,
+      "ic_mean": 0.048,
+      "ir": 36.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-05",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F10",
+      "name": "套利价差因子",
+      "name_en": "Arbitrage Spread Factor",
+      "category": "量价",
+      "status": "FAILED",
+      "data_source": "TECHNICAL",
+      "description": "跨期套利价差策略",
+      "weight": 0.0,
+      "ic_mean": 0.0356,
+      "ir": 26.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "价差收敛速度慢, 平均持仓时间>10天, 超出风险容忍度 (Phase3淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-04-15",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-10-20",
+          "change": "最终测试: 持仓时间过长"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE合约价差",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F11",
+      "name": "量价背离因子",
+      "name_en": "Volume-Price Divergence",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "量价背离信号, 价格新高但成交量萎缩",
+      "weight": 1.0,
+      "ic_mean": 0.044,
+      "ir": 32.1,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-10",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F12",
+      "name": "流动性状态因子",
+      "name_en": "Liquidity State Factor",
+      "category": "MONITOR",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "市场流动性状态评估",
+      "weight": 1.0,
+      "ic_mean": 0.04,
+      "ir": 29.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-15",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F13",
+      "name": "库存变化因子",
+      "name_en": "Inventory Change Factor",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "FUNDAMENTAL",
+      "description": "基于交易所库存变化的供需信号",
+      "weight": 0.0,
+      "ic_mean": 0.0308,
+      "ir": 23.5,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "NORMAL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "库存数据质量不稳定, 部分交易所延迟发布, IC=0.0308<0.04阈值 (Phase4淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-06-10",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-12-05",
+          "change": "最终测试: 数据质量问题"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE库存数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日更新",
+        "latency": "T+1",
+        "quality": "中"
+      }
+    },
+    {
+      "id": "F14",
+      "name": "宏观利率因子",
+      "name_en": "Macro Interest Rate Factor",
+      "category": "基本面",
+      "status": "FAILED",
+      "data_source": "MACRO",
+      "description": "基于宏观利率变化的因子",
+      "weight": 0.0,
+      "ic_mean": 0.0276,
+      "ir": 21.4,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "failure_reason": "与有色金属价格相关性弱(R<0.15), IC=0.0276<0.04阈值 (Phase3淘汰)",
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2025-05-01",
+          "change": "初始版本"
+        },
+        {
+          "version": "v2.0",
+          "date": "2025-11-01",
+          "change": "最终测试: 相关性不足"
+        }
+      ],
+      "data_provenance": {
+        "source": "Wind宏观数据",
+        "granularity": "日频",
+        "provider": "Wind资讯",
+        "frequency": "每日更新",
+        "latency": "T+0",
+        "quality": "中"
+      }
+    },
+    {
+      "id": "F15",
+      "name": "持仓集中度因子",
+      "name_en": "Position Concentration",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "大户持仓集中度变化",
+      "weight": 1.0,
+      "ic_mean": 0.046,
+      "ir": 39.1,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-20",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓数据",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日结算后更新",
+        "latency": "T+1",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F16",
+      "name": "波动率突破因子",
+      "name_en": "Volatility Breakout",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "TECHNICAL",
+      "description": "波动率突破信号",
+      "weight": 1.0,
+      "ic_mean": 0.043,
+      "ir": 35.8,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-25",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F17",
+      "name": "基差因子",
+      "name_en": "Basis Factor",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "FUNDAMENTAL",
+      "description": "期货-现货基差变化",
+      "weight": 1.0,
+      "ic_mean": 0.041,
+      "ir": 34.2,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-07-30",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE行情+现货",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F18",
+      "name": "季节性调整因子",
+      "name_en": "Seasonality Adjustment",
+      "category": "CORE",
+      "status": "ACTIVE",
+      "data_source": "FUNDAMENTAL",
+      "description": "季节性调整因子",
+      "weight": 1.0,
+      "ic_mean": 0.039,
+      "ir": 31.5,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "ALL"
+        ],
+        "disabled_regimes": []
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "V86.7",
+          "date": "2025-08-05",
+          "change": "Baseline factor introduction"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE日K线(250日)",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F19",
+      "name": "热钱因子",
+      "name_en": "Hot Money Factor",
+      "category": "SPECIAL",
+      "status": "ACTIVE",
+      "data_source": "SELF_DEVELOPED",
+      "description": "自研热钱因子, 识别游资资金快速进出",
+      "weight": 1.0,
+      "ic_mean": 0.0589,
+      "ir": 47.23,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "TYPE_S",
+          "NORMAL",
+          "CRISIS"
+        ],
+        "disabled_regimes": [
+          "BEAR"
+        ],
+        "constraint_id": "TD-046"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2026-03-15",
+          "change": "初始版本, 灰度上线"
+        },
+        {
+          "version": "v1.5",
+          "date": "2026-06-20",
+          "change": "加入TYPE_S环境判定"
+        },
+        {
+          "version": "v2.0",
+          "date": "2026-09-05",
+          "change": "Phase2灰度通过"
+        }
+      ],
+      "data_provenance": {
+        "source": "SHFE持仓+行情数据(自研)",
+        "granularity": "日频",
+        "provider": "上海期货交易所",
+        "frequency": "每日收盘后更新",
+        "latency": "T+0",
+        "quality": "高"
+      }
+    },
+    {
+      "id": "F20",
+      "name": "资金注意力因子",
+      "name_en": "Capital Attention Factor",
+      "category": "SPECIAL",
+      "status": "ACTIVE",
+      "data_source": "SELF_DEVELOPED",
+      "description": "自研资金注意力因子, 融合新闻热度+搜索指数+社交媒体",
+      "weight": 1.0,
+      "ic_mean": 0.0589,
+      "ir": 47.12,
+      "regime_constraints": {
+        "enabled_regimes": [
+          "MIXED",
+          "CRISIS",
+          "NORMAL"
+        ],
+        "disabled_regimes": [
+          "BEAR"
+        ],
+        "constraint_id": "TD-046"
+      },
+      "variety_config": {
+        "AL": {
+          "included": true
+        },
+        "CU": {
+          "included": true
+        },
+        "PB": {
+          "included": true
+        }
+      },
+      "iteration_history": [
+        {
+          "version": "v1.0",
+          "date": "2026-03-22",
+          "change": "初始版本, 灰度上线"
+        },
+        {
+          "version": "v1.3",
+          "date": "2026-07-10",
+          "change": "加入微博热搜权重"
+        },
+        {
+          "version": "v2.0",
+          "date": "2026-10-01",
+          "change": "Phase2灰度通过"
+        }
+      ],
+      "data_provenance": {
+        "source": "Bing搜索+微博热搜+新闻NLP(自研)",
+        "granularity": "日频/实时",
+        "provider": "Bing/微博/Wind",
+        "frequency": "实时/每日",
+        "latency": "T+0",
+        "quality": "中"
+      }
+    }
+  ]
+}
