@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.10",
+  "dataset_version": "1.11",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "source": "DSHD DEFECT-P9-001/P9-002 回归 + 数据质量检查",
@@ -55,7 +55,7 @@
     "open": 2,
     "pending": 1
   },
-  "version_tag": "P35",
+  "version_tag": "P36",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
