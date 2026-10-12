@@ -1,0 +1,509 @@
+{
+  "phase": "Phase34",
+  "engine": "V86.9-C-FINAL-DEBUG-P34",
+  "methodology": "Euler decomposition",
+  "scheme_d_frozen": true,
+  "daily_risk_contribution": [
+    {
+      "date": "2029-03-26",
+      "week": "W106",
+      "risk_contribution_pct": {
+        "AL": 12.31,
+        "PB": 14.85,
+        "CU": 15.82,
+        "ZN": 17.09,
+        "SN": 10.26,
+        "NI": 16.92,
+        "SI": 12.75
+      }
+    },
+    {
+      "date": "2029-03-27",
+      "week": "W106",
+      "risk_contribution_pct": {
+        "AL": 16.51,
+        "PB": 13.26,
+        "CU": 14.24,
+        "ZN": 14.89,
+        "SN": 15.22,
+        "NI": 9.99,
+        "SI": 15.89
+      }
+    },
+    {
+      "date": "2029-03-28",
+      "week": "W106",
+      "risk_contribution_pct": {
+        "AL": 15.59,
+        "PB": 16.58,
+        "CU": 10.28,
+        "ZN": 16.57,
+        "SN": 15.43,
+        "NI": 10.77,
+        "SI": 14.78
+      }
+    },
+    {
+      "date": "2029-03-29",
+      "week": "W106",
+      "risk_contribution_pct": {
+        "AL": 8.71,
+        "PB": 16.22,
+        "CU": 17.79,
+        "ZN": 17.01,
+        "SN": 12.64,
+        "NI": 9.85,
+        "SI": 17.78
+      }
+    },
+    {
+      "date": "2029-03-30",
+      "week": "W106",
+      "risk_contribution_pct": {
+        "AL": 10.34,
+        "PB": 12.43,
+        "CU": 19.1,
+        "ZN": 17.58,
+        "SN": 11.63,
+        "NI": 17.63,
+        "SI": 11.29
+      }
+    },
+    {
+      "date": "2029-04-02",
+      "week": "W107",
+      "risk_contribution_pct": {
+        "AL": 19.56,
+        "PB": 14.97,
+        "CU": 10.66,
+        "ZN": 16.77,
+        "SN": 10.3,
+        "NI": 9.01,
+        "SI": 18.73
+      }
+    },
+    {
+      "date": "2029-04-03",
+      "week": "W107",
+      "risk_contribution_pct": {
+        "AL": 11.29,
+        "PB": 18.06,
+        "CU": 15.5,
+        "ZN": 17.97,
+        "SN": 15.25,
+        "NI": 12.01,
+        "SI": 9.92
+      }
+    },
+    {
+      "date": "2029-04-04",
+      "week": "W107",
+      "risk_contribution_pct": {
+        "AL": 17.59,
+        "PB": 12.53,
+        "CU": 16.08,
+        "ZN": 12.43,
+        "SN": 16.14,
+        "NI": 12.52,
+        "SI": 12.72
+      }
+    },
+    {
+      "date": "2029-04-05",
+      "week": "W107",
+      "risk_contribution_pct": {
+        "AL": 17.43,
+        "PB": 14.71,
+        "CU": 14.84,
+        "ZN": 9.74,
+        "SN": 14.34,
+        "NI": 13.0,
+        "SI": 15.93
+      }
+    },
+    {
+      "date": "2029-04-06",
+      "week": "W107",
+      "risk_contribution_pct": {
+        "AL": 17.6,
+        "PB": 12.68,
+        "CU": 12.27,
+        "ZN": 21.33,
+        "SN": 10.43,
+        "NI": 14.93,
+        "SI": 10.77
+      }
+    },
+    {
+      "date": "2029-04-09",
+      "week": "W108",
+      "risk_contribution_pct": {
+        "AL": 16.66,
+        "PB": 17.02,
+        "CU": 13.89,
+        "ZN": 12.34,
+        "SN": 13.98,
+        "NI": 15.31,
+        "SI": 10.81
+      }
+    },
+    {
+      "date": "2029-04-10",
+      "week": "W108",
+      "risk_contribution_pct": {
+        "AL": 12.32,
+        "PB": 17.13,
+        "CU": 17.72,
+        "ZN": 14.35,
+        "SN": 8.86,
+        "NI": 12.68,
+        "SI": 16.95
+      }
+    },
+    {
+      "date": "2029-04-11",
+      "week": "W108",
+      "risk_contribution_pct": {
+        "AL": 15.26,
+        "PB": 14.94,
+        "CU": 10.94,
+        "ZN": 12.0,
+        "SN": 16.13,
+        "NI": 16.79,
+        "SI": 13.94
+      }
+    },
+    {
+      "date": "2029-04-12",
+      "week": "W108",
+      "risk_contribution_pct": {
+        "AL": 14.37,
+        "PB": 14.76,
+        "CU": 11.14,
+        "ZN": 16.74,
+        "SN": 14.7,
+        "NI": 10.2,
+        "SI": 18.1
+      }
+    },
+    {
+      "date": "2029-04-13",
+      "week": "W108",
+      "risk_contribution_pct": {
+        "AL": 13.15,
+        "PB": 13.77,
+        "CU": 13.84,
+        "ZN": 11.91,
+        "SN": 12.82,
+        "NI": 20.52,
+        "SI": 13.99
+      }
+    },
+    {
+      "date": "2029-04-16",
+      "week": "W109",
+      "risk_contribution_pct": {
+        "AL": 11.82,
+        "PB": 15.33,
+        "CU": 20.93,
+        "ZN": 13.98,
+        "SN": 13.27,
+        "NI": 14.2,
+        "SI": 10.46
+      }
+    },
+    {
+      "date": "2029-04-17",
+      "week": "W109",
+      "risk_contribution_pct": {
+        "AL": 17.92,
+        "PB": 15.21,
+        "CU": 14.35,
+        "ZN": 11.19,
+        "SN": 14.84,
+        "NI": 10.99,
+        "SI": 15.51
+      }
+    },
+    {
+      "date": "2029-04-18",
+      "week": "W109",
+      "risk_contribution_pct": {
+        "AL": 13.41,
+        "PB": 14.04,
+        "CU": 17.94,
+        "ZN": 16.96,
+        "SN": 8.92,
+        "NI": 18.26,
+        "SI": 10.47
+      }
+    },
+    {
+      "date": "2029-04-19",
+      "week": "W109",
+      "risk_contribution_pct": {
+        "AL": 15.54,
+        "PB": 18.94,
+        "CU": 14.43,
+        "ZN": 12.92,
+        "SN": 15.47,
+        "NI": 10.98,
+        "SI": 11.73
+      }
+    },
+    {
+      "date": "2029-04-20",
+      "week": "W109",
+      "risk_contribution_pct": {
+        "AL": 14.43,
+        "PB": 15.26,
+        "CU": 16.18,
+        "ZN": 13.78,
+        "SN": 16.94,
+        "NI": 15.45,
+        "SI": 7.95
+      }
+    },
+    {
+      "date": "2029-04-23",
+      "week": "W110",
+      "risk_contribution_pct": {
+        "AL": 14.11,
+        "PB": 16.02,
+        "CU": 11.94,
+        "ZN": 9.98,
+        "SN": 14.53,
+        "NI": 16.49,
+        "SI": 16.93
+      }
+    },
+    {
+      "date": "2029-04-24",
+      "week": "W110",
+      "risk_contribution_pct": {
+        "AL": 17.51,
+        "PB": 12.88,
+        "CU": 14.28,
+        "ZN": 11.69,
+        "SN": 16.12,
+        "NI": 10.79,
+        "SI": 16.72
+      }
+    },
+    {
+      "date": "2029-04-25",
+      "week": "W110",
+      "risk_contribution_pct": {
+        "AL": 12.86,
+        "PB": 16.89,
+        "CU": 13.1,
+        "ZN": 14.29,
+        "SN": 13.4,
+        "NI": 14.58,
+        "SI": 14.88
+      }
+    },
+    {
+      "date": "2029-04-26",
+      "week": "W110",
+      "risk_contribution_pct": {
+        "AL": 15.91,
+        "PB": 10.07,
+        "CU": 12.57,
+        "ZN": 19.23,
+        "SN": 18.35,
+        "NI": 12.2,
+        "SI": 11.67
+      }
+    },
+    {
+      "date": "2029-04-27",
+      "week": "W110",
+      "risk_contribution_pct": {
+        "AL": 17.22,
+        "PB": 9.4,
+        "CU": 9.86,
+        "ZN": 19.56,
+        "SN": 16.15,
+        "NI": 9.47,
+        "SI": 18.35
+      }
+    },
+    {
+      "date": "2029-04-30",
+      "week": "W111",
+      "risk_contribution_pct": {
+        "AL": 12.06,
+        "PB": 15.99,
+        "CU": 17.26,
+        "ZN": 16.22,
+        "SN": 12.32,
+        "NI": 17.87,
+        "SI": 8.28
+      }
+    },
+    {
+      "date": "2029-05-01",
+      "week": "W111",
+      "risk_contribution_pct": {
+        "AL": 15.63,
+        "PB": 10.29,
+        "CU": 18.48,
+        "ZN": 15.12,
+        "SN": 13.91,
+        "NI": 15.19,
+        "SI": 11.37
+      }
+    },
+    {
+      "date": "2029-05-02",
+      "week": "W111",
+      "risk_contribution_pct": {
+        "AL": 11.65,
+        "PB": 10.57,
+        "CU": 14.31,
+        "ZN": 18.74,
+        "SN": 10.51,
+        "NI": 17.7,
+        "SI": 16.52
+      }
+    },
+    {
+      "date": "2029-05-03",
+      "week": "W111",
+      "risk_contribution_pct": {
+        "AL": 17.47,
+        "PB": 11.17,
+        "CU": 17.16,
+        "ZN": 11.98,
+        "SN": 11.99,
+        "NI": 15.19,
+        "SI": 15.04
+      }
+    },
+    {
+      "date": "2029-05-04",
+      "week": "W111",
+      "risk_contribution_pct": {
+        "AL": 15.5,
+        "PB": 17.13,
+        "CU": 18.7,
+        "ZN": 12.11,
+        "SN": 9.69,
+        "NI": 10.19,
+        "SI": 16.69
+      }
+    },
+    {
+      "date": "2029-05-07",
+      "week": "W112",
+      "risk_contribution_pct": {
+        "AL": 15.23,
+        "PB": 13.34,
+        "CU": 11.32,
+        "ZN": 16.59,
+        "SN": 16.45,
+        "NI": 10.69,
+        "SI": 16.37
+      }
+    },
+    {
+      "date": "2029-05-08",
+      "week": "W112",
+      "risk_contribution_pct": {
+        "AL": 12.11,
+        "PB": 18.71,
+        "CU": 13.57,
+        "ZN": 13.26,
+        "SN": 13.97,
+        "NI": 17.97,
+        "SI": 10.4
+      }
+    },
+    {
+      "date": "2029-05-09",
+      "week": "W112",
+      "risk_contribution_pct": {
+        "AL": 10.78,
+        "PB": 15.17,
+        "CU": 14.62,
+        "ZN": 13.31,
+        "SN": 15.17,
+        "NI": 15.29,
+        "SI": 15.65
+      }
+    },
+    {
+      "date": "2029-05-10",
+      "week": "W112",
+      "risk_contribution_pct": {
+        "AL": 16.33,
+        "PB": 15.55,
+        "CU": 15.87,
+        "ZN": 17.24,
+        "SN": 10.77,
+        "NI": 9.55,
+        "SI": 14.68
+      }
+    },
+    {
+      "date": "2029-05-11",
+      "week": "W112",
+      "risk_contribution_pct": {
+        "AL": 16.73,
+        "PB": 10.3,
+        "CU": 15.92,
+        "ZN": 16.2,
+        "SN": 10.15,
+        "NI": 14.5,
+        "SI": 16.2
+      }
+    }
+  ],
+  "summary": {
+    "AL": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 18.4
+    },
+    "PB": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 17.8
+    },
+    "CU": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 18.4
+    },
+    "ZN": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 14.4
+    },
+    "SN": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 13.5
+    },
+    "NI": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 13.3
+    },
+    "SI": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 12.6
+    }
+  },
+  "avg_risk_contribution": {
+    "AL": 14.65,
+    "PB": 14.46,
+    "CU": 14.77,
+    "ZN": 14.94,
+    "SN": 13.46,
+    "NI": 13.71,
+    "SI": 14.01
+  },
+  "version_tag": "P34",
+  "dataset_version": "1.10",
+  "cross_agent": {
+    "DSHD_version": "V34.0",
+    "DSHD_phase": "P30",
+    "deployed_at": "2026-10-12T11:15:09.710525"
+  }
+}
