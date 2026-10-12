@@ -1,0 +1,582 @@
+{
+  "check_id": "P12-MD5-RECHECK",
+  "seed": 42,
+  "fixed_slot": "2026-11-16T17:00:00+08:00",
+  "round_no": "PG12-FINAL",
+  "scope": "上游只读 17 项零改动 + 历史审计基线 append-only (含版本锁定 3 项 + Phase7/9 冻结归档 5 项) + 事件卷 anchor/tail 分类校验 (确定性归档卷 vs 非确定性测试卷) + 交付物自洽清单",
+  "counts": {
+    "upstream_total": 17,
+    "upstream_match": 17,
+    "upstream_mismatch": 0,
+    "baseline_total": 17,
+    "baseline_match": 17,
+    "deliverable_total": 35,
+    "baseline_mismatch": 0
+  },
+  "chain": {
+    "volumes": [
+      {
+        "store": "v87_03_event_store",
+        "kind": "DETERMINISTIC_ARCHIVE",
+        "role": "FROZEN_ARCHIVE",
+        "exists": true,
+        "rows": 5,
+        "anchor": "V87-03-CHAIN-ANCHOR",
+        "anchor_ok": true,
+        "chain_ok": true,
+        "tail_ok": true,
+        "md5": "dffb56e7ae4678e1ebd4f7659b20beb0",
+        "md5_expected_prefix": "dffb56e7",
+        "md5_match": true,
+        "ok": true,
+        "note": "字节恒定锚点 md5=dffb56e7ae46 已比对 (expect dffb56e7)",
+        "tail_md5": "ba9d4e4369e65f161d577f465ee11d18",
+        "manifest_tail_md5": "ba9d4e4369e65f161d577f465ee11d18"
+      },
+      {
+        "store": "v87_03_event_store_p9",
+        "kind": "NONDETERMINISTIC_ARCHIVE_FROZEN",
+        "role": "FROZEN_ARCHIVE",
+        "exists": true,
+        "rows": 5,
+        "anchor": "V87-03-CHAIN-ANCHOR",
+        "anchor_ok": true,
+        "chain_ok": true,
+        "tail_ok": true,
+        "md5": "a057fe35b03d2e72b230a3778e084730",
+        "md5_expected_prefix": "a057fe35",
+        "md5_match": true,
+        "ok": true,
+        "note": "字节恒定锚点 md5=a057fe35b03d 已比对 (expect a057fe35)",
+        "tail_md5": "cb9a02e795bc678df32352c6e59c03d7",
+        "manifest_tail_md5": "cb9a02e795bc678df32352c6e59c03d7"
+      },
+      {
+        "store": "v87_03_event_store_p12",
+        "kind": "NONDETERMINISTIC_REGENERATED",
+        "role": "ROUND_TEST",
+        "exists": true,
+        "rows": 5,
+        "anchor": "V87-03-CHAIN-ANCHOR",
+        "anchor_ok": true,
+        "chain_ok": true,
+        "tail_ok": true,
+        "md5": "132887a7ba6b2ede38c3df71630fb3f0",
+        "md5_expected_prefix": null,
+        "md5_match": null,
+        "ok": true,
+        "note": "非确定性测试卷: md5=132887a7ba6b 仅作时点记录, 不做强校验",
+        "tail_md5": "791cbe0444869a55f2f38b88b485a509",
+        "manifest_tail_md5": "791cbe0444869a55f2f38b88b485a509"
+      }
+    ],
+    "total": 3,
+    "frozen_ok": true,
+    "test_chain_ok": true,
+    "all_ok": true,
+    "ok": true,
+    "anchor_ok": true,
+    "chain_ok": true,
+    "tail_ok": true,
+    "rows": 5,
+    "anchor": "V87-03-CHAIN-ANCHOR"
+  },
+  "receive_log": {
+    "ok": true,
+    "rows": 27,
+    "file_md5": "fe1e3c51959cac4d95c6f5e7aa518d23",
+    "expected_file_md5": "fe1e3c51",
+    "prefix24_md5": "8b8ddb08db8fdf23d73cab92243547ed",
+    "first_row": "FWD-501-001",
+    "last_row": "P4-504-001",
+    "prefix24_note": "口径不可复现的历史值 92096cd1 已弃用; 全文件 md5 已覆盖"
+  },
+  "channel_ledger": {
+    "ok": true,
+    "rows": 3
+  },
+  "upstream": [
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\fr_risk_501_508_mapping.json",
+      "note": "FR-RISK 501~508 映射表",
+      "exists": true,
+      "md5": "41efa5a041de70446a0732665a4d42f6",
+      "expected_prefix": "41efa5a0",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\fr_risk_triggers_deploy.json",
+      "note": "FR-RISK 触发器部署",
+      "exists": true,
+      "md5": "8c43a48704d4097b5bd32799cf168a3e",
+      "expected_prefix": "8c43a487",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\td002_activate_prep_spec.md",
+      "note": "TD002 激活前置规格",
+      "exists": true,
+      "md5": "e4ba415e8385b046aca187a931b3cdd4",
+      "expected_prefix": "e4ba415e",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\td014_si_unfreeze_preconfig.json",
+      "note": "TD014 SI 解冻预配置",
+      "exists": true,
+      "md5": "f77bcde8b95c3c8cab93bc1065d36168",
+      "expected_prefix": "f77bcde8",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\j21_contract_recheck_record.md",
+      "note": "J21 二次核验记录",
+      "exists": true,
+      "md5": "c236a0f30afb7a7a38dbfb9bc986ce33",
+      "expected_prefix": "c236a0f3",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\alcupb_contract_spec_final_manifest.md",
+      "note": "AL/CU/PB 合约规格清单",
+      "exists": true,
+      "md5": "d8df79a0fdfbaa84cf4f119b010b02fc",
+      "expected_prefix": "d8df79a0",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\phase2_monitor_gate_spec.md",
+      "note": "GATE-P2 门禁规格",
+      "exists": true,
+      "md5": "88803c9d86e4c9f540cba35fc81df299",
+      "expected_prefix": "88803c9d",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\fr_risk_501_threshold_calibration_report.md",
+      "note": "FR-RISK-501 阈值校准报告",
+      "exists": true,
+      "md5": "3b74c1cad5794cf3bae5aaebdbc56c74",
+      "expected_prefix": "3b74c1ca",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\fr_risk_501_20d_recalibration_spec.md",
+      "note": "FR-RISK-501 20 日再校准规格",
+      "exists": true,
+      "md5": "b86993294859f3c6a6fa165d05e0946f",
+      "expected_prefix": "b8699329",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\v87_04_playback_prep_checklist.md",
+      "note": "V87-04 回放前置清单",
+      "exists": true,
+      "md5": "1103a800e46fd12ceafa847064b87bee",
+      "expected_prefix": "1103a800",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\v87_03_monitor_service_design.md",
+      "note": "V87-03 守护设计书",
+      "exists": true,
+      "md5": "c6d27056d86e2a85ff878def8d982090",
+      "expected_prefix": "c6d27056",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\phase2_gate_result.csv",
+      "note": "Phase2 门禁结果",
+      "exists": true,
+      "md5": "c9d06c9cc26503d7bf015c0a5c8885a7",
+      "expected_prefix": "c9d06c9c",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\position_verify_alcupb_module.py",
+      "note": "AL/CU/PB 持仓校验模块",
+      "exists": true,
+      "md5": "ecf8e33c249ae960480ae558979cbe61",
+      "expected_prefix": "ecf8e33c",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\phase2_anchor_and_field_reserve.json",
+      "note": "锚点与字段预留",
+      "exists": true,
+      "md5": "5ce88d0ebe41d45a0dbc0f2f9a3c81aa",
+      "expected_prefix": "5ce88d0e",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\gray_patrol_alcupb_config.json",
+      "note": "灰度巡检配置",
+      "exists": true,
+      "md5": "25668191a4dac7fd58cb81f5f35fe093",
+      "expected_prefix": "25668191",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\PHASE3_GATE_RUN_READY.flag",
+      "note": "Phase3 门禁就绪旗标",
+      "exists": true,
+      "md5": "12c22e49de532801501e2e44724a8717",
+      "expected_prefix": "12c22e49",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\PHASE2_GATE_READY.flag",
+      "note": "Phase2 门禁就绪旗标",
+      "exists": true,
+      "md5": "fcd25d332ef2a39648fece678a4656db",
+      "expected_prefix": "fcd25d33",
+      "match": true
+    }
+  ],
+  "baselines": [
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\gate_prep_lab/v87_03_event_store/vol_0001.csv",
+      "note": "Phase7 冻结事件卷 (确定性归档)",
+      "exists": true,
+      "md5": "dffb56e7ae4678e1ebd4f7659b20beb0",
+      "expected_prefix": "dffb56e7",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\gate_prep_lab/v87_03_event_store/manifest.json",
+      "note": "Phase7 冻结卷 manifest",
+      "exists": true,
+      "md5": "551b09d938b90c08cb41ebeeddd6eee4",
+      "expected_prefix": "551b09d9",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\fr_risk_receive_log.csv",
+      "note": "FR-RISK 接收日志 (27 行)",
+      "exists": true,
+      "md5": "fe1e3c51959cac4d95c6f5e7aa518d23",
+      "expected_prefix": "fe1e3c51",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\event_schema.json",
+      "note": "统一事件 schema REV1",
+      "exists": true,
+      "md5": "09c7a4e8df53aca7dd1d861abaa10ccc",
+      "expected_prefix": "09c7a4e8",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\phase4_reserved_slots_config.json",
+      "note": "预留槽位配置 4 品种 8 项模板",
+      "exists": true,
+      "md5": "acb5c9fb80ce513dc45916e3c3b21742",
+      "expected_prefix": "acb5c9fb",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\github工作\\回测\\factor_exp_workspace\\dshc_adaptor_ops_prep\\v869_c_multi_comm_prep_syn\\v869c_3way_risk_code_mapping.csv",
+      "note": "C 实表 3way 归一映射",
+      "exists": true,
+      "md5": "d9d64feac16b70ceff3a45568d60422a",
+      "expected_prefix": "d9d64fea",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\v87_03_monitor_service.py",
+      "note": "V87-03 守护服务 (版本锁定)",
+      "exists": true,
+      "md5": "e2f0d4ccd65eea44f56578c33bec27fe",
+      "expected_prefix": "e2f0d4cc",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\vis_alert_export_api.py",
+      "note": "VIS 告警导出 API (版本锁定)",
+      "exists": true,
+      "md5": "474ff0aea6692d5e912553aa03e736d4",
+      "expected_prefix": "474ff0ae",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\phase2_gate_check_script.py",
+      "note": "门禁巡检脚本 (版本锁定)",
+      "exists": true,
+      "md5": "32c6403f5c66efd72ceb1d16d2a06f55",
+      "expected_prefix": "32c6403f",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\phase7_gate_summary_report.md",
+      "note": "Phase7 汇总报告 (冻结归档)",
+      "exists": true,
+      "md5": "cf09d108428e489c11483fca865be5f7",
+      "expected_prefix": "cf09d108",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\PHASE7_GATE_RUN_READY.flag",
+      "note": "Phase7 门禁就绪旗标 (冻结归档)",
+      "exists": true,
+      "md5": "aec5a274cfaa8a5f153dc266cdf58149",
+      "expected_prefix": "aec5a274",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\phase9_gate_summary_report.md",
+      "note": "Phase9 汇总报告 (冻结归档)",
+      "exists": true,
+      "md5": "aa0ab9fef7703e90074d49b6fbea1a5d",
+      "expected_prefix": "aa0ab9fe",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\PHASE9_GATE_RUN_READY.flag",
+      "note": "Phase9 门禁就绪旗标 (冻结归档)",
+      "exists": true,
+      "md5": "b37c0c2f9a338d6a1b23bfcdb7872579",
+      "expected_prefix": "b37c0c2f",
+      "match": true
+    },
+    {
+      "name": "D:\\DSH_WORK\\factor_exp_workspace\\acd_joint_shadow_verify\\dshd_sub\\dshd_arch_gate_prep\\j21_contract_final_recheck_record.md",
+      "note": "J21 合约终检记录 (冻结归档)",
+      "exists": true,
+      "md5": "19b02a0a6badcc0f47fefa6cf0bb1ebc",
+      "expected_prefix": "19b02a0a",
+      "match": true
+    }
+  ],
+  "deliverables": [
+    {
+      "path": "v87_03_monitor_service.py",
+      "exists": true,
+      "bytes": 27012,
+      "md5": "e2f0d4ccd65eea44f56578c33bec27fe"
+    },
+    {
+      "path": "vis_alert_export_api.py",
+      "exists": true,
+      "bytes": 40226,
+      "md5": "474ff0aea6692d5e912553aa03e736d4"
+    },
+    {
+      "path": "phase2_gate_check_script.py",
+      "exists": true,
+      "bytes": 19953,
+      "md5": "32c6403f5c66efd72ceb1d16d2a06f55"
+    },
+    {
+      "path": "gate_periodic_check_log.csv",
+      "exists": true,
+      "bytes": 33586,
+      "md5": "30be8d668cff765ce0731cb8ec493f96"
+    },
+    {
+      "path": "fr_risk_alert_archive.md",
+      "exists": true,
+      "bytes": 62853,
+      "md5": "1498c83078590cab03cd74fa32e818f2"
+    },
+    {
+      "path": "j21_contract_final_recheck_record.md",
+      "exists": true,
+      "bytes": 10315,
+      "md5": "19b02a0a6badcc0f47fefa6cf0bb1ebc"
+    },
+    {
+      "path": "phase7_gate_summary_report.md",
+      "exists": true,
+      "bytes": 14529,
+      "md5": "cf09d108428e489c11483fca865be5f7"
+    },
+    {
+      "path": "phase9_gate_summary_report.md",
+      "exists": true,
+      "bytes": 22640,
+      "md5": "aa0ab9fef7703e90074d49b6fbea1a5d"
+    },
+    {
+      "path": "PHASE7_GATE_RUN_READY.flag",
+      "exists": true,
+      "bytes": 13885,
+      "md5": "aec5a274cfaa8a5f153dc266cdf58149"
+    },
+    {
+      "path": "PHASE9_GATE_RUN_READY.flag",
+      "exists": true,
+      "bytes": 20956,
+      "md5": "b37c0c2f9a338d6a1b23bfcdb7872579"
+    },
+    {
+      "path": "gate_prep_lab/vis_alert_export.json",
+      "exists": true,
+      "bytes": 165715,
+      "md5": "3f7736c0b3b489e36e7e62f701341be0"
+    },
+    {
+      "path": "gate_prep_lab/vis_alert_export.jsonl",
+      "exists": true,
+      "bytes": 126337,
+      "md5": "320754085b86a1c1646e247694cbef0f"
+    },
+    {
+      "path": "gate_prep_lab/vis_alert_export.csv",
+      "exists": true,
+      "bytes": 60428,
+      "md5": "58c37c1a0c176ccf9e15e77b41def82a"
+    },
+    {
+      "path": "gate_prep_lab/vis_alert_timeline.json",
+      "exists": true,
+      "bytes": 4718,
+      "md5": "6c9d634c56cd770333e416b99c9d8eae"
+    },
+    {
+      "path": "gate_prep_lab/vis_alert_validate.json",
+      "exists": true,
+      "bytes": 1757,
+      "md5": "b2cc271e24fa78c10ceffb5b4f51ab61"
+    },
+    {
+      "path": "gate_prep_lab/vis_alert_regression.json",
+      "exists": true,
+      "bytes": 2614,
+      "md5": "5ad444b26cddc300f775b481032d660a"
+    },
+    {
+      "path": "gate_prep_lab/vis_001_integration.json",
+      "exists": true,
+      "bytes": 115452,
+      "md5": "27f872a198b7a761ec55fc251338c02f"
+    },
+    {
+      "path": "gate_prep_lab/vis_fail_push_verify.json",
+      "exists": true,
+      "bytes": 2317,
+      "md5": "ed99f24496c3a15cd37f5bcd9aea1cf6"
+    },
+    {
+      "path": "gate_prep_lab/pc003_activation_manifest_p9.json",
+      "exists": true,
+      "bytes": 7798,
+      "md5": "01cb09d6047fa12500300b7a4ffddfdf"
+    },
+    {
+      "path": "gate_prep_lab/pc003_activation_manifest_p9_labpos.json",
+      "exists": true,
+      "bytes": 7394,
+      "md5": "a50f28b085017e718916d7073dfc879b"
+    },
+    {
+      "path": "gate_prep_lab/pc003_post_unlock_selfcheck.json",
+      "exists": true,
+      "bytes": 3219,
+      "md5": "e4cf06b01b3ea256a3cbabfb70645e33"
+    },
+    {
+      "path": "gate_prep_lab/dshc_channel_disconnect_ledger.csv",
+      "exists": true,
+      "bytes": 2684,
+      "md5": "b2066ea131113f9d72e0a42526656b29"
+    },
+    {
+      "path": "gate_prep_lab/p9_channel_probe.py",
+      "exists": true,
+      "bytes": 9034,
+      "md5": "758217601ce076b0ae9d1b8fd2485384"
+    },
+    {
+      "path": "gate_prep_lab/p9_post_unlock_selfcheck.py",
+      "exists": true,
+      "bytes": 10270,
+      "md5": "cec4566b47593eae0a3775a914446a7b"
+    },
+    {
+      "path": "gate_prep_lab/p9_fail_push_verify.py",
+      "exists": true,
+      "bytes": 8767,
+      "md5": "097e17fbca3c78a217ba28f6d555ae8f"
+    },
+    {
+      "path": "gate_prep_lab/p9_md5_recheck.py",
+      "exists": true,
+      "bytes": 15480,
+      "md5": "2e69e78b69245af130a94d5241c5b957"
+    },
+    {
+      "path": "gate_prep_lab/p12_channel_probe.py",
+      "exists": true,
+      "bytes": 12064,
+      "md5": "fcc8b667070048fc6b71649baec32d51"
+    },
+    {
+      "path": "gate_prep_lab/p12_post_unlock_selfcheck.py",
+      "exists": true,
+      "bytes": 10282,
+      "md5": "3bd34d057da4e9c037cba6c71d414c63"
+    },
+    {
+      "path": "gate_prep_lab/p12_fail_push_verify.py",
+      "exists": true,
+      "bytes": 8781,
+      "md5": "73e61383fe044301cfccab4a68cc8063"
+    },
+    {
+      "path": "gate_prep_lab/p12_md5_recheck.py",
+      "exists": true,
+      "bytes": 21601,
+      "md5": "43ac576a18a591d8a28fbd6bb44d2f4f"
+    },
+    {
+      "path": "gate_prep_lab/dshc_channel_disconnect_ledger_p12.csv",
+      "exists": true,
+      "bytes": 3432,
+      "md5": "97d7e1e3884599a494e719b87d7ce6c6"
+    },
+    {
+      "path": "gate_prep_lab/pc003_activation_manifest_p12.json",
+      "exists": true,
+      "bytes": 7802,
+      "md5": "2715314cba4ed831d1e2ae2ac9bc37aa"
+    },
+    {
+      "path": "gate_prep_lab/pc003_activation_manifest_p12_labpos.json",
+      "exists": true,
+      "bytes": 7396,
+      "md5": "d4219612445289cd69fd08ce008bc2a1"
+    },
+    {
+      "path": "gate_prep_lab/pc003_post_unlock_selfcheck_p12.json",
+      "exists": true,
+      "bytes": 3222,
+      "md5": "dee99fef55bb51283b3a5c5f34cc0400"
+    },
+    {
+      "path": "gate_prep_lab/vis_fail_push_verify_p12.json",
+      "exists": true,
+      "bytes": 2319,
+      "md5": "c4eec578d2dde4ade5703d0a1795a653"
+    }
+  ],
+  "ledger_row": {
+    "round_no": "PG12-FINAL",
+    "slot": "2026-11-16T17:00:00+08:00",
+    "seed": "42",
+    "upstream_total": "17",
+    "upstream_match": "17",
+    "upstream_mismatch": "0",
+    "baseline_total": "17",
+    "baseline_match": "17",
+    "baseline_mismatch": "0",
+    "deliverable_total": "35",
+    "anchor_ok": "True",
+    "chain_ok": "True",
+    "channel_ok": "True",
+    "frozen_archive_ok": "True",
+    "test_vol_chain_ok": "True",
+    "verdict": "PASS",
+    "record_md5": "c4d0f9abef6e76c33f77046ae43b6ddc"
+  },
+  "verdict": "PASS"
+}
