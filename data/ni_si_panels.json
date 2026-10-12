@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.10",
+  "dataset_version": "1.14",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "NI/SI independent panel data for P19 T2 visualization upgrade",
@@ -29,7 +29,7 @@
       "td014_progress": 0.5,
       "m3_status": "COMPLETED",
       "m4_status": "PENDING",
-      "version_tag": "P19"
+      "version_tag": "P39"
     },
     "SI": {
       "code": "SI",
@@ -56,10 +56,10 @@
       "td014_progress": 0.45,
       "m3_status": "COMPLETED",
       "m4_status": "PENDING",
-      "version_tag": "P19"
+      "version_tag": "P39"
     }
   },
-  "version_tag": "P34",
+  "version_tag": "P39",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
@@ -67,6 +67,15 @@
     "data_recovery": "NI_SI_M3_M4_COMPLETE",
     "cleaning_script": "ZN_NI_SN_SI_data_cleaning_script.py (READY_WAIT_DATA)"
   },
-  "previous_version_tag": "P33",
-  "previous_dataset_version": "1.10"
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.140515",
+    "data_source": "DSHA-P38"
+  }
 }
