@@ -1,0 +1,21 @@
+{
+  "dshd_phase": "DSHD-P28",
+  "dsha_data_phase": "DSHA-P32",
+  "generated_at": "2029-03-23T09:00:00+08:00",
+  "verdict": {
+    "overall": "PASS",
+    "http_ok_count": 171,
+    "non_200_live_paths": 0,
+    "timeout_count": 0,
+    "js_parse_ok": true,
+    "all_datasets_p32": true,
+    "core_18_complete": true
+  },
+  "probe_method": "Contents API live probe (171 files x 2 rounds)",
+  "cdn_status": "fresh",
+  "warm_latency_ms": {
+    "median": 72,
+    "max": 618
+  },
+  "note": "P32 site health - generated during DSHD-P28 deployment"
+}
