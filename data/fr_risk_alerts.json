@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.15",
-  "version_tag": "P40",
+  "dataset_version": "1.16",
+  "version_tag": "P41",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 FR-RISK alerts - P31 漂移解除 + PB/CU 灰度持续 / V31.0",
@@ -202,7 +202,7 @@
   "fr_risk_days_active": 810,
   "ic_drift_block": {
     "active": false,
-    "drift_pct": 2.0,
+    "drift_pct": 1.6,
     "threshold_pct": 5.0,
     "block_since": "Phase24",
     "released_at": "Phase31",
@@ -234,27 +234,37 @@
       "status": "BELOW_THRESHOLD",
       "position_pct": 1.5
     },
-    "al_stable_days": 375,
+    "al_stable_days": 445,
     "updated_at": "2026-10-12T01:30:00+08:00"
   },
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "drift_alert_counter": 1435,
+  "drift_alert_counter": 1974,
   "cross_agent": {
     "DSHD_version": "V35.0",
     "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
+    "DSHA_phase": "P35",
+    "DSHA": "P41",
+    "DSHD": "V41.0"
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V39.0",
+    "dashboard_version": "V41.0",
     "updated_at": "2026-10-12T14:49:49.130515",
-    "data_source": "DSHA-P38"
+    "data_source": "DSHA-P38",
+    "phase": "DSHD-P37",
+    "source": "DSHA-P41",
+    "flags": [
+      "FR-RISK_CLOSED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
+    ]
   },
   "cross_agent_sync": {
-    "fr_risk_501_status": "RELEASED_CONFIRMED",
-    "fr_risk_501_days": 1090,
+    "fr_risk_501_status": "CLOSED",
+    "fr_risk_501_days": 1155,
     "synced_to": [
       "DSHC",
       "DSHA",
@@ -262,7 +272,9 @@
     ],
     "sync_version": "FR_RISK_STATUS_ENUM_V1",
     "status_states": 7,
-    "DSHC": "P51",
-    "sync_status": "SYNCED"
+    "DSHC": "P53",
+    "sync_status": "SYNCED",
+    "DSHA": "P41",
+    "DSHD": "V41.0"
   }
 }
