@@ -1,0 +1,99 @@
+{
+  "dataset_version": "1.10",
+  "version_tag": "P34",
+  "generated_at": "2026-10-12T01:30:00+08:00",
+  "seed": 42,
+  "description": "P31 per-variety performance summary / V31.0",
+  "varieties": {
+    "AL": {
+      "status": "ENABLED",
+      "data_source": "full_data",
+      "ic": 0.0586,
+      "ir": 0.0586,
+      "sharpe": 0,
+      "gate_status": "PASS",
+      "quality_grade": "A"
+    },
+    "PB": {
+      "status": "ENABLED",
+      "data_source": "full_data",
+      "ic": 0.0577,
+      "ir": 0.0577,
+      "sharpe": 0,
+      "gate_status": "PASS",
+      "quality_grade": "A"
+    },
+    "CU": {
+      "status": "ENABLED",
+      "data_source": "full_data",
+      "ic": 0.0586,
+      "ir": 0.0586,
+      "sharpe": 0,
+      "gate_status": "PASS",
+      "quality_grade": "A"
+    },
+    "ZN": {
+      "status": "ENABLED",
+      "data_source": "shadow_data",
+      "ic": 0.0577,
+      "ir": 0.0577,
+      "sharpe": 0,
+      "gate_status": "PASS",
+      "quality_grade": "B"
+    },
+    "SN": {
+      "status": "ENABLED",
+      "data_source": "shadow_data",
+      "ic": 0.0577,
+      "ir": 0.0577,
+      "sharpe": 0,
+      "gate_status": "PASS",
+      "quality_grade": "B"
+    },
+    "NI": {
+      "status": "ENABLED",
+      "data_source": "shadow_data",
+      "ic": 0.0577,
+      "ir": 0.0577,
+      "sharpe": 0,
+      "gate_status": "PASS",
+      "quality_grade": "B"
+    },
+    "SI": {
+      "status": "ENABLED",
+      "data_source": "shadow_data",
+      "ic": 0.0577,
+      "ir": 0.0577,
+      "sharpe": 0,
+      "gate_status": "PASS",
+      "quality_grade": "B"
+    }
+  },
+  "portfolio_summary": {
+    "total_return_pct": 67.96,
+    "sharpe": 2.2,
+    "max_drawdown_pct": -0.78,
+    "calmar": 5.42,
+    "sortino": 6.51,
+    "ir": 34.7,
+    "max_drawdown": -0.75,
+    "ic": 0.0493,
+    "diversification": 0.38
+  },
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "p31_drift_gate": {
+    "drift_pct": 3.6,
+    "threshold_pct": 5.0,
+    "status": "RELEASED",
+    "block_active": false,
+    "unblock_status": "PERMANENTLY_UNBLOCKED",
+    "unblock_conditions_met": "6/6",
+    "ic": 0.0586,
+    "ic_floor": 0.0575,
+    "note": "P26~P31 连续6阶段漂移率<4.8%%且IC>=0.0575, 阻断永久解除"
+  },
+  "previous_version_tag": "P33",
+  "previous_dataset_version": "1.10"
+}
