@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.8",
+  "dataset_version": "1.14",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 portfolio risk metrics / V31.0",
@@ -15,7 +15,7 @@
     "portfolio_ir": 34.43,
     "sharpe": 2.2,
     "max_drawdown": -0.75,
-    "ic": 0.0493,
+    "ic": 0.0586,
     "ir": 34.7
   },
   "stress_test": {
@@ -103,16 +103,27 @@
       "response_time_min": 5
     }
   ],
-  "version_tag": "P31",
+  "version_tag": "P39",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
   "p31_drift_gate": {
-    "drift_pct": 3.6,
+    "drift_pct": 2.0,
     "threshold_pct": 5.0,
     "status": "RELEASED",
     "block_active": false,
     "ic": 0.0586,
     "unblock_status": "PERMANENTLY_UNBLOCKED"
+  },
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  },
+  "_dsd_metadata": {
+    "dsd_phase": "DSHD-P34",
+    "dashboard_version": "V39.0",
+    "updated_at": "2026-10-12T14:49:49.174514",
+    "data_source": "DSHA-P38"
   }
 }
