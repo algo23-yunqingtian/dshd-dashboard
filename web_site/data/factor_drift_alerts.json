@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.8",
+  "dataset_version": "1.10",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "source": "factor_drift_alert_log.csv + P12 vis_alert_export",
@@ -111,7 +111,7 @@
       "RED": 2
     }
   },
-  "version_tag": "P31",
+  "version_tag": "P33",
   "phase": "P31",
   "description": "P31 factor drift alerts - 结构性漂移方案D 稳态 / V31.0",
   "threshold_pct": 5.0,
