@@ -1,0 +1,64 @@
+{
+  "version": "V38.0",
+  "phase": "DSHD-P36",
+  "data_version": "1.13",
+  "version_tag": "P40",
+  "engine": "V86.9-C-FINAL-DEBUG-P38",
+  "overall_status": "PB_ADMITTED_CU_GATE_REACHED",
+  "pb": {
+    "bear_ic": 0.0393,
+    "bear_ic_threshold": 0.03,
+    "gap_to_threshold": 0.0022,
+    "threshold_met": true,
+    "pb_bear_ic_14day_count": 19,
+    "status": "GRAY_ADMITTED",
+    "al_stable_days": 375,
+    "fr_risk_days": 1055
+  },
+  "cu": {
+    "bear_ic": 0.0393,
+    "bear_ic_threshold": 0.025,
+    "gap_to_threshold": 0.0,
+    "threshold_met": true,
+    "cu_bear_ic_14day_count": 10,
+    "target_days": 14,
+    "progress_pct": 71.4,
+    "status": "GATE_REACHED_UNCONFIRMED",
+    "fr_risk_id": "FR-RISK-PG37-CU-031",
+    "fr_risk_days_active": 1055,
+    "admission_countdown": {
+      "days_remaining": 4,
+      "conclusion": "CU BEAR_IC 0.0250 达到 0.025 阈值, 预计~4天确认达标"
+    },
+    "gate_status": "RELEASED_UNCONFIRMED"
+  },
+  "drift": {
+    "drift_pct": 2.0,
+    "drift_trend_pp": -0.2,
+    "cumulative_days": 1085,
+    "frozen_phases": 14
+  },
+  "performance": {
+    "runtime_seconds": 0.991,
+    "runtime_reduction_vs_p37_pct": 4.6,
+    "runtime_reduction_vs_p36_pct": 14.5,
+    "float32_gate": "PASS",
+    "float32_adopted": 2,
+    "float32_rejected": 1,
+    "incremental_speedup": "1.99x",
+    "euler_speedup": 108.2
+  },
+  "generated_at": "2026-10-12T14:49:49.195517",
+  "dataset_version": "1.15",
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
+  }
+}
