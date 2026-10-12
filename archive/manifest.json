@@ -1,0 +1,606 @@
+{
+  "manifest_version": "1.0",
+  "generated_at": "2026-10-09T15:13:37+08:00",
+  "generator": "DSHD-P21-VIS-ARCHITECT",
+  "seed": 42,
+  "archive_root": "web_site/archive/",
+  "dsha_original": {
+    "path": "archive/dsha_v1/vis_dashboard_main.html",
+    "size_bytes": 147681,
+    "md5": "f0036dc3ab906629f246b529de55f544",
+    "note": "DSHA 原始件字节保留, P18 增强版另出 index.html"
+  },
+  "phases": [
+    {
+      "filename": "PHASE3_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P3_PHASE3_FACTOR_APPROVE.flag",
+      "phase": "P3",
+      "label": "Phase3 因子批准",
+      "size_bytes": 20129,
+      "md5": "574d14ea4a8fd2826eb44974180cfd32"
+    },
+    {
+      "filename": "PHASE4_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P4_PHASE4_FACTOR_APPROVE.flag",
+      "phase": "P4",
+      "label": "Phase4 因子批准",
+      "size_bytes": 24502,
+      "md5": "57c10a2cf12529cdf854f4d47a0092b5"
+    },
+    {
+      "filename": "PHASE5_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P5_PHASE5_FACTOR_APPROVE.flag",
+      "phase": "P5",
+      "label": "Phase5 因子批准",
+      "size_bytes": 28953,
+      "md5": "5d9d1e8712356357800c0850b2393138"
+    },
+    {
+      "filename": "PHASE7_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P7_PHASE7_FACTOR_APPROVE.flag",
+      "phase": "P7",
+      "label": "Phase7 因子批准",
+      "size_bytes": 19764,
+      "md5": "edda5261ae1dc6d8f05d95d592d711d3"
+    },
+    {
+      "filename": "PHASE8_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P8_PHASE8_FACTOR_APPROVE.flag",
+      "phase": "P8",
+      "label": "Phase8 因子批准",
+      "size_bytes": 22263,
+      "md5": "200c010a103d94e29120c3ab23abceee"
+    },
+    {
+      "filename": "PHASE9_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P9_PHASE9_FACTOR_APPROVE.flag",
+      "phase": "P9",
+      "label": "Phase9 因子批准",
+      "size_bytes": 23400,
+      "md5": "c79e635c27fb988860d1077240d646a2"
+    },
+    {
+      "filename": "PHASE11_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P11_PHASE11_FACTOR_APPROVE.flag",
+      "phase": "P11",
+      "label": "Phase11 因子批准",
+      "size_bytes": 16999,
+      "md5": "76456aa86a23963340b8a5a607c4bc41"
+    },
+    {
+      "filename": "PHASE12_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P12_PHASE12_FACTOR_APPROVE.flag",
+      "phase": "P12",
+      "label": "Phase12 因子批准",
+      "size_bytes": 18139,
+      "md5": "7815700f376c1c6c0122cb68860e1abd"
+    },
+    {
+      "filename": "PHASE13_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P13_PHASE13_FACTOR_APPROVE.flag",
+      "phase": "P13",
+      "label": "Phase13 因子批准",
+      "size_bytes": 17613,
+      "md5": "eb279acf6d98d30130b8d4cfa77d3c30"
+    },
+    {
+      "filename": "PHASE15_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P15_PHASE15_FACTOR_APPROVE.flag",
+      "phase": "P15",
+      "label": "Phase15 因子批准",
+      "size_bytes": 17719,
+      "md5": "3a2ceacf5334c7a5dd7112abfde89748"
+    },
+    {
+      "filename": "PHASE16_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P16_PHASE16_FACTOR_APPROVE.flag",
+      "phase": "P16",
+      "label": "Phase16 因子批准",
+      "size_bytes": 7719,
+      "md5": "2b7b545bd7fed5dc1d172c27875ad1ce"
+    },
+    {
+      "filename": "PHASE11_FACTOR_APPROVE.flag",
+      "archived_as": "archive/phases/phase_P11_PHASE11_FACTOR_APPROVE.flag",
+      "phase": "P11",
+      "label": "Phase11 因子批准",
+      "size_bytes": 16999,
+      "md5": "76456aa86a23963340b8a5a607c4bc41"
+    },
+    {
+      "filename": "AL_CU_PB_FACTOR_GRAY_READY.flag",
+      "archived_as": "archive/phases/phase_P_GRAY_AL_CU_PB_FACTOR_GRAY_READY.flag",
+      "phase": "P_GRAY",
+      "label": "AL/CU/PB 因子灰度就绪",
+      "size_bytes": 14304,
+      "md5": "db538f4fd0901c452de789a6d4861137"
+    },
+    {
+      "filename": "AL_CU_PB_GRAY_PHASE1_CLOSE.flag",
+      "archived_as": "archive/phases/phase_P_GRAY_AL_CU_PB_GRAY_PHASE1_CLOSE.flag",
+      "phase": "P_GRAY",
+      "label": "AL/CU/PB 灰度 Phase1 收口",
+      "size_bytes": 12507,
+      "md5": "320ee810edf6475871d10f84291cb6b0"
+    },
+    {
+      "filename": "AL_CU_PB_factor_gray_rating_report.md",
+      "archived_as": "archive/phases/phase_P_GRAY_AL_CU_PB_factor_gray_rating_report.md",
+      "phase": "P_GRAY",
+      "label": "AL/CU/PB 因子灰度评级报告",
+      "size_bytes": 25995,
+      "md5": "5b63f715655a3fdd261f778955819e85"
+    },
+    {
+      "filename": "ZN_NI_SN_SI_factor_rating_report.md",
+      "archived_as": "archive/phases/phase_P_SHADOW_ZN_NI_SN_SI_factor_rating_report.md",
+      "phase": "P_SHADOW",
+      "label": "ZN/NI/SN/SI 因子评级报告 (影子)",
+      "size_bytes": 25951,
+      "md5": "5b7f8fe52958980015b590a82809273f"
+    },
+    {
+      "filename": "zn_ni_sn_si_precheck_automation.py",
+      "archived_as": "archive/phases/phase_P_SHADOW_zn_ni_sn_si_precheck_automation.py",
+      "phase": "P_SHADOW",
+      "label": "ZN/NI/SN/SI 预校验自动化脚本",
+      "size_bytes": 47797,
+      "md5": "bd94d2e42e04f0723165eb2f7ee16aed"
+    },
+    {
+      "filename": "ZN_NI_SN_SI_synthetic_data_archive.md",
+      "archived_as": "archive/phases/phase_P_SHADOW_ZN_NI_SN_SI_synthetic_data_archive.md",
+      "phase": "P_SHADOW",
+      "label": "ZN/NI/SN/SI 合成数据归档",
+      "size_bytes": 7523,
+      "md5": "ba7803f2d7aa951939b4bd4bc08a974b"
+    }
+  ],
+  "factors": [
+    {
+      "filename": "factors_full.json",
+      "archived_as": "archive/factors/factors_full.json",
+      "size_bytes": 24240,
+      "md5": "a17202a74d14a01c328e9a5177b7c0d7"
+    },
+    {
+      "filename": "factor_meta_library.json",
+      "archived_as": "archive/factors/factor_meta_library.json",
+      "size_bytes": 34279,
+      "md5": "694a0e58fb57aef96949218301f9503a"
+    },
+    {
+      "filename": "narrative_factors_daily.json",
+      "archived_as": "archive/factors/narrative_factors_daily.json",
+      "size_bytes": 690,
+      "md5": "44eb4e6d986e793ab47c905ce3462361"
+    },
+    {
+      "filename": "backtest_config.csv",
+      "archived_as": "archive/factors/backtest_config.csv",
+      "size_bytes": 5515,
+      "md5": "b220c1305416fd1b986de09a01aa52cc"
+    },
+    {
+      "filename": "factor_techdebt_priority.csv",
+      "archived_as": "archive/factors/factor_techdebt_priority.csv",
+      "size_bytes": 5391,
+      "md5": "cb2a9b568620c3d1d376180a7e7910ad"
+    },
+    {
+      "filename": "updated_factor_techdebt_priority_v17.csv",
+      "archived_as": "archive/factors/updated_factor_techdebt_priority_v17.csv",
+      "size_bytes": 90017,
+      "md5": "f920ca381dd428a97b83e161d4e9bcd3"
+    },
+    {
+      "filename": "factor_rating_boundary_update.md",
+      "archived_as": "archive/factors/factor_rating_boundary_update.md",
+      "size_bytes": 9560,
+      "md5": "06c1d7e969f487346bcae198a9b2dadf"
+    },
+    {
+      "filename": "factor_risk_boundary_spec.md",
+      "archived_as": "archive/factors/factor_risk_boundary_spec.md",
+      "size_bytes": 28567,
+      "md5": "699c2a0920690f67783606bd42daa06c"
+    },
+    {
+      "filename": "factor_risk_boundary_alcupb_update.md",
+      "archived_as": "archive/factors/factor_risk_boundary_alcupb_update.md",
+      "size_bytes": 15960,
+      "md5": "49ecd1345d5545ba78f09c7e8c8070cb"
+    },
+    {
+      "filename": "AL_PHASE3_FACTOR_SPEC.md",
+      "archived_as": "archive/factors/AL_PHASE3_FACTOR_SPEC.md",
+      "size_bytes": 13409,
+      "md5": "5e72ad6f39c8a0d3fb5c1cb971d58363"
+    },
+    {
+      "filename": "AL_CU_PB_factor_gray_rating_report.md",
+      "archived_as": "archive/factors/AL_CU_PB_factor_gray_rating_report.md",
+      "size_bytes": 25995,
+      "md5": "5b63f715655a3fdd261f778955819e85"
+    },
+    {
+      "filename": "DSHA_Factor_Gap_Analysis_Report.md",
+      "archived_as": "archive/factors/DSHA_Factor_Gap_Analysis_Report.md",
+      "size_bytes": 45717,
+      "md5": "191a79ad57bbd47e000aa0ad5abc3dec"
+    },
+    {
+      "filename": "factor_drift_alert_log.csv",
+      "archived_as": "archive/factors/factor_drift_alert_log.csv",
+      "size_bytes": 5969,
+      "md5": "fa571381061074cf146a5209611aaabb"
+    }
+  ],
+  "backtests": [
+    {
+      "filename": "backtest_AL.json",
+      "archived_as": "archive/backtests/backtest_AL.json",
+      "size_bytes": 1843,
+      "md5": "e92a1b82be3791adc63eabee9451e66a"
+    },
+    {
+      "filename": "backtest_CU.json",
+      "archived_as": "archive/backtests/backtest_CU.json",
+      "size_bytes": 1846,
+      "md5": "696317acc885f116ecae7d9e4254ad2c"
+    },
+    {
+      "filename": "backtest_PB.json",
+      "archived_as": "archive/backtests/backtest_PB.json",
+      "size_bytes": 1847,
+      "md5": "5eca50eab703a0c073a2515d4ff6d967"
+    },
+    {
+      "filename": "backtest_NI.json",
+      "archived_as": "archive/backtests/backtest_NI.json",
+      "size_bytes": 1838,
+      "md5": "e05846cada57c66850bd7b03bff0261a"
+    },
+    {
+      "filename": "backtest_SN.json",
+      "archived_as": "archive/backtests/backtest_SN.json",
+      "size_bytes": 1839,
+      "md5": "d38a397302d1d9f8a9014ac1e6208645"
+    },
+    {
+      "filename": "backtest_SI.json",
+      "archived_as": "archive/backtests/backtest_SI.json",
+      "size_bytes": 1840,
+      "md5": "b4d94debb94efb6f941e38ec3a6747f7"
+    },
+    {
+      "filename": "backtest_ZN.json",
+      "archived_as": "archive/backtests/backtest_ZN.json",
+      "size_bytes": 1844,
+      "md5": "96e1574642885f197693738fcc98a13c"
+    }
+  ],
+  "trades": [
+    {
+      "filename": "trades_AL.json",
+      "archived_as": "archive/trades/trades_AL.json",
+      "size_bytes": 873,
+      "md5": "8e3b343cc154c730f8007f9ab8d6c0bd"
+    },
+    {
+      "filename": "trades_CU.json",
+      "archived_as": "archive/trades/trades_CU.json",
+      "size_bytes": 1540,
+      "md5": "681975978a454d190656965f566c23a7"
+    },
+    {
+      "filename": "trades_PB.json",
+      "archived_as": "archive/trades/trades_PB.json",
+      "size_bytes": 3578,
+      "md5": "c4eef0c8b54b79617f9d5237825f05d9"
+    },
+    {
+      "filename": "trades_NI.json",
+      "archived_as": "archive/trades/trades_NI.json",
+      "size_bytes": 1574,
+      "md5": "572b0ca7ad8316b0ddf98cd4dc833c77"
+    },
+    {
+      "filename": "trades_SN.json",
+      "archived_as": "archive/trades/trades_SN.json",
+      "size_bytes": 858,
+      "md5": "767fae40da934dceccdcca133b192472"
+    },
+    {
+      "filename": "trades_SI.json",
+      "archived_as": "archive/trades/trades_SI.json",
+      "size_bytes": 2910,
+      "md5": "440b56bc1e38637f5d3e08adb353403a"
+    },
+    {
+      "filename": "trades_ZN.json",
+      "archived_as": "archive/trades/trades_ZN.json",
+      "size_bytes": 3466,
+      "md5": "ebf2f4c3bad498d29fb81cee70ca0c67"
+    }
+  ],
+  "alerts": [
+    {
+      "filename": "vis_alert_export_p12.json",
+      "archived_as": "archive/alerts/vis_alert_export_p12.json",
+      "size_bytes": 200057,
+      "md5": "e2466256d7b5edf20b262ea273acdc1e"
+    },
+    {
+      "filename": "vis_alert_timeline_p12.json",
+      "archived_as": "archive/alerts/vis_alert_timeline_p12.json",
+      "size_bytes": 6081,
+      "md5": "bc1517f15ccbd6b076951e4d7612971c"
+    },
+    {
+      "filename": "vis_alert_validate_p12.json",
+      "archived_as": "archive/alerts/vis_alert_validate_p12.json",
+      "size_bytes": 1757,
+      "md5": "10c2ee42bdf823253a6dd5f5b42e9da7"
+    },
+    {
+      "filename": "vis_alert_regression_p12.json",
+      "archived_as": "archive/alerts/vis_alert_regression_p12.json",
+      "size_bytes": 2614,
+      "md5": "e96af2455f6b044a1bb37596094566a4"
+    },
+    {
+      "filename": "vis_001_integration_p12.json",
+      "archived_as": "archive/alerts/vis_001_integration_p12.json",
+      "size_bytes": 139417,
+      "md5": "36bf831b2edf68b583443e5a414de5f6"
+    },
+    {
+      "filename": "vis_fail_push_verify_p12.json",
+      "archived_as": "archive/alerts/vis_fail_push_verify_p12.json",
+      "size_bytes": 2319,
+      "md5": "c4eec578d2dde4ade5703d0a1795a653"
+    },
+    {
+      "filename": "defect_regression_p12.json",
+      "archived_as": "archive/alerts/defect_regression_p12.json",
+      "size_bytes": 3519,
+      "md5": "cddc6afbc0d2ca3b0c61426e5e4ff174"
+    },
+    {
+      "filename": "dshc_channel_disconnect_ledger_p12.csv",
+      "archived_as": "archive/alerts/dshc_channel_disconnect_ledger_p12.csv",
+      "size_bytes": 3432,
+      "md5": "97d7e1e3884599a494e719b87d7ce6c6"
+    },
+    {
+      "filename": "p12_md5_recheck_ledger.csv",
+      "archived_as": "archive/alerts/p12_md5_recheck_ledger.csv",
+      "size_bytes": 697,
+      "md5": "ec5c76c540ba8f8a5b7de2d64760b973"
+    },
+    {
+      "filename": "p12_md5_recheck_inventory.json",
+      "archived_as": "archive/alerts/p12_md5_recheck_inventory.json",
+      "size_bytes": 19564,
+      "md5": "ca891f718d38d1921e1b017948d7cea1"
+    },
+    {
+      "filename": "pc003_post_unlock_selfcheck_p12.json",
+      "archived_as": "archive/alerts/pc003_post_unlock_selfcheck_p12.json",
+      "size_bytes": 3222,
+      "md5": "dee99fef55bb51283b3a5c5f34cc0400"
+    },
+    {
+      "filename": "pc003_activation_manifest_p12.json",
+      "archived_as": "archive/alerts/pc003_activation_manifest_p12.json",
+      "size_bytes": 7802,
+      "md5": "2715314cba4ed831d1e2ae2ac9bc37aa"
+    },
+    {
+      "filename": "pc003_activation_manifest_p12_labpos.json",
+      "archived_as": "archive/alerts/pc003_activation_manifest_p12_labpos.json",
+      "size_bytes": 7396,
+      "md5": "d4219612445289cd69fd08ce008bc2a1"
+    },
+    {
+      "filename": "pc003_dshc_event_p12.json",
+      "archived_as": "archive/alerts/pc003_dshc_event_p12.json",
+      "size_bytes": 1509,
+      "md5": "6518a84aa77de60bf9fc3eb6c60d8d64"
+    },
+    {
+      "filename": "pc003_dshc_event_unlocked_p12.json",
+      "archived_as": "archive/alerts/pc003_dshc_event_unlocked_p12.json",
+      "size_bytes": 1376,
+      "md5": "cf8dd1f6caf5f7ce3aa5c31b1a62fcaf"
+    },
+    {
+      "filename": "fr_risk_alert_archive.md",
+      "archived_as": "archive/alerts/fr_risk_alert_archive.md",
+      "size_bytes": 63156,
+      "md5": "0cbe7961db0821dd381ef00ae9dc72c7"
+    },
+    {
+      "filename": "fr_risk_receive_log.csv",
+      "archived_as": "archive/alerts/fr_risk_receive_log.csv",
+      "size_bytes": 8895,
+      "md5": "fe1e3c51959cac4d95c6f5e7aa518d23"
+    },
+    {
+      "filename": "fr_risk_501_508_mapping.json",
+      "archived_as": "archive/alerts/fr_risk_501_508_mapping.json",
+      "size_bytes": 5759,
+      "md5": "41efa5a041de70446a0732665a4d42f6"
+    },
+    {
+      "filename": "fr_risk_triggers_deploy.json",
+      "archived_as": "archive/alerts/fr_risk_triggers_deploy.json",
+      "size_bytes": 4161,
+      "md5": "8c43a48704d4097b5bd32799cf168a3e"
+    },
+    {
+      "filename": "fr_risk_escalation_state.json",
+      "archived_as": "archive/alerts/fr_risk_escalation_state.json",
+      "size_bytes": 358,
+      "md5": "eb68984912ffb3d5d0ed726729062890"
+    },
+    {
+      "filename": "fr_risk_501_threshold_calibration_report.md",
+      "archived_as": "archive/alerts/fr_risk_501_threshold_calibration_report.md",
+      "size_bytes": 5018,
+      "md5": "3b74c1cad5794cf3bae5aaebdbc56c74"
+    },
+    {
+      "filename": "fr_risk_501_20d_recalibration_spec.md",
+      "archived_as": "archive/alerts/fr_risk_501_20d_recalibration_spec.md",
+      "size_bytes": 3098,
+      "md5": "b86993294859f3c6a6fa165d05e0946f"
+    },
+    {
+      "filename": "fr_risk_501_recal_runbook.md",
+      "archived_as": "archive/alerts/fr_risk_501_recal_runbook.md",
+      "size_bytes": 3795,
+      "md5": "fb3d81ae9938503b00df2b1ea80a3532"
+    },
+    {
+      "filename": "j15_drill_report.md",
+      "archived_as": "archive/alerts/j15_drill_report.md",
+      "size_bytes": 4242,
+      "md5": "b4bc3331695cf64033b96f8da219f65b"
+    },
+    {
+      "filename": "gate_periodic_check_log.csv",
+      "archived_as": "archive/alerts/gate_periodic_check_log.csv",
+      "size_bytes": 33586,
+      "md5": "30be8d668cff765ce0731cb8ec493f96"
+    },
+    {
+      "filename": "position_verify_result.csv",
+      "archived_as": "archive/alerts/position_verify_result.csv",
+      "size_bytes": 2101,
+      "md5": "0bd71a7e8c28142de62db9e9cc1a3261"
+    },
+    {
+      "filename": "position_verify_result_alcupb.csv",
+      "archived_as": "archive/alerts/position_verify_result_alcupb.csv",
+      "size_bytes": 5968,
+      "md5": "179ce42a928abfa69befec861894febd"
+    },
+    {
+      "filename": "position_verify_audit_log.csv",
+      "archived_as": "archive/alerts/position_verify_audit_log.csv",
+      "size_bytes": 2672,
+      "md5": "20ba29e466a3048e07197860a845888a"
+    },
+    {
+      "filename": "position_verify_audit_log_alcupb.csv",
+      "archived_as": "archive/alerts/position_verify_audit_log_alcupb.csv",
+      "size_bytes": 7606,
+      "md5": "ec9bab744864c77d2f20ca332ebb2e78"
+    },
+    {
+      "filename": "v869_d_alcupb_gray_alarm_log.csv",
+      "archived_as": "archive/alerts/v869_d_alcupb_gray_alarm_log.csv",
+      "size_bytes": 1732,
+      "md5": "ca9985c8d051b0c5fc605fb269a4638f"
+    },
+    {
+      "filename": "v869_d_alcupb_gray_patrol_result.csv",
+      "archived_as": "archive/alerts/v869_d_alcupb_gray_patrol_result.csv",
+      "size_bytes": 10821,
+      "md5": "1226d7def34ffb61068f58b29d8e0c87"
+    },
+    {
+      "filename": "phase1_live_monitor_log.csv",
+      "archived_as": "archive/alerts/phase1_live_monitor_log.csv",
+      "size_bytes": 16620,
+      "md5": "addb564b39c0df3621e14c04c5d2f8f0"
+    },
+    {
+      "filename": "phase1_monitor_summary.md",
+      "archived_as": "archive/alerts/phase1_monitor_summary.md",
+      "size_bytes": 7801,
+      "md5": "fef3f91a23cfab342742a47a684e4182"
+    },
+    {
+      "filename": "updated_chain_baseline_manifest.md",
+      "archived_as": "archive/alerts/updated_chain_baseline_manifest.md",
+      "size_bytes": 11540,
+      "md5": "0a6c72cb3f2f817223c588685bf878cc"
+    }
+  ],
+  "stats": {
+    "phase_count": 19,
+    "factor_count": 13,
+    "backtest_count": 7,
+    "trades_count": 7,
+    "alerts_count": 34,
+    "total_archived_files": 82,
+    "p21_update": true,
+    "p21_generated_at": "2026-10-09T15:13:37+08:00"
+  },
+  "p21_update": {
+    "generated_at": "2026-10-09T15:13:37+08:00",
+    "new_files": [
+      {
+        "filename": "portfolio_backtest.json",
+        "size_bytes": 7088,
+        "md5": "d0b1af32c4f23596cdf9e254278b8c40"
+      },
+      {
+        "filename": "portfolio_correlation.json",
+        "size_bytes": 2597,
+        "md5": "525430722967f7f7b0f531174bed92ed"
+      },
+      {
+        "filename": "portfolio_risk_metrics.json",
+        "size_bytes": 2879,
+        "md5": "08ca2b27504201a5e717743f19f12638"
+      }
+    ],
+    "updated_files": [
+      "cross_variety_comparison.json",
+      "pc003_unlock_assessment.json",
+      "data_completion_status.json",
+      "pl_summary.json",
+      "experiment_index.json",
+      "version_index.json",
+      "fr_risk_alerts.json",
+      "pc003_status.json",
+      "dataset_index.json"
+    ],
+    "pc003_status": "UNLOCKED",
+    "milestones": {
+      "M1": "COMPLETED",
+      "M2": "COMPLETED",
+      "M3": "COMPLETED",
+      "M4": "COMPLETED",
+      "M5": "COMPLETED",
+      "M6": "PENDING",
+      "M7": "PENDING"
+    }
+  },
+  "p22_additions": {
+    "phase": "P22",
+    "data_version": "1.4",
+    "new_files": [
+      "portfolio_risk_contribution.json"
+    ],
+    "updated_files": [
+      "portfolio_backtest.json",
+      "portfolio_correlation.json",
+      "cross_variety_comparison.json",
+      "pc003_unlock_assessment.json",
+      "pc003_status.json",
+      "fr_risk_alerts.json",
+      "data_completion_status.json",
+      "experiment_index.json",
+      "version_index.json",
+      "pl_summary.json",
+      "dataset_index.json"
+    ],
+    "total_data_files": 48,
+    "total_size_kb": 298.8
+  }
+}
