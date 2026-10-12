@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.15",
-  "version_tag": "P40",
+  "dataset_version": "1.16",
+  "version_tag": "P41",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG-P31",
+  "engine": "V86.9-C-FINAL-DEBUG-P41",
   "doc_id": "DSHD-P31-MD5-BASELINE",
   "description": "P31 全部静态资源 MD5 基线 (可复算, 供 CI pre-flight 与后续阶段回归比对); LF 归一化 git blob 形式, index.html md5 cfac3b0e",
   "site_root": "web_site/",
@@ -724,17 +724,20 @@
   "cross_agent": {
     "DSHD_version": "V35.0",
     "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
+    "DSHA_phase": "P35",
+    "DSHA": "P41",
+    "DSHD": "V41.0"
   },
   "_dsd_metadata": {
-    "dashboard_version": "V39.0",
-    "phase": "DSHD-P35",
+    "dashboard_version": "V41.0",
+    "phase": "DSHD-P37",
     "updated_at": "2026-10-12T16:00:00+08:00",
-    "source": "DSHA-P39",
+    "source": "DSHA-P41",
     "flags": [
-      "FR-RISK_RELEASED_CONFIRMED",
+      "FR-RISK_CLOSED",
       "FLOAT32_GATE_PASS",
-      "COST_MODEL_INTEGRATED"
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
     ]
   }
 }
