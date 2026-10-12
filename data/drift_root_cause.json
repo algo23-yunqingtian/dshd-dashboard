@@ -1,9 +1,9 @@
 {
-  "dataset_version": "1.15",
-  "version_tag": "P40",
+  "dataset_version": "1.16",
+  "version_tag": "P41",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
-  "engine": "V86.9-C-FINAL-DEBUG-P40",
+  "engine": "V86.9-C-FINAL-DEBUG-P41",
   "doc_id": "DSHA-P40-DRIFT-ROOT-CAUSE",
   "version": "V3.2-P40",
   "priority": "P36",
@@ -375,7 +375,7 @@
   },
   "fr_risk_link": "FR-RISK-PG25-ICDRIFT-015",
   "data_ref": "ic_drift_timeseries.json",
-  "phase": "P40",
+  "phase": "P41",
   "scheme_d_status": "FROZEN_STEADY_STATE",
   "root_cause": {},
   "unblock": {
@@ -396,15 +396,26 @@
   "cross_agent": {
     "DSHD_version": "V35.0",
     "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
+    "DSHA_phase": "P35",
+    "DSHA": "P41",
+    "DSHD": "V41.0"
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V39.0",
+    "dashboard_version": "V41.0",
     "updated_at": "2026-10-12T14:49:49.123515",
-    "data_source": "DSHA-P38"
+    "data_source": "DSHA-P38",
+    "phase": "DSHD-P37",
+    "source": "DSHA-P41",
+    "flags": [
+      "FR-RISK_CLOSED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
+    ]
   },
-  "drift_pct": 1.9,
+  "drift_pct": 1.6,
   "drift_trend_pp": -0.1,
-  "cumulative_days": 1120
+  "cumulative_days": 1155,
+  "drift_change_pp": -0.3
 }
