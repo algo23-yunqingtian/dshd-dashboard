@@ -1,6 +1,6 @@
 {
-  "phase": "Phase35",
-  "engine": "V86.9-C-FINAL-DEBUG-P35",
+  "phase": "Phase36",
+  "engine": "V86.9-C-FINAL-DEBUG-P36",
   "asset": "AL",
   "total_trades": 6,
   "open_trades": 6,
@@ -9,82 +9,77 @@
   "trades": [
     {
       "trade_id": "TRD-AL-01",
-      "open_date": "2029-07-03",
-      "close_date": "2029-07-08",
+      "open_date": "2029-08-19",
+      "close_date": "2029-08-24",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1889.17,
       "exit_price": 1891.07,
       "pnl": 19.0,
       "pnl_pct": 0.1,
-      "week": "W120"
+      "week": "W127"
     },
     {
       "trade_id": "TRD-AL-02",
-      "open_date": "2029-07-10",
-      "close_date": "2029-07-15",
+      "open_date": "2029-08-26",
+      "close_date": "2029-08-31",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1934.3,
       "exit_price": 1932.71,
       "pnl": -15.9,
       "pnl_pct": -0.08,
-      "week": "W121"
+      "week": "W128"
     },
     {
       "trade_id": "TRD-AL-03",
-      "open_date": "2029-07-17",
-      "close_date": "2029-07-22",
+      "open_date": "2029-09-02",
+      "close_date": "2029-09-07",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1982.89,
       "exit_price": 2012.05,
       "pnl": 291.6,
       "pnl_pct": 1.47,
-      "week": "W122"
+      "week": "W129"
     },
     {
       "trade_id": "TRD-AL-04",
-      "open_date": "2029-07-24",
-      "close_date": "2029-07-29",
+      "open_date": "2029-09-09",
+      "close_date": "2029-09-14",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1739.69,
       "exit_price": 1718.16,
       "pnl": -215.3,
       "pnl_pct": -1.24,
-      "week": "W123"
+      "week": "W130"
     },
     {
       "trade_id": "TRD-AL-05",
-      "open_date": "2029-07-31",
-      "close_date": "2029-08-05",
+      "open_date": "2029-09-16",
+      "close_date": "2029-09-21",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 2522.07,
       "exit_price": 2573.03,
       "pnl": 509.6,
       "pnl_pct": 2.02,
-      "week": "W124"
+      "week": "W131"
     },
     {
       "trade_id": "TRD-AL-06",
-      "open_date": "2029-08-07",
-      "close_date": "2029-08-12",
+      "open_date": "2029-09-23",
+      "close_date": "2029-09-28",
       "direction": "LONG",
       "position_size": 10,
       "entry_price": 1870.71,
       "exit_price": 1892.3,
       "pnl": 215.9,
       "pnl_pct": 1.15,
-      "week": "W125"
+      "week": "W132"
     }
   ],
-  "version_tag": "P35",
-  "dataset_version": "1.10",
-  "cross_agent": {
-    "DSHD_version": "V35.0",
-    "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
-  }
+  "version_tag": "P36",
+  "dataset_version": "1.11"
 }
