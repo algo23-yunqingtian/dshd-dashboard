@@ -1,3 +1,4 @@
+timestamp,phase,version,task,check,status,detail
 round_no,gate_id,title,status,prev_status,status_change,detail,fixed_slot,seed,record_md5
 PG3-R1,GATE-P2-01,REAL_TREE,PENDING,PENDING,NO_CHANGE,"AL/CU/PB 真实树未就位 (TD002 数据未到, 已知状态): AL=ABSENT; CU=ABSENT; PB=ABSENT",2026-10-10T11:00:00+08:00,42,92f62980ab9c6c59dcedffe9315c2a3e
 PG3-R1,GATE-P2-02,WHITELIST,PENDING,PENDING,NO_CHANGE,TD002 白名单未切换 (真实数据就位后按 td002_activate_prep_spec.md 执行切换),2026-10-10T11:00:00+08:00,42,29a8ca8a7c939b2f65f0ee38134e35c5
@@ -160,3 +161,18 @@ PG12-R3,GATE-P2-08,FROZEN_RECHECK,PASS,PASS,NO_CHANGE,LOCK 4/4; 投产类告警=
 PG12-R3,GATE-P2-09,J21_RECHECK,PASS,PASS,NO_CHANGE,"K11/K12 复核完成: AL mult=5 size=5t A=5.0/8.0; CU mult=5 size=5t A=6.0/9.0; PB mult=5 size=5t A=5.0/8.0 (SEALED 生效; 联网原文二次核验待主循环新槽位, 详见 j21_contract_recheck_record.md)",2026-11-16T15:00:00+08:00,42,19916af4dd3a5235750843e380343d5a
 PG12-R3,GATE-P2-10,PERF,PASS,PASS,NO_CHANGE,单轮 37 项检查耗时 0.06s (<60s J14 线),2026-11-16T15:00:00+08:00,42,b51eb699c74b61545554f55908a9121a
 PG12-R3,GATE-P2-11,RESERVED_SLOTS,PASS,PASS,NO_CHANGE,"预留槽位 ZN,NI,SN,SI 4/4 RESERVED; 模板 4/4 完整; LOCK 4/4; 解锁前置 TD002+TD014+REAL_DATA",2026-11-16T15:00:00+08:00,42,8f157f2e6c034af63d92473b9d023608
+2026-10-12 11:04,DSHD-P29,V33.0,T0,Pre-check PHASE28_DONE.flag,PASS,Flag found at repo root
+2026-10-12 11:04,DSHD-P29,V33.0,T0,DSHA-P33 data available,PASS,PHASE33_DATA_READY.flag present
+2026-10-12 11:04,DSHD-P29,V33.0,T1,P32→P33 version tags,PASS,37 HTML changes applied
+2026-10-12 11:04,DSHD-P29,V33.0,T1,PB dual-curve toggle,PASS,togglePBNav + renderPBNavDualChart + computeWithCostNAV
+2026-10-12 11:04,DSHD-P29,V33.0,T1,Panel null fallback,PASS,safeVal/safeText/safePct/safeStatus/safeNav verified
+2026-10-12 11:04,DSHD-P29,V33.0,T2,Local validation,PASS,46/46 JSON valid + 58/58 HTML checks + 2/2 JS syntax
+2026-10-12 11:04,DSHD-P29,V33.0,T3,Contents API deploy,PASS,174/174 files uploaded
+2026-10-12 11:04,DSHD-P29,V33.0,T3,CI workflow,PASS,Run #38197591474 success
+2026-10-12 11:04,DSHD-P29,V33.0,T3,Remote health check,PASS,348/348 HTTP 200 (2 rounds)
+2026-10-12 11:04,DSHD-P29,V33.0,T3,Live content verify,PASS,29/29 V33.0 features verified
+2026-10-12 11:04,DSHD-P29,V33.0,T4,DSHA-P34 compatibility,PASS,All 12 checks pass — no CI changes needed
+2026-10-12 11:04,DSHD-P29,V33.0,T5,Documentation,PASS,Flag + report + handoff generated
+2026-10-12 11:04,DSHD-P29,V33.0,T6,Cross-agent sync,PASS,DSHA/DSHC/DSHD sync files generated
+2026-10-12,DSHD-P30,V34.0,P34,175,175,174/175,468,505,PASS,P34 data deployed,perf panel added,dual-curve preserved
+2026-10-12,DSHD-P30,V34.0,P34,175,175,174/175,468,505,PASS,P34 data deployed,perf panel added,dual-curve preserved
