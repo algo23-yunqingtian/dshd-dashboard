@@ -1,138 +1,164 @@
 {
-  "version_tag": "P36",
-  "dataset_version": "1.11",
-  "phase": "P36",
-  "engine": "V86.9-C-FINAL-DEBUG-P36",
+  "version_tag": "P37",
+  "dataset_version": "1.12",
+  "generated_at": "2026-10-12T14:13:21.129310+08:00",
+  "phase": "Phase37",
+  "engine": "V86.9-C-FINAL-DEBUG-P37",
+  "overall_status": "PB_ADMITTED_CU_IMPROVING",
   "pb": {
     "bear_ic": 0.0322,
-    "progress": "17/17",
-    "threshold": 0.03,
-    "threshold_met": true,
-    "status": "PASS",
-    "conclusion": "PB BEAR_IC持续达标DSHC阈值，连续17阶段≥0.030",
-    "dshe_threshold_0_032": "ABOVE",
-    "progression": {
-      "P31": 0.0318,
-      "P32": 0.0319,
-      "P33": 0.032,
-      "P34": 0.0321,
-      "P35": 0.0322
-    },
     "bear_ic_threshold": 0.03,
-    "gap_to_threshold": 0.0022000000000000006,
+    "gap_to_threshold": 0.0022,
+    "threshold_met": true,
+    "pb_bear_ic_14day_count": 18,
+    "status": "GRAY_ADMITTED",
+    "admission_block": {
+      "blocked": false
+    },
     "bear_ic_time_series": [
       {
-        "date": "2029-05-28",
-        "phase": "P31",
-        "bear_ic": 0.0318
-      },
-      {
-        "date": "2029-06-28",
-        "phase": "P32",
-        "bear_ic": 0.0319
-      },
-      {
-        "date": "2029-07-26",
-        "phase": "P33",
-        "bear_ic": 0.032
-      },
-      {
-        "date": "2029-08-23",
-        "phase": "P34",
+        "date": "2029-10-08",
         "bear_ic": 0.0321
       },
       {
-        "date": "2029-09-13",
-        "phase": "P35",
+        "date": "2029-10-11",
+        "bear_ic": 0.0318
+      },
+      {
+        "date": "2029-10-15",
+        "bear_ic": 0.0325
+      },
+      {
+        "date": "2029-10-18",
+        "bear_ic": 0.0319
+      },
+      {
+        "date": "2029-10-22",
+        "bear_ic": 0.0323
+      },
+      {
+        "date": "2029-10-25",
+        "bear_ic": 0.032
+      },
+      {
+        "date": "2029-10-29",
+        "bear_ic": 0.0324
+      },
+      {
+        "date": "2029-11-01",
+        "bear_ic": 0.0321
+      },
+      {
+        "date": "2029-11-05",
+        "bear_ic": 0.0318
+      },
+      {
+        "date": "2029-11-08",
+        "bear_ic": 0.0326
+      },
+      {
+        "date": "2029-11-12",
         "bear_ic": 0.0322
       },
       {
-        "date": "2029-10-03",
-        "phase": "P36",
+        "date": "2029-11-15",
+        "bear_ic": 0.032
+      },
+      {
+        "date": "2029-11-19",
+        "bear_ic": 0.0325
+      },
+      {
+        "date": "2029-11-22",
         "bear_ic": 0.0322
       }
     ],
-    "pb_bear_ic_14day_count": "17/17",
+    "al_stable_days": 305,
+    "fr_risk_days": 1020
+  },
+  "cu": {
+    "bear_ic": 0.0247,
+    "bear_ic_threshold": 0.025,
+    "gap_to_threshold": -0.0003,
+    "threshold_met": false,
+    "cu_bear_ic_14day_count": 9,
+    "target_days": 14,
+    "progress_pct": 64.3,
+    "status": "IMPROVING",
     "admission_block": {
       "blocked": false
     },
-    "status_detail": "BEAR_IC 0.0322, 17/17 阈值达标并持续 (DSHA-P36)"
-  },
-  "cu": {
-    "bear_ic": 0.0244,
-    "progress": "9/14",
-    "threshold": 0.025,
-    "threshold_met": false,
-    "status": "IMPROVING",
-    "conclusion": "CU BEAR_IC持续改善中(0.0239→0.0244)，距DSHC阈值0.040仍有差距",
-    "dshe_threshold_0_040": "BELOW",
-    "progression": {
-      "P31": 0.026,
-      "P32": 0.0262,
-      "P33": 0.0237,
-      "P34": 0.0239,
-      "P35": 0.0241
+    "fr_risk_id": "FR-RISK-PG37-CU-031",
+    "fr_risk_days_active": 1020,
+    "admission_countdown": {
+      "days_remaining": 5,
+      "conclusion": "CU BEAR_IC 0.0247 接近 0.025 阈值, 预计 ~5 天达标"
     },
-    "bear_ic_threshold": 0.025,
-    "gap_to_threshold": 0.0005999999999999998,
     "bear_ic_time_series": [
       {
-        "date": "2029-05-28",
-        "phase": "P31",
-        "bear_ic": 0.026
+        "date": "2029-10-08",
+        "bear_ic": 0.024
       },
       {
-        "date": "2029-06-28",
-        "phase": "P32",
-        "bear_ic": 0.0262
+        "date": "2029-10-11",
+        "bear_ic": 0.0238
       },
       {
-        "date": "2029-07-26",
-        "phase": "P33",
-        "bear_ic": 0.0237
+        "date": "2029-10-15",
+        "bear_ic": 0.0242
       },
       {
-        "date": "2029-08-23",
-        "phase": "P34",
-        "bear_ic": 0.0239
+        "date": "2029-10-18",
+        "bear_ic": 0.0245
       },
       {
-        "date": "2029-09-13",
-        "phase": "P35",
+        "date": "2029-10-22",
         "bear_ic": 0.0241
       },
       {
-        "date": "2029-10-03",
-        "phase": "P36",
+        "date": "2029-10-25",
+        "bear_ic": 0.0243
+      },
+      {
+        "date": "2029-10-29",
+        "bear_ic": 0.0246
+      },
+      {
+        "date": "2029-11-01",
         "bear_ic": 0.0244
+      },
+      {
+        "date": "2029-11-05",
+        "bear_ic": 0.0242
+      },
+      {
+        "date": "2029-11-08",
+        "bear_ic": 0.0247
+      },
+      {
+        "date": "2029-11-12",
+        "bear_ic": 0.0245
+      },
+      {
+        "date": "2029-11-15",
+        "bear_ic": 0.0246
+      },
+      {
+        "date": "2029-11-19",
+        "bear_ic": 0.0248
+      },
+      {
+        "date": "2029-11-22",
+        "bear_ic": 0.0247
       }
-    ],
-    "admission_block": {
-      "blocked": false
-    },
-    "status_detail": "BEAR_IC 0.0244, 9/14 持续改善中 (DSHA-P36), 距阈值0.025差0.0006"
+    ]
   },
-  "overall_status": "PB_ADMITTED_CU_IMPROVING",
-  "fr_risk_501": {
-    "days": 985,
-    "status": "CONTINUED",
-    "severity": "LOW"
-  },
-  "zn_sn_ni_si": {
-    "status": "formal_production_ready",
-    "variety_status": {
-      "ZN": "READY",
-      "SN": "READY",
-      "NI": "READY",
-      "SI": "READY"
-    },
-    "coverage_pct": 100.0,
-    "bad_samples": 0,
-    "masker": "DISABLED",
-    "production_readiness_pct": 100.0,
-    "status_label": "READY_FOR_PRODUCTION"
-  },
-  "cumulative_days": 980,
-  "scheme_d_frozen": true,
-  "scheme_d_frozen_phases": 11
+  "summary": {
+    "pb_bear_ic": 0.0322,
+    "pb_count": 18,
+    "cu_bear_ic": 0.0247,
+    "cu_count": 9,
+    "next_review": "P38",
+    "al_stable_days": 305
+  }
 }
