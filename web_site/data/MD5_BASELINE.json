@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.12",
-  "version_tag": "P37",
+  "dataset_version": "1.13",
+  "version_tag": "P38",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG-P31",
