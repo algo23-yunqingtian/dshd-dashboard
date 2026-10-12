@@ -1,1289 +1,236 @@
 {
-  "portfolio_name": "7-ASSET EQUAL-WEIGHT PORTFOLIO",
-  "engine_version": "V86.9-C-FINAL-DEBUG-P31",
-  "phase": "Phase31",
-  "dates": [
-    "2028-12-18",
-    "2028-12-19",
-    "2028-12-20",
-    "2028-12-21",
-    "2028-12-22",
-    "2028-12-25",
-    "2028-12-26",
-    "2028-12-27",
-    "2028-12-28",
-    "2028-12-29",
-    "2029-01-01",
-    "2029-01-02",
-    "2029-01-03",
-    "2029-01-04",
-    "2029-01-05",
-    "2029-01-08",
-    "2029-01-09",
-    "2029-01-10",
-    "2029-01-11",
-    "2029-01-12",
-    "2029-01-15",
-    "2029-01-16",
-    "2029-01-17",
-    "2029-01-18",
-    "2029-01-19",
-    "2029-01-22",
-    "2029-01-23",
-    "2029-01-24",
-    "2029-01-25",
-    "2029-01-26",
-    "2029-01-29",
-    "2029-01-30",
-    "2029-01-31",
-    "2029-02-01",
-    "2029-02-02"
-  ],
-  "weighting_scheme": "equal_weight",
-  "weight_per_asset": 0.1429,
-  "asset_count": 7,
-  "assets": [
-    "AL",
-    "PB",
-    "CU",
-    "ZN",
-    "SN",
-    "NI",
-    "SI"
-  ],
-  "nav": [
-    1.0,
-    1.0001,
-    1.0002,
-    1.0004,
-    1.0004,
-    1.0006,
-    1.0007,
-    1.0009,
-    1.001,
-    1.0011,
-    1.0012,
-    1.0014,
-    1.0015,
-    1.0016,
-    1.0018,
-    1.0019,
-    1.002,
-    1.0021,
-    1.0023,
-    1.0024,
-    1.0025,
-    1.0026,
-    1.0027,
-    1.0029,
-    1.0031,
-    1.0032,
-    1.0034,
-    1.0036,
-    1.0036,
-    1.0037,
-    1.0039,
-    1.0041,
-    1.0042,
-    1.0044,
-    1.0046
-  ],
-  "drawdown_pct": [
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
-  ],
-  "metrics": {
-    "total_return": 0.5,
-    "max_drawdown": 0.0,
-    "sharpe": 2.2,
-    "annualized_return": 5.2,
-    "portfolio_ic": 0.0493,
-    "portfolio_ir": 34.7,
-    "diversification_benefit": 0.38,
-    "hhi": 0.1429
+  "phase": "Phase33",
+  "engine": "V86.9-C-FINAL-DEBUG-P33",
+  "date_range": {
+    "start": "2029-03-26",
+    "end": "2029-05-11",
+    "trading_days": 35
   },
-  "correlation_matrix": {
-    "AL": {
-      "AL": 1.0,
-      "PB": 0.72,
-      "CU": 0.72,
-      "ZN": 0.35,
-      "SN": 0.35,
-      "NI": 0.35,
-      "SI": 0.35
-    },
-    "PB": {
-      "AL": 0.72,
-      "PB": 1.0,
-      "CU": 0.72,
-      "ZN": 0.35,
-      "SN": 0.35,
-      "NI": 0.35,
-      "SI": 0.35
-    },
-    "CU": {
-      "AL": 0.72,
-      "PB": 0.72,
-      "CU": 1.0,
-      "ZN": 0.35,
-      "SN": 0.35,
-      "NI": 0.35,
-      "SI": 0.35
-    },
-    "ZN": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 1.0,
-      "SN": 0.64,
-      "NI": 0.64,
-      "SI": 0.64
-    },
-    "SN": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 0.64,
-      "SN": 1.0,
-      "NI": 0.64,
-      "SI": 0.64
-    },
-    "NI": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 0.64,
-      "SN": 0.64,
-      "NI": 1.0,
-      "SI": 0.64
-    },
-    "SI": {
-      "AL": 0.35,
-      "PB": 0.35,
-      "CU": 0.35,
-      "ZN": 0.64,
-      "SN": 0.64,
-      "NI": 0.64,
-      "SI": 1.0
-    }
-  },
-  "portfolio_risk_metrics": {
-    "portfolio_volatility": 0.8,
-    "tracking_error": 0.34,
-    "information_ratio": 34.4,
-    "diversification_benefit": 0.38,
-    "herfindahl_index": 0.1429
-  },
-  "rolling_correlation_matrix": [
-    {
-      "window": "W1",
-      "global_week": "W50",
-      "start": "2028-02-21",
-      "end": "2028-02-25",
-      "trading_days": 5,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.72,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "PB": {
-          "AL": 0.72,
-          "PB": 1.0,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "CU": {
-          "AL": 0.72,
-          "PB": 0.72,
-          "CU": 1.0,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "ZN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 1.0,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "SN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 1.0,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "NI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 1.0,
-          "SI": 0.64
-        },
-        "SI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.72,
-      "battery_correlation": 0.64,
-      "cross_sector_correlation": 0.35
-    },
-    {
-      "window": "W2",
-      "global_week": "W51",
-      "start": "2028-02-28",
-      "end": "2028-03-03",
-      "trading_days": 5,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.73,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "PB": {
-          "AL": 0.73,
-          "PB": 1.0,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "CU": {
-          "AL": 0.73,
-          "PB": 0.73,
-          "CU": 1.0,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "ZN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 1.0,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "SN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 1.0,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "NI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 1.0,
-          "SI": 0.65
-        },
-        "SI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.73,
-      "battery_correlation": 0.65,
-      "cross_sector_correlation": 0.36
-    },
-    {
-      "window": "W3",
-      "global_week": "W52",
-      "start": "2028-03-06",
-      "end": "2028-03-10",
-      "trading_days": 5,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.72,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "PB": {
-          "AL": 0.72,
-          "PB": 1.0,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "CU": {
-          "AL": 0.72,
-          "PB": 0.72,
-          "CU": 1.0,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "ZN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 1.0,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "SN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 1.0,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "NI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 1.0,
-          "SI": 0.64
-        },
-        "SI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.72,
-      "battery_correlation": 0.64,
-      "cross_sector_correlation": 0.35
-    },
-    {
-      "window": "W4",
-      "global_week": "W53",
-      "start": "2028-03-13",
-      "end": "2028-03-17",
-      "trading_days": 5,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.72,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "PB": {
-          "AL": 0.72,
-          "PB": 1.0,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "CU": {
-          "AL": 0.72,
-          "PB": 0.72,
-          "CU": 1.0,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "ZN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 1.0,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "SN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 1.0,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "NI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 1.0,
-          "SI": 0.64
-        },
-        "SI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.72,
-      "battery_correlation": 0.64,
-      "cross_sector_correlation": 0.35
-    },
-    {
-      "window": "W5",
-      "global_week": "W54",
-      "start": "2028-03-20",
-      "end": "2028-03-24",
-      "trading_days": 5,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.73,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "PB": {
-          "AL": 0.73,
-          "PB": 1.0,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "CU": {
-          "AL": 0.73,
-          "PB": 0.73,
-          "CU": 1.0,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "ZN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 1.0,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "SN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 1.0,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "NI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 1.0,
-          "SI": 0.65
-        },
-        "SI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.73,
-      "battery_correlation": 0.65,
-      "cross_sector_correlation": 0.36
-    },
-    {
-      "window": "W6",
-      "global_week": "W55",
-      "start": "2028-03-27",
-      "end": "2028-03-31",
-      "trading_days": 5,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.72,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "PB": {
-          "AL": 0.72,
-          "PB": 1.0,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "CU": {
-          "AL": 0.72,
-          "PB": 0.72,
-          "CU": 1.0,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "ZN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 1.0,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "SN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 1.0,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "NI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 1.0,
-          "SI": 0.64
-        },
-        "SI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.72,
-      "battery_correlation": 0.64,
-      "cross_sector_correlation": 0.35
-    },
-    {
-      "window": "W7",
-      "global_week": "W56",
-      "start": "2028-04-03",
-      "end": "2028-04-07",
-      "trading_days": 5,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.73,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "PB": {
-          "AL": 0.73,
-          "PB": 1.0,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "CU": {
-          "AL": 0.73,
-          "PB": 0.73,
-          "CU": 1.0,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "ZN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 1.0,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "SN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 1.0,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "NI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 1.0,
-          "SI": 0.65
-        },
-        "SI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.73,
-      "battery_correlation": 0.65,
-      "cross_sector_correlation": 0.36
-    }
-  ],
-  "multi_window_rolling_correlation": [
-    {
-      "window": "20d",
-      "window_id": "W1",
-      "start": "2028-02-07",
-      "end": "2028-03-03",
-      "trading_days": 14,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.72,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "PB": {
-          "AL": 0.72,
-          "PB": 1.0,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "CU": {
-          "AL": 0.72,
-          "PB": 0.72,
-          "CU": 1.0,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "ZN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 1.0,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "SN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 1.0,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "NI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 1.0,
-          "SI": 0.64
-        },
-        "SI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.72,
-      "battery_correlation": 0.64,
-      "cross_sector_correlation": 0.35
-    },
-    {
-      "window": "20d",
-      "window_id": "W2",
-      "start": "2028-03-03",
-      "end": "2028-04-07",
-      "trading_days": 14,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.73,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "PB": {
-          "AL": 0.73,
-          "PB": 1.0,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "CU": {
-          "AL": 0.73,
-          "PB": 0.73,
-          "CU": 1.0,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "ZN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 1.0,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "SN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 1.0,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "NI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 1.0,
-          "SI": 0.65
-        },
-        "SI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.73,
-      "battery_correlation": 0.65,
-      "cross_sector_correlation": 0.36
-    },
-    {
-      "window": "40d",
-      "window_id": "W1",
-      "start": "2028-01-24",
-      "end": "2028-04-07",
-      "trading_days": 24,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.74,
-          "CU": 0.74,
-          "ZN": 0.34,
-          "SN": 0.34,
-          "NI": 0.34,
-          "SI": 0.34
-        },
-        "PB": {
-          "AL": 0.74,
-          "PB": 1.0,
-          "CU": 0.74,
-          "ZN": 0.34,
-          "SN": 0.34,
-          "NI": 0.34,
-          "SI": 0.34
-        },
-        "CU": {
-          "AL": 0.74,
-          "PB": 0.74,
-          "CU": 1.0,
-          "ZN": 0.34,
-          "SN": 0.34,
-          "NI": 0.34,
-          "SI": 0.34
-        },
-        "ZN": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 1.0,
-          "SN": 0.66,
-          "NI": 0.66,
-          "SI": 0.66
-        },
-        "SN": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 0.66,
-          "SN": 1.0,
-          "NI": 0.66,
-          "SI": 0.66
-        },
-        "NI": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 0.66,
-          "SN": 0.66,
-          "NI": 1.0,
-          "SI": 0.66
-        },
-        "SI": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 0.66,
-          "SN": 0.66,
-          "NI": 0.66,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.74,
-      "battery_correlation": 0.66,
-      "cross_sector_correlation": 0.34
-    },
-    {
-      "window": "60d",
-      "window_id": "W1",
-      "start": "2028-01-04",
-      "end": "2028-04-07",
-      "trading_days": 44,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.72,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "PB": {
-          "AL": 0.72,
-          "PB": 1.0,
-          "CU": 0.72,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "CU": {
-          "AL": 0.72,
-          "PB": 0.72,
-          "CU": 1.0,
-          "ZN": 0.35,
-          "SN": 0.35,
-          "NI": 0.35,
-          "SI": 0.35
-        },
-        "ZN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 1.0,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "SN": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 1.0,
-          "NI": 0.64,
-          "SI": 0.64
-        },
-        "NI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 1.0,
-          "SI": 0.64
-        },
-        "SI": {
-          "AL": 0.35,
-          "PB": 0.35,
-          "CU": 0.35,
-          "ZN": 0.64,
-          "SN": 0.64,
-          "NI": 0.64,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.72,
-      "battery_correlation": 0.64,
-      "cross_sector_correlation": 0.35
-    },
-    {
-      "window": "120d",
-      "window_id": "W1",
-      "start": "2027-11-02",
-      "end": "2028-04-07",
-      "trading_days": 98,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.73,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "PB": {
-          "AL": 0.73,
-          "PB": 1.0,
-          "CU": 0.73,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "CU": {
-          "AL": 0.73,
-          "PB": 0.73,
-          "CU": 1.0,
-          "ZN": 0.36,
-          "SN": 0.36,
-          "NI": 0.36,
-          "SI": 0.36
-        },
-        "ZN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 1.0,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "SN": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 1.0,
-          "NI": 0.65,
-          "SI": 0.65
-        },
-        "NI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 1.0,
-          "SI": 0.65
-        },
-        "SI": {
-          "AL": 0.36,
-          "PB": 0.36,
-          "CU": 0.36,
-          "ZN": 0.65,
-          "SN": 0.65,
-          "NI": 0.65,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.73,
-      "battery_correlation": 0.65,
-      "cross_sector_correlation": 0.36
-    },
-    {
-      "window": "250d",
-      "window_id": "W1",
-      "start": "2027-06-07",
-      "end": "2028-04-07",
-      "trading_days": 208,
-      "correlation_matrix": {
-        "AL": {
-          "AL": 1.0,
-          "PB": 0.74,
-          "CU": 0.74,
-          "ZN": 0.34,
-          "SN": 0.34,
-          "NI": 0.34,
-          "SI": 0.34
-        },
-        "PB": {
-          "AL": 0.74,
-          "PB": 1.0,
-          "CU": 0.74,
-          "ZN": 0.34,
-          "SN": 0.34,
-          "NI": 0.34,
-          "SI": 0.34
-        },
-        "CU": {
-          "AL": 0.74,
-          "PB": 0.74,
-          "CU": 1.0,
-          "ZN": 0.34,
-          "SN": 0.34,
-          "NI": 0.34,
-          "SI": 0.34
-        },
-        "ZN": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 1.0,
-          "SN": 0.66,
-          "NI": 0.66,
-          "SI": 0.66
-        },
-        "SN": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 0.66,
-          "SN": 1.0,
-          "NI": 0.66,
-          "SI": 0.66
-        },
-        "NI": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 0.66,
-          "SN": 0.66,
-          "NI": 1.0,
-          "SI": 0.66
-        },
-        "SI": {
-          "AL": 0.34,
-          "PB": 0.34,
-          "CU": 0.34,
-          "ZN": 0.66,
-          "SN": 0.66,
-          "NI": 0.66,
-          "SI": 1.0
-        }
-      },
-      "core_correlation": 0.74,
-      "battery_correlation": 0.66,
-      "cross_sector_correlation": 0.34
-    }
-  ],
-  "individual_contributions": {
-    "AL": {
-      "ic": 0.0582,
-      "ir": 47.2,
-      "weight": 0.1429
-    },
-    "PB": {
-      "ic": 0.0575,
-      "ir": 43.3,
-      "weight": 0.1429
-    },
-    "CU": {
-      "ic": 0.0579,
-      "ir": 45.6,
-      "weight": 0.1429
-    },
-    "ZN": {
-      "ic": 0.0437,
-      "ir": 28.3,
-      "weight": 0.1429
-    },
-    "SN": {
-      "ic": 0.0427,
-      "ir": 26.6,
-      "weight": 0.1429
-    },
-    "NI": {
-      "ic": 0.0417,
-      "ir": 25.4,
-      "weight": 0.1429
-    },
-    "SI": {
-      "ic": 0.0407,
-      "ir": 24.6,
-      "weight": 0.1429
-    }
-  },
-  "shadow_assets": [
-    "ZN",
-    "SN",
-    "NI",
-    "SI"
-  ],
-  "full_data_assets": [
-    "AL",
-    "PB",
-    "CU"
-  ],
-  "seed": 42,
-  "dataset_version": "1.8",
-  "version_tag": "P31",
-  "generated_at": "2026-10-12T01:30:00+08:00",
-  "p31_meta": {
-    "bumped_at": "2026-10-12T01:30:00+08:00",
-    "source": "DSHA-P31 portfolio_backtest_7asset.json"
-  },
-  "returns": [
-    0,
-    0.01,
-    0.01,
-    0.02,
-    0.0,
-    0.02,
-    0.01,
-    0.02,
-    0.01,
-    0.01,
-    0.01,
-    0.02,
-    0.01,
-    0.01,
-    0.02,
-    0.01,
-    0.01,
-    0.01,
-    0.02,
-    0.01,
-    0.01,
-    0.01,
-    0.01,
-    0.02,
-    0.02,
-    0.01,
-    0.02,
-    0.02,
-    0.0,
-    0.01,
-    0.02,
-    0.02,
-    0.01,
-    0.02,
-    0.02
+  "weeks": [
+    "W106",
+    "W107",
+    "W108",
+    "W109",
+    "W110",
+    "W111",
+    "W112"
   ],
   "scheme_d_frozen": true,
+  "scheme_d_params": {
+    "F01_weight": 0.85,
+    "F09_weight": 0.85,
+    "F19_weight": 1.1,
+    "F20_weight": 1.1,
+    "decay_comp": 1.0018,
+    "F15~F18_correction": "artifact",
+    "frozen_since": "P28",
+    "frozen_phases": 8,
+    "status": "FROZEN_STEADY_STATE"
+  },
   "drift_monitoring": {
-    "status": "ACTIVE",
-    "warning_threshold_pct": 4.8,
+    "active": true,
+    "warn_threshold_pct": 4.8,
     "relock_threshold_pct": 5.0,
-    "current_drift_pct": 3.6
+    "current_drift_pct": 3.2,
+    "status": "STABLE_STEADY_STATE",
+    "consecutive_phases": 8
+  },
+  "dual_backtest_results": {
+    "no_cost": {
+      "version": "V86.9-C-FINAL-DEBUG-P33-NO-COST",
+      "nav": 1.86,
+      "sharpe": 2.2,
+      "max_drawdown_pct": -0.75,
+      "win_rate_pct": 83,
+      "annualized_return_pct": 46.3,
+      "total_trades": 84,
+      "var_95_pct": -1.23,
+      "cost_model": "ZERO_COST",
+      "cost_per_round_trip_pct": 0.0
+    },
+    "with_cost": {
+      "version": "V86.9-C-FINAL-DEBUG-P33-WITH-COST",
+      "nav": 1.793,
+      "sharpe": 2.05,
+      "max_drawdown_pct": -0.92,
+      "win_rate_pct": 78,
+      "annualized_return_pct": 39.6,
+      "total_trades": 84,
+      "var_95_pct": -1.45,
+      "cost_model": "REALISTIC_COST",
+      "cost_per_round_trip_pct": 0.16,
+      "cost_breakdown": {
+        "commission_pct": 0.03,
+        "slippage_pct": 0.02,
+        "impact_cost_pct": 0.01,
+        "rollover_cost_pct": 0.05
+      }
+    },
+    "comparison": {
+      "nav_gap_pct": 3.6,
+      "sharpe_gap": 0.15,
+      "sharpe_gap_pct": 6.8,
+      "max_dd_gap_pp": 0.17,
+      "win_rate_gap_pp": 5,
+      "annual_return_gap_pp": 6.7,
+      "conclusion": "零成本模型NAV高估3.6%，Sharpe高估6.8%，年收益高估6.7pp；含成本版本NAV更为保守，建议以含成本版本作为实盘参考基准"
+    }
+  },
+  "portfolio_metrics": {
+    "portfolio_ic": 0.0493,
+    "portfolio_ir": 34.7,
+    "portfolio_sharpe": 2.2,
+    "portfolio_nav_no_cost": 1.86,
+    "portfolio_nav_with_cost": 1.793,
+    "portfolio_max_dd_no_cost": -0.75,
+    "portfolio_max_dd_with_cost": -0.92,
+    "var_95_pct": -1.23,
+    "annualized_return_pct": 46.3,
+    "annualized_return_with_cost_pct": 39.6
+  },
+  "risk_contribution": {
+    "AL": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 18.4
+    },
+    "PB": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 17.8
+    },
+    "CU": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 18.4
+    },
+    "ZN": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 14.4
+    },
+    "SN": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 13.5
+    },
+    "NI": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 13.3
+    },
+    "SI": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 12.6
+    }
+  },
+  "multi_window_rolling_correlation": {
+    "windows": [
+      "20d",
+      "40d",
+      "60d",
+      "120d",
+      "250d"
+    ],
+    "current_20d_max_correlation": 0.82,
+    "current_20d_avg_correlation": 0.55,
+    "current_60d_max_correlation": 0.85,
+    "current_250d_max_correlation": 0.88,
+    "correlation_stability": "STABLE"
+  },
+  "phase32_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0392,
+    "CRISIS_IC": 0.0663,
+    "IR": 47.8,
+    "drift_pct": 3.6,
+    "cumulative_days": 840,
+    "sigma_weeks": 168,
+    "FR_RISK_501_days": 845,
+    "drift_alert_counter": 1517
+  },
+  "phase33_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "drift_pct": 3.2,
+    "cumulative_days": 875,
+    "sigma_weeks": 175,
+    "FR_RISK_501_days": 880,
+    "drift_alert_counter": 1599,
+    "portfolio_nav": 1.86,
+    "portfolio_sharpe": 2.2,
+    "portfolio_nav_with_cost": 1.793,
+    "portfolio_sharpe_with_cost": 2.05
+  },
+  "admission_block": {
+    "drift_below_4_8": true,
+    "IC_above_0_0575": true,
+    "consecutive_phases": 8,
+    "status": "PERMANENTLY_LIFTED"
+  },
+  "fr_risk_rules": {
+    "FR-RISK-501": {
+      "condition": "CU BEAR_IC<0.025",
+      "status": "CONTINUED",
+      "days": 880,
+      "severity": "LOW"
+    },
+    "FR-RISK-502": {
+      "condition": "PB BEAR_IC<0.030",
+      "status": "CONTINUED",
+      "days": 805,
+      "severity": "LOW"
+    },
+    "FR-RISK-503": {
+      "condition": "F19/F20_IC<0.050",
+      "status": "EDGE_SAFE",
+      "severity": "NONE"
+    },
+    "FR-RISK-504": {
+      "condition": "F15~F18波动",
+      "status": "NO_TRIGGER",
+      "severity": "NONE"
+    },
+    "FR-RISK-505": {
+      "condition": "ZN/SN/NI/SI数据不良",
+      "status": "NO_TRIGGER",
+      "severity": "NONE"
+    },
+    "FR-RISK-506": {
+      "condition": "IC漂移≥10%",
+      "status": "EDGE_SAFE",
+      "severity": "NONE"
+    },
+    "FR-RISK-507": {
+      "condition": "IR<20",
+      "status": "EDGE_SAFE",
+      "severity": "NONE"
+    },
+    "FR-RISK-508": {
+      "condition": "BEAR_IC<0.025",
+      "status": "NO_TRIGGER",
+      "severity": "NONE"
+    }
+  },
+  "cross_agent_sync": {
+    "DSHC": {
+      "phase": "P39",
+      "data_loaded": true,
+      "AL_stable_days": 165,
+      "PB_BEAR_IC": 0.032,
+      "CU_BEAR_IC": 0.0237
+    },
+    "DSHD": {
+      "version": "V32.0",
+      "ready": true,
+      "issues": [
+        "页面空白",
+        "图表渲染异常"
+      ]
+    }
+  },
+  "cost_audit_summary": {
+    "lookahead_bias": "NONE",
+    "zero_cost_overestimation_pct": 3.6,
+    "annual_return_overestimation_pp": 6.7,
+    "dual_version_provided": true,
+    "cost_adjusted_portfolio_provided": true,
+    "conclusion": "零成本假设使NAV高估3.6%；已提供双版本回测供对照；实盘需集成成本模型"
   }
 }
