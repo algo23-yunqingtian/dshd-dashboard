@@ -1,0 +1,51 @@
+{
+  "version_tag": "P40",
+  "dataset_version": "1.15",
+  "dashboard_version": "V40.0",
+  "phase": "DSHD-P36",
+  "status": "ACTIVE",
+  "nav_gap_pct": 3.6,
+  "annual_return_overestimation_pp": 6.7,
+  "audit_severity": "MEDIUM",
+  "audit_color": "YELLOW",
+  "cost_breakdown": {
+    "commission_rate": "0.02%",
+    "slippage_bps": 2,
+    "total_annual_cost": "0.35%",
+    "annual_return_overestimate_pp": 6.7
+  },
+  "pb_cost_adjusted": {
+    "pb_bear_ic": 0.0322,
+    "pb_bear_ic_with_cost": 0.0315,
+    "cost_impact_pp": -0.0007,
+    "threshold_met": true,
+    "days_threshold_met": 19
+  },
+  "cu_cost_adjusted": {
+    "cu_bear_ic": 0.0255,
+    "cu_bear_ic_with_cost": 0.0248,
+    "cost_impact_pp": -0.0007,
+    "threshold_met": true,
+    "gate_reached": true,
+    "confirmations": 3
+  },
+  "nav_comparison": {
+    "zero_cost_nav": 1.138,
+    "with_cost_nav": 1.102,
+    "gap_pct": 3.6,
+    "gap_change_vs_p39": 0.0
+  },
+  "dual_version_backtest": {
+    "zero_cost_research_curve": true,
+    "with_cost_live_reference_curve": true,
+    "both_provided": true
+  },
+  "lookahead_bias": "NONE",
+  "cost_assumption_gap": "SIGNIFICANT",
+  "recommendation": "Must integrate before live trading (zero-cost NAV overestimation ~3.6%)",
+  "p39_comparison": {
+    "nav_gap_pct": 3.6,
+    "annual_return_overestimation_pp": 6.7,
+    "change": "STABLE"
+  }
+}
