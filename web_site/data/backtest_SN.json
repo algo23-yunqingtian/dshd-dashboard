@@ -91,8 +91,8 @@
     }
   },
   "cross_agent": {
-    "DSHC_phase": "P39",
-    "DSHD_version": "V32.0",
+    "DSHC_phase": "P40",
+    "DSHD_version": "V33.0",
     "DSHA_phase": "Phase33"
   },
   "scheme_d_params": {
@@ -106,6 +106,6 @@
     "frozen_phases": 8,
     "status": "FROZEN_STEADY_STATE"
   },
-  "version_tag": "P32",
-  "dataset_version": "1.9"
+  "version_tag": "P33",
+  "dataset_version": "1.10"
 }
