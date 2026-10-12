@@ -1,20 +1,20 @@
 {
-  "phase": "Phase34",
-  "engine": "V86.9-C-FINAL-DEBUG-P34",
+  "phase": "Phase39",
+  "engine": "V86.9-C-FINAL-DEBUG-P39",
   "asset": "CU",
   "date_range": {
-    "start": "2029-05-14",
-    "end": "2029-06-28",
+    "start": "2030-01-14",
+    "end": "2030-03-01",
     "trading_days": 35
   },
   "weeks": [
-    "W113",
-    "W114",
-    "W115",
-    "W116",
-    "W117",
-    "W118",
-    "W119"
+    "W148",
+    "W149",
+    "W150",
+    "W151",
+    "W152",
+    "W153",
+    "W154"
   ],
   "scheme_d_frozen": true,
   "production_status": "gray_production",
@@ -22,19 +22,41 @@
   "bad_samples": 0,
   "data_quality": "EXCELLENT",
   "metrics": {
-    "IC": 0.0586,
+    "IC": 0.058499999999999996,
     "BEAR_IC": 0.0393,
     "CRISIS_IC": 0.0664,
     "IR": 47.9,
     "VIF": 1.0064,
     "F19_F20_IC": 0.0583,
     "PB_BEAR_IC": 0.0393,
-    "CU_BEAR_IC": 0.0239,
-    "drift_pct": 3.0
+    "CU_BEAR_IC": 0.0253,
+    "drift_pct": 1.9,
+    "version_tag": "P40",
+    "dataset_version": "1.15",
+    "dashboard_version": "V40.0",
+    "phase": "DSHD-P36",
+    "cumulative_days": 1120,
+    "frozen_phases": 15,
+    "fr_risk_501_days": 1125,
+    "fr_risk_501_status": "RELEASED_CONFIRMED",
+    "float32_gate": "PASS",
+    "float32_global_max_dev": 4.7e-08,
+    "incr_speedup": 3.0,
+    "incr_max_dev": 2.087e-14,
+    "euler_speedup": 110.0,
+    "runtime_seconds": 0.993,
+    "ic": 0.0586,
+    "bear_ic": 0.0393,
+    "pb_bear_ic": 0.0322,
+    "cu_bear_ic": 0.0255,
+    "cu_gate_status": "RELEASED_CONFIRMED",
+    "cu_gate_confirmations": 3,
+    "al_stable_days": 410,
+    "nav_gap_pct": 3.6
   },
   "backtest_results": {
     "no_cost": {
-      "nav": 1.866,
+      "nav": 1.887,
       "sharpe": 2.2,
       "max_drawdown_pct": -0.75,
       "total_trades": 12,
@@ -44,7 +66,7 @@
       "profit_factor": 3.45
     },
     "with_cost": {
-      "nav": 1.799,
+      "nav": 1.819,
       "sharpe": 2.05,
       "max_drawdown_pct": -0.92,
       "total_trades": 12,
@@ -71,7 +93,7 @@
     "active": true,
     "warn_threshold_pct": 4.8,
     "relock_threshold_pct": 5.0,
-    "current_drift_pct": 3.0,
+    "current_drift_pct": 2.0,
     "status": "STABLE_STEADY_STATE"
   },
   "cost_parameters": {
@@ -91,11 +113,9 @@
     }
   },
   "cross_agent": {
-    "DSHC_phase": "P40",
-    "DSHD_version": "V34.0",
-    "DSHA_phase": "Phase34",
-    "DSHD_phase": "P30",
-    "deployed_at": "2026-10-12T11:15:09.675524"
+    "DSHC_phase": "P48",
+    "DSHD_version": "V39.0",
+    "DSHA_phase": "Phase39"
   },
   "scheme_d_params": {
     "F01_weight": 0.85,
@@ -105,9 +125,20 @@
     "decay_comp": 1.0018,
     "F15~F18_correction": "artifact",
     "frozen_since": "P28",
-    "frozen_phases": 9,
+    "frozen_phases": 14,
     "status": "FROZEN_STEADY_STATE"
   },
-  "version_tag": "P34",
-  "dataset_version": "1.10"
+  "version_tag": "P40",
+  "dataset_version": "1.15",
+  "_dsd_metadata": {
+    "dashboard_version": "V39.0",
+    "phase": "DSHD-P35",
+    "updated_at": "2026-10-12T16:00:00+08:00",
+    "source": "DSHA-P39",
+    "flags": [
+      "FR-RISK_RELEASED_CONFIRMED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED"
+    ]
+  }
 }
