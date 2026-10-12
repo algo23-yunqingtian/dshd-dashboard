@@ -1,0 +1,90 @@
+{
+  "phase": "Phase34",
+  "engine": "V86.9-C-FINAL-DEBUG-P34",
+  "asset": "ZN",
+  "total_trades": 6,
+  "open_trades": 6,
+  "close_trades": 6,
+  "total_pnl": 1098.9,
+  "trades": [
+    {
+      "trade_id": "TRD-ZN-01",
+      "open_date": "2029-04-15",
+      "close_date": "2029-04-20",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 2521.93,
+      "exit_price": 2570.25,
+      "pnl": 483.2,
+      "pnl_pct": 1.92,
+      "week": "W106"
+    },
+    {
+      "trade_id": "TRD-ZN-02",
+      "open_date": "2029-04-22",
+      "close_date": "2029-04-27",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 1540.48,
+      "exit_price": 1554.06,
+      "pnl": 135.8,
+      "pnl_pct": 0.88,
+      "week": "W107"
+    },
+    {
+      "trade_id": "TRD-ZN-03",
+      "open_date": "2029-04-29",
+      "close_date": "2029-05-04",
+      "direction": "SHORT",
+      "position_size": 10,
+      "entry_price": 1722.48,
+      "exit_price": 1696.83,
+      "pnl": 256.5,
+      "pnl_pct": 1.49,
+      "week": "W108"
+    },
+    {
+      "trade_id": "TRD-ZN-04",
+      "open_date": "2029-05-06",
+      "close_date": "2029-05-11",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 2639.78,
+      "exit_price": 2619.86,
+      "pnl": -199.2,
+      "pnl_pct": -0.75,
+      "week": "W109"
+    },
+    {
+      "trade_id": "TRD-ZN-05",
+      "open_date": "2029-05-13",
+      "close_date": "2029-05-18",
+      "direction": "LONG",
+      "position_size": 10,
+      "entry_price": 2797.74,
+      "exit_price": 2866.01,
+      "pnl": 682.7,
+      "pnl_pct": 2.44,
+      "week": "W110"
+    },
+    {
+      "trade_id": "TRD-ZN-06",
+      "open_date": "2029-05-20",
+      "close_date": "2029-05-25",
+      "direction": "SHORT",
+      "position_size": 10,
+      "entry_price": 1821.31,
+      "exit_price": 1847.32,
+      "pnl": -260.1,
+      "pnl_pct": -1.43,
+      "week": "W111"
+    }
+  ],
+  "version_tag": "P34",
+  "dataset_version": "1.10",
+  "cross_agent": {
+    "DSHD_version": "V34.0",
+    "DSHD_phase": "P30",
+    "deployed_at": "2026-10-12T11:15:09.691524"
+  }
+}
