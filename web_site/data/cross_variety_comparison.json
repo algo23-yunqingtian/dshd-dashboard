@@ -1,6 +1,6 @@
 {
-  "version_tag": "P40",
-  "dataset_version": "1.15",
+  "version_tag": "P41",
+  "dataset_version": "1.16",
   "generated_at": "2026-10-12T14:49:49.198515",
   "varieties": [
     {
@@ -84,14 +84,15 @@
     "total_risk_contribution": 1.26
   },
   "_dsd_metadata": {
-    "dashboard_version": "V39.0",
-    "phase": "DSHD-P35",
+    "dashboard_version": "V41.0",
+    "phase": "DSHD-P37",
     "updated_at": "2026-10-12T16:00:00+08:00",
-    "source": "DSHA-P39",
+    "source": "DSHA-P41",
     "flags": [
-      "FR-RISK_RELEASED_CONFIRMED",
+      "FR-RISK_CLOSED",
       "FLOAT32_GATE_PASS",
-      "COST_MODEL_INTEGRATED"
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
     ]
   }
 }
