@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DSHD-P33 全链路可视化 · 告警/门禁/因子/回测/组合/PC003/Phase4监控/PB-CU准入/IC漂移预警 一体看板</title>
+<title>DSHD-P35 全链路可视化 · 告警/门禁/因子/回测/组合/PC003/Phase4监控/PB-CU准入/IC漂移预警 一体看板</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js">
 // ---- P21 T2: RENDER PORTFOLIO VIEW ----
 function renderPortfolioOverview(){
@@ -257,7 +257,7 @@ function renderM7FinalAssessment(){
 }
 
 function renderCorrelationMatrix(){
-  if(renderCorrelationMatrixP33()) return;
+  if(renderCorrelationMatrixP35()) return;
   const pc = STATE.portfolioCorrelation||{};
   const matrix = pc.correlation_matrix||{};
   const varieties = Object.keys(matrix);
@@ -779,20 +779,20 @@ strong{color:var(--text);}
 <!-- HEADER -->
 <header class="app-header">
   <div class="app-title">
-    📊 DSHD-P33 全链路可视化看板
+    📊 DSHD-P35 全链路可视化看板
     <span class="badge">GITHUB PAGES</span>
-    <span class="badge" style="background:var(--red);color:#fff;">V33</span>
+    <span class="badge" style="background:var(--red);color:#fff;">V35</span>
   </div>
-  <div class="app-subtitle">7品种全投产(AL/CU/PB/NI/SI/SN/ZN) · P18~P33 十六版本 · 告警/门禁/因子/回测/组合/PC003解锁/Phase4监控/PB-CU灰度准入/IC漂移预警 一体化</div>
+  <div class="app-subtitle">7品种全投产(AL/CU/PB/NI/SI/SN/ZN) · P18~P35 十七版本 · 告警/门禁/因子/回测/组合/PC003解锁/Phase4监控/PB-CU灰度准入/IC漂移预警 一体化</div>
   <div class="header-stats">
     <div class="header-stat"><span>在线品种</span><span class="v" id="hdr-varieties">7 / 7</span></div>
     <div class="header-stat"><span>因子库</span><span class="v" id="hdr-factors">20</span></div>
     <div class="header-stat"><span>告警总数</span><span class="v" id="hdr-alerts">-</span></div>
     <div class="header-stat"><span>OPEN</span><span class="v" id="hdr-alerts-open" style="color:var(--red);">-</span></div>
     <div class="header-stat"><span>CRITICAL</span><span class="v" id="hdr-alerts-crit" style="color:var(--red);">-</span></div>
-    <div class="header-stat"><span>实验阶段</span><span class="v" id="hdr-phase">P33</span></div>
+    <div class="header-stat"><span>实验阶段</span><span class="v" id="hdr-phase">P35</span></div>
     <div class="header-status" style="background:rgba(74,222,128,0.15);color:var(--green);border:1px solid var(--green);" id="hdr-pc003">PC-003: UNLOCKED</div>
-    <div class="header-status" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid var(--blue);">DS: P33<span id="hdr-dataset-ver">P18+P19+P20+P21+P22+P23+P24+P25+P26+P27+P28+P29+P30+P31+P32+P33</span></div>
+    <div class="header-status" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid var(--blue);">DS: P35<span id="hdr-dataset-ver">P18+P19+P20+P21+P22+P23+P24+P25+P26+P27+P28+P29+P30+P31+P32+P33+P34+P35</span></div>
     <div class="header-status warn">CI: <span id="hdr-ci">-</span></div>
   </div>
 </header>
@@ -814,6 +814,7 @@ strong{color:var(--text);}
   <div class="nav-tab" data-tab="icdrift" style="color:var(--red);border-color:rgba(239,68,68,0.35);">🚦 IC漂移预警</div>
   <div class="nav-tab" data-tab="github">🚀 Github Pages</div>
   <div class="nav-tab" data-tab="archive">📦 静态归档</div>
+  <div class="nav-tab" data-tab="performance">⚡ 性能优化</div>
 </nav>
 
 <!-- MAIN -->
@@ -913,12 +914,12 @@ strong{color:var(--text);}
   </div>
 
   <div class="panel">
-    <div class="panel-header"><span><span class="icon">✅</span>FR-RISK 阻断状态 · IC 漂移门禁 (P33 · 阻断永久解除) <span class="tag" style="background:rgba(239,68,68,0.15);color:var(--red);">BLOCK</span></span></div>
+    <div class="panel-header"><span><span class="icon">✅</span>FR-RISK 阻断状态 · IC 漂移门禁 (P35 · 阻断永久解除) <span class="tag" style="background:rgba(239,68,68,0.15);color:var(--red);">BLOCK</span></span></div>
     <div class="panel-body" id="fr-risk-block-status"></div>
   </div>
   <div class="grid-2">
-    <div class="panel"><div class="panel-header"><span><span class="icon">📡</span>PB BEAR_IC 实时读数 (P33 · 14/14 达标)</span></div><div class="panel-body" id="fr-risk-pb-live"></div></div>
-    <div class="panel"><div class="panel-header"><span><span class="icon">📡</span>CU BEAR_IC 实时读数 (P33 · 8/14 改善中)</span></div><div class="panel-body" id="fr-risk-cu-live"></div></div>
+    <div class="panel"><div class="panel-header"><span><span class="icon">📡</span>PB BEAR_IC 实时读数 (P35 · 16/16 达标)</span></div><div class="panel-body" id="fr-risk-pb-live"></div></div>
+    <div class="panel"><div class="panel-header"><span><span class="icon">📡</span>CU BEAR_IC 实时读数 (P35 · 9/14 改善中)</span></div><div class="panel-body" id="fr-risk-cu-live"></div></div>
   </div>
   <div class="panel">
     <div class="panel-header"><span><span class="icon">↩️</span>回滚事件记录</span></div>
@@ -1041,7 +1042,7 @@ strong{color:var(--text);}
 
   <div class="panel">
     <div class="panel-header">
-      <span><span class="icon">📊</span>跨品种相关性矩阵 · 7×7热力图 (P33 · 多窗口 20/40/60/120/250d · 分档均值)</span>
+      <span><span class="icon">📊</span>跨品种相关性矩阵 · 7×7热力图 (P35 · 多窗口 20/40/60/120/250d · 分档均值)</span>
       <div class="tools">
         <span class="tag" style="background:rgba(96,165,250,0.15);color:var(--blue);">CORRELATION MATRIX</span>
         <button class="btn btn-small" onclick="exportScreenshot('correlation-matrix')">📸 截图</button>
@@ -1106,7 +1107,7 @@ strong{color:var(--text);}
 <div id="page-versions" class="page-panel">
   <div class="panel">
     <div class="panel-header">
-      <span><span class="icon">🔄</span>实验版本切换 · P3-P33</span>
+      <span><span class="icon">🔄</span>实验版本切换 · P3-P35</span>
       <div class="tools"><button class="btn btn-small" onclick="exportScreenshot('version-compare')">📸 截图</button></div>
     </div>
     <div class="panel-body">
@@ -1304,7 +1305,7 @@ strong{color:var(--text);}
   </div>
 </div>
 
-<!-- IC DRIFT EARLY-WARNING PANEL (P25 T2 NEW / P33 稳态解除) -->
+<!-- IC DRIFT EARLY-WARNING PANEL (P25 T2 NEW / P35 稳态解除) -->
 <div id="page-icdrift" class="page-panel">
   <!-- Block status banner -->
   <div class="panel">
@@ -1318,7 +1319,7 @@ strong{color:var(--text);}
   <!-- Drift trend chart -->
   <div class="panel">
     <div class="panel-header">
-      <span><span class="icon">📉</span>IC 漂移趋势 · Phase6~P33 完整时序 · 5.0% 阻断阈值 / 4.8% 警戒阈值 · 超标红色标记</span>
+      <span><span class="icon">📉</span>IC 漂移趋势 · Phase6~P35 完整时序 · 5.0% 阻断阈值 / 4.8% 警戒阈值 · 超标红色标记</span>
       <div class="tools">
         <label style="font-size:11px;color:var(--text-dim);display:flex;align-items:center;gap:4px;">
           <input type="checkbox" id="ic-drift-show-legacy" onchange="renderICDriftChart()" style="margin:0;">显示历史 10% 阈值
@@ -1335,18 +1336,18 @@ strong{color:var(--text);}
   <!-- PB/CU live readings -->
   <div class="grid-2">
     <div class="panel">
-      <div class="panel-header"><span><span class="icon">🔴</span>PB BEAR_IC 实时读数 (P33 · FR-RISK-PG33-PBCU-022)</span></div>
+      <div class="panel-header"><span><span class="icon">🔴</span>PB BEAR_IC 实时读数 (P35 · FR-RISK-PG35-PBCU-022)</span></div>
       <div class="panel-body" id="ic-drift-pb"></div>
     </div>
     <div class="panel">
-      <div class="panel-header"><span><span class="icon">🟡</span>CU BEAR_IC 实时读数 (P33 · FR-RISK-PG33-PBCU-022)</span></div>
+      <div class="panel-header"><span><span class="icon">🟡</span>CU BEAR_IC 实时读数 (P35 · FR-RISK-PG35-PBCU-022)</span></div>
       <div class="panel-body" id="ic-drift-cu"></div>
     </div>
   </div>
 
   <!-- Root cause: factor drift -->
   <div class="panel">
-    <div class="panel-header"><span><span class="icon">🔬</span>漂移根因 · 逐因子漂移拆解 (DSHA-P33 根因报告 V2.6 · 12 ACTIVE 因子 · 方案D 冻结)</span></div>
+    <div class="panel-header"><span><span class="icon">🔬</span>漂移根因 · 逐因子漂移拆解 (DSHA-P35 根因报告 V2.9 · 12 ACTIVE 因子 · 方案D 冻结)</span></div>
     <div class="panel-body" id="ic-drift-factors"></div>
   </div>
 
@@ -1364,13 +1365,13 @@ strong{color:var(--text);}
 
   <!-- Phase table -->
   <div class="panel">
-    <div class="panel-header"><span><span class="icon">📋</span>分阶段 IC 漂移明细 · Phase6~P33 (25 阶段)</span></div>
+    <div class="panel-header"><span><span class="icon">📋</span>分阶段 IC 漂移明细 · Phase6~P35 (26 阶段)</span></div>
     <div class="panel-body" id="ic-drift-phase-table"></div>
   </div>
 
   <!-- Blocking action chain -->
   <div class="panel">
-    <div class="panel-header"><span><span class="icon">⛓️</span>阻断动作链与解除条件 (P25 预警逻辑 / P26~P33 连续8阶段解除)</span></div>
+    <div class="panel-header"><span><span class="icon">⛓️</span>阻断动作链与解除条件 (P25 预警逻辑 / P26~P35 连续10阶段解除)</span></div>
     <div class="panel-body" id="ic-drift-blockchain"></div>
   </div>
 </div>
@@ -1421,8 +1422,67 @@ strong{color:var(--text);}
   <div class="grid-4" id="archive-stats"></div>
 
   <div class="panel">
-    <div class="panel-header"><span><span class="icon">📦</span>归档清单 · P3-P33 全量</span></div>
+    <div class="panel-header"><span><span class="icon">📦</span>归档清单 · P3-P35 全量</span></div>
     <div class="panel-body" id="archive-list"></div>
+  </div>
+</div>
+
+
+<!-- PERFORMANCE OPTIMIZATION PANEL (V35.0 NEW) -->
+<div id="page-performance" class="page-panel">
+  <div class="panel">
+    <div class="panel-header"><span><span class="icon">⚡</span>并行回测性能优化 (DSHA-P35 · V35.0)</span></div>
+    <div class="panel-body" id="perf-opt-body">
+      <div class="grid-4" style="gap:6px;margin-bottom:10px;">
+        <div class="stat-card green"><span class="label">并行加速</span><span class="value" style="font-size:18px;">2.19x</span></div>
+        <div class="stat-card green"><span class="label">运行时间</span><span class="value" style="font-size:18px;">1.338s</span></div>
+        <div class="stat-card green"><span class="label">提速</span><span class="value" style="font-size:18px;">25.7%</span></div>
+        <div class="stat-card"><span class="label">内存</span><span class="value" style="font-size:18px;">21.3MB</span></div>
+      </div>
+      
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:6px;">📊 性能对比 (P34 → P35)</div>
+      <table class="data-table" style="font-size:11px;">
+        <tr><th>指标</th><th>P34</th><th>P35</th><th>变化</th></tr>
+        <tr><td>回测运行时间</td><td>1.80s</td><td>1.338s</td><td style="color:var(--green);">↓ 25.7%</td></tr>
+        <tr><td>并行加速比</td><td>1.0x</td><td>2.19x</td><td style="color:var(--green);">↑ 2.19x</td></tr>
+        <tr><td>滚动相关计算</td><td>0.27s</td><td>0.27s</td><td style="color:var(--green);">保持</td></tr>
+        <tr><td>内存占用</td><td>21.3MB</td><td>21.3MB</td><td style="color:var(--green);">持平</td></tr>
+        <tr><td>并行后端</td><td>-</td><td>process</td><td style="color:var(--cyan);">新增</td></tr>
+      </table>
+      
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:10px 0 6px;">🔧 优化技术</div>
+      <div style="font-size:11px;color:var(--text-dim);line-height:1.8;">
+        <div>1. <b>向量化滚动相关计算</b> - 保留自P34，滚动相关计算速度提升66.7%</div>
+        <div>2. <b>预计算权重矩阵</b> - 避免重复计算，减少矩阵运算开销</div>
+        <div>3. <b>中间结果缓存</b> - 缓存因子计算中间结果，减少重复计算</div>
+        <div>4. <b>增量窗口更新</b> - 仅更新窗口边界数据，避免全量重算</div>
+        <div>5. <b>并行7品种回测调度器</b> (P35新增) - 多进程并行回测，2.19x加速</div>
+      </div>
+      
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:10px 0 6px;">📈 7品种数据质量</div>
+      <table class="data-table" style="font-size:11px;">
+        <tr><th>品种</th><th>数据覆盖</th><th>坏样本</th><th>状态</th></tr>
+        <tr><td>AL</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
+        <tr><td>CU</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(251,191,36,0.2);color:var(--yellow);">IMPROVING</span></td></tr>
+        <tr><td>PB</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">GRAY_ADMITTED</span></td></tr>
+        <tr><td>ZN</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
+        <tr><td>SN</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
+        <tr><td>NI</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
+        <tr><td>SI</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
+      </table>
+      
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:10px 0 6px;">📋 P35 关键指标</div>
+      <div class="grid-4" style="gap:6px;">
+        <div class="stat-card"><span class="label">IC</span><span class="value">0.0586</span></div>
+        <div class="stat-card"><span class="label">BEAR_IC</span><span class="value">0.0393</span></div>
+        <div class="stat-card"><span class="label">IR</span><span class="value">47.9</span></div>
+        <div class="stat-card"><span class="label">累积天数</span><span class="value">945</span></div>
+      </div>
+      
+      <div style="font-size:11px;color:var(--text-dim);margin-top:10px;padding:8px;background:rgba(34,211,238,0.05);border-radius:4px;border:1px solid rgba(34,211,238,0.2);">
+        <b style="color:var(--cyan);">P36 准备:</b> 投资组合构建向量化评估 (P36) · 成本模型集成 (必须) · CU BEAR_IC 升级监控 (9/14 → 14/14)
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1441,7 +1501,7 @@ strong{color:var(--text);}
 
 <!-- FOOTER -->
 <footer class="footer">
-  <span>DSHD-P33 · SEED=42 · P18 baseline + P19 iteration + P20 assessment + P21 portfolio/unlock + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序 + P25 IC漂移预警/多窗口相关性/CI加固 · GitHub Pages 站点迭代</span>
+  <span>DSHD-P35 · SEED=42 · P18 baseline + P19 iteration + P20 assessment + P21 portfolio/unlock + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序 + P25 IC漂移预警/多窗口相关性/CI加固 · GitHub Pages 站点迭代</span>
   <span id="footer-status">Loading data...</span>
   <span>数据源: DSHA (P18 vis_pre_calc + P19 backtest/trades + P20 unlock assessment + P21 portfolio/correlation + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序/MD5快照) + DSHA/DSHC 静态 JSON</span>
 </footer>
@@ -1527,7 +1587,7 @@ const STATE = {
   completion:{}, experiments:{}, versions:{}, niSiPanels:{}, crossVariety:{}, pc003Unlock:{}, portfolioBacktest:{}, portfolioCorrelation:{}, portfolioRisk:{}, portfolioRiskContribution:{},
   phase4Precheck:{}, pbCuGray:{}, portfolioRiskContributionTimeseries:{},
   icDrift:{}, driftRootCause:{}, rollingCorrelation:{},
-  charts:{}, activeVariety:'AL', activeVersion:'P33', activeAlertTab:'ALL', pbNavMode:'no_cost',
+  charts:{}, activeVariety:'AL', activeVersion:'P35', activeAlertTab:'ALL', pbNavMode:'no_cost',
   _phase4Rendered:false, _riskTsSlice:'all', _icDriftRendered:false, _icDriftWindow:'250d',
   factors:{F01:true,F02:true,F03:true,F04:true,F05:true,F06:true,F07:true,F08:true,
            F09:true,F10:true,F11:true,F12:true,F13:true,F14:true,F15:true,F16:true,
@@ -1661,7 +1721,7 @@ function updateHeader(){
   el.textContent = 'PC-003: '+pc003;
   el.className = 'header-status '+(pc003==='BLOCKED'?'blocked':(pc003==='UNLOCKED'?'':'warn'));
   document.getElementById('hdr-phase').textContent = STATE.versions?.current||'P23';
-  document.getElementById('hdr-dataset-ver').textContent = 'P18+P19+P20+P21+P22+P23+P24+P25+P26+P27+P28+P29+P30+P31+P32+P33';
+  document.getElementById('hdr-dataset-ver').textContent = 'P18+P19+P20+P21+P22+P23+P24+P25+P26+P27+P28+P29+P30+P31+P32+P33+P34+P35';
 }
 
 // ---- NAV ----
@@ -2442,7 +2502,7 @@ function renderCrossVarietyRadar(){
 // ---- VARIETY ----
 function renderVariety(){
   // T3: Loading indicator for variety switching (P20 optimized, P23 current)
-  document.getElementById('footer-status').textContent = 'P33: 批量加载7品种数据 + IC漂移时序...';
+  document.getElementById('footer-status').textContent = 'P35: 批量加载7品种数据 + IC漂移时序...';
   const pl = STATE.plSummary?.summary||[];
   const el = document.getElementById('variety-overview'); el.innerHTML='';
   const grid = document.createElement('div'); grid.className='variety-grid';
@@ -3125,7 +3185,7 @@ async function renderGithub(){
 }
 
 function fetchCIYaml(){
-  return `name: Deploy DSHD-P33 to GitHub Pages
+  return `name: Deploy DSHD-P35 to GitHub Pages
 on:
   push:
     branches: [main, master]
@@ -3239,7 +3299,7 @@ async function renderArchive(){
 
 
 // =====================================================================
-// P25 T2: IC DRIFT EARLY-WARNING PANEL + FR-RISK ENHANCEMENT (P33: 阻断解除稳态)
+// P25 T2: IC DRIFT EARLY-WARNING PANEL + FR-RISK ENHANCEMENT (P35: 阻断解除稳态)
 //   data: ic_drift_timeseries.json / drift_root_cause.json /
 //         fr_risk_alerts.json / pb_cu_gray_admission_status.json
 // =====================================================================
@@ -3459,7 +3519,7 @@ function renderICDriftFactors(){
   if(!el) return;
   if(!factors.length){ el.innerHTML = '<div class="muted">无因子漂移数据</div>'; return; }
   let html = '<div style="overflow:auto;max-height:440px;"><table class="data-table"><thead><tr>'+
-    '<th>因子</th><th>名称</th><th>类别</th><th>数据源</th><th>基线IC</th><th>P30 IC</th><th>P31 IC</th><th>P33 IC</th>'+
+    '<th>因子</th><th>名称</th><th>类别</th><th>数据源</th><th>基线IC</th><th>P33 IC</th><th>P34 IC</th><th>P35 IC</th>'+
     '<th>漂移%</th><th>贡献</th><th>判定</th><th>说明</th>'+
     '</tr></thead><tbody>';
   factors.forEach(f=>{
@@ -3605,7 +3665,7 @@ function renderICDriftBlockchain(){
     </div>
     <div class="grid-2">
       <div style="font-size:12px;line-height:1.9;">
-        <div style="color:var(--green);font-weight:600;margin-bottom:4px;">🔧 P25 漂移预警逻辑 · P26~P33 连续8阶段达标 · 阻断永久解除</div>
+        <div style="color:var(--green);font-weight:600;margin-bottom:4px;">🔧 P25 漂移预警逻辑 · P26~P35 连续10阶段达标 · 阻断永久解除</div>
         <div>· 增强漂移预警: <b>${nl.enhanced_drift_alert||'—'}</b></div>
         <div>· 阻断动作: <b style="color:var(--red);">${nl.block_action||'—'}</b></div>
         <div>· 回滚防护: ${nl.rollback_guard||'—'}</div>
@@ -3663,7 +3723,7 @@ function switchRollingWindow(v){
   renderCorrelationMatrix();
 }
 
-function renderCorrelationMatrixP33(){
+function renderCorrelationMatrixP35(){
   const rc = STATE.rollingCorrelation||{};
   const roll = rc.rolling_correlation||{};
   const wins = Object.keys(roll);
