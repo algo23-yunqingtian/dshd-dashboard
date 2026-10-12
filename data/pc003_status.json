@@ -1,0 +1,107 @@
+{
+  "dataset_version": "1.10",
+  "version_tag": "P34",
+  "generated_at": "2026-10-12T01:30:00+08:00",
+  "seed": 42,
+  "description": "P31 PC003 status - UNLOCKED_FINAL / V31.0",
+  "real_state": {
+    "status": "UNLOCKED_FINAL",
+    "score": 0.975,
+    "criteria_passed": "5/5",
+    "pipeline_completion": "7/7 COMPLETE",
+    "gate": "M7 COMPLETED"
+  },
+  "variety_gates": {
+    "AL": {
+      "status": "ACTIVE",
+      "grade": "A"
+    },
+    "PB": {
+      "status": "ACTIVE",
+      "grade": "A"
+    },
+    "CU": {
+      "status": "ACTIVE",
+      "grade": "A"
+    },
+    "ZN": {
+      "status": "ACTIVE",
+      "grade": "B"
+    },
+    "SN": {
+      "status": "ACTIVE",
+      "grade": "B"
+    },
+    "NI": {
+      "status": "ACTIVE",
+      "grade": "B"
+    },
+    "SI": {
+      "status": "ACTIVE",
+      "grade": "B"
+    }
+  },
+  "pipeline": {
+    "stages": [
+      {
+        "stage": "TD002",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "TD014",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "SHADOW_BACKTEST",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "PORTFOLIO_BACKTEST",
+        "status": "PASS",
+        "phase": "P21"
+      },
+      {
+        "stage": "RISK_CONTRIBUTION",
+        "status": "PASS",
+        "phase": "P23"
+      },
+      {
+        "stage": "M7_FINAL",
+        "status": "PASS",
+        "phase": "P23"
+      },
+      {
+        "stage": "PHASE4_MONITORING",
+        "status": "PASS",
+        "phase": "P24"
+      }
+    ],
+    "total_stages": 7,
+    "completed_stages": 7,
+    "pipeline_completion": "7/7 COMPLETE"
+  },
+  "ic_drift_block": {
+    "active": false,
+    "drift_pct": 3.6,
+    "threshold_pct": 5.0,
+    "block_since": "Phase24",
+    "released_at": "Phase31",
+    "released_status": "PERMANENTLY_UNBLOCKED",
+    "consecutive_phases_under": 6,
+    "fr_risk_id": "FR-RISK-PG31-ICDRIFT-021",
+    "block_action": "已解除: 准入流程恢复, 动态监控模式",
+    "recovery_condition": "连续2阶段漂移率<4.8%%且IC>=0.0575 (P26~P31 6/6 满足)",
+    "root_cause": "ISSUED_V2.5",
+    "fix_plan": "SCHEME_D_FROZEN",
+    "admission_frozen": false,
+    "new_factor_admission_frozen": false
+  },
+  "p31_meta": {
+    "bumped_at": "2026-10-12T01:30:00+08:00"
+  },
+  "previous_version_tag": "P33",
+  "previous_dataset_version": "1.10"
+}
