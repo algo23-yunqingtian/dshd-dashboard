@@ -1,0 +1,111 @@
+{
+  "check_id": "P12-DEFECT-REGRESSION",
+  "slot": "2026-11-16T15:30:00+08:00",
+  "seed": 42,
+  "scope": "DEFECT-P9-001 (RED 颜色分支->STOP_LINE) + DEFECT-P9-002 (audit_id 同槽位唯一性)",
+  "counts": {
+    "total": 18,
+    "pass": 18,
+    "defect_p9_001": {
+      "total": 9,
+      "pass": 9
+    },
+    "defect_p9_002": {
+      "total": 8,
+      "pass": 8
+    }
+  },
+  "checks": [
+    {
+      "check_id": "D0-IMPORT",
+      "ok": true,
+      "detail": "daemon + exporter 导入成功 (版本锁定文件未被改写)"
+    },
+    {
+      "check_id": "D1-CANON-RED-OVERRIDES-RAW",
+      "ok": true,
+      "detail": "canon_action(raw='RECORD', color='RED', sla=2) = 'STOP_LINE' (FR-RISK-508 原始缺陷输入)"
+    },
+    {
+      "check_id": "D1-MAPPING-8CODES-COLOR-ACTION",
+      "ok": true,
+      "detail": "8/8 码颜色->动作对齐"
+    },
+    {
+      "check_id": "D1-RED-CRITICAL-NEVER-RECORD",
+      "ok": true,
+      "detail": "RED/CRITICAL 码 (502/503/508) 全 STOP_LINE"
+    },
+    {
+      "check_id": "D1-DAEMON-RED-BRANCH-PRESENT",
+      "ok": true,
+      "detail": "daemon map_event 含 elif color == RED: action = STOP_LINE"
+    },
+    {
+      "check_id": "D1-DAEMON-508-STOP-LINE",
+      "ok": true,
+      "detail": "map_event(FR-RISK-508) -> action=STOP_LINE severity=CRITICAL color=RED"
+    },
+    {
+      "check_id": "D1-DAEMON-508-REPEATED-STABLE",
+      "ok": true,
+      "detail": "第二次投递 action=STOP_LINE"
+    },
+    {
+      "check_id": "D1-FROZEN-VOLUME-BYTE-STABLE",
+      "ok": true,
+      "detail": "冻结卷 md5=dffb56e7ae46 (Phase7 锚点, 未被本轮改写)"
+    },
+    {
+      "check_id": "D1-HISTORICAL-DEFECT-EVIDENCE-INTACT",
+      "ok": true,
+      "detail": "残留 RED/RECORD 历史证据行 1 条: FR-RISK-508-ALL-20261023-B (DEFECT-P9-001 原始证据, 保留不改写)"
+    },
+    {
+      "check_id": "D1-EXPORT-LAYER-DEFENSIVE-CORRECTION",
+      "ok": true,
+      "detail": "冻结卷内 RED 行经导出层 canon_action 全修正为 STOP_LINE (历史字节不改, 语义在导出面纠偏)"
+    },
+    {
+      "check_id": "D2-SAME-SLOT-DIFF-EVENT-DISTINCT",
+      "ok": true,
+      "detail": "audit_id A=PC-003-LISTEN-20261116T153-20261116-001 B=PC-003-LISTEN-20261116T153-20261116-002 (同槽位 2026-11-16T15:30:00+08:00 不冲突)"
+    },
+    {
+      "check_id": "D2-AUDIT-ID-SHAPE",
+      "ok": true,
+      "detail": "格式 PC-003-LISTEN-<slot12>-<event_tail12>: A=PC-003-LISTEN-20261116T153-20261116-001 B=PC-003-LISTEN-20261116T153-20261116-002"
+    },
+    {
+      "check_id": "D2-SLOT-SEGMENT-12",
+      "ok": true,
+      "detail": "slot 段 = '20261116T153' (来自 2026-11-16T15:30:00+08:00)"
+    },
+    {
+      "check_id": "D2-EVENT-SEGMENT-12",
+      "ok": true,
+      "detail": "event 段 = '20261116-001' / '20261116-002'"
+    },
+    {
+      "check_id": "D2-DETERMINISTIC-SAME-INPUT",
+      "ok": true,
+      "detail": "同输入产出一致 (可重现)"
+    },
+    {
+      "check_id": "D2-MANIFEST-MATCHES-FORMULA",
+      "ok": true,
+      "detail": "manifest A=PC-003-LISTEN-20261116T153-20261116-001 B=PC-003-LISTEN-20261116T153-20261116-002 与公式一致"
+    },
+    {
+      "check_id": "D2-MANIFEST-DISTINCT",
+      "ok": true,
+      "detail": "两份 manifest audit_id 不冲突 (BLOCKED vs ACTIVATED 可区分)"
+    },
+    {
+      "check_id": "D2-LEGACY-FORMULA-DETECTABLE",
+      "ok": true,
+      "detail": "旧公式(仅槽位)在同等输入下必然冲突 = True -> 本测试可检出原缺陷"
+    }
+  ],
+  "verdict": "PASS"
+}
