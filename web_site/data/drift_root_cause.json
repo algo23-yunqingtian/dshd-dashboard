@@ -1,12 +1,12 @@
 {
   "dataset_version": "1.10",
-  "version_tag": "P33",
+  "version_tag": "P35",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "engine": "V86.9-C-FINAL-DEBUG-P31",
   "doc_id": "DSHA-P31-DRIFT-ROOT-CAUSE",
   "version": "V2.5-P31",
-  "priority": "P31",
+  "priority": "P35",
   "description": "IC漂移根因定位 V2.5 / 方案D 稳态确认 / P31",
   "source": "DSHA-P31 factor_drift_root_cause_report.md V2.5",
   "executive_summary": {
@@ -390,5 +390,10 @@
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
-  "priority_note": "P31-RESOLVED: P25 根因定位 (V1.0) + 方案D 权重微调已生效, 漂移率回落至 3.6%"
+  "priority_note": "P31-RESOLVED: P25 根因定位 (V1.0) + 方案D 权重微调已生效, 漂移率回落至 3.6%",
+  "cross_agent": {
+    "DSHD_version": "V35.0",
+    "DSHD_phase": "P31",
+    "DSHA_phase": "P35"
+  }
 }
