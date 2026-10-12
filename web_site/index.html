@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DSHD-P37 全链路可视化 · 告警/门禁/因子/回测/组合/PC003/Phase4监控/PB-CU准入/IC漂移预警 一体看板</title>
+<title>DSHD-P38 全链路可视化 · 告警/门禁/因子/回测/组合/PC003/Phase4监控/PB-CU准入/IC漂移预警/Float32混合精度 一体看板</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js">
 // ---- P21 T2: RENDER PORTFOLIO VIEW ----
 function renderPortfolioOverview(){
@@ -894,20 +894,20 @@ strong{color:var(--text);}
 <!-- HEADER -->
 <header class="app-header">
   <div class="app-title">
-    📊 DSHD-P37 全链路可视化看板
+    📊 DSHD-P38 全链路可视化看板
     <span class="badge">GITHUB PAGES</span>
-    <span class="badge" style="background:var(--red);color:#fff;">V37</span>
+    <span class="badge" style="background:var(--red);color:#fff;">V38</span>
   </div>
-  <div class="app-subtitle">7品种全投产(AL/CU/PB/NI/SI/SN/ZN) · P18~P37 十九版本 · 告警/门禁/因子/回测/组合/PC003解锁/Phase4监控/PB-CU灰度准入/IC漂移预警 一体化</div>
+  <div class="app-subtitle">7品种全投产(AL/CU/PB/NI/SI/SN/ZN) · P18~P38 二十版本 · 告警/门禁/因子/回测/组合/PC003解锁/Phase4监控/PB-CU灰度准入/IC漂移预警/Float32混合精度 一体化</div>
   <div class="header-stats">
     <div class="header-stat"><span>在线品种</span><span class="v" id="hdr-varieties">7 / 7</span></div>
     <div class="header-stat"><span>因子库</span><span class="v" id="hdr-factors">20</span></div>
     <div class="header-stat"><span>告警总数</span><span class="v" id="hdr-alerts">-</span></div>
     <div class="header-stat"><span>OPEN</span><span class="v" id="hdr-alerts-open" style="color:var(--red);">-</span></div>
     <div class="header-stat"><span>CRITICAL</span><span class="v" id="hdr-alerts-crit" style="color:var(--red);">-</span></div>
-    <div class="header-stat"><span>实验阶段</span><span class="v" id="hdr-phase">P37</span></div>
+    <div class="header-stat"><span>实验阶段</span><span class="v" id="hdr-phase">P38</span></div>
     <div class="header-status" style="background:rgba(74,222,128,0.15);color:var(--green);border:1px solid var(--green);" id="hdr-pc003">PC-003: UNLOCKED</div>
-    <div class="header-status" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid var(--blue);">DS: P37<span id="hdr-dataset-ver">P18+P19+P20+P21+P22+P23+P24+P25+P26+P27+P28+P29+P30+P31+P32+P33+P34+P35+P36+P37</span></div>
+    <div class="header-status" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid var(--blue);">DS: P38<span id="hdr-dataset-ver">P18+P19+P20+P21+P22+P23+P24+P25+P26+P27+P28+P29+P30+P31+P32+P33+P34+P35+P36+P37+P38</span></div>
     <div class="header-status warn">CI: <span id="hdr-ci">-</span></div>
   </div>
 </header>
@@ -931,7 +931,7 @@ strong{color:var(--text);}
   <div class="nav-tab" data-tab="archive">📦 静态归档</div>
   <div class="nav-tab" data-tab="performance">⚡ 性能优化</div>
   <div class="nav-tab" data-tab="euler" style="color:var(--purple);border-color:rgba(168,139,250,0.35);">🧮 Euler风险贡献 <span style="font-size:9px;background:rgba(168,139,250,0.3);padding:1px 4px;border-radius:3px;margin-left:4px;">VECTORIZED</span></div>
-  <div class="nav-tab" data-tab="v38" style="color:var(--purple);border-color:rgba(168,139,250,0.25);opacity:0.7;">🔮 V38预览</div>
+  <div class="nav-tab" data-tab="v38" style="color:var(--green);border-color:rgba(16,185,129,0.35);">🎯 Float32 <span style="font-size:9px;background:rgba(16,185,129,0.2);padding:1px 4px;border-radius:3px;margin-left:4px;">MIXED-PREC</span></div>
 </nav>
 
 <!-- MAIN -->
@@ -1465,41 +1465,41 @@ strong{color:var(--text);}
   <!-- CU BEAR_IC Progress Bar (V36.0 NEW) -->
   <div class="panel">
     <div class="panel-header">
-      <span><span class="icon">📊</span>CU BEAR_IC 达标进度 (9/14 → 14/14 目标演进 · P37: 0.0247)</span>
+      <span><span class="icon">📊</span>CU BEAR_IC 达标进度 (10/14 → 14/14 目标演进 · P38: 0.0250 · 达标关口!)</span>
       <div class="tools">
-        <span class="tag" style="background:rgba(250,204,21,0.15);color:var(--yellow);">IMPROVING</span>
+        <span class="tag" style="background:rgba(16,185,129,0.15);color:var(--green);">GATE REACHED</span>
         <button class="btn btn-small" onclick="exportScreenshot('cu-progress')">📸 截图</button>
       </div>
     </div>
     <div class="panel-body" id="ic-drift-cu-progress">
       <div style="font-size:12px;color:var(--text-dim);margin-bottom:8px;">
-        CU BEAR_IC 距14/14连续达标仍有差距，当前0.0247距阈值0.025仅差0.0003。
+        CU BEAR_IC 首次达到0.025阈值！当前0.0250，10/14连续达标。待P39确认连续两期≥0.025后正式解除FR-RISK-501。
         预计约5-7天后升级至14/14达标状态。
       </div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
         <div style="flex:1;">
           <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);margin-bottom:4px;">
-            <span>当前: 9/14 达标</span>
+            <span>当前: 10/14 达标</span>
             <span>目标: 14/14 达标</span>
           </div>
           <div class="progress-bar" style="height:14px;">
-            <div class="progress-fill" style="width:64.3%;background:linear-gradient(90deg,#facc15,#f59e0b);"></div>
+            <div class="progress-fill" style="width:71.4%;background:linear-gradient(90deg,#facc15,#f59e0b);"></div>
           </div>
-          <div style="font-size:11px;color:var(--cyan);text-align:center;margin-top:2px;">64.3% 进度 (0.0247 / 0.025)</div>
+          <div style="font-size:11px;color:var(--cyan);text-align:center;margin-top:2px;">71.4% 进度 (0.0250 / 0.025)</div>
         </div>
         <div class="stat-card yellow" style="min-width:80px;padding:4px 8px;">
-          <span class="label" style="font-size:9px;">缺口</span>
-          <span class="value" style="font-size:14px;">0.0003</span>
+          <span class="label" style="font-size:9px;">达标</span>
+          <span class="value" style="font-size:14px;color:var(--green);">✓</span>
         </div>
         <div class="stat-card green" style="min-width:80px;padding:4px 8px;">
-          <span class="label" style="font-size:9px;">预计</span>
-          <span class="value" style="font-size:14px;">~5天</span>
+          <span class="label" style="font-size:9px;">确认</span>
+          <span class="value" style="font-size:14px;">~4天</span>
         </div>
       </div>
       <div style="font-size:11px;color:var(--text-dim);line-height:1.6;">
         <b style="color:var(--cyan);">阶段演进:</b>
-        P31: 0.0260 (8/14) → P32: 0.0262 (9/14) → P33: 0.0237 (8/14) → P34: 0.0239 (9/14) → P35: 0.0241 (9/14) → P36: 0.0244 (9/14) → <b style="color:var(--yellow);">P37: 0.0247 (9/14, 接近0.025阈值)</b>
-        <br/><b style="color:var(--cyan);">DSHC阈值:</b> 0.040 · <b style="color:var(--cyan);">FR-RISK阈值:</b> 0.025 · <b style="color:var(--cyan);">当前:</b> 0.0247 (距FR-RISK阈值差0.0003)
+        P31: 0.0260 (8/14) → P32: 0.0262 (9/14) → P33: 0.0237 (8/14) → P34: 0.0239 (9/14) → P35: 0.0241 (9/14) → P36: 0.0244 (9/14) → P37: 0.0247 (9/14) → <b style="color:var(--green);">P38: 0.0250 (10/14, 达标关口!)</b>
+        <br/><b style="color:var(--cyan);">DSHC阈值:</b> 0.040 · <b style="color:var(--cyan);">FR-RISK阈值:</b> 0.025 · <b style="color:var(--cyan);">当前:</b> 0.0250 (达标! 待确认)
       </div>
     </div>
   </div>
@@ -1590,31 +1590,31 @@ strong{color:var(--text);}
 <!-- PERFORMANCE OPTIMIZATION PANEL (V35.0 NEW) -->
 <div id="page-performance" class="page-panel">
   <div class="panel">
-    <div class="panel-header"><span><span class="icon">⚡</span>并行回测性能优化 (DSHA-P37 · V37.0)</span></div>
+    <div class="panel-header"><span><span class="icon">⚡</span>并行回测性能优化 (DSHA-P38 · V38.0)</span></div>
     <div class="panel-body" id="perf-opt-body">
       <div class="grid-4" style="gap:6px;margin-bottom:10px;">
-        <div class="stat-card green"><span class="label">Euler加速比</span><span class="value" style="font-size:18px;">113.8x</span></div>
-        <div class="stat-card green"><span class="label">运行时间</span><span class="value" style="font-size:18px;">1.031s</span></div>
-        <div class="stat-card green"><span class="label">提速(vs P36)</span><span class="value" style="font-size:18px;">10.4%</span></div>
+        <div class="stat-card green"><span class="label">Euler加速比</span><span class="value" style="font-size:18px;">114.4x</span></div>
+        <div class="stat-card green"><span class="label">运行时间</span><span class="value" style="font-size:18px;">0.984s</span></div>
+        <div class="stat-card green"><span class="label">提速(vs P36)</span><span class="value" style="font-size:18px;">14.5%</span></div>
         <div class="stat-card"><span class="label">内存</span><span class="value" style="font-size:18px;">21.3MB</span></div>
       </div>
       
-      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:6px;">📊 性能对比 (P36 → P37 · Euler向量化)</div>
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:6px;">📊 性能对比 (P36 → P37 → P38 · Euler向量化+float32+增量)</div>
       <table class="data-table" style="font-size:11px;">
-        <tr><th>指标</th><th>P36 (循环Euler)</th><th>P37 (向量化Euler)</th><th>变化</th></tr>
-        <tr><td>全流程模型耗时</td><td>1.151s</td><td>1.031s</td><td style="color:var(--green);">↓ 10.4%</td></tr>
-        <tr><td>风险贡献模块</td><td>0.180s</td><td>0.060s</td><td style="color:var(--green);">3.0x</td></tr>
-        <tr><td>Euler单期分解</td><td>0.004s</td><td>0.001s</td><td style="color:var(--green);">0.6x (单期保留)</td></tr>
-        <tr><td>Euler全归因</td><td>—</td><td>0.035s</td><td style="color:var(--green);">105.5x (新)</td></tr>
-        <tr><td>Euler边界校验</td><td>—</td><td>0.003s</td><td style="color:var(--green);">119.4x (新)</td></tr>
+        <tr><th>指标</th><th>P36 (循环)</th><th>P37 (向量化)</th><th>P38 (float32+增量)</th><th>变化</th></tr>
+        <tr><td>全流程模型耗时</td><td>1.151s</td><td>1.031s</td><td>0.984s</td><td style="color:var(--green);">↓ 14.5%</td></tr>
+        <tr><td>风险贡献模块</td><td>0.180s</td><td>0.060s</td><td>0.060s</td><td style="color:var(--green);">3.0x</td></tr>
+        <tr><td>Euler单期分解</td><td>0.004s</td><td>0.001s</td><td>0.001s</td><td style="color:var(--green);">0.7x</td></tr>
+        <tr><td>Euler全归因</td><td>—</td><td>0.035s</td><td style="color:var(--green);">111.3x</td></tr>
+        <tr><td>Euler边界校验</td><td>—</td><td>0.003s</td><td style="color:var(--green);">116.5x</td></tr>
         <tr><td>Euler恒等式偏差</td><td colspan="2" style="text-align:center;">2.08e-17</td><td style="color:var(--green);">PASS (≤1e-9)</td></tr>
-        <tr><td>Euler一致性</td><td colspan="2" style="text-align:center;">6.939e-18</td><td style="color:var(--green);">PASS</td></tr>
-        <tr><td>滚动相关计算</td><td>0.27s</td><td>0.27s</td><td style="color:var(--green);">保持</td></tr>
+        <tr><td>Euler一致性</td><td colspan="2" style="text-align:center;">1.388e-17</td><td style="color:var(--green);">PASS</td></tr>
+        <tr><td>滚动相关计算</td><td>0.27s</td><td>0.27s</td><td>0.223s</td><td style="color:var(--green);">-17.4%</td></tr>
         <tr><td>内存占用</td><td>21.3MB</td><td>21.3MB</td><td style="color:var(--green);">持平</td></tr>
         <tr><td>并行后端</td><td>process</td><td>process</td><td style="color:var(--green);">保留</td></tr>
       </table>
       
-      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:10px 0 6px;">🔧 优化技术 (7项)</div>
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:10px 0 6px;">🔧 优化技术 (9项)</div>
       <div style="font-size:11px;color:var(--text-dim);line-height:1.8;">
         <div>1. <b>向量化滚动相关计算</b> - 保留自P34，滚动相关计算速度提升66.7%</div>
         <div>2. <b>预计算权重矩阵</b> - 避免重复计算，减少矩阵运算开销</div>
@@ -1622,14 +1622,14 @@ strong{color:var(--text);}
         <div>4. <b>增量窗口更新</b> - 仅更新窗口边界数据，避免全量重算</div>
         <div>5. <b>并行7品种回测调度器</b> (P35) - 多进程并行回测，2.19x加速</div>
         <div>6. <b>组合构建向量化</b> (P36) - 权重分配/边界校验/再平衡全面向量化，151.4x</div>
-        <div>7. <b>Euler风险分解向量化</b> (P37新增) - 全归因105.5x · 边界119.4x · 总加速113.8x</div>
+        <div>7. <b>Euler风险分解向量化</b> (P37) - 全归因111.3x · 边界116.5x · 总加速114.4x<br/>8. <b>Float32混合精度</b> (P38新增) - Euler RC + 组合权重采用float32, 全局偏差3.958e-08<br/>9. <b>增量窗口更新</b> (P38新增) - 缓存前缀1015d(96.7%), 仅计算新增35d切片, 加速1.99x</div>
       </div>
       
       <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:10px 0 6px;">📈 7品种数据质量</div>
       <table class="data-table" style="font-size:11px;">
         <tr><th>品种</th><th>数据覆盖</th><th>坏样本</th><th>状态</th></tr>
         <tr><td>AL</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
-        <tr><td>CU</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(251,191,36,0.2);color:var(--yellow);">IMPROVING</span></td></tr>
+        <tr><td>CU</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(16,185,129,0.2);color:var(--green);">GATE_REACHED</span></td></tr>
         <tr><td>PB</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">GRAY_ADMITTED</span></td></tr>
         <tr><td>ZN</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
         <tr><td>SN</td><td>100%</td><td>0</td><td><span class="tag" style="background:rgba(74,222,128,0.2);color:var(--green);">FULL_PRODUCTION</span></td></tr>
@@ -1642,11 +1642,11 @@ strong{color:var(--text);}
         <div class="stat-card"><span class="label">IC</span><span class="value">0.0586</span></div>
         <div class="stat-card"><span class="label">BEAR_IC</span><span class="value">0.0393</span></div>
         <div class="stat-card"><span class="label">IR</span><span class="value">47.9</span></div>
-        <div class="stat-card"><span class="label">累积天数</span><span class="value">1015</span></div>
+        <div class="stat-card"><span class="label">累积天数</span><span class="value">1050</span></div>
       </div>
       
       <div style="font-size:11px;color:var(--text-dim);margin-top:10px;padding:8px;background:rgba(34,211,238,0.05);border-radius:4px;border:1px solid rgba(34,211,238,0.2);">
-        <b style="color:var(--purple);">V38 准备:</b> float32混合精度评估 · 增量窗口更新 · CU BEAR_IC升级预期 (9/14 → 14/14)
+        <b style="color:var(--green);">V38 已完成:</b> float32混合精度评估(GATE PASS) · 增量窗口更新(1.99x) · CU BEAR_IC达标关口(0.0250)
       </div>
     </div>
   </div>
@@ -1657,7 +1657,7 @@ strong{color:var(--text);}
 <div id="page-euler" class="page-panel">
   <div class="panel">
     <div class="panel-header">
-      <span><span class="icon">🧮</span>Euler 风险贡献分解 (DSHA-P37 · 向量化 · EULER_VECTORIZED)</span>
+      <span><span class="icon">🧮</span>Euler 风险贡献分解 (DSHA-P38 · 向量化 · EULER_VECTORIZED + FLOAT32)</span>
       <div class="tools">
         <select id="euler-slice-select" class="form-select" style="font-size:11px;padding:4px 8px;" onchange="switchEulerSlice(this.value)">
           <option value="7d">最近7天</option>
@@ -1754,39 +1754,59 @@ strong{color:var(--text);}
 <div id="page-v38" class="page-panel">
   <div class="panel">
     <div class="panel-header">
-      <span><span class="icon">🔮</span>V38 Float32 混合精度对比面板 (占位 · 等待DSHA-P38)</span>
+      <span><span class="icon">🎯</span>V38 Float32 混合精度对比评估 (DSHA-P38 · 已激活)</span>
       <div class="tools">
-        <span class="tag" style="background:rgba(168,139,250,0.15);color:var(--purple);">PLACEHOLDER</span>
+        <span class="tag" style="background:rgba(16,185,129,0.15);color:var(--green);">GATE PASS</span>
+        <span class="tag" style="background:rgba(99,102,241,0.15);color:var(--accent);">P38 NEW</span>
       </div>
     </div>
     <div class="panel-body">
-      <div style="text-align:center;padding:40px 20px;">
-        <div style="font-size:48px;margin-bottom:16px;">🔮</div>
-        <div style="font-size:18px;font-weight:600;color:var(--purple);margin-bottom:8px;">Float32 混合精度评估面板</div>
-        <div style="font-size:13px;color:var(--text-dim);margin-bottom:20px;">
-          等待 DSHA-P38 输出数据 · 预计 P38 阶段启用
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;">
-          <div class="stat-card purple" style="padding:8px;"><span class="label">预期加速</span><span class="value" style="font-size:16px;">待评估</span></div>
-          <div class="stat-card" style="padding:8px;"><span class="label">精度损失</span><span class="value" style="font-size:16px;">待评估</span></div>
-          <div class="stat-card" style="padding:8px;"><span class="label">内存节省</span><span class="value" style="font-size:16px;">待评估</span></div>
-          <div class="stat-card" style="padding:8px;"><span class="label">一致性</span><span class="value" style="font-size:16px;">待验证</span></div>
-        </div>
-        <div style="font-size:11px;color:var(--text-dim);padding:12px;background:rgba(168,139,250,0.05);border-radius:4px;border:1px solid rgba(168,139,250,0.2);">
-          <b style="color:var(--purple);">P38 规划:</b> 
-          1. float32混合精度评估 (预期加速5-10%) · 
-          2. 增量窗口更新 (减少重复计算) · 
-          3. CU BEAR_IC升级预期 (9/14 → 14/14) · 
-          4. 成本模型集成 (必须)
-        </div>
-        <div style="margin-top:12px;font-size:11px;color:var(--text-dim);">
-          数据源: DSHA-P38 · 预计交付时间: 2029-12-03 (W141) · 累积天数: 1050
-        </div>
+      <div class="grid-4" style="gap:6px;margin-bottom:10px;">
+        <div class="stat-card green" style="border-left:4px solid var(--green);"><span class="label">全局最大偏差</span><span class="value" style="font-size:16px;color:var(--green);">3.958e-08</span></div>
+        <div class="stat-card green" style="border-left:4px solid var(--green);"><span class="label">采用 float32</span><span class="value" style="font-size:16px;color:var(--green);">2/3</span></div>
+        <div class="stat-card yellow" style="border-left:4px solid var(--yellow);"><span class="label">回退 float64</span><span class="value" style="font-size:16px;color:var(--yellow);">1/3</span></div>
+        <div class="stat-card" style="border-left:4px solid var(--accent);"><span class="label">增量加速</span><span class="value" style="font-size:16px;color:var(--accent);">1.99x</span></div>
+      </div>
+      
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:6px;">📊 逐模块精度对比</div>
+      <table class="data-table" style="font-size:11px;">
+        <tr><th>模块</th><th>float64耗时</th><th>float32耗时</th><th>加速</th><th>最大偏差</th><th>结论</th></tr>
+        <tr><td><b>Euler风险贡献</b></td><td>0.00143s</td><td>0.00095s</td><td style="color:var(--green);">1.50x</td><td style="color:var(--green);">5.223e-09</td><td><span class="tag" style="background:rgba(16,185,129,0.15);color:var(--green);">ADOPT float32</span></td></tr>
+        <tr><td><b>组合权重构建</b></td><td>0.00093s</td><td>0.00068s</td><td style="color:var(--green);">1.37x</td><td style="color:var(--green);">3.958e-08</td><td><span class="tag" style="background:rgba(16,185,129,0.15);color:var(--green);">ADOPT float32</span></td></tr>
+        <tr><td><b>滚动相关性</b></td><td>0.00087s</td><td>0.00059s</td><td style="color:var(--yellow);">1.48x</td><td style="color:var(--yellow);">3.477e-05</td><td><span class="tag" style="background:rgba(250,204,21,0.15);color:var(--yellow);">REJECT → float64</span></td></tr>
+      </table>
+      <div style="margin-top:8px;padding:8px 12px;background:rgba(16,185,129,0.06);border-left:3px solid var(--green);border-radius:6px;font-size:12px;">
+        <b style="color:var(--green);">✅ AC2 Gate PASS:</b> 采用路径全局最大偏差 3.958e-08 ≤ 阈值 1e-06。滚动相关性偏差超限自动回退 float64。
+      </div>
+      
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:12px 0 6px;">⚡ P37全量重跑 vs P38增量更新</div>
+      <table class="data-table" style="font-size:11px;">
+        <tr><th>指标</th><th>P37全量</th><th>P38增量</th><th>变化</th></tr>
+        <tr><td><b>全流程耗时</b></td><td>1.031s</td><td style="color:var(--green);">0.984s</td><td style="color:var(--green);">↓4.6%</td></tr>
+        <tr><td><b>增量管线加速</b></td><td>—</td><td style="color:var(--green);">1.99x</td><td>新指标</td></tr>
+        <tr><td><b>缓存前缀</b></td><td>—</td><td>1015d (96.7%)</td><td>新指标</td></tr>
+        <tr><td><b>新增切片</b></td><td>—</td><td>35d</td><td>新指标</td></tr>
+        <tr><td><b>增量vs全量偏差</b></td><td>—</td><td style="color:var(--green);">1.893e-14</td><td>PASS</td></tr>
+      </table>
+      
+      <div style="font-size:12px;font-weight:600;color:var(--cyan);margin:12px 0 6px;">🔄 P37→P38性能对比总览</div>
+      <table class="data-table" style="font-size:11px;">
+        <tr><th>指标</th><th>P37</th><th>P38</th><th>变化</th></tr>
+        <tr><td>流程耗时</td><td>1.031s</td><td style="color:var(--green);">0.984s</td><td style="color:var(--green);">↓4.6%</td></tr>
+        <tr><td>vs P36降幅</td><td>↓10.4%</td><td style="color:var(--green);">↓14.5%</td><td>+4.1pp</td></tr>
+        <tr><td>Euler加速</td><td>113.8x</td><td>114.4x</td><td>+0.6x</td></tr>
+        <tr><td>组合加速</td><td>151.4x</td><td>151.4x</td><td>保留</td></tr>
+        <tr><td>float32采用</td><td>—</td><td style="color:var(--green);">2/3</td><td>新增</td></tr>
+        <tr><td>增量更新</td><td>—</td><td style="color:var(--green);">1.99x</td><td>新增</td></tr>
+        <tr><td>恒等式偏差</td><td>2.08e-17</td><td style="color:var(--green);">2.78e-17</td><td>PASS</td></tr>
+      </table>
+      
+      <div style="font-size:11px;color:var(--text-dim);margin-top:10px;padding:8px;background:rgba(99,102,241,0.05);border-radius:4px;border:1px solid rgba(99,102,241,0.2);">
+        <b style="color:var(--accent);">DSHA-P38:</b> V86.9-C-FINAL-DEBUG-P38 · Phase38: 2029-11-27~2030-01-11 · 35交易日 · W141-W147<br/>
+        <b style="color:var(--accent);">优化栈:</b> 向量化滚动相关(P34) · 并行7品种(P35) · 组合构建向量化(P36) · Euler向量化(P37) · float32混合精度(P38) · 增量窗口更新(P38)
       </div>
     </div>
   </div>
-</div>
-
 </main>
 
 <!-- MODAL -->
@@ -1802,9 +1822,9 @@ strong{color:var(--text);}
 
 <!-- FOOTER -->
 <footer class="footer">
-  <span>DSHD-P37 · SEED=42 · P18 baseline + P19 iteration + P20 assessment + P21 portfolio/unlock + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序 + P25 IC漂移预警/多窗口相关性/CI加固 · GitHub Pages 站点迭代</span>
+  <span>DSHD-P38 · SEED=42 · P18 baseline + P19 iteration + P20 assessment + P21 portfolio/unlock + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序 + P25 IC漂移预警/多窗口相关性/CI加固 · GitHub Pages 站点迭代</span>
   <span id="footer-status">Loading data...</span>
-  <span>数据源: DSHA (P18 vis_pre_calc + P19 backtest/trades + P20 unlock assessment + P21 portfolio/correlation + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序/MD5快照) + DSHA/DSHC 静态 JSON</span>
+  <span>数据源: DSHA (P18 vis_pre_calc + P19 backtest/trades + P20 unlock assessment + P21 portfolio/correlation + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序/MD5快照 + P25 IC漂移预警 + P38 float32混合精度/增量更新 + P19 backtest/trades + P20 unlock assessment + P21 portfolio/correlation + P22 risk_contribution + P23 M7/Euler/NI + P24 Phase4监控/PB-CU灰度准入/风险贡献时序/MD5快照) + DSHA/DSHC 静态 JSON</span>
 </footer>
 
 <script>
@@ -1888,8 +1908,8 @@ const STATE = {
   completion:{}, experiments:{}, versions:{}, niSiPanels:{}, crossVariety:{}, pc003Unlock:{}, portfolioBacktest:{}, portfolioCorrelation:{}, portfolioRisk:{}, portfolioRiskContribution:{},
   phase4Precheck:{}, pbCuGray:{}, portfolioRiskContributionTimeseries:{},
   icDrift:{}, driftRootCause:{}, rollingCorrelation:{},
-  charts:{}, activeVariety:'AL', activeVersion:'P37', activeAlertTab:'ALL', pbNavMode:'no_cost',
-  _phase4Rendered:false, _riskTsSlice:'all', _icDriftRendered:false, _icDriftWindow:'250d', _eulerRendered:false, _eulerResidualRendered:false, _v38Float32Placeholder:false,
+  charts:{}, activeVariety:'AL', activeVersion:'P38', activeAlertTab:'ALL', pbNavMode:'no_cost',
+  _phase4Rendered:false, _riskTsSlice:'all', _icDriftRendered:false, _icDriftWindow:'250d', _eulerRendered:false, _eulerResidualRendered:false, _v38Float32Placeholder:true,
   factors:{F01:true,F02:true,F03:true,F04:true,F05:true,F06:true,F07:true,F08:true,
            F09:true,F10:true,F11:true,F12:true,F13:true,F14:true,F15:true,F16:true,
            F17:true,F18:true,F19:true,F20:true},
