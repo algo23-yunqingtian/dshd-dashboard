@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.11",
+  "dataset_version": "1.12",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "NI/SI independent panel data for P19 T2 visualization upgrade",
@@ -29,7 +29,7 @@
       "td014_progress": 0.5,
       "m3_status": "COMPLETED",
       "m4_status": "PENDING",
-      "version_tag": "P19"
+      "version_tag": "P37"
     },
     "SI": {
       "code": "SI",
@@ -56,10 +56,10 @@
       "td014_progress": 0.45,
       "m3_status": "COMPLETED",
       "m4_status": "PENDING",
-      "version_tag": "P19"
+      "version_tag": "P37"
     }
   },
-  "version_tag": "P36",
+  "version_tag": "P37",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
