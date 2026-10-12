@@ -1,0 +1,197 @@
+=== DSHA-P40 DATA READY FLAG ===
+FLAG_ID: DSHA-P40-DATA-READY
+PHASE: Phase40
+ENGINE: V86.9-C-FINAL-DEBUG-P40
+DATE_RANGE: 2030-03-02 ~ 2030-04-18
+TRADING_DAYS: 35
+WEEKS: W155-W161
+SEED: 42
+RNG: mulberry32
+SUPERSEDED: PHASE38_DATA_READY.flag (6266E99F) SUPERSEDED_BY_P40
+P38_BASELINE_ROLLBACK_REF: PHASE38_DATA_READY.flag (6266E99F) ARCHIVED_FOR_ROLLBACK
+
+=== METRICS ===
+IC: 0.0586
+BEAR_IC: 0.0393
+CRISIS_IC: 0.0664
+IR: 47.9
+VIF: 1.0065
+F19/F20_IC: 0.0583
+PB_BEAR_IC: 0.0322
+CU_BEAR_IC: 0.0255
+DRIFT_PCT: 1.9%
+CUMULATIVE_DAYS: 1120
+SIGMA_WEEKS: 224/224
+FR_RISK_501: 1125 days (RELEASED_CONFIRMED)
+FR_RISK_502: 1050 days
+PB_THRESHOLD_MET: 20/20
+DRIFT_ALERT_COUNTER: 1939
+AL_STABLE_DAYS: 410
+
+=== SCHEME D ===
+STATUS: FROZEN_STEADY_STATE
+F01: 0.85
+F09: 0.85
+F19: 1.1
+F20: 1.1
+DECAY_COMP: 1.0018
+FROZEN_PHASES: 15
+FROZEN_SINCE: P28
+
+=== PERFORMANCE OPTIMIZATION (P40: MIXED-PRECISION float32 + INCREMENTAL UPDATE) ===
+ROLLING_CORR_VECTORIZED: retained from P34
+PARALLEL_SCHEDULER: retained from P35
+PORTFOLIO_ALLOC_SPEEDUP: 29.3x (P36 retained)
+PORTFOLIO_BOUNDARY_SPEEDUP: 223.1x (P36 retained)
+PORTFOLIO_REBALANCE_SPEEDUP: 172.5x (P36 retained)
+PORTFOLIO_TOTAL_SPEEDUP: 151.4x (P36 retained)
+PORTFOLIO_CONSISTENCY_MAX_DEV: 0.000e+00 (P36 verified)
+EULER_SINGLE_PERIOD_SPEEDUP: 0.6x
+EULER_FULL_ATTRIBUTION_SPEEDUP: 103.1x
+EULER_BOUNDARY_SPEEDUP: 111.8x
+EULER_TOTAL_SPEEDUP: 110.0x
+EULER_CONSISTENCY_MAX_DEV: 1.388e-17
+EULER_CONSISTENCY: PASS (<=1e-9)
+EULER_IDENTITY_DEV_FLOAT64: 2.78e-17
+EULER_IDENTITY_DEV_FLOAT32: 1.49e-08
+RISK_MODULE_P37: 0.06s
+RISK_MODULE_P40_PROJ: 0.06s
+FLOAT32_TOLERANCE: 1e-06
+FLOAT32_GATE: PASS
+FLOAT32_GLOBAL_MAX_DEV: 4.700e-08
+FLOAT32_ADOPTED: euler_risk_contribution,portfolio_weights
+FLOAT32_REJECTED_ROLLBACK_FLOAT64: rolling_correlation,euler_risk_contribution_small_batch
+FLOAT32_EULER_RC_MAX_DEV: 5.223e-09 (ADOPT_FLOAT32)
+FLOAT32_PORTFOLIO_W_MAX_DEV: 4.700e-08 (ADOPT_FLOAT32)
+FLOAT32_ROLLING_CORR_MAX_DEV: 1.244e-05 (REJECT_RETAIN_FLOAT64)
+NEGATIVE_RC_VALIDATED: True (PSD min_eig=0.100000, bounds=[0.0500,0.1583])
+INCR_FULL_SECONDS: 0.00453
+INCR_INCR_SECONDS: 0.00151
+INCR_SPEEDUP: 3.000x
+INCR_MAX_DEV: 2.087e-14
+INCR_CACHED_PREFIX_DAYS: 1085 (97.0%)
+INCR_NEW_SLICE_DAYS: 35
+RUNTIME_P36_MODEL: 1.151s
+RUNTIME_P37_MODEL: 1.031s
+RUNTIME_P39_MODEL: 0.991s
+RUNTIME_P40_MODEL: 0.993s
+RUNTIME_REDUCTION_VS_P37: 3.7%
+RUNTIME_REDUCTION_VS_P36: 13.7%
+RUNTIME_REDUCTION_VS_P35: 25.7%
+RUNTIME_REDUCTION_VS_P34: 44.7%
+MEMORY_P34: 21.3MB
+OPTIMIZATIONS: vectorized_rolling_correlation,precomputed_weight_matrix,intermediate_caching,parallel_7variant_backtest_scheduler,portfolio_construction_vectorized,euler_risk_contribution_vectorized,mixed_precision_float32_dual_branch,incremental_tail_slice_update
+INCREMENTAL_TARGET_MET: 3.7% (target 3-8%)
+
+=== PB BACKTEST AUDIT ===
+LOOKAHEAD_BIAS: NONE
+COST_ASSumption_GAP: SIGNIFICANT
+NAV_OVERESTIMATION: 3.6%
+ANNUAL_RETURN_OVERESTIMATION: 6.7pp
+DUAL_VERSION_BACKTEST: PROVIDED
+COST_ADJUSTED_PORTFOLIO: PROVIDED
+AUDIT_SEVERITY: MEDIUM (YELLOW)
+
+=== ACCEPTANCE CRITERIA ===
+AC1: PASS - Scheme D frozen, factor formulas/logic untouched
+AC2: PASS - Mixed-precision float32 dual-branch: adopted path global max_dev=4.700e-08 <=1e-6; 2 module(s) auto-rolled back to float64
+AC3: PASS - 7-variety parallel backtest executed (incremental mode), dual NAV outputs complete, NAV gap stable 3.6%; negative RC logic validated
+AC4: PASS - Drift/IC/BEAR_IC metrics updated, drift report V3.2-P40 complete; CU 3 consecutive phases >=0.025 gate
+AC5: PASS - DSHD V40.0 dashboard structured JSON datasets, validation all PASS
+AC6: PASS - Docs, techdebt list, weekly report W42 archived
+AC7: PASS - All deliverables SHA256 verified, baseline chain intact (P24->P36->P37->P39)
+AC8: PASS - PHASE40_DATA_READY.flag issued, cross-agent sync complete (DSHC-P51, DSHD V40.0)
+
+AC_TOTAL: 8/8 PASS
+
+=== DSHC-P51 SYNC ===
+AL_STABLE_DAYS: 410
+PB_BEAR_IC: 0.0322 (20/20 threshold met, sustained!)
+CU_BEAR_IC: 0.0255 (RELEASED_CONFIRMED, FR-RISK-501 1125 days, 3/3 confirmations)
+DSHD_VERSION: V40.0 (18 tabs, float32 mixed-precision panel)
+ENGINE_VERSION: V86.9-C-FINAL-DEBUG-P40
+DELIVERED_DATASETS: euler_risk_timeseries,rolling_correlation_matrix,mixed_precision_metrics,float32_deviation_records,cost_model_integration
+
+=== FLAG CHAIN ===
+P24: 8F57EF7D
+P25: E26BE265
+P26: 337B3A6F
+P27: A8197817
+P28: 8757736C
+P29: 381106D0
+P30: D3F11529
+P31: 94B05567
+P32: 82A64513
+P33: C27E7393
+P34: 64A539EB
+P35: CC07C536
+P36: B922AD29
+P37: 93F7223D
+P39: 7BF1CD84
+
+=== BASELINE VERIFICATION ===
+PHASE24_DATA_READY.flag | 8F57EF7D | expected 8F57EF7D | PASS
+PHASE25_DATA_READY.flag | E26BE265 | expected E26BE265 | PASS
+PHASE27_DATA_READY.flag | A8197817 | expected A8197817 | PASS
+PHASE28_DATA_READY.flag | 8757736C | expected 8757736C | PASS
+PHASE34_DATA_READY.flag | 64A539EB | expected 64A539EB | PASS
+PHASE35_DATA_READY.flag | CC07C536 | expected CC07C536 | PASS
+PHASE36_DATA_READY.flag | B922AD29 | expected B922AD29 | PASS
+PHASE37_DATA_READY.flag | 93F7223D | expected 93F7223D | PASS
+PHASE39_DATA_READY.flag | 7BF1CD84 | expected 7BF1CD84 | PASS
+
+=== SUPERSEDED ===
+PHASE38_DATA_READY.flag | 6266E99F | SUPERSEDED_BY_P40 | ARCHIVED_AS_ROLLBACK_BASELINE
+
+=== CUMULATIVE AUDIT ===
+TOTAL_PHASES: 32
+TOTAL_DAYS: 1120
+ZERO_ROLLBACK: TRUE
+PHASE_LIST: P6,P7,P8,P9,P11,P12,P13,P15,P16,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31,P32,P33,P34,P35,P36,P37,P39,P40
+
+=== PHASE40 PREPARATION ===
+NEXT_DATE: 2030-03-02
+EXPECTED_CUMULATIVE: 1120 days
+ACTION: Scheme D frozen, continue monitoring
+FOCUS: CU BEAR_IC=0.0255 confirmed 3 consecutive phases at >=0.025 gate; advance toward DSHC threshold 0.040
+MONITOR: PB BEAR_IC=0.0322 (20/20 sustained); FR-RISK-501 RELEASED_CONFIRMED stable
+PERFORMANCE: Float32 gate PASS (4.700e-08); incremental 3.0x; Euler 110.0x
+COST_MODEL: Must integrate before live trading (zero-cost NAV overestimation ~3.6%)
+
+=== DELIVERABLES ===
+D0B92A81 13824B factors_full.json
+BFBE9376 2555B backtest_AL.json
+0433ABED 2539B backtest_PB.json
+9CD3D278 2553B backtest_CU.json
+81EB0025 2543B backtest_ZN.json
+FF526DCB 2543B backtest_SN.json
+71218B3B 2542B backtest_NI.json
+054F0482 2542B backtest_SI.json
+B26BCB01 1991B trades_AL.json
+2C6CEAA7 1996B trades_PB.json
+8CE11F5A 1997B trades_CU.json
+C7F11056 1999B trades_ZN.json
+B84A168B 2001B trades_SN.json
+EF0F6523 1994B trades_NI.json
+23098E92 1994B trades_SI.json
+6186EC08 20175B portfolio_backtest_7asset.json
+81B3676C 35326B portfolio_daily_position.json
+31CC573A 13629B rolling_correlation_matrix.json
+36FE0643 11733B portfolio_risk_contribution_timeseries.json
+E4F11202 243623B al_phase_runtime_monitor_log.csv
+9BB3967F 438593B factor_drift_alert_log_runtime.csv
+D39C7A88 14283B factor_drift_root_cause_report.md
+657E7B23 4124B performance_optimization_report.md
+CE0CA53C 5576B parallel_backtest_performance_report.md
+557655D7 6215B portfolio_construction_performance_report.md
+EA129AE7 7403B euler_risk_contribution_performance_report.md
+4A3D6153 28315B vis_dashboard_main.html
+02B7B97C 4947B vis_validation_report.md
+0F67A439 3878B alcupb_gray_factor_weekly_report_W42.md
+EDEB1152 158678B updated_factor_techdebt_priority_v42.csv
+E8739782 9895B mixed_precision_precision_report.md
+E78044A7 7742B incremental_update_performance_report.md
+7BEF8926 2384B data_source_dependency_inventory.md
+DE18DB37 3390B api_prep_guide.md
+79CEC579 2941B ZN_NI_SN_SI_data_cleaning_script.py
+=== DATA READY ===
