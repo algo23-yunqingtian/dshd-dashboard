@@ -1,6 +1,6 @@
 {
-  "dataset_version": "1.13",
-  "version_tag": "P38",
+  "dataset_version": "1.14",
+  "version_tag": "P39",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "description": "P31 per-variety risk contribution / V31.0",
@@ -16,7 +16,7 @@
   "variety_contributions": {
     "AL": {
       "weight": 0.1429,
-      "ic": 0.0582,
+      "ic": 0.0586,
       "ir": 47.2,
       "risk_contribution_pct": 17.0,
       "marginal_risk_contribution": 0.1172,
@@ -171,7 +171,7 @@
     },
     "PB": {
       "weight": 0.1429,
-      "ic": 0.0575,
+      "ic": 0.0586,
       "ir": 43.3,
       "risk_contribution_pct": 16.79,
       "marginal_risk_contribution": 0.1172,
@@ -326,7 +326,7 @@
     },
     "CU": {
       "weight": 0.1429,
-      "ic": 0.0579,
+      "ic": 0.0586,
       "ir": 45.6,
       "risk_contribution_pct": 16.91,
       "marginal_risk_contribution": 0.1172,
@@ -481,7 +481,7 @@
     },
     "ZN": {
       "weight": 0.1429,
-      "ic": 0.0437,
+      "ic": 0.0586,
       "ir": 28.3,
       "risk_contribution_pct": 12.76,
       "marginal_risk_contribution": 0.1172,
@@ -636,7 +636,7 @@
     },
     "SN": {
       "weight": 0.1429,
-      "ic": 0.0427,
+      "ic": 0.0586,
       "ir": 26.6,
       "risk_contribution_pct": 12.47,
       "marginal_risk_contribution": 0.1172,
@@ -791,7 +791,7 @@
     },
     "NI": {
       "weight": 0.1429,
-      "ic": 0.0417,
+      "ic": 0.0586,
       "ir": 25.4,
       "risk_contribution_pct": 12.18,
       "marginal_risk_contribution": 0.1172,
@@ -946,7 +946,7 @@
     },
     "SI": {
       "weight": 0.1429,
-      "ic": 0.0407,
+      "ic": 0.0586,
       "ir": 24.6,
       "risk_contribution_pct": 11.89,
       "marginal_risk_contribution": 0.1172,
@@ -1207,7 +1207,7 @@
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V38.0",
+    "dashboard_version": "V39.0",
     "updated_at": "2026-10-12T14:49:49.165518",
     "data_source": "DSHA-P38"
   }
