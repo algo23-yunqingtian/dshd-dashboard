@@ -1,0 +1,75 @@
+{
+  "variety": "NI",
+  "engine_version": "V86.9-C-FINAL-DEBUG-P16",
+  "phase": "Phase16",
+  "total_trades": 4,
+  "open_trades": 2,
+  "close_trades": 2,
+  "total_pnl_pct": -0.07,
+  "trades": [
+    {
+      "trade_id": 1,
+      "variety": "NI",
+      "type": "LONG",
+      "date": "2027-01-21",
+      "price": 20197.1,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08",
+        "F19"
+      ],
+      "signal_strength": 0.0616,
+      "confidence": 0.77
+    },
+    {
+      "trade_id": 2,
+      "variety": "NI",
+      "type": "CLOSE",
+      "date": "2027-02-15",
+      "price": 19608.2,
+      "pnl_pct": -0.64,
+      "holding_days": 17,
+      "open_date": "2027-01-21",
+      "regime": "MIXED",
+      "factor_drivers": [
+        "F03",
+        "F12"
+      ],
+      "signal_strength": 0.0184
+    },
+    {
+      "trade_id": 3,
+      "variety": "NI",
+      "type": "LONG",
+      "date": "2027-02-16",
+      "price": 18938.9,
+      "position": "5%",
+      "regime": "BEAR",
+      "factor_drivers": [
+        "F01",
+        "F08",
+        "F19"
+      ],
+      "signal_strength": 0.0547,
+      "confidence": 0.62
+    },
+    {
+      "trade_id": 4,
+      "variety": "NI",
+      "type": "CLOSE",
+      "date": "2027-03-03",
+      "price": 20029.0,
+      "pnl_pct": 0.57,
+      "holding_days": 11,
+      "open_date": "2027-02-16",
+      "regime": "NORMAL",
+      "factor_drivers": [
+        "F01",
+        "F08"
+      ],
+      "signal_strength": 0.0374
+    }
+  ]
+}
