@@ -1,5 +1,5 @@
 {
-  "dataset_version": "1.15",
+  "dataset_version": "1.16",
   "generated_at": "2026-10-12T01:30:00+08:00",
   "seed": 42,
   "source": "DSHD DEFECT-P9-001/P9-002 回归 + 数据质量检查",
@@ -55,7 +55,7 @@
     "open": 2,
     "pending": 1
   },
-  "version_tag": "P40",
+  "version_tag": "P41",
   "p31_meta": {
     "bumped_at": "2026-10-12T01:30:00+08:00"
   },
@@ -66,12 +66,22 @@
   "cross_agent": {
     "DSHD_version": "V35.0",
     "DSHD_phase": "P31",
-    "DSHA_phase": "P35"
+    "DSHA_phase": "P35",
+    "DSHA": "P41",
+    "DSHD": "V41.0"
   },
   "_dsd_metadata": {
     "dsd_phase": "DSHD-P34",
-    "dashboard_version": "V39.0",
+    "dashboard_version": "V41.0",
     "updated_at": "2026-10-12T14:49:49.116515",
-    "data_source": "DSHA-P38"
+    "data_source": "DSHA-P38",
+    "phase": "DSHD-P37",
+    "source": "DSHA-P41",
+    "flags": [
+      "FR-RISK_CLOSED",
+      "FLOAT32_GATE_PASS",
+      "COST_MODEL_INTEGRATED",
+      "T512_LOCKED"
+    ]
   }
 }
