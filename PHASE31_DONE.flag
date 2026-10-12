@@ -1,0 +1,73 @@
+=== DSHD-P31 DONE FLAG ===
+FLAG_ID: DSHD-P31-DONE
+PHASE: P31
+DASHBOARD: V35.0
+DATA_PHASE: P35
+DATE: 2026-10-12T04:35:23Z
+
+=== TASKS ===
+T0: PRE_CHECKS - PASS
+  - V34.0 online verified (V33.0 live, CI fixing)
+  - P35 data delivered (8/8 PASS)
+  - P35 compat precheck 12/12 PASS
+
+T1: FRONTEND_ITERATION - PASS
+  - 47 JSON files updated (P33->P35)
+  - 19 DSHA files copied with metadata
+  - HTML V33.0->V35.0 (16 tabs, +performance panel)
+  - PB 16/16 GRAY_ADMITTED, CU 9/14 IMPROVING
+  - CU progress bar added
+  - Parallel speedup 2.19x, runtime 1.338s (25.7% reduction)
+
+T2: LOCAL_VALIDATION - PASS (8/8)
+  - 47/47 JSON valid
+  - 2/2 JS blocks syntax pass
+  - 16/16 tabs with panels
+  - P35 data aligned
+  - Null safety helpers present
+  - No hardcoding detected
+  - CI pre-flight PASS
+
+T3: DEPLOYMENT - PASS
+  - 65 files uploaded via Contents API
+  - CI workflow passed (run 38203912294)
+  - Live site V35.0 confirmed
+  - 2-round health check: 32/32 HTTP 200 (100%)
+  - Median latency 561ms, P95 9026ms
+
+T4: DEFECT_FIXES - PASS
+  - Mobile responsive CSS (768px, 480px breakpoints)
+  - Loading indicators
+  - Data error messages
+  - Fetch error handling wrapper
+  - Header CI status indicator
+
+T5: DOCUMENTATION - PASS
+  - Flag, report, handoff, manifest generated
+  - Check log appended
+  - Deployment manual updated
+
+T6: CROSS_AGENT_SYNC - PENDING
+
+=== ACCEPTANCE CRITERIA ===
+AC1: PASS - V35.0 online, P35 data, 16 tabs, perf panel
+AC2: PASS - Dual-curve toggle stable (pb-nav-btn, togglePBNav)
+AC3: PASS - 32/32 HTTP 200, no 404, no blank renders
+AC4: PASS - 47/47 JSON dynamic, null safety, no hardcoding
+AC5: PASS - P35 compat precheck 12/12 PASS
+AC6: IN_PROGRESS - Flag issued, docs archived, sync pending
+
+=== KEY METRICS (P35) ===
+IC: 0.0586 | BEAR_IC: 0.0393 | CRISIS_IC: 0.0664 | IR: 47.9
+PB BEAR_IC: 0.0322 (16/16 GRAY_ADMITTED)
+CU BEAR_IC: 0.0241 (9/14 IMPROVING)
+Cumulative: 945 days | Scheme D Frozen: 10 phases
+FR-RISK: 10/10 PASS | FR-RISK-501: 950 days
+Performance: Parallel 2.19x, runtime 1.338s (25.7% reduction)
+
+=== DEPLOYMENT ===
+Method: GitHub Contents API (no git push)
+CI: deploy-pages.yml (validate->deploy->fallback)
+Live: https://algo23-yunqingtian.github.io/dshd-dashboard/
+Files: 65 (web_site) + root docs
+Size: ~720KB (web_site)
