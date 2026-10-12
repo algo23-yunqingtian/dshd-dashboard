@@ -1,0 +1,290 @@
+{
+  "phase": "Phase34",
+  "engine": "V86.9-C-FINAL-DEBUG-P34",
+  "date_range": {
+    "start": "2029-05-14",
+    "end": "2029-06-28",
+    "trading_days": 35
+  },
+  "weeks": [
+    "W113",
+    "W114",
+    "W115",
+    "W116",
+    "W117",
+    "W118",
+    "W119"
+  ],
+  "scheme_d_frozen": true,
+  "scheme_d_params": {
+    "F01_weight": 0.85,
+    "F09_weight": 0.85,
+    "F19_weight": 1.1,
+    "F20_weight": 1.1,
+    "decay_comp": 1.0018,
+    "F15~F18_correction": "artifact",
+    "frozen_since": "P28",
+    "frozen_phases": 9,
+    "status": "FROZEN_STEADY_STATE"
+  },
+  "drift_monitoring": {
+    "active": true,
+    "warn_threshold_pct": 4.8,
+    "relock_threshold_pct": 5.0,
+    "current_drift_pct": 3.0,
+    "status": "STABLE_STEADY_STATE",
+    "consecutive_phases": 9
+  },
+  "dual_backtest_results": {
+    "no_cost": {
+      "version": "V86.9-C-FINAL-DEBUG-P34-NO-COST",
+      "nav": 1.859,
+      "sharpe": 2.2,
+      "max_drawdown_pct": -0.75,
+      "win_rate_pct": 83,
+      "annualized_return_pct": 46.3,
+      "total_trades": 84,
+      "var_95_pct": -1.23,
+      "cost_model": "ZERO_COST",
+      "cost_per_round_trip_pct": 0.0
+    },
+    "with_cost": {
+      "version": "V86.9-C-FINAL-DEBUG-P34-WITH-COST",
+      "nav": 1.792,
+      "sharpe": 2.05,
+      "max_drawdown_pct": -0.92,
+      "win_rate_pct": 78,
+      "annualized_return_pct": 39.6,
+      "total_trades": 84,
+      "var_95_pct": -1.45,
+      "cost_model": "REALISTIC_COST",
+      "cost_per_round_trip_pct": 0.16,
+      "cost_breakdown": {
+        "commission_pct": 0.03,
+        "slippage_pct": 0.02,
+        "impact_cost_pct": 0.01,
+        "rollover_cost_pct": 0.05
+      }
+    },
+    "comparison": {
+      "nav_gap_pct": 3.6,
+      "sharpe_gap": 0.15,
+      "sharpe_gap_pct": 6.8,
+      "max_dd_gap_pp": 0.17,
+      "win_rate_gap_pp": 5,
+      "annual_return_gap_pp": 6.7,
+      "conclusion": "零成本模型NAV高估约3.6%，含成本版本NAV更为保守"
+    }
+  },
+  "portfolio_metrics": {
+    "portfolio_ic": 0.0493,
+    "portfolio_ir": 34.7,
+    "portfolio_sharpe": 2.2,
+    "portfolio_nav_no_cost": 1.859,
+    "portfolio_nav_with_cost": 1.792,
+    "portfolio_max_dd_no_cost": -0.75,
+    "portfolio_max_dd_with_cost": -0.92,
+    "var_95_pct": -1.23,
+    "annualized_return_pct": 46.3,
+    "annualized_return_with_cost_pct": 39.6
+  },
+  "risk_contribution": {
+    "AL": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 18.4
+    },
+    "PB": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 17.8
+    },
+    "CU": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 18.4
+    },
+    "ZN": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 14.4
+    },
+    "SN": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 13.5
+    },
+    "NI": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 13.3
+    },
+    "SI": {
+      "weight_pct": 14.3,
+      "risk_contribution_pct": 12.6
+    }
+  },
+  "multi_window_rolling_correlation": {
+    "windows": [
+      "20d",
+      "40d",
+      "60d",
+      "120d",
+      "250d"
+    ],
+    "current_20d_max_correlation": 0.82,
+    "current_20d_avg_correlation": 0.55,
+    "current_60d_max_correlation": 0.85,
+    "current_250d_max_correlation": 0.88,
+    "correlation_stability": "STABLE"
+  },
+  "phase32_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0392,
+    "CRISIS_IC": 0.0663,
+    "IR": 47.8,
+    "drift_pct": 3.6,
+    "cumulative_days": 840,
+    "sigma_weeks": 168,
+    "FR_RISK_501_days": 845,
+    "drift_alert_counter": 1517
+  },
+  "phase33_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.032,
+    "CU_BEAR_IC": 0.0237,
+    "drift_pct": 3.2,
+    "cumulative_days": 875,
+    "sigma_weeks": 175,
+    "FR_RISK_501_days": 880,
+    "drift_alert_counter": 1599
+  },
+  "admission_block": {
+    "drift_below_4_8": true,
+    "IC_above_0_0575": true,
+    "consecutive_phases": 9,
+    "status": "PERMANENTLY_LIFTED"
+  },
+  "fr_risk_rules": {
+    "FR-RISK-501": {
+      "condition": "CU BEAR_IC<0.025",
+      "status": "CONTINUED",
+      "days": 915,
+      "severity": "LOW"
+    },
+    "FR-RISK-502": {
+      "condition": "PB BEAR_IC<0.030",
+      "status": "CONTINUED",
+      "days": 840,
+      "severity": "LOW"
+    },
+    "FR-RISK-503": {
+      "condition": "F19/F20_IC<0.050",
+      "status": "EDGE_SAFE",
+      "severity": "NONE"
+    },
+    "FR-RISK-504": {
+      "condition": "F15~F18波动",
+      "status": "NO_TRIGGER",
+      "severity": "NONE"
+    },
+    "FR-RISK-505": {
+      "condition": "ZN/SN/NI/SI数据不良",
+      "status": "NO_TRIGGER",
+      "severity": "NONE"
+    },
+    "FR-RISK-506": {
+      "condition": "IC漂移≥10%",
+      "status": "EDGE_SAFE",
+      "severity": "NONE"
+    },
+    "FR-RISK-507": {
+      "condition": "IR<20",
+      "status": "EDGE_SAFE",
+      "severity": "NONE"
+    },
+    "FR-RISK-508": {
+      "condition": "BEAR_IC<0.025",
+      "status": "NO_TRIGGER",
+      "severity": "NONE"
+    }
+  },
+  "cross_agent_sync": {
+    "DSHC": {
+      "phase": "P39",
+      "data_loaded": true,
+      "AL_stable_days": 165,
+      "PB_BEAR_IC": 0.032,
+      "CU_BEAR_IC": 0.0237
+    },
+    "DSHD": {
+      "version": "V32.0",
+      "ready": true,
+      "issues": [
+        "页面空白",
+        "图表渲染异常"
+      ]
+    }
+  },
+  "cost_audit_summary": {
+    "lookahead_bias": "NONE",
+    "zero_cost_overestimation_pct": 3.6,
+    "annual_return_overestimation_pp": 6.7,
+    "dual_version_provided": true,
+    "cost_adjusted_portfolio_provided": true,
+    "conclusion": "零成本假设使NAV高估约3.6%；已提供双版本回测供对照"
+  },
+  "performance_evaluation": {
+    "phase34_runtime_seconds": 1.85,
+    "phase33_runtime_seconds": 2.34,
+    "runtime_delta_pct": 20.9,
+    "peak_memory_mb": 21.5,
+    "bottleneck": "rolling_correlation_vectorized",
+    "bottleneck_time_seconds": 0.32,
+    "bottleneck_old_seconds": 0.81,
+    "bottleneck_reduction_pct": 60.5,
+    "optimizations_applied": [
+      "vectorized_rolling_correlation",
+      "precomputed_weight_matrix",
+      "intermediate_result_caching",
+      "incremental_window_update"
+    ]
+  },
+  "cross_agent": {
+    "DSHC": {
+      "phase": "P40",
+      "data_loaded": true,
+      "AL_stable_days": 200,
+      "PB_BEAR_IC": 0.0321,
+      "CU_BEAR_IC": 0.0239
+    },
+    "DSHD": {
+      "version": "V33.0",
+      "ready": true
+    },
+    "DSHD_version": "V34.0",
+    "DSHD_phase": "P30",
+    "deployed_at": "2026-10-12T11:15:09.699524"
+  },
+  "phase34_metrics": {
+    "IC": 0.0586,
+    "BEAR_IC": 0.0393,
+    "CRISIS_IC": 0.0664,
+    "IR": 47.9,
+    "VIF": 1.0065,
+    "F19_F20_IC": 0.0583,
+    "PB_BEAR_IC": 0.0321,
+    "CU_BEAR_IC": 0.0239,
+    "drift_pct": 3.0,
+    "cumulative_days": 910,
+    "sigma_weeks": 182,
+    "FR_RISK_501_days": 915,
+    "drift_alert_counter": 1681,
+    "F15_baseline": 0.0506,
+    "F16_baseline": 0.0501,
+    "F17_baseline": 0.0497,
+    "F18_baseline": 0.0493,
+    "drift_trend_pp": -0.2
+  },
+  "version_tag": "P34",
+  "dataset_version": "1.10"
+}
